@@ -1,7 +1,8 @@
 cask "linkedideas" do
   version "0.6.6"
+
+
   url "https://github.com/fespinoza/LinkedIdeas/releases/download/v#{version}/LinkedIdeas.app.zip"
-      verified: "github.com/fespinoza/LinkedIdeas/"
   name "LinkedIdeas"
   desc "Treat ideas as links of concepts"
   homepage "http://fespinoza.github.io/LinkedIdeas"

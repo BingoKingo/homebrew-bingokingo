@@ -1,19 +1,15 @@
 cask "opengithub" do
   version "0.2.10"
+  sha256 "b0e9b0ec40ed4db1b10d29193f8aa672d2f983819400de73d8b879758af76db8"
+
   url "https://github.com/Watson1978/OpenGithub/releases/download/v#{version}/OpenGithub.zip"
-      verified: "github.com/Watson1978/OpenGithub/"
   name "OpenGithub"
   desc "Xcode extension to open the file on GitHub"
   homepage "https://github.com/Watson1978/OpenGithub"
 
   livecheck do
-    url "https://github.com/Watson1978/OpenGithub/releases"
-    regex(%r{href=["']?[^"' >]*?/tree/v?(\d+(?:[.-]\d+)+)?(?:[._-]+?(\d+(?:\.\d+)*))?["' >]}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map do |match|
-        (match.length > 1) ? "#{match[0]},#{match[1]}" : match[0]
-      end
-    end
+    url :url
+    strategy :github_latest
   end
 
   app "OpenGithub.app"

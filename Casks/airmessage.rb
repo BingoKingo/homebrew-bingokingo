@@ -1,7 +1,8 @@
 cask "airmessage" do
   version "4.1.4"
+
+
   url "https://github.com/airmessage/airmessage-server/releases/download/v#{version}/AirMessage-#{version}.zip"
-      verified: "github.com/airmessage/airmessage-server/"
   name "AirMessage Server"
   desc "Native message relay server for iMessages and FaceTime"
   homepage "https://airmessage.org/"

@@ -1,0 +1,8 @@
+#!/bin/bash
+for i in "$@";
+    do if [ "$(ls -lO "$i" | grep schg,uchg)" == "" ]; then
+        sudo chflags uchg "$i" && sudo chflags schg "$i"
+        else
+        sudo chflags nouchg "$i" && sudo chflags noschg "$i"
+    fi;
+done

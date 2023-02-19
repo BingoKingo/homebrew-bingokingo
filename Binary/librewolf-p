@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec /Applications/Homebrew\ Cask\ Applications/LibreWolf.app/Contents/MacOS/librewolf -private-window; exit 0

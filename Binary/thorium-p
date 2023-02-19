@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec /Applications/Homebrew\ Cask\ Applications/Thorium.app/Contents/MacOS/Thorium -incognito; exit 0
