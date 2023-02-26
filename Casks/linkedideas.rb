@@ -1,20 +1,16 @@
 cask "linkedideas" do
   version "0.6.6"
+  sha256 "8c9cb3dfe010aef48bc5bd9c7531a5e91470342f2d9809c688e5c1a049a894ca"
 
-
-  url "https://github.com/fespinoza/LinkedIdeas/releases/download/v#{version}/LinkedIdeas.app.zip"
+  url "https://github.com/fespinoza/LinkedIdeas/releases/download/v#{version}/LinkedIdeas.app.zip",
+      verified: "https://github.com/fespinoza/LinkedIdeas/"
   name "LinkedIdeas"
   desc "Treat ideas as links of concepts"
-  homepage "http://fespinoza.github.io/LinkedIdeas"
+  homepage "https://fespinoza.github.io/LinkedIdeas"
 
   livecheck do
-    url "https://github.com/fespinoza/LinkedIdeas/releases?q=prerelease%3Afalse"
-    regex(%r{href=["']?[^"' >]*?/tree/v?(\d+(?:[._-]\d+)+)(?:[._-]build(\d+))?(?:[._-]+?(\d+(?:\.\d+)*))?["' >]}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map do |match|
-        (match.length > 1) ? "#{match[0]},#{match[1]}" : match[0]
-      end
-    end
+    url :url
+    strategy :github_latest
   end
 
   app "LinkedIdeas.app"

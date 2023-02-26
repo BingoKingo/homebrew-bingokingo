@@ -1,20 +1,16 @@
 cask "airmessage" do
   version "4.1.4"
+  sha256 "053dd2c33354f3e183088b83073ff9bd25e806824dbc1ccfed2b13239e23420d"
 
-
-  url "https://github.com/airmessage/airmessage-server/releases/download/v#{version}/AirMessage-#{version}.zip"
+  url "https://github.com/airmessage/airmessage-server/releases/download/v#{version}/AirMessage-#{version}.zip",
+      verified: "github.com/airmessage/airmessage-server/"
   name "AirMessage Server"
   desc "Native message relay server for iMessages and FaceTime"
   homepage "https://airmessage.org/"
 
   livecheck do
-    url "https://github.com/airmessage/airmessage-server/releases?q=prerelease%3Afalse"
-    regex(%r{href=["']?[^"' >]*?/tree/v?(\d+(?:[.-]\d+)+)?(?:[._-]+?(\d+(?:\.\d+)*))?["' >]}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map do |match|
-        (match.length > 1) ? "#{match[0]},#{match[1]}" : match[0]
-      end
-    end
+    url :url
+    strategy :github_latest
   end
 
   auto_updates true
