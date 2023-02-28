@@ -5,7 +5,7 @@ cask "vrmquicklook" do
   url "https://github.com/magicien/VRMQuickLook/releases/download/v#{version}/VRMQuickLook_v#{version}.zip"
   name "VRMQuickLook"
   desc "QuickLook plugin for VRM files"
-  homepage "https://github.com/magicien/VRMQuickLook"
+  homepage "https://github.com/magicien/VRMQuickLook/"
 
   livecheck do
     url :url

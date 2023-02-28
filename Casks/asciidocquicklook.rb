@@ -4,8 +4,8 @@ cask "asciidocquicklook" do
 
   url "https://github.com/clydeclements/AsciiDocQuickLook/releases/download/v#{version}/AsciiDoc.qlgenerator.zip"
   name "AsciiDocQuickLook"
-  desc "QuickLook plugin to preview AsciiDoc files"
-  homepage "https://github.com/clydeclements/AsciiDocQuickLook"
+  desc "QuickLook plugin for AsciiDoc files"
+  homepage "https://github.com/clydeclements/AsciiDocQuickLook/"
 
   livecheck do
     url :url

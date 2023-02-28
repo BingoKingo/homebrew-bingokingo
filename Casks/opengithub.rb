@@ -5,7 +5,7 @@ cask "opengithub" do
   url "https://github.com/Watson1978/OpenGithub/releases/download/v#{version}/OpenGithub.zip"
   name "OpenGithub"
   desc "Xcode extension to open the file on GitHub"
-  homepage "https://github.com/Watson1978/OpenGithub"
+  homepage "https://github.com/Watson1978/OpenGithub/"
 
   livecheck do
     url :url

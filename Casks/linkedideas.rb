@@ -6,7 +6,7 @@ cask "linkedideas" do
       verified: "https://github.com/fespinoza/LinkedIdeas/"
   name "LinkedIdeas"
   desc "Treat ideas as links of concepts"
-  homepage "https://fespinoza.github.io/LinkedIdeas"
+  homepage "https://fespinoza.github.io/LinkedIdeas/"
 
   livecheck do
     url :url

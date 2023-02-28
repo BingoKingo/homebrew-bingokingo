@@ -5,7 +5,7 @@ cask "openhaystack" do
   url "https://github.com/seemoo-lab/openhaystack/releases/download/v#{version}/OpenHaystack.zip"
   name "OpenHaystack"
   desc "Framework for tracking personal Bluetooth devices via Apple's Find My network"
-  homepage "https://github.com/seemoo-lab/openhaystack"
+  homepage "https://github.com/seemoo-lab/openhaystack/"
 
   livecheck do
     url :url

@@ -5,7 +5,7 @@ cask "qlwindowsapps" do
   url "https://github.com/shysaur/QLWindowsApps/releases/download/release_#{version}/QLWindowsApps-#{version}.pkg"
   name "QLWindowsApps"
   desc "QuickLook & Spotlight plugins for Windows DLLs and EXEs"
-  homepage "https://github.com/shysaur/QLWindowsApps"
+  homepage "https://github.com/shysaur/QLWindowsApps/"
 
   pkg "QLWindowsApps-#{version}.pkg", allow_untrusted: true
 
