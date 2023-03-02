@@ -1,3 +1,0 @@
-#!/bin/bash
-
-echo "Support list of commands:" && ls /opt/homebrew/opt/transmission-cli/bin && echo "" && transmission-remote -h && echo "" && transmission-create -h && echo "" && transmission-edit -h && echo "" && transmission-show -h && echo "\nUse \`transmission\` as \`transmission-remote\` alias. "

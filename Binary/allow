@@ -1,3 +1,0 @@
-#!/bin/bash
-
-xattr -rd com.apple.quarantine "$@"

@@ -1,14 +1,16 @@
 class Hubfs < Formula
   desc "Bilibili Downloader 命令行式哔哩哔哩下载器"
   homepage "https://github.com/winfsp/hubfs/"
-  url "https://github.com/winfsp/hubfs/archive/refs/tags/v1.0B1.tar.gz"
-  version "1.0.22067"
-  license " AGPL-3.0-only"
+  url "https://github.com/winfsp/hubfs/archive/refs/tags/v#{version}.tar.gz"
+  version "1.0B1"
+  license "AGPL-3.0-only"
+
+  ver = "1.0.22067"
 
   if OS.mac?
-    url "https://github.com/winfsp/hubfs/releases/download/v1.0B1/hubfs-mac-#{version}.zip"
+    url "https://github.com/winfsp/hubfs/releases/download/v1.0B1/hubfs-mac-#{ver}.zip"
   elsif OS.linux?
-    url "https://github.com/winfsp/hubfs/releases/download/v1.0B1/hubfs-lnx-#{version}.zip"
+    url "https://github.com/winfsp/hubfs/releases/download/v1.0B1/hubfs-lnx-#{ver}.zip"
   end
 
   def install

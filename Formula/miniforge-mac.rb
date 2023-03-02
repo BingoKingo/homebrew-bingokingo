@@ -23,18 +23,16 @@ class MiniforgeMac < Formula
   def install
     if Hardware::CPU.arm?
       system "/bin/bash",
-        "Miniforge3-MacOSX-arm64.sh",
-        "-b", "-p", "#{prefix}/conda/../"
+        "Miniforge3-MacOSX-arm64.sh", "-b", "-p", "#{prefix}/conda/../", "--mandir=#{man}"
     end
 
     if Hardware::CPU.intel?
       system "/bin/bash",
-        "Miniforge3-MacOSX-x86_64.sh",
-        "-b", "-p", "#{prefix}/conda/../"
+        "Miniforge3-MacOSX-x86_64.sh", "-b", "-p", "#{prefix}/conda/../", "--mandir=#{man}"
     end
 
     bin.install_symlink Dir["#{prefix}/conda/../condabin/*"]
-    system "/bin/rm", "-rf", "#{prefix}/conda"
+    rm_rf "#{prefix}/conda"
   end
 
   def caveats
