@@ -4,7 +4,7 @@ cask "resourcefinagler" do
 
   url "https://markdouma.com/developer/ResourceFinagler.zip"
   name "Resource Finagler"
-  desc "Resource Finagler"
+  desc "Developer tool for Apple Font Suitcase"
   homepage "https://markdouma.com/"
 
   app "Resource Finagler.app"
