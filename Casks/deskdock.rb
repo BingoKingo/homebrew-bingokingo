@@ -9,6 +9,10 @@ cask "deskdock" do
   desc "DeskDockServer application for Android DeskDock to connect"
   homepage "https://www.fdmobileinventions.com/deskdock-server/"
 
+  livecheck do
+    skip
+  end
+
   app "DeskDockServer_#{version}.app", target: "DeskDockServer.app"
 
   caveats <<~EOS

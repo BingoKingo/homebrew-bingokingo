@@ -9,6 +9,10 @@ cask "bootbuddy" do
   desc "Make your boot and login screens pop"
   homepage "https://www.macenhance.com/bootbuddy.html"
 
+  livecheck do
+    skip
+  end
+
   auto_updates true
 
   app "BootBuddy.app"

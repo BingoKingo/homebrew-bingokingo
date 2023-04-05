@@ -8,6 +8,10 @@ cask "fontfinagler" do
   desc "Help troubleshoot misbehaving fonts"
   homepage "https://markdouma.com/fontfinagler/"
 
+  livecheck do
+    skip
+  end
+
   auto_updates true
 
   app "Font Finagler.app"

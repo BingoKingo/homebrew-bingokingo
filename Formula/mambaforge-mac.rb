@@ -20,6 +20,10 @@ class MambaforgeMac < Formula
   conflicts_with cask: "miniforge"
   conflicts_with cask: "mambaforge"
 
+  livecheck do
+    skip
+  end
+
   def install
     if Hardware::CPU.arm?
       system "/bin/bash",

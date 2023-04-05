@@ -4,6 +4,10 @@ class Jetifier < Formula
   version "1.0.0-beta10"
   url "https://dl.google.com/dl/android/studio/jetifier-zips/#{version}/jetifier-standalone.zip"
 
+  livecheck do
+    skip
+  end
+
   def install
     prefix.install Dir["*"]
     bin.install_symlink bin/"jetifier-standalone" => "jetifier"
