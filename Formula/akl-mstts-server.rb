@@ -25,6 +25,7 @@ class AklMsttsServer < Formula
   service do
     run [opt_bin/"akl-mstts"]
     keep_alive true
+    launch_only_once true
   end
 
   test do
