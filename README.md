@@ -20,6 +20,8 @@ try `brew rm --force bingokingo/bingokingo/deeplx; brew install owo-network/brew
 
 try `brew install easydict` or `brew upgrade easydict` next time.
 
+**Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
+
 ## Want to see homebrew documentation?
 
 `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
