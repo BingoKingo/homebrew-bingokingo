@@ -1,8 +1,8 @@
 cask "alex-chromium" do
   arch arm: "ARM64", intel: "X64"
 
-  version "111.0.5563.111"
-  sha256 "d3ac965997631e77f1f496c04b9174f047b3529b1f17664058283eb82a5b5d9c"
+  version "112.0.5615.166"
+  sha256 "9f16608b39b9483943ab2c20eb4e4856705e7a394e9def5f14d1b0991e4c05b0"
 
   url "https://github.com/Alex313031/Thorium-Special/releases/download/M#{version}/Thorium_MacOS_#{arch}.dmg",
       verified: "github.com/Alex313031/Thorium-Special/"

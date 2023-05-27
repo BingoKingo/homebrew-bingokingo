@@ -2,10 +2,10 @@ class NM3u8dlRe < Formula
   desc "Cross-Platform, modern and powerful stream downloader for MPD/M3U8/ISM"
   homepage "https://github.com/nilaoda/N_m3u8DL-RE"
   url "https://github.com/nilaoda/N_m3u8DL-RE/archive/refs/tags/v#{version}.tar.gz"
-  version "0.1.5.3-beta"
+  version "0.1.6-beta"
   license "MIT"
 
-  date = "20230111"
+  date = "20230412"
 
   if OS.mac?
     if Hardware::CPU.arm?
