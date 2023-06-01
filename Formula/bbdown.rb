@@ -2,10 +2,10 @@ class Bbdown < Formula
   desc "Bilibili Downloader 命令行式哔哩哔哩下载器"
   homepage "https://github.com/nilaoda/BBDown/"
   url "https://github.com/nilaoda/BBDown/archive/refs/tags/#{version}.tar.gz"
-  version "1.5.6"
+  version "1.5.7"
   license "MIT"
 
-  date = "20230526"
+  date = "20230530"
 
   if OS.mac?
     if Hardware::CPU.arm?
