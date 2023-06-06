@@ -1,5 +1,5 @@
 class Hubfs < Formula
-  desc "Bilibili Downloader 命令行式哔哩哔哩下载器"
+  desc "File system for GitHub and GitLab"
   homepage "https://github.com/winfsp/hubfs/"
   url "https://github.com/winfsp/hubfs/archive/refs/tags/v#{version}.tar.gz"
   version "1.0B1"
