@@ -4,7 +4,7 @@ cask "bootbuddy" do
 
   url "https://github.com/MacEnhance/appcast/raw/master/BootBuddy/BootBuddy.#{version}.zip",
       verified: "github.com/MacEnhance/appcast/"
-  appcast "https://raw.githubusercontent.com/MacEnhance/appcast/master/BootBuddy/appcast.xml"
+  # appcast "https://raw.githubusercontent.com/MacEnhance/appcast/master/BootBuddy/appcast.xml"
   name "BootBuddy"
   desc "Make your boot and login screens pop"
   homepage "https://www.macenhance.com/bootbuddy.html"

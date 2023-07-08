@@ -3,7 +3,7 @@ cask "fontfinagler" do
   sha256 "8be1ef3249cc0b206e5a726603c842b86339597062ce3c1d734bd89f6fd69def"
 
   url "https://markdouma.com/fontfinagler/FontFinagler#{version}.dmg"
-  appcast "https://markdouma.com/fontfinagler/packageVersion.php"
+  # appcast "https://markdouma.com/fontfinagler/packageVersion.php"
   name "Font Finagler"
   desc "Help troubleshoot misbehaving fonts"
   homepage "https://markdouma.com/fontfinagler/"

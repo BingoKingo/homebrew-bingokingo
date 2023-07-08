@@ -3,7 +3,7 @@ class Alist < Formula
   homepage "https://alist.nn.ci/"
   url "https://github.com/alist-org/alist/archive/refs/tags/v#{version}.tar.gz",
       verified: "github.com/alist-org/alist/"
-  version "3.19.0"
+  version "3.20.1"
   license "AGPL-3.0-only"
 
   if OS.mac?
