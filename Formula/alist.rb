@@ -3,7 +3,7 @@ class Alist < Formula
   homepage "https://alist.nn.ci/"
   url "https://github.com/alist-org/alist/archive/refs/tags/v#{version}.tar.gz",
       verified: "github.com/alist-org/alist/"
-  version "3.23.0"
+  version "3.24.0"
   license "AGPL-3.0-only"
 
   if OS.mac?
@@ -33,17 +33,19 @@ class Alist < Formula
   end
 
   service do
-    run [opt_bin/"alist", "server"]
+    run [opt_bin/"alist", "server", "--data", opt_prefix/"data"]
     working_dir opt_prefix
     keep_alive true
   end
 
   def caveats
     <<~EOS
-      To see alist admin info, run the following command:
-      cd #{opt_prefix}
-      #{bin}/alist admin
-    EOS
+      To reveal alist admin user's info again, run the following command:
+      cd #{opt_prefix} && alist admin
+      Or reveal password via `sqlite3` command:
+      sqlite3 #{etc}/alist/data.db "select password from x_users where username = 'admin'"
+      NOTICE: `--data` parameter may not work. If you need to run elsewhere with same configuration, please navigate to `#{opt_prefix}` first.
+      EOS
   end
 
   test do
