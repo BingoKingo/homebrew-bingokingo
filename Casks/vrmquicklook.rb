@@ -7,10 +7,5 @@ cask "vrmquicklook" do
   desc "QuickLook plugin for VRM files"
   homepage "https://github.com/magicien/VRMQuickLook/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   qlplugin "VRMQuickLook_v#{version}/VRMQuickLook.qlgenerator"
 end

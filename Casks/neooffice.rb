@@ -1,6 +1,7 @@
 cask "neooffice" do
   version "2022_6"
   sha256 "d4a54be120a4a6052f7f34fd37fb5f9eda70fa87a56798564d78ad343da9cad2"
+
   url "https://github.com/neooffice/NeoOffice/releases/download/NeoOffice-#{version}/NeoOffice-#{version.underscores_to_dots}_Professional_Edition-Universal.dmg",
       verified: "github.com/neooffice/NeoOffice/"
   name "NeoOffice"
@@ -19,7 +20,7 @@ cask "neooffice" do
   zap trash: [
     "~/Library/Application Support/NeoOffice",
     "~/Library/Preferences/NeoOffice-4.0",
-    "~/Library/Saved Application State/org.neooffice.NeoOffice.savedState",
     "~/Library/Preferences/org.neooffice.NeoOffice.plist",
+    "~/Library/Saved Application State/org.neooffice.NeoOffice.savedState",
   ]
 end

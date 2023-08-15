@@ -7,11 +7,6 @@ cask "openhaystack" do
   desc "Framework for tracking personal Bluetooth devices via Apple's Find My network"
   homepage "https://github.com/seemoo-lab/openhaystack/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   auto_updates true
 
   app "OpenHaystack.app"

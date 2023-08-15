@@ -1,13 +1,16 @@
+# [O] # [O] Outdated and not supported, more details from https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
 class AklYoudaoServer < Formula
   desc "有道翻译免秘钥免费查单词查句子服务启动方式"
   homepage "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/"
-  url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/archive/refs/tags/v_#{version}.tar.gz"
+  url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/archive/v_#{version}.tar.gz"
   version "0.0.8"
 
   if OS.mac?
     url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/releases/download/v_#{version}/youdaoTranslateServer_macos_x86_64"
+    sha256 "94894540fbaac3f661a7cfe06a1a1847ab8431fc2414f3331b6d60ae20ee1abf"
   elsif OS.linux? && Hardware::CPU.intel?
     url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/releases/download/v_#{version}/youdaoTranslateServer_linux_x86_64"
+    sha256 "948e198c28dac228ec0b514072c2493742b883023a5b07e2d83a5f9897f205ba"
   end
 
   livecheck do

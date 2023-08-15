@@ -1,4 +1,4 @@
-# BingoKingo's Personal Homebrew Tap
+# BingoKingo's Homebrew Tap
 
 ## What this tap has?
 
@@ -10,21 +10,35 @@ See subfolder [Casks](./Casks) and [Formula](./Formula).
 
 Or `brew tap bingokingo/bingokingo` and then `brew install <name>`.
 
-## What is removed from this tap?
+Add or install from this tap means that you have checked content security and agreed to get them on your macOS/Linux device.
 
-**Formula** `deeplx` was officially added to their tap `owo-network/brew`,
+## What is renamed/removed from this tap?
 
-try `brew rm --force bingokingo/bingokingo/deeplx; brew install owo-network/brew/deeplx`.
+**Cask** `stash-mac` was renamed and merged to `homebrew/cask`,
+
+try `brew rm stash-mac; brew install stash`.
+
+**Cask** `resourcefinagler` was renamed to `resource-finagler`,
+
+try `brew rm resourcefinagler; brew install bingokingo/bingokingo/resource-finagler` next time.
+
+**Cask** `deskdock` was renamed to `deskdockserver`,
+
+try `brew rm deskdock; brew install bingokingo/bingokingo/deskdockserver` next time.
+
+**Cask** `fontfinagler` was renamed and merged into `homebrew/cask`,
+
+try `brew rm fontfinagler; brew install font-finagler`.
+
+**Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
 
 **Cask** `easydict` was merged into `homebrew/cask`,
 
 try `brew install easydict` or `brew upgrade easydict` next time.
 
-**Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
+**Formula** `deeplx` was officially added to their tap `owo-network/brew`,
 
-**Cask** `font-finagler` was merged into `homebrew/cask`,
-
-try `brew rm bingokingo/bingokingo/fontfinagler; brew install font-finagler`.
+try `brew rm --force bingokingo/bingokingo/deeplx; brew install owo-network/brew/deeplx`.
 
 ## Want to see homebrew documentation?
 

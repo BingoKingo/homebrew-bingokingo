@@ -1,4 +1,4 @@
-cask "resourcefinagler" do
+cask "resource-finagler" do
   version :latest
   sha256 :no_check
 
@@ -11,5 +11,6 @@ cask "resourcefinagler" do
 
   zap trash: [
     "~/Library/Preferences/com.markdouma.ResourceFinagler.plist",
+    "~/Library/Saved Application State/com.markdouma.ResourceFinagler.savedState",
   ]
 end

@@ -7,10 +7,5 @@ cask "asciidocquicklook" do
   desc "QuickLook plugin for AsciiDoc files"
   homepage "https://github.com/clydeclements/AsciiDocQuickLook/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   qlplugin "AsciiDoc.qlgenerator"
 end

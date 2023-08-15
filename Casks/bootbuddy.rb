@@ -1,16 +1,17 @@
+# [R] Not ready for acceptance because of obscurity, more details from https://github.com/Homebrew/homebrew-cask/issues/112655
 cask "bootbuddy" do
   version "1.0.1"
   sha256 "bda2e28c06659c7e053de594f2d0bc8912ca13eeea78c60f7186bcd136e9dca3"
 
   url "https://github.com/MacEnhance/appcast/raw/master/BootBuddy/BootBuddy.#{version}.zip",
       verified: "github.com/MacEnhance/appcast/"
-  # appcast "https://raw.githubusercontent.com/MacEnhance/appcast/master/BootBuddy/appcast.xml"
   name "BootBuddy"
   desc "Make your boot and login screens pop"
   homepage "https://www.macenhance.com/bootbuddy.html"
 
   livecheck do
-    skip
+    url "https://raw.githubusercontent.com/MacEnhance/appcast/master/BootBuddy/appcast.xml"
+    strategy :sparkle
   end
 
   auto_updates true

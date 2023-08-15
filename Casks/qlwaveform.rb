@@ -4,13 +4,8 @@ cask "qlwaveform" do
 
   url "https://github.com/seagirl/QLWaveForm/releases/download/v#{version}/QLWaveForm.qlgenerator.zip"
   name "QLWaveForm"
-  desc "QuickLook plugin that lets you view waveforms of audio files"
+  desc "QuickLook plugin to view waveforms of audio files"
   homepage "https://github.com/seagirl/QLWaveForm/"
-
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
 
   qlplugin "QLWaveForm.qlgenerator"
 end

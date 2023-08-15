@@ -7,11 +7,6 @@ cask "opengithub" do
   desc "Xcode extension to open the file on GitHub"
   homepage "https://github.com/Watson1978/OpenGithub/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   app "OpenGithub.app"
 
   zap trash: [

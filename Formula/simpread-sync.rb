@@ -1,18 +1,21 @@
 class SimpreadSync < Formula
   desc "简悦 · 同步助手 · 命令行 · 伪"
   homepage "https://github.com/j1g5awi/simpread-sync/"
-  url "https://github.com/j1g5awi/simpread-sync/archive/refs/tags/v#{version}.tar.gz"
+  url "https://github.com/j1g5awi/simpread-sync/archive/v#{version}.tar.gz"
   version "0.8.0"
   license "MIT"
 
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_darwin_arm64.tar.gz"
+      sha256 "00d08a59a25bf52e48ac9defa03c75f470665b858fb6d4db003ca2a7ec285434"
     elsif Hardware::CPU.intel?
       url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_darwin_amd64.tar.gz"
+      sha256 "689e50f312675e16b6738293092291df6d9da1e89d2b321a5aa4efda8dc4fcc4"
     end
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_darwin_linux.tar.gz"
+    url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_linux_amd64.tar.gz"
+    sha256 "643d69fe695f21064698f46f62c26e0d90f5ed72fed4634dab1ef1a545107660"
   end
 
   livecheck do

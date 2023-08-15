@@ -1,3 +1,4 @@
+# [R] No notarization and inestimable ad-hoc signature, more details from https://github.com/Homebrew/homebrew-cask/pull/152173
 cask "pixel-perfect" do
   version "1.2"
   sha256 "163b96ba5bea26507a9625237726a20b8a4586250a6e5883700f20cadb65e386"
@@ -6,11 +7,6 @@ cask "pixel-perfect" do
   name "Pixel Perfect"
   desc "Increase text size and render at native resolution of iOS apps"
   homepage "https://github.com/cormiertyshawn895/PixelPerfect/"
-
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
 
   auto_updates true
   depends_on macos: ">= :big_sur"
