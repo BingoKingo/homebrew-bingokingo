@@ -1,12 +1,12 @@
 cask "alex-chromium" do
   arch arm: "ARM", intel: "X64"
 
-  version "114.0.5735.205-1"
-  sha256 arm:   "32d65b970bffb0f0c615cda617268bba0aa925c41dece1f7dd93855573c9c933",
-         intel: "ec29c5f723649b8104a21421123b55d904bc17b0d58c05faa4e7d4d834637ddd"
+  version "115.0.5790.172"
+  sha256 arm:   "052a4d9ee2cbfab78671aae2ca9972b3b481fd0d47641d7668c519aa26b8f800",
+         intel: "9ed769e69efe14decd37aa192f97a7b5a20fd038074cb217be2bc0d1b949fd4a"
 
-  url "https://github.com/Alex313031/Thorium-Special/releases/download/M#{version}/Thorium_MacOS_#{arch}.dmg",
-      verified: "github.com/Alex313031/Thorium-Special/"
+  url "https://github.com/Alex313031/Thorium-MacOS/releases/download/M#{version}/Thorium_MacOS_#{arch}.dmg",
+      verified: "github.com/Alex313031/Thorium-MacOS/"
   name "Thorium"
   desc "Chromium fork named after radioactive element No. 90"
   homepage "https://thorium.rocks/"

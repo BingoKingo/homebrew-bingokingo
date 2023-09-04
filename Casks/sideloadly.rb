@@ -11,6 +11,8 @@ cask "sideloadly" do
 
   app "Sideloadly.app"
 
+  uninstall quit: "io.sideloadly.sideloadly"
+
   zap trash: [
     "~/Library/Application Support/sideloadly",
     "~/Library/Preferences/com.sideloadly.sideloadly.plist",

@@ -2,22 +2,22 @@ class Bbdown < Formula
   desc "Bilibili Downloader CLI"
   homepage "https://github.com/nilaoda/BBDown/"
   url "https://github.com/nilaoda/BBDown/archive/#{version}.tar.gz"
-  version "1.6.0"
+  version "1.6.1"
   license "MIT"
 
-  date = "20230715"
+  date = "20230818"
 
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/nilaoda/BBDown/releases/download/#{version}/BBDown_#{version}_#{date}_osx-arm64.zip"
-      sha256 "5bb1ab8987a33be08ad07367d2e70ea4f18868ba4538a77019aba48e76ed7892"
+      sha256 "d0c9a7603833a466eb153a17279748c43a9ca77d10a84df68c0d66bba1ed6d8b"
     elsif Hardware::CPU.intel?
       url "https://github.com/nilaoda/BBDown/releases/download/#{version}/BBDown_#{version}_#{date}_osx-x64.zip"
-      sha256 "13c823fbbc1497ac26eb2d9eaac90604e8e5214e06c6612503c82c1332afc291"
+      sha256 "69e8f1affbbd479847a0d169e23ed4be8051d1627e0067dd9fc1711f72401a6a"
     end
   elsif OS.linux? && Hardware::CPU.intel?
     url "https://github.com/nilaoda/BBDown/releases/download/#{version}/BBDown_#{version}_#{date}_linux-x64.zip"
-    sha256 "ae8a3299a3f5be023446339ab3eb7d54cb6bc8b9e44dc5c98a1fd72a32b474dc"
+    sha256 "69e8f1affbbd479847a0d169e23ed4be8051d1627e0067dd9fc1711f72401a6a"
   end
 
   livecheck do

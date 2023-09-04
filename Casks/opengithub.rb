@@ -12,7 +12,6 @@ cask "opengithub" do
   zap trash: [
     "~/Library/Application Scripts/jp.cat-soft.OpenGithub",
     "~/Library/Application Scripts/jp.cat-soft.OpenGithub.OpenGithubExtension",
-    "~/Library/Caches/com.fespinozacast.LinkedIdeas",
     "~/Library/Containers/jp.cat-soft.OpenGithub.OpenGithub",
     "~/Library/Containers/jp.cat-soft.OpenGithub.OpenGithubExtension",
     "~/Library/Preferences/jp.cat-soft.OpenGithub.OpenGithub.plist",

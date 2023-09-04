@@ -1,6 +1,6 @@
 cask "neooffice" do
-  version "2022_6"
-  sha256 "d4a54be120a4a6052f7f34fd37fb5f9eda70fa87a56798564d78ad343da9cad2"
+  version "2022_7"
+  sha256 "4288f77cb39c1b5bf4e903460d1863a93f50170eec170ccf24a2b8020a55d2e1"
 
   url "https://github.com/neooffice/NeoOffice/releases/download/NeoOffice-#{version}/NeoOffice-#{version.underscores_to_dots}_Professional_Edition-Universal.dmg",
       verified: "github.com/neooffice/NeoOffice/"
@@ -8,13 +8,10 @@ cask "neooffice" do
   desc "Office suite fork based on OpenOffice and LibreOffice"
   homepage "https://www.neooffice.org/"
 
-  depends_on cask: "neooffice-patch"
-
   pkg "Install NeoOffice #{version.underscores_to_dots} Professional Edition.pkg"
 
   uninstall pkgutil: [
     "org.neooffice.NeoOffice",
-    "org.neooffice.NeoOffice_patch.pkg",
   ]
 
   zap trash: [

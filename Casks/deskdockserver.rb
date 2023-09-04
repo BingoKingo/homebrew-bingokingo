@@ -16,6 +16,8 @@ cask "deskdockserver" do
 
   app "DeskDockServer_#{version}.app", target: "DeskDockServer.app"
 
+  uninstall quit: "com.floriandraschbacher.deskdockserver"
+
   caveats <<~EOS
     For security reasons, #{token} must be installed to /Applications.
   EOS
