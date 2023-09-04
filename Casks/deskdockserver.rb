@@ -14,6 +14,8 @@ cask "deskdockserver" do
     skip
   end
 
+  depends_on macos: ">= :big_sur"
+
   app "DeskDockServer_#{version}.app", target: "DeskDockServer.app"
 
   uninstall quit: "com.floriandraschbacher.deskdockserver"

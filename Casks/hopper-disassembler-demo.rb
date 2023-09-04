@@ -15,6 +15,7 @@ cask "hopper-disassembler-demo" do
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "Hopper Disassembler v4.app"
   # app "Hopper Disassembler v#{version.major}.app"

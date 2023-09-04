@@ -7,5 +7,7 @@ cask "vrmquicklook" do
   desc "QuickLook plugin for VRM files"
   homepage "https://github.com/magicien/VRMQuickLook/"
 
+  depends_on macos: ">= :high_sierra"
+
   qlplugin "VRMQuickLook_v#{version}/VRMQuickLook.qlgenerator"
 end

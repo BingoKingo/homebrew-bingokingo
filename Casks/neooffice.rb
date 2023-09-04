@@ -8,6 +8,8 @@ cask "neooffice" do
   desc "Office suite fork based on OpenOffice and LibreOffice"
   homepage "https://www.neooffice.org/"
 
+  depends_on macos: ">= :big_sur"
+
   pkg "Install NeoOffice #{version.underscores_to_dots} Professional Edition.pkg"
 
   uninstall pkgutil: [

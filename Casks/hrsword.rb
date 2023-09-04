@@ -7,6 +7,8 @@ cask "hrsword" do
   desc "火绒安全软件-火绒剑"
   homepage "https://www.huorong.cn/"
 
+  depends_on macos: ">= :big_sur"
+
   app "HRSWord.app"
 
   zap trash: [

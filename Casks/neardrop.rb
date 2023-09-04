@@ -8,6 +8,8 @@ cask "neardrop" do
   desc "Unofficial Google Nearby Share app"
   homepage "https://github.com/grishka/NearDrop/"
 
+  depends_on macos: ">= :big_sur"
+
   app "NearDrop.app"
 
   uninstall quit: "me.grishka.NearDrop"

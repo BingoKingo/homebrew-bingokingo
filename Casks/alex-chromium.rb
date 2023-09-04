@@ -11,6 +11,8 @@ cask "alex-chromium" do
   desc "Chromium fork named after radioactive element No. 90"
   homepage "https://thorium.rocks/"
 
+  depends_on macos: ">= :high_sierra"
+
   app "Thorium.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/thorium.wrapper.sh"

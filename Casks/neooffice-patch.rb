@@ -8,6 +8,7 @@ cask "neooffice-patch" do
   desc "Patch of NeoOffice"
   homepage "https://www.neooffice.org/"
 
+  depends_on macos: ">= :big_sur"
   depends_on cask: "neooffice"
 
   pkg "Install NeoOffice #{version.underscores_to_dots} Professional Edition Patch 0.pkg"

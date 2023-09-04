@@ -7,6 +7,8 @@ cask "neardropplus" do
   desc "Unofficial Google Nearby Share app (Advanced version)"
   homepage "https://github.com/XRayAdamo/NearDrop/"
 
+  depends_on macos: ">= :big_sur"
+
   app "NearDropPlus.app"
 
   uninstall quit: "com.rayadams.neardropadv"

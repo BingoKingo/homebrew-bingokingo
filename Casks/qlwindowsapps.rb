@@ -7,6 +7,8 @@ cask "qlwindowsapps" do
   desc "QuickLook & Spotlight plugins for Windows DLLs and EXEs"
   homepage "https://github.com/shysaur/QLWindowsApps/"
 
+  depends_on macos: ">= :high_sierra"
+
   pkg "QLWindowsApps-#{version}.pkg", allow_untrusted: true
 
   uninstall pkgutil: [
