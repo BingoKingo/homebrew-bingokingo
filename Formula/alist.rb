@@ -45,8 +45,12 @@ class Alist < Formula
     <<~EOS
       To reveal alist admin user's info in default `config.json` again, run the following command:
         cd #{opt_prefix} && alist admin
-      Or reveal password via `sqlite3` command:
+      Or reveal `admin` password via `sqlite3` command (before v3.25.0):
         sqlite3 #{etc}/alist/data.db "select password from x_users where username = 'admin'"
+      Or reset `admin` password:
+        cd #{opt_prefix} && alist admin random
+      Or set new `admin` password:
+        cd #{opt_prefix} && alist admin set NEW_PASSWORD
     EOS
   end
 
