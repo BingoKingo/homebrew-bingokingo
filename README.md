@@ -14,6 +14,10 @@ Add or install from this tap means that you have checked content security and ag
 
 ## What is renamed/removed from this tap?
 
+**Cask** `neardrop` was officially added to their tap `grishka/grishka`,
+
+try `brew rm neardrop; brew install grishka/grishka/neardrop`.
+
 **Cask** `stash-mac` was renamed and merged to `homebrew/cask`,
 
 try `brew rm stash-mac; brew install stash`.

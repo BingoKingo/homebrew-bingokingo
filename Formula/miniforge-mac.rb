@@ -44,9 +44,9 @@ class MiniforgeMac < Formula
   def caveats
     <<~EOS
       Please run the following to setup your shell:
-      #{prefix}/condabin/conda init "$(basename "${SHELL}")"
+        #{prefix}/condabin/conda init "$(basename "${SHELL}")"
       Or run environment in your terminal:
-      source #{prefix}/bin/activate
+        source #{prefix}/bin/activate
     EOS
   end
 

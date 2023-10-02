@@ -1,4 +1,4 @@
-# [O] # [O] Outdated and not supported, more details from https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
+# [O] Outdated and not supported, more details from https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
 class AklYoudaoServer < Formula
   desc "有道翻译免秘钥免费查单词查句子服务启动方式"
   homepage "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/"
