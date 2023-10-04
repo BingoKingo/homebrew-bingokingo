@@ -14,6 +14,10 @@ Add or install from this tap means that you have checked content security and ag
 
 ## What is renamed/removed from this tap?
 
+**Cask** `alex-chromium` was officially named `alex313031-thorium` on `homebrew/cask`,
+
+try `brew rm alex-chromium; brew install alex313031-thorium`.
+
 **Cask** `neardrop` was officially added to their tap `grishka/grishka`,
 
 try `brew rm neardrop; brew install grishka/grishka/neardrop`.
@@ -35,10 +39,6 @@ try `brew rm deskdock; brew install bingokingo/bingokingo/deskdockserver` next t
 try `brew rm fontfinagler; brew install font-finagler`.
 
 **Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
-
-**Cask** `easydict` was merged into `homebrew/cask`,
-
-try `brew install easydict` or `brew upgrade easydict` next time.
 
 **Formula** `deeplx` was officially added to their tap `owo-network/brew`,
 
