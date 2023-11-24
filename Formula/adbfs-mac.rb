@@ -20,7 +20,7 @@ class AdbfsMac < Formula
   def post_install
     File.write opt_prefix/"homebrew.adbfs-mac.sh", <<~EOS
       #!/bin/bash
-      /bin/mkdir /tmp/adbfs; #{opt_bin}/adbfs /tmp/adbfs -d
+      /bin/mkdir -p /tmp/fuse/adb; #{opt_bin}/adbfs /tmp/fuse/adb -d
     EOS
     system "/bin/chmod", "555", opt_prefix/"homebrew.adbfs-mac.sh"
   end
