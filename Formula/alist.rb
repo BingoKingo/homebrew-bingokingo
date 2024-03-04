@@ -3,20 +3,20 @@ class Alist < Formula
   homepage "https://alist.nn.ci/"
   url "https://github.com/alist-org/alist/archive/v#{version}.tar.gz",
       verified: "github.com/alist-org/alist/"
-  version "3.30.0"
+  version "3.32.0"
   license "AGPL-3.0-only"
 
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/alist-org/alist/releases/download/v#{version}/alist-darwin-arm64.tar.gz"
-      sha256 "6bf1fe1d7fd80545666269301528d2f382f3b155fd10e56c87bd41a16b291968"
+      sha256 "6683440dc096e9eaa04dbb389f0e1f4a65b6c8e59da5d1b312f77a7a7cd1a944"
     elsif Hardware::CPU.intel?
       url "https://github.com/alist-org/alist/releases/download/v#{version}/alist-darwin-amd64.tar.gz"
-      sha256 "d54b1e20a50de533459b6a8c3d4e97e30f10e5605fa0d32d03691b90a747bdce"
+      sha256 "9606ea37412285fd3a4f8a2bd5b04271f3c2dfa0af2c0a76bbbce57402a88083"
     end
   elsif OS.linux? && Hardware::CPU.intel?
     url "https://github.com/alist-org/alist/releases/download/v#{version}/alist-linux-amd64.tar.gz"
-    sha256 "4631330f90cc1a9d2fbfb547be58d86fa04e512993f40c3ad990fc1918fb2367"
+    sha256 "4ce5faa12d1e2c53eb00a82a0bd94de90441dd9e43d85f8e4b729c02bc9c9d99"
   end
 
   livecheck do
