@@ -1,8 +1,8 @@
 class RcloneTeldrive < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/divyam234/rclone/"
-  url "https://github.com/divyam234/rclone/archive/v1.65.5.tar.gz"
-  sha256 "0482538e8bd1e697871f542f271f6918d280fd29d3aaf0e30a1d162f1dbf7f70"
+  url "https://github.com/divyam234/rclone/archive/v1.66.1.tar.gz"
+  sha256 "ea4782479f441260b387dee7c7c160f533c2da8012427a6e766d01b0dc46ea73"
   license "MIT"
   head "https://github.com/divyam234/rclone.git"
 
@@ -15,14 +15,6 @@ class RcloneTeldrive < Formula
       "-tags", "cmount", *std_go_args
     (libexec/"rclone").install_symlink bin/name.to_s => "rclone"
     man1.install "rclone.1" => "#{name}.1"
-    system bin/name.to_s, "genautocomplete", "bash", "#{name}.bash"
-    system bin/name.to_s, "genautocomplete", "zsh", "_#{name}"
-    inreplace "#{name}.bash" do |s|
-      s.gsub! "commands=(\"rclone\")", "commands=(\"#{name}\")"
-      s.gsub!(/(-F __start_rclone) rclone$/, "\\1 #{name}")
-    end
-    bash_completion.install "#{name}.bash" => name.to_s
-    zsh_completion.install "_#{name}"
   end
 
   test do
