@@ -1,6 +1,6 @@
 cask "figmafiledownloader" do
-  version "1.0.53"
-  sha256 "7b5acd51c0d5bb1de23424aedb5d6d23f0f2b7b2b327be39dfc0fe7cd08f7568"
+  version "1.0.54"
+  sha256 "5790c8ceb15d865de912689d7d482121cba3e893b133eb72eb7b7b68bf4ae8b1"
 
   url "https://figmafile.com/figmaFileDownloader_#{version}.dmg.zip"
   name "Figma File Downloader"

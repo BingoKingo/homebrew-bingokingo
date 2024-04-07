@@ -3,7 +3,7 @@ cask "hosts" do
   sha256 "e625edd5bbce4766225a77f61aa6efa82e6fd95ba95a9bd48abe09238b8bea01"
 
   url "https://www.dirk-froehling.de/resources/Software/Hosts-PrefPane-#{version}.pkg",
-  # url "https://www.dirk-froehling.de/resources/Software/Hosts-App-#{version}.zip",
+      # url "https://www.dirk-froehling.de/resources/Software/Hosts-App-#{version}.zip",
       verified: "dirk-froehling.de/resources/Software/"
   name "Hosts"
   desc "Cocoa GUI Prefpane for Hosts"
@@ -12,7 +12,5 @@ cask "hosts" do
   # app "Hosts.app"
   pkg "Hosts-PrefPane-#{version}.pkg", allow_untrusted: true
 
-  uninstall pkgutil: [
-    "de.dirk-froehling.hosts",
-  ]
+  uninstall pkgutil: "de.dirk-froehling.hosts"
 end

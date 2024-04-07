@@ -11,7 +11,5 @@ cask "hrsword" do
 
   app "HRSWord.app"
 
-  zap trash: [
-    "~/Library/Preferences/cn.huorong.HRSword.plist",
-  ]
+  zap trash: "~/Library/Preferences/cn.huorong.HRSword.plist"
 end

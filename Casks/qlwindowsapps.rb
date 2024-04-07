@@ -12,7 +12,7 @@ cask "qlwindowsapps" do
   pkg "QLWindowsApps-#{version}.pkg", allow_untrusted: true
 
   uninstall pkgutil: [
-    "com.danielecattaneo.WindowsAppslmporter",
     "com.danielecattaneo.qlgenerator.qlwindowsapps",
+    "com.danielecattaneo.WindowsAppslmporter",
   ]
 end

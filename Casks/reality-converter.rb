@@ -12,9 +12,7 @@ cask "reality-converter" do
 
   pkg "RealityConverter.pkg"
 
-  uninstall pkgutil: [
-    "com.apple.pkg.RealityConverter",
-  ]
+  uninstall pkgutil: "com.apple.pkg.RealityConverter"
 
   zap trash: [
     "~/Library/Application Scripts/com.apple.RealityConverter",

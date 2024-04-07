@@ -12,9 +12,7 @@ cask "neooffice" do
 
   pkg "Install NeoOffice #{version.underscores_to_dots} Professional Edition.pkg"
 
-  uninstall pkgutil: [
-    "org.neooffice.NeoOffice",
-  ]
+  uninstall pkgutil: "org.neooffice.NeoOffice"
 
   zap trash: [
     "~/Library/Application Support/NeoOffice",
