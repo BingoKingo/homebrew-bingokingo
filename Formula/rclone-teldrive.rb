@@ -1,8 +1,9 @@
+# [M] Modified from https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
 class RcloneTeldrive < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/divyam234/rclone/"
-  url "https://github.com/divyam234/rclone/archive/v1.66.1.tar.gz"
-  sha256 "ea4782479f441260b387dee7c7c160f533c2da8012427a6e766d01b0dc46ea73"
+  url "https://github.com/divyam234/rclone/archive/v1.68.0.tar.gz"
+  sha256 "39b4ed7b05491296e1867b68fc69e1861491a5eaa0fc193eef1e711177bbc956"
   license "MIT"
   head "https://github.com/divyam234/rclone.git"
 

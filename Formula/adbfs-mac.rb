@@ -13,9 +13,8 @@ class AdbfsMac < Formula
     # homebrew's default PKG_CONFIG_PATH. We need to tell pkg-config about this path for our build
     ENV.prepend_path "LIBRARY_PATH", "/usr/local/lib"
     ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
-    ENV.append "CPPFLAGS", "-I/usr/local/include"
-    ENV.append "LDFLAGS", "-L/usr/local/lib"
-    system "make"
+    ENV["DYLD_LIBRARY_PATH"] = "/usr/local/lib"
+    system "make", "prefix=#{prefix}"
     bin.install "adbfs"
   end
 

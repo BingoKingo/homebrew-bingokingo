@@ -1,8 +1,9 @@
+# [O] Archived.
 cask "hrsword" do
   version :latest
   sha256 :no_check
 
-  url "https://down5.huorong.cn/Mac/HRSword_Installer.dmg"
+  url "https://web.archive.org/web/20231122083116/https://down5.huorong.cn/Mac/HRSword_Installer.dmg"
   name "HRSword"
   desc "火绒安全软件-火绒剑"
   homepage "https://www.huorong.cn/"

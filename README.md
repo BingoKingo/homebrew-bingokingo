@@ -34,9 +34,9 @@ try `brew rm resourcefinagler; brew install bingokingo/bingokingo/resource-finag
 
 try `brew rm deskdock; brew install bingokingo/bingokingo/deskdockserver` next time.
 
-**Cask** `fontfinagler` was renamed and merged into `homebrew/cask`,
+**Cask** `fontfinagler` was merged into `homebrew/cask`,
 
-try `brew rm fontfinagler; brew install font-finagler`.
+try `brew rm fontfinagler; brew install fontfinagler`.
 
 **Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
 
