@@ -27,7 +27,7 @@ cask "goldendict-ng" do
   conflicts_with cask: "goldendict"
   depends_on macos: ">= :monterey"
 
-  app "GoldenDict.app"
+  app "GoldenDict-ng.app", target: "GoldenDict.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/goldendict.wrapper.sh"
   binary shimscript, target: "goldendict"
