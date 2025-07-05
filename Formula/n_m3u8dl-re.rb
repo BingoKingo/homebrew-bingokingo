@@ -1,23 +1,23 @@
 class NM3u8dlRe < Formula
   desc "Cross-Platform, modern and powerful stream downloader for MPD/M3U8/ISM"
-  homepage "https://github.com/nilaoda/N_m3u8DL-RE"
+  homepage "https://github.com/nilaoda/N_m3u8DL-RE/"
   url "https://github.com/nilaoda/N_m3u8DL-RE/archive/v#{version}.tar.gz"
-  version "0.2.1"
+  version "0.3.0"
   license "MIT"
 
-  date = "20240828"
+  date = "20241203"
 
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_Beta_osx-arm64_#{date}.tar.gz"
-      sha256 "ed314d1169e23f30faa1fab1bee28fb319a795219cbc7bab47367f406b85d6b3"
+      url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_v#{version}-beta_osx-arm64_#{date}.tar.gz"
+      sha256 "eb3488e5af13b969bd3da777f4ff11e514788a966d4bf593df009a8923bdd1fd"
     elsif Hardware::CPU.intel?
-      url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_Beta_osx-x64_#{date}.tar.gz"
-      sha256 "f1643c8fa3f9b25ae6e550edb11c5f6aab2c1226292d90a9153de74b55a0dd54"
+      url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_v#{version}-beta_osx-x64_#{date}.tar.gz"
+      sha256 "a75f80872b24ad2e67eef98c8f7edba60db512af83f5bb2cf8bdc3c1de273423"
     end
   elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_Beta_linux-x64_#{date}.tar.gz"
-    sha256 "4cea485a17a5bb91a34b310bb5a5d385a23b69cec970753053d83b25b466baea"
+    url "https://github.com/nilaoda/N_m3u8DL-RE/releases/download/v#{version}-beta/N_m3u8DL-RE_v#{version}-beta_linux-x64_#{date}.tar.gz"
+    sha256 "35205154911e8505a7031999b0e35120cda4e2433d964f3a66d6ee9f322398ba"
   end
 
   def install
@@ -35,6 +35,6 @@ class NM3u8dlRe < Formula
   end
 
   test do
-    system bin/"N_m3u8DL-RE", "--version"
+    system opt_bin/"N_m3u8DL-RE", "--version"
   end
 end

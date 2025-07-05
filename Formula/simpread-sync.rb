@@ -68,6 +68,6 @@ class SimpreadSync < Formula
   end
 
   test do
-    system bin/"simpread-sync", "--version"
+    system opt_bin/"simpread-sync", "--version"
   end
 end

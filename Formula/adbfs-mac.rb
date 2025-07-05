@@ -1,9 +1,8 @@
 class AdbfsMac < Formula
   desc "Mount Android phones with adb rootlessly (require adb, macfuse)"
   homepage "https://github.com/spion/adbfs-rootless/"
-  url "https://github.com/spion/adbfs-rootless/archive/master.tar.gz"
-  version "master"
   head "https://github.com/spion/adbfs-rootless.git", branch: "master"
+  license "BSD"
 
   depends_on "pkg-config" => :build
   depends_on :macos
@@ -15,6 +14,9 @@ class AdbfsMac < Formula
     ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/lib/pkgconfig"
     ENV["DYLD_LIBRARY_PATH"] = "/usr/local/lib"
     system "make", "prefix=#{prefix}"
+    # No LC_RPATH's found ,solved: https://github.com/macos-fuse-t/fuse-t/issues/6
+    # MachO::Tools.add_rpath("/usr/local/lib/libfuse-t.dylib", rpath)
+    system "install_name_tool", "-add_rpath", "/usr/local/lib", "adbfs"
     bin.install "adbfs"
   end
 
@@ -33,12 +35,13 @@ class AdbfsMac < Formula
 
   def caveats
     <<~EOS
-      If library not loaded, run the following command before:
-        export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:/usr/local/lib
+      `adb` should be installed first,
+      try `brew install android-platform-tools`
+      or `brew install android-studio` and export PATH.
     EOS
   end
 
   test do
-    system bin/"adbfs", "-V"
+    system opt_bin/"adbfs", "-V"
   end
 end

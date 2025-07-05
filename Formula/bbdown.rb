@@ -26,10 +26,10 @@ class Bbdown < Formula
   end
 
   def install
-    bin.install "BBDown"
+    bin.install "BBDown" => "bbdown"
   end
 
   test do
-    system bin/"BBDown", "--version"
+    system opt_bin/"bbdown", "--version"
   end
 end

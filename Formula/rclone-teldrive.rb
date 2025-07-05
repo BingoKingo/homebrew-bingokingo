@@ -2,8 +2,8 @@
 class RcloneTeldrive < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/divyam234/rclone/"
-  url "https://github.com/divyam234/rclone/archive/v1.68.0.tar.gz"
-  sha256 "39b4ed7b05491296e1867b68fc69e1861491a5eaa0fc193eef1e711177bbc956"
+  url "https://github.com/divyam234/rclone/archive/v1.68.2.tar.gz"
+  sha256 "86d30ca2e2697f3ed0c1c2ba83bc4f229dcb930bef1114671c5331c090c849c8"
   license "MIT"
   head "https://github.com/divyam234/rclone.git"
 

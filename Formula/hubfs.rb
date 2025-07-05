@@ -31,6 +31,6 @@ class Hubfs < Formula
   end
 
   test do
-    system bin/"hubfs", "-version"
+    system opt_bin/"hubfs", "-version"
   end
 end

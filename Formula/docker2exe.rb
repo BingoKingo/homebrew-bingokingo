@@ -38,6 +38,6 @@ class Docker2exe < Formula
   end
 
   test do
-    system bin/"docker2exe", "--help"
+    system opt_bin/"docker2exe", "--help"
   end
 end

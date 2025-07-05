@@ -38,6 +38,6 @@ class Kuberlr < Formula
   end
 
   test do
-    system bin/"kuberlr", "version"
+    system opt_bin/"kuberlr", "version"
   end
 end

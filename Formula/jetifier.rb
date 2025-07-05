@@ -16,6 +16,6 @@ class Jetifier < Formula
   end
 
   test do
-    system bin/"jetifier-standalone"
+    system opt_bin/"jetifier-standalone"
   end
 end
