@@ -1,0 +1,12 @@
+cask "font-old-english-att" do
+  version "1.0"
+  sha256 "f83a27f84736e8ed33d41d2ad8dac39a289f0ce3fd4e9a3ea6e065d63bfb7791"
+
+  url "https://www.cufonfonts.com/get/font/download/85b319a27718032bfa84d7c65602502e"
+  name "Old English ATT"
+  homepage "https://www.cufonfonts.com/font/old-english-att"
+
+  font "OLDENGLI.TTF"
+
+  # No zap stanza required
+end

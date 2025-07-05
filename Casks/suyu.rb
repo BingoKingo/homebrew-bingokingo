@@ -1,0 +1,21 @@
+cask "suyu" do
+  version "0.0.1"
+  sha256 "cac09d4878ea80cacb173a4ed6bb759790e99a7ca581b79c46cfcd4f16931878"
+
+  url "https://git.suyu.dev/suyu/suyu/releases/download/v#{version}/Suyu-macOS_Arm64.dmg"
+  name "suyu"
+  desc "Nintendo Switch emulator in c++"
+  homepage "https://suyu.dev/"
+
+  depends_on macos: ">= :big_sur"
+  depends_on arch: :arm64
+
+  app "suyu.app"
+
+  zap trash: [
+    "~/.config/suyu",
+    "~/.local/suyu",
+    "~/Library/Preferences/com.suyu-emu.suyu.plist",
+    "~/Library/Saved Application State/com.suyu-emu.suyu.savedState",
+  ]
+end

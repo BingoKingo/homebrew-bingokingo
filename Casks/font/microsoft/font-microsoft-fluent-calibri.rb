@@ -1,0 +1,15 @@
+cask "font-microsoft-fluent-calibri" do
+  version "1.0"
+  sha256 "74e400e6a74f272608ddb16b98296f7d0b93f8423d2f0a64a850b3e1dd140dd7"
+
+  url "https://download.microsoft.com/download/1/6/9/1698B73E-F6C5-44AD-B2CF-88D21D610897/Microsoft%20Fluent%20Fonts%20for%20non-Windows%20OS.zip"
+  name "Microsoft Fluent Calibri"
+  homepage "https://www.microsoft.com/en-us/download/details.aspx?id=50721"
+
+  font "Fluent_Calibri-Bold.ttf"
+  font "Fluent_Calibri-BoldItalic.ttf"
+  font "Fluent_Calibri-Italic.ttf"
+  font "Fluent_Calibri.ttf"
+
+  # No zap stanza required
+end
