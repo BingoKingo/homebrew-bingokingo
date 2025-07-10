@@ -1,12 +1,11 @@
 cask "ryujinx-greendev" do
-  version "1.2.78"
-  sha256 "7ede71b85925a8db38a27767d997d2d62a0a057b43d05e172b951ae439d8bb47"
+  version "1.3.2"
+  sha256 "c157907318348999ce4fb8c8fe8ddd511f0ddea643f22b1529527390180cb700"
 
-  url "https://github.com/GreemDev/Ryujinx/releases/download/#{version}/ryujinx-#{version}-macos_universal.app.tar.gz",
-      verified: "github.com/GreemDev/Ryujinx/"
+  url "https://git.ryujinx.app/api/v4/projects/1/packages/generic/Ryubing/#{version}/ryujinx-#{version}-macos_universal.app.tar.gz"
   name "Ryujinx"
   desc "Simple, experimental Nintendo Switch emulator"
-  homepage "https://ryujinx.org/"
+  homepage "https://git.ryujinx.app/ryubing/ryujinx/"
 
   auto_updates true
 

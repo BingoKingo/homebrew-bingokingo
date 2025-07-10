@@ -6,6 +6,7 @@ class Istats < Formula
   license "MIT"
   head "https://github.com/Chris911/iStats.git", branch: "master"
 
+  depends_on :macos
   depends_on "ruby"
   # uses_from_macos "ruby"
 
