@@ -4,11 +4,6 @@ class Docker2exe < Formula
   url "https://github.com/rzane/docker2exe/archive/v#{version}.tar.gz"
   version "0.2.1"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   depends_on "go"
   depends_on "gzip"
 

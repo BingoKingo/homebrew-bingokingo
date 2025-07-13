@@ -1,10 +1,10 @@
 # [R] Demo version cannot activate, more details from https://github.com/Homebrew/homebrew-cask/pull/49053#issuecomment-401153827
 cask "hopper-disassembler-demo" do
-  version "5.17.3"
-  sha256 "1df2eb4599eaadcbb71a6f9373cff3595ec515ede5797a1f4e37178907af21e7"
+  version "5.19.5"
+  sha256 "1b319a69f02cd139ddb64667dcb172400efbda2e7b70c715348889c39a3c8ced"
 
-  url "https://d2ap6ypl1xbe4k.cloudfront.net/Hopper-#{version}-demo.dmg",
-      verified: "d2ap6ypl1xbe4k.cloudfront.net/"
+  url "https://www.hopperapp.com/downloader/hopperv4/Hopper-#{version}-demo.dmg",
+      user_agent: :browser
   name "Hopper Disassembler"
   desc "Reverse engineering tool to disassemble, decompile and debug your apps"
   homepage "https://www.hopperapp.com/index.html"

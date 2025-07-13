@@ -1,7 +1,7 @@
 # [F] Forked application, modified from: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/a/aegisub.rb
 cask "aegisub-arch1t3cht" do
-  version "11"
-  sha256 "7804a7c7f648659cbe5d5317fd7b30e14de7168c4ea682f6a9493fd755a09ea5"
+  version "12"
+  sha256 "ea29a4fc30902e600e85776ef3baceb681ebf75222d186037888a05c7d30f5fb"
 
   base_version="3.2.2"
   url "https://github.com/arch1t3cht/Aegisub/releases/download/feature_#{version}/macOS.Release.-.installer.zip"

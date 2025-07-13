@@ -2,8 +2,8 @@ class Pycrashreport < Formula
   include Language::Python::Virtualenv
   desc "Python3 parser for Apple's crash reports"
   homepage "https://github.com/doronz88/pycrashreport/"
-  url "https://files.pythonhosted.org/packages/6b/d4/5aa49d35b7fec5cc42c19a005b2a40499f6043702918ea5bc1fef76b0d84/pycrashreport-1.2.5.tar.gz"
-  sha256 "129a5dd4afc389ecfe627d2f5fef9b9a9ad8ea5c3f438943df27b9edcbf4690f"
+  url "https://files.pythonhosted.org/packages/7a/a8/d7c613321fd51054df00930264acfc20a188fc9d92d4ff52b8c83e7e7233/pycrashreport-1.2.6.tar.gz"
+  sha256 "7d4aa523c34c63357dcf352044e57c83f6417d716bc5212cc4af8713573a4a55"
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pycrashreport.git", branch: "master"
 
@@ -16,8 +16,8 @@ class Pycrashreport < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "coloredlogs" do
@@ -33,6 +33,11 @@ class Pycrashreport < Formula
   resource "la-panic" do
     url "https://files.pythonhosted.org/packages/85/28/757e1ccd939162caa27c8a6173d490deb986c38a7fd73fe2f264f6d7485d/la-panic-0.5.0.tar.gz"
     sha256 "5239025d1e96aaed1fbd1c4a5d35572fd70cf42ddd68839ff1e4f1d21e3e279b"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   def install

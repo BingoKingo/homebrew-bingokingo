@@ -2,17 +2,22 @@ class Autosubset < Formula
   include Language::Python::Virtualenv
   desc "Automatic font subsetting for a provided text"
   homepage "https://gitlab.com/MarcelWaldvogel/autosubset/"
-  url "https://files.pythonhosted.org/packages/53/63/f5b0c28cafd695b3006cc82e7b46067e516a13893f32d278cf94b9f38b9d/autosubset-0.2.2.tar.gz"
-  sha256 "c90397098918550daabdc99f4463cb714325e494fc061eaf518441b616d58422"
+  url "https://files.pythonhosted.org/packages/5e/9a/cbef31056f9a562d40e4c75086fb08ce5486f8106e5ebf923d7cebdb113c/autosubset-0.3.0.tar.gz"
+  sha256 "aa36d9f95dc22279db201259bfc26c4840d3764b2cd7870ddad6b0c6829a64fd"
   license "MIT"
   head "https://gitlab.com/MarcelWaldvogel/autosubset.git", branch: "main"
 
   depends_on "brotli"
   depends_on "python@3.13"
 
+  resource "brotli" do
+    url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"
+    sha256 "81de08ac11bcb85841e440c13611c00b67d3bf82698314928d0b676362546724"
+  end
+
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/49/2e/0b11e907b90665253dbad425479e874e38a9e81ced397a4e3312b9116935/fonttools-4.55.6.tar.gz"
-    sha256 "1beb4647a0df5ceaea48015656525eb8081af226fe96554089fd3b274d239ef0"
+    url "https://files.pythonhosted.org/packages/52/97/5735503e58d3816b0989955ef9b2df07e4c99b246469bd8b3823a14095da/fonttools-4.58.5.tar.gz"
+    sha256 "b2a35b0a19f1837284b3a23dd64fd7761b8911d50911ecd2bdbaf5b2d1b5df9c"
   end
 
   resource "zopfli" do

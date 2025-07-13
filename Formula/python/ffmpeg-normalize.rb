@@ -2,8 +2,8 @@ class FfmpegNormalize < Formula
   include Language::Python::Virtualenv
   desc "Audio Normalization for Python/ffmpeg"
   homepage "https://github.com/slhck/ffmpeg-normalize/"
-  url "https://files.pythonhosted.org/packages/f6/7f/ba9076fd5b1090631a6d8ee7e701ef5f480646c933bcfe045c64b7c21162/ffmpeg_normalize-1.31.0.tar.gz"
-  sha256 "7d1b1ddc0cf2febe558663b613ceb365b27fbe89f41be35d39894b6267041539"
+  url "https://github.com/slhck/ffmpeg-normalize/archive/refs/tags/v1.32.5.tar.gz"
+  sha256 "b599f62a116109e3cfe89fa36bf9d5ef6323bee1b3f79d6894cf39080cb2afb1"
   license "MIT"
   head "https://github.com/slhck/ffmpeg-normalize.git", branch: "master"
 
@@ -15,8 +15,13 @@ class FfmpegNormalize < Formula
   end
 
   resource "ffmpeg-progress-yield" do
-    url "https://files.pythonhosted.org/packages/f3/e2/cf0f04e3e140d7c1ce7b7de42593b86fdcce4af2c9b05aad902e7fcc16a4/ffmpeg_progress_yield-0.11.3.tar.gz"
-    sha256 "eb266419fee1df929780bc57cf9b52db086b48fd2e82b20703a64d4bf5a67592"
+    url "https://files.pythonhosted.org/packages/88/b1/1f88ee6006f212e36e2d1867d20bdaffd0f5a065c17d34c7083a3b03b4f3/ffmpeg_progress_yield-1.0.1-py3-none-any.whl"
+    sha256 "3c24844110accc84d48bde8c7c4d5a8c163cc652f1cf0e2f62c803565ae42dae"
+  end
+
+  resource "mutagen" do
+    url "https://files.pythonhosted.org/packages/81/e6/64bc71b74eef4b68e61eb921dcf72dabd9e4ec4af1e11891bbd312ccbb77/mutagen-1.47.0.tar.gz"
+    sha256 "719fadef0a978c31b4cf3c956261b3c58b6948b32023078a2117b1de09f0fc99"
   end
 
   resource "tqdm" do

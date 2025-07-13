@@ -1,8 +1,8 @@
 class Avisynthplus < Formula
   desc "AviSynth headers for applications with improvements"
   homepage "https://github.com/AviSynth/AviSynthPlus/"
-  url "https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.3.tar.gz"
-  sha256 "b847705af6f16fa26664d06e0fea2bda14a7f6aac8249a9c37e4106ecb8fd44c"
+  url "https://github.com/AviSynth/AviSynthPlus/archive/refs/tags/v3.7.5.tar.gz"
+  sha256 "2533fafe5b5a8eb9f14d84d89541252a5efd0839ef62b8ae98f40b9f34b3f3d5"
   head "https://github.com/AviSynth/AviSynthPlus.git", branch: "main"
 
   depends_on "cmake" => :build

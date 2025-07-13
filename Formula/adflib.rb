@@ -2,9 +2,9 @@
 class Adflib < Formula
   desc "Free, portable and open implementation of the Amiga filesystem"
   homepage "https://github.com/lclevy/ADFlib/"
-  url "https://github.com/lclevy/ADFlib/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "4fab44c4887a5016e2a42ec6fa29b6c2c9e5f9adf63fd1652cc4091fb964d54c"
-  license "GPL"
+  url "https://github.com/lclevy/ADFlib/archive/refs/tags/v0.10.2.tar.gz"
+  sha256 "1181cda574fcc87ba6564d519ecf58f63fbc468e0bd408485471ffa2e9745c5c"
+  license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://github.com/lclevy/ADFlib", branch: "master"
 
   depends_on "autoconf" => :build

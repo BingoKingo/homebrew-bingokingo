@@ -20,11 +20,6 @@ class Bbdown < Formula
     sha256 "ec233b7d8d40b1cc4447dac05be343f53a757dc605743a8808abaa8e97e5d10e"
   end
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   def install
     bin.install "BBDown" => "bbdown"
   end

@@ -15,10 +15,6 @@ class Hubfs < Formula
     sha256 "d2b7360576f094db73a3578d2a65d9500ade2c1d94b81026123ba6dca9aa683a"
   end
 
-  livecheck do
-    url :url
-  end
-
   def install
     bin.install "hubfs"
   end

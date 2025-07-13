@@ -2,8 +2,8 @@ class GitFame < Formula
   include Language::Python::Virtualenv
   desc "Pretty-print git repository collaborators sorted by contributions"
   homepage "https://github.com/casperdcl/git-fame/"
-  url "https://files.pythonhosted.org/packages/62/3e/6917394fb60a90847d6686ae18dc76fff6e8f98ea501e2768dcbd4d1d8ed/git_fame-2.0.2.tar.gz"
-  sha256 "be72b64af451d887099339848fe310e686f2bd472bbde7e4fc338825c364bf2d"
+  url "https://files.pythonhosted.org/packages/03/0b/12707bb1de3664a9004c35c6c6f6abc73c70fc19a1b6ac78450853a376fd/git_fame-3.1.0.tar.gz"
+  sha256 "7751f38b004f2faf099fca80754b77b0e79f9f295bd502f687d17fc02dd248f4"
   license "MPL-2.0"
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
@@ -12,8 +12,8 @@ class GitFame < Formula
   depends_on "python@3.13"
 
   resource "argopt" do
-    url "https://files.pythonhosted.org/packages/88/1e/4dd20f0ad39f81dd815b6fa4fea53be370d2ca0eeef9f8dc8e05b81c4284/argopt-0.8.2.tar.gz"
-    sha256 "fabdb99043a82a320e0c257719f59a677404640dce97b079d2dac9b6b581aeec"
+    url "https://files.pythonhosted.org/packages/a3/8c/f1dbbb7ca1b6bdfebd8b3ae1d44f099c5678a1592f1562547037e76330d4/argopt-0.9.1.tar.gz"
+    sha256 "29780679f4ff620ffbc897c74415bf99a80fb61c26afdb10fe7aac887efb770e"
   end
 
   resource "tabulate" do

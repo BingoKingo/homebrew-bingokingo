@@ -1,31 +1,15 @@
 class SimpreadSync < Formula
   desc "简悦 · 同步助手 · 命令行 · 伪"
-  homepage "https://github.com/j1g5awi/simpread-sync/"
-  url "https://github.com/j1g5awi/simpread-sync/archive/v#{version}.tar.gz"
-  version "0.8.0"
+  homepage "https://github.com/j1g5awi/simpread-sync"
+  url "https://github.com/j1g5awi/simpread-sync/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "b999ce10914bb4de32dec197a0ea68b77d5daa130abfc85187fe4b52343e49f9"
   license "MIT"
+  head "https://github.com/j1g5awi/simpread-sync.git", branch: "master"
 
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_darwin_arm64.tar.gz"
-      sha256 "00d08a59a25bf52e48ac9defa03c75f470665b858fb6d4db003ca2a7ec285434"
-    elsif Hardware::CPU.intel?
-      url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_darwin_amd64.tar.gz"
-      sha256 "689e50f312675e16b6738293092291df6d9da1e89d2b321a5aa4efda8dc4fcc4"
-    end
-  elsif OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/j1g5awi/simpread-sync/releases/download/v#{version}/simpread-sync_linux_amd64.tar.gz"
-    sha256 "643d69fe695f21064698f46f62c26e0d90f5ed72fed4634dab1ef1a545107660"
-  end
-
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
+  depends_on "go" => :build
 
   def install
-    prefix.install Dir["*"]
-    bin.install prefix/"simpread-sync"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   def post_install

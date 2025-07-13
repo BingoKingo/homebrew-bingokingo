@@ -19,11 +19,6 @@ class Alist < Formula
     sha256 "200b5d2d1f315271ab2e980fd3a40b25b1246e11412db0cb5606726e9e6c265b"
   end
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   def install
     bin.install "alist"
   end

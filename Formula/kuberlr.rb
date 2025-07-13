@@ -21,11 +21,6 @@ class Kuberlr < Formula
     sha256 "17beba3b30a1a518bdc567688e7040cea419365ab00f09fbfa09b2b335988068"
   end
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   def install
     prefix.install Dir["kuberlr_#{version}_darwin_arm64/*"]
     bin.install "kuberlr"

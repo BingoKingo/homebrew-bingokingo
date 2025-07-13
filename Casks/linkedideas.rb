@@ -8,11 +8,6 @@ cask "linkedideas" do
   desc "Treat ideas as links of concepts"
   homepage "https://fespinoza.github.io/LinkedIdeas/"
 
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
-
   app "LinkedIdeas.app"
 
   zap trash: [

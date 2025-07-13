@@ -2,11 +2,13 @@ class Pyimg4 < Formula
   include Language::Python::Virtualenv
   desc "Tool for parsing Apple's Image4 format"
   homepage "https://github.com/m1stadev/PyIMG4/"
-  url "https://files.pythonhosted.org/packages/de/4e/92d5b9c1b95d042c58cebd429eaa8fcd19c09c6e3126f759a9203698419d/pyimg4-0.8.6.tar.gz"
-  sha256 "7609940e023f395cbe8f39ffefb053d6168a001cad320627e641bf247c709d22"
+  url "https://files.pythonhosted.org/packages/3c/5c/69bad79b4e9d7be46063e9ea15e82c79ae0dec90811501453003588aab62/pyimg4-0.8.8.tar.gz"
+  sha256 "aafebb2bc7922f6cf551b1b9e982d2da039cbeb08f0a2e2048a1818d51c76da1"
   license "MIT"
   head "https://github.com/m1stadev/PyIMG4.git", branch: "master"
 
+  depends_on "maturin"
+  depends_on "numpy"
   depends_on "python@3.13"
 
   resource "apple-compress" do
@@ -15,13 +17,13 @@ class Pyimg4 < Formula
   end
 
   resource "asn1" do
-    url "https://files.pythonhosted.org/packages/33/4e/75335477a1fcd4f2d86d672afebaadee25e672c4f1f319434184f3d3f556/asn1-2.7.1.tar.gz"
-    sha256 "c00e37a58d25912dc7c7536770490644ab8e0305f5adc28cf7eebee32e2703c2"
+    url "https://files.pythonhosted.org/packages/00/35/9d0709bf09340ddb1796dfc52d1b1ef2f18e690b5cbf32b7be02c702532c/asn1-2.8.0.tar.gz"
+    sha256 "adf77ddc2707cf420c0eae3b99ee30e913afcf0936467d42669820ce6b7d150a"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
+    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
   end
 
   resource "enum-compat" do
@@ -40,13 +42,13 @@ class Pyimg4 < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/13/52/13b9db4a913eee948152a079fe58d035bd3d1a519584155da8e786f767e6/pycryptodome-3.21.0.tar.gz"
-    sha256 "f7787e0d469bdae763b876174cf2e6c0f7be79808af26b1da96f1a64bcf47297"
+    url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
+    sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
   end
 
   resource "pylzss" do
-    url "https://files.pythonhosted.org/packages/dc/6c/116032bd82d6a90bbaf449cd8cdf4e59038f8576193c82e17197b408f934/pylzss-0.3.8.tar.gz"
-    sha256 "ff87bd93265fa2cda5532554d7df19d0e49c86850503407c2e2603eda0d01d48"
+    url "https://files.pythonhosted.org/packages/7d/dc/9ae75ede398b7adf538f2d1dca0f96c645c4e96789f8039340a0ed6a8a8f/pylzss-0.3.4.tar.gz"
+    sha256 "16818631742488e53a34fda0d402d80edb2b812e11877801e21a9e5ce9b9db1c"
   end
 
   def install

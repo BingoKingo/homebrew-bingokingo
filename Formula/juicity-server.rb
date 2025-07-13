@@ -1,8 +1,8 @@
 class JuicityServer < Formula
   desc "Server app of Juicity QUIC-based proxy protocol implementation"
   homepage "https://github.com/juicity/juicity/"
-  url "https://github.com/juicity/juicity/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "dab433672ef7bb209443f5f668d1cb6f704ab9ac479013c7e9416b516340ca41"
+  url "https://github.com/juicity/juicity/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "bc3cab6a52546a17a2f6387fc6d500543e907a2f8573c3e9fcea25903e62b782"
   license "AGPL-3.0-or-later"
   head "https://github.com/juicity/juicity.git", branch: "main"
 

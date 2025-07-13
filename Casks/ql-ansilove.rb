@@ -8,12 +8,5 @@ cask "ql-ansilove" do
   desc "Quick Look plugin for text-mode art"
   homepage "https://github.com/ansilove/QLAnsilove"
 
-  # This cask uses an unstable version and this `livecheck` block is only used
-  # to prevent livecheck from skipping pre-release versions by default. This
-  # should be removed/updated if the cask is updated to a stable version.
-  livecheck do
-    url :url
-  end
-
   qlplugin "QLAnsilove.qlgenerator"
 end
