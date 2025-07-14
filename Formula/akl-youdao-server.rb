@@ -31,6 +31,6 @@ class AklYoudaoServer < Formula
   end
 
   test do
-    system opt_bin/"akl-youdao"
+    system bin/"akl-youdao"
   end
 end

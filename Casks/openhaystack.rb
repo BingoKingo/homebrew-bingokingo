@@ -12,6 +12,13 @@ cask "openhaystack" do
 
   app "OpenHaystack.app"
 
+    postflight do
+  system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/OpenHaystack.app"
+                   ]
+  end
+
   zap trash: [
     "~/Library/Application Support/de.tu-darmstadt.seemoo.OpenHaystack",
     "~/Library/Caches/de.tu-darmstadt.seemoo.OpenHaystack",

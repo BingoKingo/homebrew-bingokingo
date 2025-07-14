@@ -35,6 +35,6 @@ class NM3u8dlRe < Formula
   end
 
   test do
-    system opt_bin/"N_m3u8DL-RE", "--version"
+    system bin/"N_m3u8DL-RE", "--version"
   end
 end

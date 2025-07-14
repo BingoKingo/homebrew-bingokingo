@@ -13,6 +13,13 @@ cask "aegisub-arch1t3cht" do
 
   app "Aegisub.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/Aegisub.app"
+                   ]
+  end
+
   uninstall quit: "com.aegisub.aegisub"
 
   zap trash: [

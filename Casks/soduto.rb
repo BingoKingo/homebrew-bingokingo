@@ -13,6 +13,13 @@ cask "soduto" do
 
   app "Soduto.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/Soduto.app"
+                   ]
+  end
+
   zap trash: [
     "~/Library/Containers/com.soduto.Soduto",
     "~/Library/Containers/com.soduto.SodutoBrowser",

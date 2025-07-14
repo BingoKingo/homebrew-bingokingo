@@ -11,6 +11,13 @@ cask "sideloadly" do
 
   app "Sideloadly.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/Sideloadly.app"
+                   ]
+  end
+
   uninstall quit: "io.sideloadly.sideloadly"
 
   zap trash: [

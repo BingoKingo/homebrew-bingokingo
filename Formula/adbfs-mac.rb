@@ -42,6 +42,6 @@ class AdbfsMac < Formula
   end
 
   test do
-    system opt_bin/"adbfs", "-V"
+    system bin/"adbfs", "-V"
   end
 end

@@ -23,6 +23,6 @@ class Adflib < Formula
   end
 
   test do
-    system opt_bin/"unadf"
+    system bin/"unadf"
   end
 end

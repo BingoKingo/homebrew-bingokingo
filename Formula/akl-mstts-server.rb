@@ -32,6 +32,6 @@ class AklMsttsServer < Formula
   end
 
   test do
-    system opt_bin/"akl-mstts"
+    system bin/"akl-mstts"
   end
 end

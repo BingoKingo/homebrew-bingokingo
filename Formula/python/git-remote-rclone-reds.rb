@@ -16,6 +16,6 @@ class GitRemoteRcloneReds < Formula
   end
 
   test do
-    system opt_bin/"git-remote-rclone", "-h"
+    system bin/"git-remote-rclone", "-h"
   end
 end

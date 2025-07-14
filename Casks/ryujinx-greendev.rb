@@ -11,6 +11,13 @@ cask "ryujinx-greendev" do
 
   app "ryujinx.app", target: "Ryujinx.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/Ryujinx.app"
+                   ]
+  end
+
   zap trash: [
     "~/Library/Application Support/Ryujinx",
     "~/Library/Logs/Ryujinx",

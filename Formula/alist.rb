@@ -50,7 +50,7 @@ class Alist < Formula
   end
 
   test do
-    system opt_bin/"alist", "version"
-    system opt_bin/"alist", "admin"
+    system bin/"alist", "version"
+    system bin/"alist", "admin"
   end
 end

@@ -14,6 +14,13 @@ cask "pixel-perfect" do
 
   app "Pixel Perfect/Pixel Perfect.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/Pixel Perfect.app"
+                   ]
+  end
+
   zap trash: [
     "~/Library/Caches/com.mac.PixelPerfect",
     "~/Library/HTTPStorages/com.mac.PixelPerfect",

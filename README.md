@@ -17,10 +17,15 @@ Add or install from this tap means that you have checked content security and ag
 ## What is renamed/removed from this tap?
 
 **Cask** `ryujinx-mirror` was removed.
+
 **Cask** `ryujinx-nx` was removed.
+
 **Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
 
+**Formula** `jetifier` was changed to **Cask** `jetifier`.
+
 **Formula** `miniforge` was removed.
+
 **Formula** `mambaforge` was removed.
 
 And more in [cask_renames.json](./cask_renames.json) and [tap_migrations.json](./tap_migrations.json).

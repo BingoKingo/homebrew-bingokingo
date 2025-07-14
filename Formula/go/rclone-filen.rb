@@ -5,7 +5,6 @@ class RcloneFilen < Formula
   head "https://github.com/JupiterPi/filen-rclone.git", branch: "master"
 
   depends_on "go" => :build
-  depends_on :macos
 
   patch :DATA
 

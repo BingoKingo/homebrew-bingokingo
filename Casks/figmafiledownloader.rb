@@ -1,3 +1,4 @@
+# [O] Archived.
 cask "figmafiledownloader" do
   version "1.0.54"
   sha256 "5790c8ceb15d865de912689d7d482121cba3e893b133eb72eb7b7b68bf4ae8b1"

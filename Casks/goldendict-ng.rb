@@ -38,6 +38,13 @@ cask "goldendict-ng" do
     EOS
   end
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/GoldenDict.app"
+                   ]
+  end
+
   zap trash: [
     "~/.goldendict",
     "~/Library/Caches/GoldenDict-ng",

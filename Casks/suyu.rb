@@ -12,6 +12,13 @@ cask "suyu" do
 
   app "suyu.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/suyu.app"
+                   ]
+  end
+
   zap trash: [
     "~/.config/suyu",
     "~/.local/suyu",

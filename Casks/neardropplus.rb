@@ -11,6 +11,13 @@ cask "neardropplus" do
 
   app "NearDropPlus.app"
 
+  postflight do
+    system_command "xattr",
+                   args: [
+                     "-c", "#{appdir}/NearDropPlus.app"
+                   ]
+  end
+
   uninstall quit: "com.rayadams.neardropadv"
 
   zap trash: [

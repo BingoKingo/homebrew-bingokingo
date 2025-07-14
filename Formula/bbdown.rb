@@ -25,6 +25,6 @@ class Bbdown < Formula
   end
 
   test do
-    system opt_bin/"bbdown", "--version"
+    system bin/"bbdown", "--version"
   end
 end
