@@ -10,6 +10,7 @@ class MermaidFilter < Formula
 
   def install
     system "npm", "i", *std_npm_args
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do

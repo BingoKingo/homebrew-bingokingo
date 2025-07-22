@@ -14,7 +14,7 @@ class TtsServerGo < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cli"
   end
 
   service do

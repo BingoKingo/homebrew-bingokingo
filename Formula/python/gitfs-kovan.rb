@@ -12,7 +12,7 @@ class GitfsKovan < Formula
   depends_on :macos
   depends_on "pycparser"
   depends_on "pygit2"
-  depends_on "python@3.11"
+  depends_on "python@3.13"
   uses_from_macos "libffi"
 
   resource "atomiclong" do

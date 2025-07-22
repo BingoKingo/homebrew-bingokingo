@@ -1,4 +1,4 @@
-# BingoKingo's Homebrew Tap
+# BingoKingo's Homebrew Tap (Experimental)
 
 Unified management of common used cli binary in Homebrew.
 
@@ -14,6 +14,8 @@ Or `brew tap bingokingo/bingokingo` and then `brew install <name>`.
 
 Add or install from this tap means that you have checked content security and agreed to get them on your macOS/Linux devices.
 
+This repository may be rebased. If you encounter any issues, please try force retapping this tap or `brew update-reset`.
+
 ## What is renamed/removed from this tap?
 
 **Cask** `ryujinx-mirror` was removed.
@@ -22,11 +24,13 @@ Add or install from this tap means that you have checked content security and ag
 
 **Cask** `saber` is now on [App Store](https://apps.apple.com/app/saber/id1671523739).
 
+**Formula** `dockerc` was removed.
+
 **Formula** `jetifier` was changed to **Cask** `jetifier`.
 
-**Formula** `miniforge` was removed.
-
 **Formula** `mambaforge` was removed.
+
+**Formula** `miniforge` was removed.
 
 And more in [cask_renames.json](./cask_renames.json) and [tap_migrations.json](./tap_migrations.json).
 

@@ -1,24 +1,18 @@
-class PipSearch < Formula
+class Syncedlyrics < Formula
   include Language::Python::Virtualenv
-  desc "PyPi search"
-  homepage "https://github.com/victorgarric/pip_search/"
-  url "https://files.pythonhosted.org/packages/74/fb/1eb3c6bb460cf3dd6cac10734aeadb3594e472bcf9789f96ba9d30c52969/pip_search-0.0.14.tar.gz"
-  sha256 "2d20b923162d01a0d151e172eaa42bc7465d11d2db8eb87c756753bc1a854436"
-  head "https://github.com/victorgarric/pip_search.git", branch: "master"
+  desc "Get an LRC format (synchronized) lyrics for your music"
+  homepage "https://github.com/moehmeni/syncedlyrics/"
+  url "https://files.pythonhosted.org/packages/f1/7d/8b1d838a4c1a9fd9ed2dfd5296592e1090f935748cb3b4996e4efe531d5d/syncedlyrics-1.0.1.tar.gz"
+  sha256 "3db32469ed5a6dd5d96bb4eb16df44ba749121529b462efe0eb8b3df790f66b0"
+  license "MIT"
+  head "https://github.com/moehmeni/syncedlyrics", branch: "main"
 
   depends_on "certifi"
-  depends_on "pygments"
   depends_on "python@3.13"
-  # depends_on "rich-cli"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/d8/e4/0c4c39e18fd76d6a628d4dd8da40543d136ce2d1752bd6eeeab0791f4d6b/beautifulsoup4-4.13.4.tar.gz"
     sha256 "dbb3c4e1ceae6aefebdaf2423247260cd062430a410e38c66f2baa50a8437195"
-  end
-
-  resource "bs4" do
-    url "https://files.pythonhosted.org/packages/c9/aa/4acaf814ff901145da37332e05bb510452ebed97bc9602695059dd46ef39/bs4-0.0.2.tar.gz"
-    sha256 "a48685c58f50fe127722417bae83fe6badf500d54b55f7e39ffe43b798653925"
   end
 
   resource "certifi" do
@@ -36,29 +30,14 @@ class PipSearch < Formula
     sha256 "12f65c9b470abda6dc35cf8e63cc574b1c52b11df2c86030af0ac09b01b13ea9"
   end
 
-  resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
-  end
-
-  resource "mdurl" do
-    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
-    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
-  end
-
-  resource "pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+  resource "rapidfuzz" do
+    url "https://files.pythonhosted.org/packages/ed/f6/6895abc3a3d056b9698da3199b04c0e56226d530ae44a470edabf8b664f0/rapidfuzz-3.13.0.tar.gz"
+    sha256 "d2eaf3839e52cbcc0accbe9817a67b4b0fcf70aaeb229cfddc1c28061f9ce5d8"
   end
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
     sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
-  end
-
-  resource "rich" do
-    url "https://files.pythonhosted.org/packages/a1/53/830aa4c3066a8ab0ae9a9955976fb770fe9c6102117c8ec4ab3ea62d89e8/rich-14.0.0.tar.gz"
-    sha256 "82f1bc23a6a21ebca4ae0c45af9bdbc492ed20231dcb63f297d6d1021a9d5725"
   end
 
   resource "soupsieve" do
@@ -78,10 +57,9 @@ class PipSearch < Formula
 
   def install
     virtualenv_install_with_resources
-    bin.install_symlink "pip_search" => "pip-search"
   end
 
   test do
-    system bin/"pip_search", "-h"
+    system bin/"syncedlyrics", "-h"
   end
 end

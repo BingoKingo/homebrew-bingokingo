@@ -9,7 +9,7 @@ class Kuberlr < Formula
   depends_on "go" => :build
 
   def install
-      system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kuberlr"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/kuberlr"
   end
 
   def caveats

@@ -1,6 +1,6 @@
 class GpxCmdTools < Formula
   include Language::Python::Virtualenv
-  desc "Commandline tools for GPX"
+  desc "Command-line tools for GPX"
   homepage "https://github.com/tkrajina/gpx-cmd-tools/"
   url "https://files.pythonhosted.org/packages/8f/53/ed7b5dfe430f55c75bbe805baaf8f275e458cc5f3907f36084ac2aeb58fa/gpx-cmd-tools-0.0.1.tar.gz"
   sha256 "0ddc2f3c9b41e775ca09b9d5ee9b4411d48dcd13370d5d92ba2bb528979e6c9c"
@@ -18,7 +18,7 @@ class GpxCmdTools < Formula
     virtualenv_install_with_resources
   end
 
-   def caveats
+  def caveats
     <<~EOS
       `gpx-info` is not available.
     EOS
