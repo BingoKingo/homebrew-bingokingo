@@ -1,7 +1,7 @@
 class Bbdown < Formula
   desc "Bilibili Downloader CLI"
   homepage "https://github.com/nilaoda/BBDown/"
-  url "https://github.com/nilaoda/BBDown/archive/#{version}.tar.gz"
+  url "https://github.com/nilaoda/BBDown/archive/refs/heads/#{version}.tar.gz"
   version "1.6.3"
   license "MIT"
 

@@ -7,7 +7,7 @@ class Pykdebugparser < Formula
   license "MIT"
   head "https://github.com/matan1008/pykdebugparser.git", branch: "main"
 
-  # depends_on "pygments"
+  depends_on "pygments"
   depends_on "python@3.13"
 
   resource "click" do
@@ -35,6 +35,6 @@ class Pykdebugparser < Formula
   end
 
   test do
-    system "pykdebugparser", "--help"
+    system bin/"pykdebugparser", "--help"
   end
 end

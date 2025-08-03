@@ -9,6 +9,7 @@ class Autosubsync < Formula
 
   depends_on "cffi"
   depends_on "numpy"
+  depends_on "pycparser"
   depends_on "python@3.13"
 
   resource "cffi" do

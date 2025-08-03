@@ -1,8 +1,8 @@
 class AdbfsMac < Formula
   desc "Mount Android phones with adb rootlessly (require adb, macfuse)"
   homepage "https://github.com/spion/adbfs-rootless/"
+  license "BSD-3-Clause"
   head "https://github.com/spion/adbfs-rootless.git", branch: "master"
-  license "BSD"
 
   depends_on "pkg-config" => :build
   depends_on :macos

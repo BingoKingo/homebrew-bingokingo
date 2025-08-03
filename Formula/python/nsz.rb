@@ -16,8 +16,8 @@ class Nsz < Formula
   end
 
   resource "enlighten" do
-    url "https://files.pythonhosted.org/packages/75/b5/f73dc2c4c2990145a094dbecc561023a5230b28191f1a8b917f92fc1fb7c/enlighten-1.13.0.tar.gz"
-    sha256 "ee718daac6873c83fd3706bce77da472c776a51e0d6f5f86f7e61e27f9ad166a"
+    url "https://files.pythonhosted.org/packages/8d/87/50b1152a85e3dca202e9e28ba2594c03edce8b9e74187b3aef5b98e4b631/enlighten-1.14.1.tar.gz"
+    sha256 "85c35412a9a4f3886b3337d41f813441fab9a30d9f5b5f0c015bd078a4411473"
   end
 
   resource "kivy" do
@@ -33,6 +33,11 @@ class Nsz < Formula
   resource "pycryptodome" do
     url "https://files.pythonhosted.org/packages/8e/a6/8452177684d5e906854776276ddd34eca30d1b1e15aa1ee9cefc289a33f5/pycryptodome-3.23.0.tar.gz"
     sha256 "447700a657182d60338bab09fdb27518f8856aecd80ae4c6bdddb67ff5da44ef"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "wcwidth" do

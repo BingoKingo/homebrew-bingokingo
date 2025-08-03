@@ -5,7 +5,7 @@ class Syncedlyrics < Formula
   url "https://files.pythonhosted.org/packages/f1/7d/8b1d838a4c1a9fd9ed2dfd5296592e1090f935748cb3b4996e4efe531d5d/syncedlyrics-1.0.1.tar.gz"
   sha256 "3db32469ed5a6dd5d96bb4eb16df44ba749121529b462efe0eb8b3df790f66b0"
   license "MIT"
-  head "https://github.com/moehmeni/syncedlyrics", branch: "main"
+  head "https://github.com/moehmeni/syncedlyrics.git", branch: "main"
 
   depends_on "certifi"
   depends_on "python@3.13"

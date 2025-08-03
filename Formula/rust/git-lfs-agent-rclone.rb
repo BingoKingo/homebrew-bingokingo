@@ -7,8 +7,8 @@ class GitLfsAgentRclone < Formula
   license "WTFPL"
   head "https://github.com/yaito6502/git-lfs-agent-rclone.git", branch: "main"
 
-  depends_on "git"
   depends_on "rust" => :build
+  depends_on "git"
 
   def install
     system "cargo", "install", *std_cargo_args

@@ -1,7 +1,7 @@
 class Alist < Formula
   desc "File list program that supports multiple storage powered by Gin and Solidjs"
   homepage "https://alist.nn.ci/"
-  url "https://github.com/alist-org/alist/archive/v#{version}.tar.gz",
+  url "https://github.com/alist-org/alist/archive/refs/heads/v#{version}.tar.gz",
       verified: "github.com/alist-org/alist/"
   version "3.41.0"
   license "AGPL-3.0-only"

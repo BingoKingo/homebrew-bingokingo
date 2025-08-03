@@ -24,6 +24,6 @@ class GpxCmdTools < Formula
     EOS
   end
   test do
-    system "gpxsimplify", "-h"
+    system bin/"gpxsimplify", "-h"
   end
 end

@@ -2,7 +2,7 @@
 class Hubfs < Formula
   desc "File system for GitHub and GitLab"
   homepage "https://github.com/winfsp/hubfs/"
-  url "https://github.com/winfsp/hubfs/archive/v#{version}.tar.gz"
+  url "https://github.com/winfsp/hubfs/archive/refs/heads/v#{version}.tar.gz"
   version "1.0B1"
   sha256 "c59d523f394428d04e3dd32821ce7a05043175dec10d3e6e25cbcee227409398"
   license "AGPL-3.0-only"

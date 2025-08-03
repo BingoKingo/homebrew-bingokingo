@@ -2,7 +2,7 @@
 class AklMsttsServer < Formula
   desc "微软语音tts免费免秘钥bob插件后台服务"
   homepage "https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/"
-  url "https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/archive/v#{version}.tar.gz"
+  url "https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/archive/refs/heads/v#{version}.tar.gz"
   version "0.0.9"
 
   if OS.mac?

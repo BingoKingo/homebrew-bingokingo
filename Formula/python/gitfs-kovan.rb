@@ -60,7 +60,7 @@ class GitfsKovan < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.11"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version Formula["python@3.13"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     (testpath/"test.py").write <<~EOS
@@ -69,8 +69,8 @@ class GitfsKovan < Formula
       pygit2.init_repository('testing/.git', True)
     EOS
 
-    system Formula["python@3.11"].opt_bin/"python3", "test.py"
-    assert_predicate testpath/"testing/.git/config", :exist?
+    system Formula["python@3.13"].opt_bin/"python3", "test.py"
+    assert_path_exists testpath/"testing/.git/config"
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew-core.git"
       assert_match "homebrew", shell_output("git remote")

@@ -8,7 +8,7 @@ class HomebrewPypiPoet < Formula
   license "MIT"
   head "https://github.com/tdsmith/homebrew-pypi-poet.git", branch: "master"
 
-  depends_on "python-setuptools"
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13"
 
   resource "jinja2" do

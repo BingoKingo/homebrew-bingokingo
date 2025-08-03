@@ -3,7 +3,7 @@ class UglifyJs < Formula
   homepage "https://github.com/mishoo/UglifyJS/"
   url "https://registry.npmjs.org/uglify-js/-/uglify-js-3.19.3.tgz"
   sha256 "744d9f31fe424514dd44728daa3e562a703fca53b6627ddeb655f77c2aa88ab4"
-  license "BSD"
+  license "BSD-2-Clause"
   head "https://github.com/mishoo/UglifyJS.git", branch: "master"
 
   depends_on "node"

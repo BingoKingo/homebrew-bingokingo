@@ -3,6 +3,7 @@ cask "font-pet-me" do
   sha256 "5a9aea0fd7bdf52106efdf9ef428fc3c1c48326cc54a2b9ce1ae35174857783b"
 
   url "https://www.ffonts.net/Pet-Me-64-2Y.font.zip"
+  # url "https://web.archive.org/web/20250731144122/https://www.ffonts.net/Pet-Me-64-2Y.font.zip"
   name "Pet Me"
   homepage "https://www.ffonts.net/Pet-Me-64-2Y.font"
 

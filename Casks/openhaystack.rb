@@ -1,6 +1,6 @@
 cask "openhaystack" do
-  version "0.5.2"
-  sha256 "c1e267f4aab1a0bf118ea421d547c3da0729555a1a89ed388c89a7d11a4a5ac5"
+  version "0.5.3"
+  sha256 "593de581b0daf2784901237528c312006fb3e23b1deddf09457c6b7708e2e010"
 
   url "https://github.com/seemoo-lab/openhaystack/releases/download/v#{version}/OpenHaystack.zip"
   name "OpenHaystack"
@@ -12,8 +12,8 @@ cask "openhaystack" do
 
   app "OpenHaystack.app"
 
-    postflight do
-  system_command "xattr",
+  postflight do
+    system_command "xattr",
                    args: [
                      "-c", "#{appdir}/OpenHaystack.app"
                    ]

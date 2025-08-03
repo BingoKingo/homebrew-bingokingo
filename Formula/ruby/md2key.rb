@@ -19,6 +19,6 @@ class Md2key < Formula
   end
 
   test do
-    system "md2key", "help"
+    system bin/"md2key", "help"
   end
 end

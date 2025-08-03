@@ -2,13 +2,13 @@ class GitFame < Formula
   include Language::Python::Virtualenv
   desc "Pretty-print git repository collaborators sorted by contributions"
   homepage "https://github.com/casperdcl/git-fame/"
-  url "https://files.pythonhosted.org/packages/03/0b/12707bb1de3664a9004c35c6c6f6abc73c70fc19a1b6ac78450853a376fd/git_fame-3.1.0.tar.gz"
-  sha256 "7751f38b004f2faf099fca80754b77b0e79f9f295bd502f687d17fc02dd248f4"
+  url "https://files.pythonhosted.org/packages/25/ab/ad71516d849d1b6160834b15c00590b9e83ba9f3b1f13c2f2ba43a86a81f/git_fame-3.1.1.tar.gz"
+  sha256 "b35500117943a138265cd826ab07c50aa65f3c7bb9d54ced12c5e2932ce0ad22"
   license "MPL-2.0"
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
   depends_on "git"
-  # depends_on "python-tabulate"
+  depends_on "python-tabulate"
   depends_on "python@3.13"
 
   resource "argopt" do

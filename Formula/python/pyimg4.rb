@@ -7,7 +7,7 @@ class Pyimg4 < Formula
   license "MIT"
   head "https://github.com/m1stadev/PyIMG4.git", branch: "master"
 
-  depends_on "maturin"
+  depends_on "maturin" => :build
   depends_on "numpy"
   depends_on "python@3.13"
 
@@ -39,6 +39,11 @@ class Pyimg4 < Formula
   resource "lzfse" do
     url "https://files.pythonhosted.org/packages/11/c6/a57f4134fa1afb7e658c58a2401838c811445a9fdc657008b4850d4e47d7/lzfse-0.4.2.tar.gz"
     sha256 "c6895f8ca13eedd2e18b6e0c987c9468115030898409bc44a7aa8d4f4a42ceab"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/37/7d/3fec4199c5ffb892bed55cff901e4f39a58c81df9c44c280499e92cad264/numpy-2.3.2.tar.gz"
+    sha256 "e0486a11ec30cdecb53f184d496d1c6a20786c81e55e41640270130056f8ee48"
   end
 
   resource "pycryptodome" do

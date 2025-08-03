@@ -2,7 +2,7 @@
 class AklYoudaoServer < Formula
   desc "有道翻译免秘钥免费查单词查句子服务启动方式"
   homepage "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/"
-  url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/archive/v_#{version}.tar.gz"
+  url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/archive/refs/heads/v_#{version}.tar.gz"
   version "0.0.8"
 
   if OS.mac?

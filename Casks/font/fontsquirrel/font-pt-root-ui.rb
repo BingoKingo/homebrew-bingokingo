@@ -3,6 +3,7 @@ cask "font-pt-root-ui" do
   sha256 "61a637e06def6c96de6e9d0501aaaa3935c2dcdb3930cafb0d99a245de65aca5"
 
   url "https://www.fontsquirrel.com/fonts/download/pt-root-ui"
+  # url "https://web.archive.org/web/20230512200150/https://www.fontsquirrel.com/fonts/download/pt-root-ui"
   name "PT ROOT UI"
   homepage "https://www.fontsquirrel.com/fonts/pt-root-ui"
 

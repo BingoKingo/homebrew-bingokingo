@@ -8,6 +8,7 @@ class Autosubset < Formula
   head "https://gitlab.com/MarcelWaldvogel/autosubset.git", branch: "main"
 
   depends_on "brotli"
+  depends_on "fonttools"
   depends_on "python@3.13"
 
   resource "brotli" do

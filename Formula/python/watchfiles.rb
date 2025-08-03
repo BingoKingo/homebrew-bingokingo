@@ -7,7 +7,7 @@ class Watchfiles < Formula
   license "MIT"
   head "https://github.com/samuelcolvin/watchfiles.git", branch: "main"
 
-  depends_on "maturin"
+  depends_on "maturin" => :build
   depends_on "python@3.13"
 
   resource "anyio" do

@@ -4,7 +4,7 @@ class RubyLl < Formula
   url "https://rubygems.org/downloads/ruby-ll-2.1.3.gem"
   sha256 "312402d06ffe2a116c18d3559c2e3d3f05a7e1147cd0c837a82a156b26cd917a"
   license "MPL-2.0"
-  head "https://github.com/yorickpeterse/ruby-ll", branch: "main"
+  head "https://github.com/yorickpeterse/ruby-ll.git", branch: "main"
 
   depends_on "ruby"
   # uses_from_macos "ruby"

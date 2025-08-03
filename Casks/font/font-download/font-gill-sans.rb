@@ -3,6 +3,7 @@ cask "font-gill-sans" do
   sha256 "76fb062a05179b7ffe9592f06aca521dc7874079abc7b50341faf63b6b4bca71"
 
   url "https://font.download/dl/font/gill-sans-2.zip"
+  # url "https://web.archive.org/web/20250530222514/https://font.download/dl/font/gill-sans-2.zip"
   name "Gill Sans"
   homepage "https://font.download/font/gill-sans-2"
 

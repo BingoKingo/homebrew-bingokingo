@@ -9,7 +9,7 @@ class PipSearch < Formula
   depends_on "certifi"
   depends_on "pygments"
   depends_on "python@3.13"
-  # depends_on "rich-cli"
+  depends_on "rich-cli"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/d8/e4/0c4c39e18fd76d6a628d4dd8da40543d136ce2d1752bd6eeeab0791f4d6b/beautifulsoup4-4.13.4.tar.gz"

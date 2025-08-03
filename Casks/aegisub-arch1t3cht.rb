@@ -12,6 +12,16 @@ cask "aegisub-arch1t3cht" do
   container nested: "Aegisub-#{base_version}.dmg"
 
   app "Aegisub.app"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/aegisub.wrapper.sh"
+  binary shimscript, target: "aegisub"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/bash
+      exec '#{appdir}/Aegisub.app/Contents/MacOS/aegisub' "$@"
+    EOS
+  end
 
   postflight do
     system_command "xattr",

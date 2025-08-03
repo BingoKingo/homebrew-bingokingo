@@ -3,8 +3,8 @@ class RcloneFilen < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/JupiterPi/filen-rclone/"
   head "https://github.com/JupiterPi/filen-rclone.git", branch: "master"
-
   depends_on "go" => :build
+  depends_on :macos
 
   patch :DATA
 

@@ -18,6 +18,10 @@ This repository may be rebased. If you encounter any issues, please try force re
 
 ## What is renamed/removed from this tap?
 
+**Cask** `figmafiledownloader` was removed.
+
+**Cask** `font-microsoft-aptos` was removed.
+
 **Cask** `ryujinx-mirror` was removed.
 
 **Cask** `ryujinx-nx` was removed.
@@ -26,11 +30,15 @@ This repository may be rebased. If you encounter any issues, please try force re
 
 **Formula** `dockerc` was removed.
 
+**Formula** `ipsw-parser` was removed.
+
 **Formula** `jetifier` was changed to **Cask** `jetifier`.
 
 **Formula** `mambaforge` was removed.
 
 **Formula** `miniforge` was removed.
+
+**Formula** `sidejitserver` was removed.
 
 And more in [cask_renames.json](./cask_renames.json) and [tap_migrations.json](./tap_migrations.json).
 

@@ -7,11 +7,11 @@ class Ffsubsync < Formula
   license "MIT"
   head "https://github.com/smacke/ffsubsync.git", branch: "master"
 
+  depends_on "python-setuptools" => :build
   depends_on "chardet"
   depends_on "ffmpeg"
   depends_on "numpy"
   depends_on "pygments"
-  depends_on "python-setuptools"
   depends_on "python@3.13"
   depends_on "rich-cli"
   depends_on "six"
@@ -79,6 +79,11 @@ class Ffsubsync < Formula
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
     sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
+    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
   resource "srt" do

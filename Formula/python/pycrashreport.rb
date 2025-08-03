@@ -7,7 +7,7 @@ class Pycrashreport < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pycrashreport.git", branch: "master"
 
-  depends_on "python-setuptools"
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13"
 
   resource "cached-property" do

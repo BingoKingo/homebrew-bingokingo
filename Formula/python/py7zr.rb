@@ -4,7 +4,7 @@ class Py7zr < Formula
   homepage "https://py7zr.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/97/62/d6f18967875aa60182198a0dd287d3a50d8aea1d844239ea00c016f7be88/py7zr-1.0.0.tar.gz"
   sha256 "f6bfee81637c9032f6a9f0eb045a4bfc7a7ff4138becfc42d7cb89b54ffbfef1"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/miurahr/py7zr.git", branch: "master"
 
   depends_on "brotli"

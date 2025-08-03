@@ -7,8 +7,8 @@ class FfmpegProgressYield < Formula
   license "MIT"
   head "https://github.com/slhck/ffmpeg-progress-yield.git", branch: "master"
 
+  depends_on "python-setuptools" => :build
   depends_on "ffmpeg"
-  depends_on "python-setuptools"
   depends_on "python@3.13"
 
   def install

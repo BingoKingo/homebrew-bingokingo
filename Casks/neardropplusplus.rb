@@ -21,9 +21,9 @@ cask "neardropplusplus" do
   uninstall quit: "me.jiahou.NearDropPlusPlus"
 
   zap trash: [
-  "~/Library/Application Scripts/me.jiahou.NearDropPlusPlus",
-  "~/Library/Application Scripts/me.jiahou.NearDropPlusPlus.ShareExtension",
-  "~/Library/Containers/me.jiahou.NearDropPlusPlus",
-  "~/Library/Containers/me.jiahou.NearDropPlusPlus.ShareExtension",
+    "~/Library/Application Scripts/me.jiahou.NearDropPlusPlus",
+    "~/Library/Application Scripts/me.jiahou.NearDropPlusPlus.ShareExtension",
+    "~/Library/Containers/me.jiahou.NearDropPlusPlus",
+    "~/Library/Containers/me.jiahou.NearDropPlusPlus.ShareExtension",
   ]
 end

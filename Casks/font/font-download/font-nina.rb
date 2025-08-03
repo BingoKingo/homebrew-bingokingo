@@ -3,6 +3,7 @@ cask "font-nina" do
   sha256 "e91018146170aa61b8440881d59c0686cb9a3a7a1bad817a790821489943bfea"
 
   url "https://font.download/dl/font/nina.zip"
+  # url "https://web.archive.org/web/20250731144516/https://font.download/dl/font/nina.zip"
   name "Nina"
   homepage "https://font.download/font/nina"
 

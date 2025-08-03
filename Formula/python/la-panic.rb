@@ -7,7 +7,7 @@ class LaPanic < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/yanivhasbanidev/la_panic.git", branch: "main"
 
-  depends_on "python-setuptools"
+  depends_on "python-setuptools" => :build
   depends_on "python@3.13"
 
   resource "cached-property" do

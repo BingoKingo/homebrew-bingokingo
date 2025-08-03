@@ -2,14 +2,15 @@ class YtdlSub < Formula
   include Language::Python::Virtualenv
   desc "Automate downloading and metadata generation with Yt-dlp"
   homepage "https://ytdl-sub.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/46/94/c59c094d5234e713024812370d62bbf6e9e0c40fc31858dc0d56c5bf443a/ytdl_sub-2025.7.4.tar.gz"
-  sha256 "258e9a7398ef35899e80a8d35e79a29d8fe380052e255cd9e574bd189b8fee05"
+  url "https://files.pythonhosted.org/packages/2a/0d/a5b13c9f0b57f20e25257ac5c15530d25c9fbb5a002c8a51be79b10f513f/ytdl_sub-2025.7.24.tar.gz"
+  sha256 "9389e2327db61a3a5392926b047107a1691d9f56f258fccbdd020e7fdbc432ce"
   license "GPL-3.0-or-later"
   head "https://github.com/jmbannon/ytdl-sub.git", branch: "master"
 
+  depends_on "brotli"
   depends_on "certifi"
+  depends_on "libyaml"
   depends_on "python@3.13"
-  depends_on "pyyaml"
   depends_on "yt-dlp"
 
   resource "brotli" do
@@ -62,6 +63,11 @@ class YtdlSub < Formula
     sha256 "71909758f010c82bc99b0abf4ea12012c98962fbf0583c2164f8b84533c2e4da"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
     sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
@@ -78,8 +84,8 @@ class YtdlSub < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/23/9c/ff64c2fed7909f43a9a0aedb7395c65404e71c2439198764685a6e3b3059/yt_dlp-2025.6.30.tar.gz"
-    sha256 "6d0ae855c0a55bfcc28dffba804ec8525b9b955d34a41191a1561a4cec03d8bd"
+    url "https://files.pythonhosted.org/packages/7e/3a/343f7a0024ddd4c30f150e8d8f57fd7b924846f97d99fc0dcd75ea8d2773/yt_dlp-2025.7.21.tar.gz"
+    sha256 "46fbb53eab1afbe184c45b4c17e9a6eba614be680e4c09de58b782629d0d7f43"
   end
 
   def install

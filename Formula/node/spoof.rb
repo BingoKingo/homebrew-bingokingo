@@ -1,6 +1,6 @@
 class Spoof < Formula
   desc "Easily spoof your MAC address"
-  homepage "http://feross.org/spoofmac/"
+  homepage "https://feross.org/spoofmac/"
   url "https://registry.npmjs.org/spoof/-/spoof-2.0.4.tgz"
   sha256 "d2bf5b3cf5dfa97543b4d56b5419318de9b41a7e94ce92c45a54d71e20be3705"
   license "MIT"

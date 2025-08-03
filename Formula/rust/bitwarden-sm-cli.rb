@@ -3,7 +3,6 @@ class BitwardenSmCli < Formula
   homepage "https://bitwarden.com/help/secrets-manager-cli/"
   url "https://github.com/bitwarden/sdk-sm/archive/refs/tags/dotnet-v1.0.0.tar.gz"
   sha256 "a673b529f86778f903c600fa519f2547d746957394cd825730961d27a3f06144"
-  license "Bitwarden"
   head "https://github.com/bitwarden/sdk-sm.git", branch: "main"
 
   depends_on "rust" => :build
