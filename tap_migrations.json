@@ -2,6 +2,7 @@
   "alex-chromium": "homebrew/cask/alex313031-thorium",
   "deeplx": "owo-network/brew/deeplx",
   "fontfinagler": "homebrew/cask/fontfinagler",
+  "font-pt-root-ui": "homebrew/cask/font-pt-root-ui",
   "mermaid-cli": "homebrew/core/mermaid-cli",
   "neardrop": "grishka/grishka/neardrop",
   "stash-mac": "homebrew/cask/stash"

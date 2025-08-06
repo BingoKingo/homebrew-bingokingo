@@ -7,13 +7,20 @@ cask "font-pet-me" do
   name "Pet Me"
   homepage "https://www.ffonts.net/Pet-Me-64-2Y.font"
 
-  font "PetMe.ttf"
-  font "PetMe2X.ttf"
-  font "PetMe2Y.ttf"
-  font "PetMe64.ttf"
-  font "PetMe642Y.ttf"
-  font "PetMe128.ttf"
-  font "PetMe1282Y.ttf"
+  depends_on formula: "fonttools"
+
+  font "PetMe.ttc"
+
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.ttf \
+        | awk '{print \"\\\"\" \$0 \"\\\"\"}' \
+        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        -o '#{staged_path}/PetMe.ttc'
+      SHELL
+    ]
+  end
 
   # No zap stanza required
 end
