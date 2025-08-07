@@ -1,12 +1,15 @@
 cask "font-misans-arabic" do
   version "1.000"
-  sha256 "1a0281289fad62f0da0e279e65fd2510d5a7de54a410a2c23cf1c2e719c95fd0"
 
   url "https://hyperos.mi.com/font-download/MiSans_Arabic.zip"
   name "MiSans Arabic VF"
   homepage "https://hyperos.mi.com/font/en/details/arabic/"
-
-  font "MiSana Arabic/MiSansArabicVF.ttf"
+  if sha256 == "1a0281289fad62f0da0e279e65fd2510d5a7de54a410a2c23cf1c2e719c95fd0"
+    font "MiSana Arabic/MiSansArabicVF.ttf"
+  elsif sha256 == "f2cc4939d202d6c645c5cb06133fbdf7caa420d43250682f9d3792884c8b72e5"
+    font "MiSans Arabic/可变字体/MiSansArabicVF.ttf"
+    font "MiSans Arabic UI/可变字体/MiSansArabicUIVF.ttf"
+  end
 
   # No zap stanza required
 end

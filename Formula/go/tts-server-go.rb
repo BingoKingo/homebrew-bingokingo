@@ -1,10 +1,10 @@
 # [O] This repository has been archived by the owner on Feb 17, 2023. It is now read-only.
 class TtsServerGo < Formula
-  desc "微软TTS服务转发，以便在阅读APP中通过网络导入方式收听微软TTS Edge大声朗读"
+  desc "微软TTS服务转发在阅读APP中通过网络导入方式收听微软TTS Edge大声朗读"
   homepage "https://github.com/jing332/tts-server-go/"
   url "https://github.com/jing332/tts-server-go/archive/refs/tags/tts-server_v0.1.9.tar.gz"
   sha256 "8d6ddd36d92e56a7dd1383c449feb8eebadfaa92197d19148887631e625c21f4"
-  head "https://github.com/jing332/tts-server-go.git", btanch: "master"
+  head "https://github.com/jing332/tts-server-go.git", branch: "master"
 
   livecheck do
     skip

@@ -7,7 +7,6 @@ class GitFame < Formula
   license "MPL-2.0"
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
-  depends_on "git"
   depends_on "python-tabulate"
   depends_on "python@3.13"
 

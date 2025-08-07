@@ -15,7 +15,7 @@ cask "font-fluent-calibri" do
     system_command "/bin/bash", args: [
       "-c", <<~SHELL
         ls '#{staged_path}/'*.ttf \
-        | awk '{print \"\\\"\" \$0 \"\\\"\"}' \
+        | awk '{print "\\"" $0 "\\""}' \
         | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
         -o '#{staged_path}/FluentCalibri.ttc'
       SHELL
