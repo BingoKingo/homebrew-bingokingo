@@ -7,18 +7,20 @@ cask "font-gill-sans" do
   name "Gill Sans"
   homepage "https://font.download/font/gill-sans-2"
 
-  font "Gill Sans Bold Italic.otf"
-  font "Gill Sans Bold.otf"
-  font "Gill Sans Heavy Italic.otf"
-  font "Gill Sans Heavy.otf"
-  font "Gill Sans Italic.otf"
-  font "Gill Sans Light Italic.otf"
-  font "Gill Sans Light.otf"
-  font "Gill Sans Medium Italic.otf"
-  font "Gill Sans Medium.otf"
-  font "Gill Sans.otf"
-  font "GillSans Condensed Bold.otf"
-  font "GillSans Condensed.otf"
+  depends_on formula: "fonttools"
+
+  font "GillSans.ttc"
+
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.otf \
+        | awk '{print "\\"" $0 "\\""}' \
+        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        -o '#{staged_path}/GillSans.ttc'
+      SHELL
+    ]
+  end
 
   # No zap stanza required
 end

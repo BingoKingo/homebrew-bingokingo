@@ -1,0 +1,31 @@
+cask "font-poppins-latin" do
+  version "5.001"
+  sha256 "cd4bdded93013fc9f123485b8fbc6113f62a7ff77492cc97cba6901cf6493738"
+
+  url "https://github.com/itfoundry/Poppins/raw/master/products/PoppinsLatin-#{version}-Latin-OTF.zip"
+  name "PoppinsLatin"
+  homepage "https://github.com/itfoundry/poppins"
+
+  livecheck do
+    url "https://github.com/itfoundry/Poppins/tree/master/products"
+    regex(/PoppinsLatin[._-]v?(\d+(?:\.\d+)+)(?:[._-]Latin)?[._-]OTF\.zip/i)
+    strategy :page_match
+  end
+
+  depends_on formula: "fonttools"
+
+  font "PoppinsLatin.ttc"
+
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.otf \
+        | awk '{print "\\"" $0 "\\""}' \
+        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        -o '#{staged_path}/PoppinsLatin.ttc'
+      SHELL
+    ]
+  end
+
+  # No zap stanza required
+end
