@@ -6,7 +6,5 @@ cask "font-misans-myanmar" do
   name "MiSans Myanmar VF"
   homepage "https://hyperos.mi.com/font/en/details/myanmar/"
 
-  font "MiSans Myanmar/可变字体/MiSans Myanmar VF.ttf"
-
-  # No zap stanza required
+  font "MiSans Myanmar/可变字体/MiSans Myanmar VF.ttf", target: "MiSansMyanmar.ttf"
 end

@@ -7,6 +7,8 @@ cask "qlwindowsapps" do
   desc "QuickLook & Spotlight plugins for Windows DLLs and EXEs"
   homepage "https://github.com/shysaur/QLWindowsApps/"
 
+  deprecate! date: "2022-11-20", because: :unmaintained
+
   depends_on macos: ">= :high_sierra"
 
   pkg "QLWindowsApps-#{version}.pkg", allow_untrusted: true

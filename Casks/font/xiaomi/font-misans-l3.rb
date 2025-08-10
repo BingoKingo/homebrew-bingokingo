@@ -6,7 +6,5 @@ cask "font-misans-l3" do
   name "MiSans L3"
   homepage "https://hyperos.mi.com/font/en/rare-word/"
 
-  font "MiSans L3/MiSans L3.ttf"
-
-  # No zap stanza required
+  font "MiSans L3/MiSans L3.ttf", target: "MiSansL3.ttf"
 end

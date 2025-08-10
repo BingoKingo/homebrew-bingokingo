@@ -5,9 +5,7 @@ cask "font-candy-round-btn" do
   url "https://media.fontsgeek.com/download/zip/c/a/candy-round-btn-regular_chyN1.zip"
   # url "https://web.archive.org/web/20250731145652/https://media.fontsgeek.com/download/zip/c/a/candy-round-btn-regular_chyN1.zip"
   name "Candy Round BTN"
-  homepage "https://fontsgeek.com/fonts/Candy-Round-BTN-Regular/"
+  homepage "https://fontsgeek.com/candy-round-btn-font"
 
   font "Candy Round BTN Regular/Candy Round BTN Regular.ttf"
-
-  # No zap stanza required
 end

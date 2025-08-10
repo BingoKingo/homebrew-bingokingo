@@ -1,10 +1,8 @@
-# [O] Archived.
 cask "ryujinx" do
   version "1.1.1403"
   sha256 "07083574edf1a4a19d0ef4c82ef1baa07cca8465395350a750073f083d0c4053"
 
   # Removed official version
-  # test-ava version use same file in this version release
   # url "https://github.com/Ryujinx/release-channel-master/releases/download/#{version}/ryujinx-#{version}-macos_universal.app.tar.gz",
   #     # url "https://github.com/Ryujinx/release-channel-master/releases/download/#{version}/test-ava-ryujinx-#{version}-macos_universal.app.tar.gz",
   #     verified: "github.com/Ryujinx/release-channel-master/"
@@ -15,6 +13,8 @@ cask "ryujinx" do
   name "Ryujinx"
   desc "Simple, experimental Nintendo Switch emulator"
   homepage "https://ryujinx.org/"
+
+  deprecate! date: "2024-10-06", because: :unmaintained
 
   auto_updates true
 
@@ -33,4 +33,12 @@ cask "ryujinx" do
     "~/Library/Preferences/org.ryujinx.Ryujinx.plist",
     "~/Library/Saved Application State/org.ryujinx.Ryujinx.savedState",
   ]
+
+  caveats do
+    <<~EOS
+          [A] Test-ava version use same file in this version release.
+          Official version was taken down,
+      it's from Julienraptor01's archived version.
+    EOS
+  end
 end

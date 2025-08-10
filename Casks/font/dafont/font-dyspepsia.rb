@@ -4,9 +4,7 @@ cask "font-dyspepsia" do
 
   url "https://dl.dafont.com/dl/?f=dyspepsia"
   name "Dyspepsia"
-  homepage "https://www.dafont.com/dyspepsia.font/"
+  homepage "https://www.dafont.com/dyspepsia.font"
 
   font "Dyspepsia.otf"
-
-  # No zap stanza required
 end

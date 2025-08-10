@@ -1,4 +1,3 @@
-# [F] Forked application, modified from: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/g/goldendict.rb
 cask "goldendict-ng" do
   version "25.07.0"
 
@@ -27,7 +26,6 @@ cask "goldendict-ng" do
   depends_on macos: ">= :monterey"
 
   app "GoldenDict-ng.app", target: "GoldenDict.app"
-  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/goldendict.wrapper.sh"
   binary shimscript, target: "goldendict"
 
@@ -51,4 +49,11 @@ cask "goldendict-ng" do
     "~/Library/Preferences/org.xiaoyifang.plist",
     "~/Library/Saved Application State/org.xiaoyifang.savedState",
   ]
+
+  caveats do
+    <<~EOS
+      [F] Forked application, modified from:
+      https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/g/goldendict.rb
+    EOS
+  end
 end

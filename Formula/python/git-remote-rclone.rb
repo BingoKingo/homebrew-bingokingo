@@ -1,4 +1,3 @@
-# [F] Successor of https://github.com/datalad/git-remote-rclone and https://github.com/redstreet/git-remote-rclone
 class GitRemoteRclone < Formula
   include Language::Python::Virtualenv
   desc "Git remote helper for rclone-supported services"
@@ -13,6 +12,12 @@ class GitRemoteRclone < Formula
     virtualenv_install_with_resources
   end
 
+  def caveats
+    <<~EOS
+          [F] Successor of https://github.com/datalad/git-remote-rclone
+      and https://github.com/redstreet/git-remote-rclone
+    EOS
+  end
   test do
     system bin/"git-remote-rclone", "-h"
   end

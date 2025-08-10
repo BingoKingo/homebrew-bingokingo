@@ -1,4 +1,3 @@
-# [O] Outdated.
 class HomebrewPypiPoet < Formula
   include Language::Python::Virtualenv
   desc "Generates Homebrew resource stanzas for Python packages"
@@ -7,7 +6,7 @@ class HomebrewPypiPoet < Formula
   sha256 "e09e997e35a98f66445f9a39ccb33d6d93c5cd090302a59f231707eac0bf378e"
   license "MIT"
   head "https://github.com/tdsmith/homebrew-pypi-poet.git", branch: "master"
-
+  deprecate! date: "2018-02-23", because: :unmaintained
   depends_on "python-setuptools" => :build
   depends_on "python@3.13"
 

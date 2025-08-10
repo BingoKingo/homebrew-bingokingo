@@ -7,6 +7,8 @@ cask "vrmquicklook" do
   desc "QuickLook plugin for VRM files"
   homepage "https://github.com/magicien/VRMQuickLook/"
 
+  deprecate! date: "2019-10-29", because: :unmaintained
+
   depends_on macos: ">= :high_sierra"
 
   qlplugin "VRMQuickLook_v#{version}/VRMQuickLook.qlgenerator"

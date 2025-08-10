@@ -1,4 +1,3 @@
-# [O] This repository has been archived by the owner on Feb 17, 2023. It is now read-only.
 class TtsServerGo < Formula
   desc "微软TTS服务转发在阅读APP中通过网络导入方式收听微软TTS Edge大声朗读"
   homepage "https://github.com/jing332/tts-server-go/"
@@ -9,6 +8,7 @@ class TtsServerGo < Formula
   livecheck do
     skip
   end
+  deprecate! date: "2023-02-17", because: :discontinued
 
   depends_on "go" => :build
 

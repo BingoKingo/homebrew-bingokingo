@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
 class RcloneTeldrive < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/divyam234/rclone/"
@@ -17,6 +16,12 @@ class RcloneTeldrive < Formula
     man1.install "rclone.1" => "#{name}.1"
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
+    EOS
+  end
   test do
     (testpath/"file1.txt").write "Test!"
     system bin/name.to_s, "copy", testpath/"file1.txt", testpath/"dist"

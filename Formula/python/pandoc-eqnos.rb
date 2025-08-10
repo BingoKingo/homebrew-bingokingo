@@ -1,4 +1,3 @@
-# [O] Outdated.
 class PandocEqnos < Formula
   include Language::Python::Virtualenv
   desc "Pandoc filter for numbering equations and equation references"
@@ -7,7 +6,7 @@ class PandocEqnos < Formula
   sha256 "f0cc9250743342cef234cab27e0006a524bf155ecaf9897adf07396d32da94c7"
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-eqnos.git", branch: "master"
-
+  deprecate! date: "2020-12-06", because: :unmaintained
   depends_on "python@3.13"
 
   resource "pandoc-xnos" do

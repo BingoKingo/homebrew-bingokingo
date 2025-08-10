@@ -1,4 +1,3 @@
-# [O] Outdated.
 class PandocFignos < Formula
   include Language::Python::Virtualenv
   desc "Pandoc filter for numbering figures and figure references"
@@ -7,7 +6,7 @@ class PandocFignos < Formula
   sha256 "7058edeae48824412e9fe090dd5f72500a9ef7d33a40391826b17338397d8849"
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-fignos.git", branch: "master"
-
+  deprecate! date: "2020-11-11", because: :unmaintained
   depends_on "python@3.13"
 
   resource "pandoc-xnos" do

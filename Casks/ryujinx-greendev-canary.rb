@@ -4,7 +4,7 @@ cask "ryujinx-greendev-canary" do
 
   url "https://git.ryujinx.app/api/v4/projects/68/packages/generic/Ryubing-Canary/#{version}/ryujinx-canary-#{version}-macos_universal.app.tar.gz"
   name "Ryujinx"
-  desc "Simple, experimental Nintendo Switch emulator"
+  desc "Simple, experimental Nintendo Switch 1 emulator"
   homepage "https://git.ryujinx.app/ryubing/ryujinx/"
 
   auto_updates true

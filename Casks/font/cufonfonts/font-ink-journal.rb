@@ -8,6 +8,4 @@ cask "font-ink-journal" do
   homepage "https://www.cufonfonts.com/font/ink-journal"
 
   font "INKJOURNAL.TTF"
-
-  # No zap stanza required
 end

@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/afinne/homebrew-ffmpeg-with-zvbi/blob/master/zvbi.rb
 class Libzvbi < Formula
   desc "Vertical Blanking Interval (VBI) utilities"
   homepage "https://github.com/zapping-vbi/zvbi/"
@@ -22,6 +21,12 @@ class Libzvbi < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/afinne/homebrew-ffmpeg-with-zvbi/blob/master/zvbi.rb
+    EOS
+  end
   test do
     system bin/"zvbi-ntsc-cc", "-h"
   end

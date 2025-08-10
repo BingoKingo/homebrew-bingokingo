@@ -1,4 +1,3 @@
-# [F] Fork of https://github.com/funatsufumiya/git-lfs-agent-rclone
 class GitLfsAgentRclone < Formula
   desc "Custom transfer agent for git-lfs that uses rclone to transfer files"
   homepage "https://github.com/yaito6502/git-lfs-agent-rclone"
@@ -14,6 +13,11 @@ class GitLfsAgentRclone < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  def caveats
+    <<~EOS
+      [F] Fork of https://github.com/funatsufumiya/git-lfs-agent-rclone
+    EOS
+  end
   test do
     system bin/"git-lfs-agent-rclone", "-h"
   end

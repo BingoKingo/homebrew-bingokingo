@@ -1,4 +1,3 @@
-# [O] Outdated.
 class PandocMermaidFilter < Formula
   include Language::Python::Virtualenv
   desc "Pandoc filter for mermaid code blocks"
@@ -7,7 +6,7 @@ class PandocMermaidFilter < Formula
   sha256 "ad475b77e5b7506a0d68011af89fc6103ef2044fe0e4379249c4f6a0628ccff1"
   license "MIT"
   head "https://github.com/timofurrer/pandoc-mermaid-filter.git", branch: "master"
-
+  deprecate! date: "2019-11-03", because: :unmaintained
   depends_on "python@3.13"
 
   resource "pandocfilters" do

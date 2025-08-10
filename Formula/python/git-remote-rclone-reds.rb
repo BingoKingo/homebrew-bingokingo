@@ -1,4 +1,3 @@
-# [O] Outdated.
 class GitRemoteRcloneReds < Formula
   include Language::Python::Virtualenv
   desc "Git remote helper for rclone-supported services"
@@ -7,6 +6,7 @@ class GitRemoteRcloneReds < Formula
   sha256 "77d708dc422af015517492ae08fb0d7162deaf88814afe07f25d4ca39408f068"
   license "GPL-3.0-or-later"
   head "https://github.com/redstreet/git-remote-rclone.git", branch: "main"
+  deprecate! date: "2023-08-27", because: :unmaintained
 
   depends_on "python@3.13"
   depends_on "rclone"

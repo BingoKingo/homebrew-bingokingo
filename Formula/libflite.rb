@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/signalwire/homebrew-signalwire/blob/master/Formula/flite.rb
 class Libflite < Formula
   desc "Small fast portable speech synthesis system"
   homepage "https://github.com/festvox/flite/"
@@ -15,6 +14,12 @@ class Libflite < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/signalwire/homebrew-signalwire/blob/master/Formula/flite.rb
+    EOS
+  end
   test do
     system bin/"flite", "-h"
   end

@@ -7,6 +7,8 @@ cask "opengithub" do
   desc "Xcode extension to open the file on GitHub"
   homepage "https://github.com/Watson1978/OpenGithub/"
 
+  deprecate! date: "2022-07-23", because: :unmaintained
+
   depends_on macos: ">= :mojave"
 
   app "OpenGithub.app"

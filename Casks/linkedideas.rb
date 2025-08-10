@@ -8,6 +8,8 @@ cask "linkedideas" do
   desc "Treat ideas as links of concepts"
   homepage "https://fespinoza.github.io/LinkedIdeas/"
 
+  deprecate! date: "2021-07-13", because: :unmaintained
+
   app "LinkedIdeas.app"
 
   zap trash: [

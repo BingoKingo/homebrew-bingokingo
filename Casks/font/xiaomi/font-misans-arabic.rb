@@ -1,15 +1,30 @@
 cask "font-misans-arabic" do
   version "1.000"
+  sha256 :no_check
 
   url "https://hyperos.mi.com/font-download/MiSans_Arabic.zip"
   name "MiSans Arabic VF"
   homepage "https://hyperos.mi.com/font/en/details/arabic/"
-  if sha256 == "1a0281289fad62f0da0e279e65fd2510d5a7de54a410a2c23cf1c2e719c95fd0"
-    font "MiSana Arabic/MiSansArabicVF.ttf"
-  elsif sha256 == "f2cc4939d202d6c645c5cb06133fbdf7caa420d43250682f9d3792884c8b72e5"
-    font "MiSans Arabic/可变字体/MiSansArabicVF.ttf"
-    font "MiSans Arabic UI/可变字体/MiSansArabicUIVF.ttf"
-  end
 
-  # No zap stanza required
+  # if sha256 == "1a0281289fad62f0da0e279e65fd2510d5a7de54a410a2c23cf1c2e719c95fd0"
+  #   font "MiSana Arabic/MiSansArabicVF.ttf"
+  # elsif sha256 == "f2cc4939d202d6c645c5cb06133fbdf7caa420d43250682f9d3792884c8b72e5"
+  #   font "MiSans Arabic/MiSans Arabic/可变字体/MiSansArabicVF.ttf"
+  #   font "MiSans Arabic/MiSans Arabic UI/可变字体/MiSansArabicUIVF.ttf"
+  # end
+
+  font "MiSansArabicVF.ttf", target: "MiSansArabic.ttf"
+
+  ui_font_path = "MiSans Arabic/MiSans Arabic UI/可变字体/MiSansArabicUIVF.ttf"
+  font ui_font_path, target: "MiSansArabicUI.ttf" if File.exist?(File.join(staged_path, ui_font_path))
+
+  preflight do
+    if Dir.exist?("#{staged_path}/MiSans Arabic/MiSans Arabic/可变字体")
+      FileUtils.mv("#{staged_path}/MiSans Arabic/MiSans Arabic/可变字体/MiSansArabicVF.ttf",
+                   "#{staged_path}/MiSansArabicVF.ttf")
+    else
+      FileUtils.mv("#{staged_path}/MiSana Arabic/MiSansArabicVF.ttf",
+                   "#{staged_path}/MiSansArabicVF.ttf")
+    end
+  end
 end

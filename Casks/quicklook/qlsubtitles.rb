@@ -7,6 +7,8 @@ cask "qlsubtitles" do
   desc "Quick Look preview for subtitle files such as srt, vtt or ass files"
   homepage "https://github.com/riccoyu/QLSubtitles/"
 
+  deprecate! date: "2023-08-14", because: :unmaintained
+
   depends_on macos: ">= :big_sur"
 
   app "Quick Look Subtitles.app"

@@ -8,6 +8,8 @@ cask "neooffice-patch" do
   desc "Patch of NeoOffice"
   homepage "https://www.neooffice.org/"
 
+  deprecate! date: "2024-12-28", because: :discontinued
+
   depends_on macos: ">= :big_sur"
   depends_on cask: "neooffice"
 

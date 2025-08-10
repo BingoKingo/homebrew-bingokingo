@@ -15,11 +15,9 @@ cask "font-courier-prime" do
       "-c", <<~SHELL
         ls '#{staged_path}/Courier Prime/'*.ttf \
         | awk '{print "\\"" $0 "\\""}' \
-        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
         -o '#{staged_path}/CourierPrime.ttc'
       SHELL
     ]
   end
-
-  # No zap stanza required
 end

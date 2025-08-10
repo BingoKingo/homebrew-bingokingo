@@ -6,7 +6,5 @@ cask "font-misans-lao" do
   name "MiSans Lao VF"
   homepage "https://hyperos.mi.com/font/en/details/lao/"
 
-  font " MiSans Lao/MiSansLaoVF.ttf"
-
-  # No zap stanza required
+  font " MiSans Lao/MiSansLaoVF.ttf", target: "MiSansLao.ttf"
 end

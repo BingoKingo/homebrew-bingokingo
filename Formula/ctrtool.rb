@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/mistydemeo/homebrew-formulae/blob/master/Formula/ctrtool.rb
 class Ctrtool < Formula
   desc "General purpose reading/extraction tool for Nintendo 3DS file formats"
   homepage "https://github.com/3DSGuy/Project_CTR/"
@@ -20,6 +19,12 @@ class Ctrtool < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/mistydemeo/homebrew-formulae/blob/master/Formula/ctrtool.rb
+    EOS
+  end
   test do
     assert_match("CTRTool v#{version} (C) jakcron", shell_output("#{bin}/ctrtool 2>&1", 1))
     system bin/"makerom", "-help"

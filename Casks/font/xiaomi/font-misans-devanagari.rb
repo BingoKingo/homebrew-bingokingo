@@ -6,7 +6,5 @@ cask "font-misans-devanagari" do
   name "MiSans Devanagari VF"
   homepage "https://hyperos.mi.com/font/en/details/devanagari/"
 
-  font "MiSans Devanagari/MiSans Devanagari VF.ttf"
-
-  # No zap stanza required
+  font "MiSans Devanagari/MiSans Devanagari VF.ttf", target: "MiSansDevanagari.ttf"
 end

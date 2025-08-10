@@ -1,8 +1,8 @@
 cask "font-aptos-serif" do
-  version "0.1,1610868"
-  sha256 "5bd7135d6ffc6f0fc3fea57327ed8ada184f17ec83f51f1fdf1250fb7cfff815"
+  version "0.1,1628854"
+  sha256 "0af22b09ce23143bd2518da327481d9827145de09788c8a43a1234a0f1e22350"
 
-  url "https://api.github.com/repos/BingoKingo/homebrew-private/releases/assets/279914922",
+  url "https://api.github.com/repos/BingoKingo/homebrew-private/releases/assets/281042501",
       verified: "github.com/",
       header:   ["Accept: application/octet-stream",
                  "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", nil)}",
@@ -10,7 +10,24 @@ cask "font-aptos-serif" do
   name "Aptos Serif"
   homepage "https://fonts.adobe.com/fonts/aptos-serif/"
 
+  depends_on formula: "fonttools"
+
   font "AptosSerif.ttc"
 
-  # No zap stanza required
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.ttf \
+        | awk '{print "\\"" $0 "\\""}' \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
+        -o '#{staged_path}/AptosSerif.ttc'
+      SHELL
+    ]
+  end
+
+  caveats do
+    <<~EOS
+      [L] Private files cannot be downloaded without permission.
+    EOS
+  end
 end

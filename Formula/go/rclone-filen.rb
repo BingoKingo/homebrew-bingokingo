@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
 class RcloneFilen < Formula
   desc "Rsync for cloud storage (with macOS FUSE mount support)"
   homepage "https://github.com/JupiterPi/filen-rclone/"
@@ -14,6 +13,13 @@ class RcloneFilen < Formula
       "-tags", "cmount", *std_go_args
     (libexec/"rclone").install_symlink bin/name.to_s => "rclone"
     man1.install "rclone.1" => "#{name}.1"
+  end
+
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
+    EOS
   end
 
   test do

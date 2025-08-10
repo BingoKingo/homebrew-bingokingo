@@ -1,8 +1,8 @@
 cask "font-sitka" do
-  version "0.1,5997384"
-  sha256 "b893f7d72c158219e7029fdd7921fc42059e67efacd673aebed008061612b06f"
+  version "0.1,12254978"
+  sha256 "8e119d7df2258863e2c2c34dd146c9b71099cd982d1aabc8d5cfdb2cdfaf924d"
 
-  url "https://api.github.com/repos/BingoKingo/homebrew-private/releases/assets/279915641",
+  url "https://api.github.com/repos/BingoKingo/homebrew-private/releases/assets/281042329",
       verified: "github.com/",
       header:   ["Accept: application/octet-stream",
                  "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", nil)}",
@@ -10,7 +10,24 @@ cask "font-sitka" do
   name "Sitka"
   homepage "https://fonts.adobe.com/fonts/sitka/"
 
+  depends_on formula: "fonttools"
+
   font "Sitka.ttc"
 
-  # No zap stanza required
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.ttf \
+        | awk '{print "\\"" $0 "\\""}' \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
+        -o '#{staged_path}/Sitka.ttc'
+      SHELL
+    ]
+  end
+
+  caveats do
+    <<~EOS
+      [L] Private files cannot be downloaded without permission.
+    EOS
+  end
 end

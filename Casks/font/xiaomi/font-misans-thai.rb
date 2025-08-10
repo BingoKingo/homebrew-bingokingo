@@ -6,6 +6,5 @@ cask "font-misans-thai" do
   name "MiSans Thai VF"
   homepage "https://hyperos.mi.com/font/en/details/thai/"
 
-  font "MiSans Thai/可变字体/MiSans Thai VF.ttf"
-  # No zap stanza required
+  font "MiSans Thai/可变字体/MiSans Thai VF.ttf", target: "MiSansThai.ttf"
 end

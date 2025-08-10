@@ -8,6 +8,4 @@ cask "font-ink-draft" do
   homepage "https://font.download/font/ink-draft"
 
   font "INKDRAFT.TTF"
-
-  # No zap stanza required
 end

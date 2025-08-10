@@ -1,4 +1,3 @@
-# [O] No updates since May 13, 2022
 class Hubfs < Formula
   desc "File system for GitHub and GitLab"
   homepage "https://github.com/winfsp/hubfs/"
@@ -9,7 +8,7 @@ class Hubfs < Formula
   head "https://github.com/winfsp/hubfs.git", branch: "master"
 
   ver = "1.0.22067"
-
+  deprecate! date: "2022-05-13", because: :unmaintained
   if OS.mac?
     url "https://github.com/winfsp/hubfs/releases/download/v#{version}/hubfs-mac-#{ver}.zip"
     sha256 "30c9433797a8e333d0ea1b214aa1bc0c3b250e309d6764e4c2022db49c1d3c11"

@@ -7,5 +7,7 @@ cask "asciidocquicklook" do
   desc "QuickLook plugin for AsciiDoc files"
   homepage "https://github.com/clydeclements/AsciiDocQuickLook/"
 
+  deprecate! date: "2018-09-16", because: :unmaintained
+
   qlplugin "AsciiDoc.qlgenerator"
 end

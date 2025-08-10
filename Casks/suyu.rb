@@ -4,8 +4,10 @@ cask "suyu" do
 
   url "https://git.suyu.dev/suyu/suyu/releases/download/v#{version}/Suyu-macOS_Arm64.dmg"
   name "suyu"
-  desc "Nintendo Switch emulator in c++"
+  desc "Nintendo Switch 1 emulator in c++"
   homepage "https://suyu.dev/"
+
+  deprecate! date: "2024-10-06", because: :unmaintained
 
   depends_on macos: ">= :big_sur"
   depends_on arch: :arm64

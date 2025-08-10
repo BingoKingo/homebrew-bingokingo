@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/chasestubblefield/homebrew-brew/blob/master/hactool.rb
 class Hactool < Formula
   desc "Tool for the Nintendo Content Archives"
   homepage "https://github.com/SciresM/hactool/"
@@ -12,6 +11,12 @@ class Hactool < Formula
     bin.install "hactool"
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/chasestubblefield/homebrew-brew/blob/master/hactool.rb
+    EOS
+  end
   test do
     system bin/"hactool"
   end

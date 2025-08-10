@@ -1,0 +1,28 @@
+cask "font-maple-mono-nf" do
+  version "7.5"
+  sha256 "2d496c8a5ac02daf3477d9a10e193c694489e9fa8d26193628b51086d5ee07a4"
+
+  url "https://github.com/subframe7536/Maple-font/releases/download/v#{version}/MapleMono-NF-unhinted.zip",
+      verified: "github.com/subframe7536/Maple-font/"
+  name "Maple Mono NF"
+  homepage "https://font.subf.dev/en/"
+
+  livecheck do
+    cask "font-maple-mono"
+  end
+
+  depends_on formula: "fonttools"
+
+  font "MapleMono-NF.ttc"
+
+  preflight do
+    system_command "/bin/bash", args: [
+      "-c", <<~SHELL
+        ls '#{staged_path}/'*.ttf \
+        | awk '{print "\\"" $0 "\\""}' \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
+        -o '#{staged_path}/MapleMono-NF.ttc'
+      SHELL
+    ]
+  end
+end

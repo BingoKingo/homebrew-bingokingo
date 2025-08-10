@@ -16,11 +16,9 @@ cask "font-fluent-calibri" do
       "-c", <<~SHELL
         ls '#{staged_path}/'*.ttf \
         | awk '{print "\\"" $0 "\\""}' \
-        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
         -o '#{staged_path}/FluentCalibri.ttc'
       SHELL
     ]
   end
-
-  # No zap stanza required
 end

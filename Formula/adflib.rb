@@ -1,4 +1,3 @@
-# [M] Modified from https://github.com/barn/homebrew-misc/blob/main/adflib.rb
 class Adflib < Formula
   desc "Free, portable and open implementation of the Amiga filesystem"
   homepage "https://github.com/lclevy/ADFlib/"
@@ -22,6 +21,12 @@ class Adflib < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified from
+      https://github.com/barn/homebrew-misc/blob/main/adflib.rb
+    EOS
+  end
   test do
     system bin/"unadf"
   end

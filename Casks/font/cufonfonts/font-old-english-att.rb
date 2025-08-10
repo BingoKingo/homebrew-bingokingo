@@ -8,6 +8,4 @@ cask "font-old-english-att" do
   homepage "https://www.cufonfonts.com/font/old-english-att"
 
   font "OLDENGLI.TTF"
-
-  # No zap stanza required
 end

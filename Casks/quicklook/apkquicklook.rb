@@ -7,6 +7,8 @@ cask "apkquicklook" do
   desc "QuickLook plugin for Android APK files"
   homepage "https://github.com/grishka/ApkQuickLook/"
 
+  deprecate! date: "2020-09-26", because: :unmaintained
+
   pkg "ApkQuickLook.pkg", allow_untrusted: true
 
   uninstall pkgutil: "me.grishka.ApkQuickLook"

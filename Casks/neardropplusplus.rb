@@ -26,4 +26,10 @@ cask "neardropplusplus" do
     "~/Library/Containers/me.jiahou.NearDropPlusPlus",
     "~/Library/Containers/me.jiahou.NearDropPlusPlus.ShareExtension",
   ]
+
+  caveats do
+    <<~EOS
+      [F] Forked version of https://github.com/grishka/NearDrop
+    EOS
+  end
 end

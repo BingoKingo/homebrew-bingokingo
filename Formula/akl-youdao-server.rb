@@ -1,4 +1,3 @@
-# [O] Outdated and not supported, more details from https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
 class AklYoudaoServer < Formula
   desc "有道翻译免秘钥免费查单词查句子服务启动方式"
   homepage "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/"
@@ -12,17 +11,24 @@ class AklYoudaoServer < Formula
     url "https://github.com/akl7777777/bob-plugin-akl-youdao-free-translate/releases/download/v_#{version}/youdaoTranslateServer_linux_x86_64"
     sha256 "948e198c28dac228ec0b514072c2493742b883023a5b07e2d83a5f9897f205ba"
   end
-
   livecheck do
     skip
   end
 
+  deprecate! date: "2023-04-05", because: :discontinued
   def install
     if OS.mac?
       bin.install "youdaoTranslateServer_macos_x86_64" => "akl-youdao"
     elsif OS.linux? && Hardware::CPU.intel?
       bin.install "youdaoTranslateServer_linux_x86_64" => "akl-youdao"
     end
+  end
+
+  def caveats
+    <<~EOS
+      [O] Not longer needed, more details from
+      https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
+    EOS
   end
 
   service do

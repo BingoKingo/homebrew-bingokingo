@@ -15,11 +15,9 @@ cask "font-poppins" do
       "-c", <<~SHELL
         ls '#{staged_path}/'*.otf \
         | awk '{print "\\"" $0 "\\""}' \
-        | xargs '#{HOMEBREW_PREFIX}/bin/fonttools' ttLib \
+        | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
         -o '#{staged_path}/Poppins.ttc'
       SHELL
     ]
   end
-
-  # No zap stanza required
 end

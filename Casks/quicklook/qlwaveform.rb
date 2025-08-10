@@ -7,5 +7,7 @@ cask "qlwaveform" do
   desc "QuickLook plugin to view waveforms of audio files"
   homepage "https://github.com/seagirl/QLWaveForm/"
 
+  deprecate! date: "2020-08-02", because: :unmaintained
+
   qlplugin "QLWaveForm.qlgenerator"
 end

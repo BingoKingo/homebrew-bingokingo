@@ -1,4 +1,3 @@
-# [O] Outdated, modified form https://github.com/zmwangx/homebrew-npm-noob/blob/master/Formula/noob.rb
 class HomebrewNpmNoob < Formula
   include Language::Python::Virtualenv
   desc "Generate Homebrew formulae for npm packages"
@@ -7,7 +6,7 @@ class HomebrewNpmNoob < Formula
   sha256 "d4dfe5b9d72bd6970aa66d9e25c77fc30e09050facc36b989fdb325a85d2b00d"
   license "MIT"
   head "https://github.com/zmwangx/homebrew-npm-noob.git", branch: "master"
-
+  deprecate! date: "2020-12-06", because: :unmaintained
   depends_on "certifi"
   depends_on "python@3.13"
 
@@ -50,6 +49,11 @@ class HomebrewNpmNoob < Formula
     virtualenv_install_with_resources
   end
 
+  def caveats
+    <<~EOS
+      [M] Modified form https://github.com/zmwangx/homebrew-npm-noob/blob/master/Formula/noob.rb
+    EOS
+  end
   test do
     system bin/"noob", "-h"
   end

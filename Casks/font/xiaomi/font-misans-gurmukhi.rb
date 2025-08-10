@@ -6,7 +6,5 @@ cask "font-misans-gurmukhi" do
   name "MiSans Gurmukhi VF"
   homepage "https://hyperos.mi.com/font/en/details/gurmukhi/"
 
-  font "MiSans Gurmukhi/MiSans Gurmukhi VF.ttf"
-
-  # No zap stanza required
+  font "MiSans Gurmukhi/MiSans Gurmukhi VF.ttf", target: "MiSansGurmukhi.ttf"
 end

@@ -7,6 +7,8 @@ cask "neardropplus" do
   desc "Unofficial Google Nearby Share app (Advanced version)"
   homepage "https://github.com/XRayAdamo/NearDrop/"
 
+  deprecate! date: "2023-07-19", because: :unmaintained
+
   depends_on macos: ">= :big_sur"
 
   app "NearDropPlus.app"
@@ -24,4 +26,10 @@ cask "neardropplus" do
     "~/Library/Application Scripts/com.rayadams.neardropadv",
     "~/Library/Containers/com.rayadams.neardropadv",
   ]
+
+  caveats do
+    <<~EOS
+      [F] Forked version of https://github.com/grishka/NearDrop
+    EOS
+  end
 end

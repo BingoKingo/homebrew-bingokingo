@@ -1,4 +1,3 @@
-# [F] Forked application, modified from: https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/a/aegisub.rb
 cask "aegisub-arch1t3cht" do
   version "12"
   sha256 "ea29a4fc30902e600e85776ef3baceb681ebf75222d186037888a05c7d30f5fb"
@@ -37,4 +36,11 @@ cask "aegisub-arch1t3cht" do
     "~/Library/Preferences/com.aegisub.aegisub.plist",
     "~/Library/Saved Application State/com.aegisub.aegisub.savedState",
   ]
+
+  caveats do
+    <<~EOS
+      [F] Forked application, modified from:
+      https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/a/aegisub.rb
+    EOS
+  end
 end

@@ -1,4 +1,3 @@
-# [R] No notarization and inestimable ad-hoc signature, more details from https://github.com/Homebrew/homebrew-cask/pull/152173
 cask "pixel-perfect" do
   version "1.4"
   sha256 "31b98c0d3afc71df6e4ea99be82c89d3d910ca7dbb2c6d553254e4ac86f25ece"
@@ -26,4 +25,11 @@ cask "pixel-perfect" do
     "~/Library/HTTPStorages/com.mac.PixelPerfect",
     "~/Library/Preferences/com.mac.PixelPerfect.plist",
   ]
+
+  caveats do
+    <<~EOS
+          [R] No notarization and inestimable ad-hoc signature,
+      more details from https://github.com/Homebrew/homebrew-cask/pull/152173
+    EOS
+  end
 end

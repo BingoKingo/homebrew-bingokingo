@@ -1,4 +1,3 @@
-# [F] Fork project, modified from https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/gitfs-mac.rb
 class GitfsKovan < Formula
   include Language::Python::Virtualenv
   desc "Version controlled fuse filesystem (require macfuse)"
@@ -53,12 +52,15 @@ class GitfsKovan < Formula
 
   def caveats
     <<~EOS
+      [F] Fork project, modified from
+      https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/gitfs-mac.rb
+
       gitfs clones repos in /var/lib/gitfs. You can either create it with
       sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
       repo_path argument.
+
     EOS
   end
-
   test do
     xy = Language::Python.major_minor_version Formula["python@3.13"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"

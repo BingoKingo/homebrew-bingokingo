@@ -1,4 +1,3 @@
-# [R] Demo version cannot activate, more details from https://github.com/Homebrew/homebrew-cask/pull/49053#issuecomment-401153827
 cask "hopper-disassembler-demo" do
   version "5.19.5"
   sha256 "1b319a69f02cd139ddb64667dcb172400efbda2e7b70c715348889c39a3c8ced"
@@ -22,8 +21,6 @@ cask "hopper-disassembler-demo" do
 
   binary "#{appdir}/Hopper Disassembler v4.app/Contents/MacOS/hopper"
 
-  # binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"
-
   zap trash: [
     "~/Library/Application Support/Hopper Disassembler v4",
     # "~/Library/Application Support/Hopper Disassembler v#{version.major}",
@@ -39,4 +36,12 @@ cask "hopper-disassembler-demo" do
     "~/Library/WebKit/com.cryptic-apps.hopper-web-4",
     # "~/Library/WebKit/com.cryptic-apps.hopper-web-#{version.major}",
   ]
+
+  # binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"
+  caveats do
+    <<~EOS
+      [R] Demo version cannot activate, more details from
+      https://github.com/Homebrew/homebrew-cask/pull/49053
+    EOS
+  end
 end

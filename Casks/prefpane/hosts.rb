@@ -9,6 +9,8 @@ cask "hosts" do
   desc "Cocoa GUI Prefpane for Hosts"
   homepage "https://github.com/specialunderwear/Hosts.prefpane/"
 
+  deprecate! date: "2020-09-26", because: :unmaintained
+
   # app "Hosts.app"
   pkg "Hosts-PrefPane-#{version}.pkg", allow_untrusted: true
 
