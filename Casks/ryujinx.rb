@@ -36,9 +36,8 @@ cask "ryujinx" do
 
   caveats do
     <<~EOS
-          [A] Test-ava version use same file in this version release.
-          Official version was taken down,
-      it's from Julienraptor01's archived version.
+      \033[1m[A]\033[0m Test-ava version use same file in this version release.
+      Official version was taken down, it's from Julienraptor01's archived version.
     EOS
   end
 end

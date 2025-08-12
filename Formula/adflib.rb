@@ -23,7 +23,7 @@ class Adflib < Formula
 
   def caveats
     <<~EOS
-      [M] Modified from
+      \033[1m[M]\033[0m Modified from
       https://github.com/barn/homebrew-misc/blob/main/adflib.rb
     EOS
   end

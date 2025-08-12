@@ -40,7 +40,7 @@ cask "hopper-disassembler-demo" do
   # binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"
   caveats do
     <<~EOS
-      [R] Demo version cannot activate, more details from
+      \033[1m[R]\033[0m Demo version cannot activate, more details from
       https://github.com/Homebrew/homebrew-cask/pull/49053
     EOS
   end

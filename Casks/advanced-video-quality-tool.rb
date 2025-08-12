@@ -26,7 +26,7 @@ cask "advanced-video-quality-tool" do
 
   caveats do
     <<~EOS
-           [L] Log in to https://developer.apple.com/download/ in your browser,
+      \033[1m[L]\033[0m Log in to https://developer.apple.com/download/ in your browser,
       get the value of the cookie `ADCDownloadAuth` from F12 Developer Tools,
       and paste it in your terminal before installation
            export ADC_DOWNLOAD_AUTH="Value"

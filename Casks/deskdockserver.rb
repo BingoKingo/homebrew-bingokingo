@@ -21,6 +21,6 @@ cask "deskdockserver" do
   uninstall quit: "com.floriandraschbacher.deskdockserver"
 
   caveats <<~EOS
-    [S] For security reasons, #{token} must be installed to /Applications.
+    \033[1m[S]\033[0m For security reasons, #{token} must be installed to /Applications.
   EOS
 end

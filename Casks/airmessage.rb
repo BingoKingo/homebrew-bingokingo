@@ -26,7 +26,7 @@ cask "airmessage" do
 
   caveats do
     <<~EOS
-          [R] Minimum notability requirements not reached,
+      \033[1m[R]\033[0m Minimum notability requirements not reached,
       more details from https://github.com/Homebrew/homebrew-cask/pull/116236
     EOS
   end

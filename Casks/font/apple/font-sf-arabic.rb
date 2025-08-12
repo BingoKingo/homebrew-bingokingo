@@ -2,9 +2,8 @@ cask "font-sf-arabic" do
   version "20.0d1e1,20.0d1e2"
 
   on_macos do
-    depends_on formula: "cpio"
     depends_on formula: "fonttools"
-    depends_on formula: "gzip"
+    depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg"
     sha256 "2760c62d502b77012c49517c2ea392ec2d4c647fe060985c927df48d105197b9"
@@ -13,12 +12,15 @@ cask "font-sf-arabic" do
       system_command "/bin/bash", args: [
         "-c", <<~SHELL
           mkdir -p '#{staged_path}/tmp/' \
-          && xar -xf '#{staged_path}/SF Arabic Fonts.pkg' -C '#{staged_path}/tmp/' \
-          && cat '#{staged_path}/tmp/SFArabicFonts.pkg/Payload' \
-          | '#{HOMEBREW_PREFIX}/opt/gzip/bin/gunzip' -dc \
-          | '#{HOMEBREW_PREFIX}/opt/cpio/bin/cpio' -i -D '#{staged_path}/' \
+          && '#{HOMEBREW_PREFIX}/opt/p7zip/bin/7z' -txar e \
+          '#{staged_path}/SF Arabic Fonts.pkg' -y -o'#{staged_path}/tmp/' \
+          && '#{HOMEBREW_PREFIX}/opt/p7zip/bin/7z' -tgzip e \
+          '#{staged_path}/tmp/Payload' -y -o'#{staged_path}/tmp/' \
+          && '#{HOMEBREW_PREFIX}/opt/p7zip/bin/7z' -tcpio e \
+          '#{staged_path}/tmp/Payload~' './Library/Fonts/*' -o'#{staged_path}/Fonts' \
+          && cp '#{staged_path}/tmp/License.rtf' '#{staged_path}/License.rtf' \
           && rm -r '#{staged_path}/tmp/' \
-          && ls '#{staged_path}/Library/Fonts/'* \
+          && ls '#{staged_path}/Fonts/'* \
           | awk '{print "\\"" $0 "\\""}' \
           | xargs '#{HOMEBREW_PREFIX}/opt/fonttools/bin/fonttools' ttLib \
           -o '#{staged_path}/SF-Arabic.ttc'
@@ -38,7 +40,7 @@ cask "font-sf-arabic" do
 
     caveats do
       <<~EOS
-        [L] Private files cannot be downloaded without permission.
+        \033[1m[L]\033[0m Private files cannot be downloaded without permission.
       EOS
     end
   end

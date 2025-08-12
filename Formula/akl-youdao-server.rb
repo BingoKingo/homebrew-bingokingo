@@ -26,7 +26,7 @@ class AklYoudaoServer < Formula
 
   def caveats
     <<~EOS
-      [O] Not longer needed, more details from
+      \033[1m[O]\033[0m Not longer needed, more details from
       https://github.com/akl7777777/bob-plugin-akl-microsoft-free-tts/issues/2
     EOS
   end

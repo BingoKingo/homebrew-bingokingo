@@ -1,0 +1,52 @@
+{
+  "afdko": {
+    "extra_packages": [
+      "wheel"
+    ]
+  },
+  "ffsubsync": {
+    "extra_packages": [
+      "six"
+    ]
+  },
+  "ipsw-parser": {
+    "extra_packages": [
+      "lzfse"
+    ]
+  },
+  "nsz": {
+    "extra_packages": [
+      "six",
+      "kivy"
+    ]
+  },
+  "pyimg4": {
+    "extra_packages": [
+      "lzfse",
+      "numpy"
+    ]
+  },
+  "pymobiledevice3": {
+    "extra_packages": [
+      "aiofiles",
+      "lzfse",
+      "pdm-backend"
+    ]
+  },
+  "sidejitserver": {
+    "extra_packages": [
+      "lzfse",
+      "pdm-backend"
+    ]
+  },
+  "srptools": {
+    "extra_packages": [
+      "click"
+    ]
+  },
+  "wordcloud": {
+    "extra_packages": [
+      "pybind11"
+    ]
+  }
+}
