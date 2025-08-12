@@ -27,7 +27,7 @@ cask "font-sitka" do
 
   caveats do
     <<~EOS
-      [L] Private files cannot be downloaded without permission.
+      \033[1m[L]\033[0m Private files cannot be downloaded without permission.
     EOS
   end
 end

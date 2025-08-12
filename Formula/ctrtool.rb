@@ -21,7 +21,7 @@ class Ctrtool < Formula
 
   def caveats
     <<~EOS
-      [M] Modified from
+      \033[1m[M]\033[0m Modified from
       https://github.com/mistydemeo/homebrew-formulae/blob/master/Formula/ctrtool.rb
     EOS
   end

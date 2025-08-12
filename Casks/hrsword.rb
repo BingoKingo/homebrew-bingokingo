@@ -19,7 +19,7 @@ cask "hrsword" do
 
   caveats do
     <<~EOS
-      [A] Archived version captured by Wayback Machine.
+      \033[1m[A]\033[0m Archived version captured by Wayback Machine.
     EOS
   end
 end

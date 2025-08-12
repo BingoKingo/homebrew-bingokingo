@@ -30,15 +30,11 @@ This repository may be rebased. If you encounter any issues, please try force re
 
 **Formula** `dockerc` was removed.
 
-**Formula** `ipsw-parser` was removed.
-
 **Formula** `jetifier` was changed to **Cask** `jetifier`.
 
 **Formula** `mambaforge` was removed.
 
 **Formula** `miniforge` was removed.
-
-**Formula** `sidejitserver` was removed.
 
 And more in [cask_renames.json](./cask_renames.json) and [tap_migrations.json](./tap_migrations.json).
 

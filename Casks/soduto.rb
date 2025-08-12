@@ -28,7 +28,7 @@ cask "soduto" do
 
   caveats do
     <<~EOS
-      [F] Forked version, modified from
+      \033[1m[F]\033[0m Forked version, modified from
       https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/s/soduto.rb
     EOS
   end

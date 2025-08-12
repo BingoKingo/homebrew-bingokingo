@@ -39,7 +39,7 @@ cask "aegisub-arch1t3cht" do
 
   caveats do
     <<~EOS
-      [F] Forked application, modified from:
+      \033[1m[F]\033[0m Forked application, modified from:
       https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/a/aegisub.rb
     EOS
   end

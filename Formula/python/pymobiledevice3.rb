@@ -2,8 +2,8 @@ class Pymobiledevice3 < Formula
   include Language::Python::Virtualenv
   desc "Pure python3 implementation for working with iDevices"
   homepage "https://github.com/doronz88/pymobiledevice3/"
-  url "https://files.pythonhosted.org/packages/71/28/a64cceead282fb9ec64b6971e57528f85412e76eee6db3448fef27264ae3/pymobiledevice3-4.22.1.tar.gz"
-  sha256 "261868ab33129fd9015e4918ef30acb475cba6e774be1633289508e49c653e7e"
+  url "https://files.pythonhosted.org/packages/59/ee/de08ffc51a6b1cc861c8e654c777a7821571f9903972064008e4abe754a2/pymobiledevice3-4.23.0.tar.gz"
+  sha256 "1ae2f11346b404dec357fcf62a1842e22640a97d3b1f8d9b53da488f7caa4799"
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pymobiledevice3.git", branch: "master"
 
@@ -38,8 +38,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
-    sha256 "673c0c244e15788651a4ff38710fea9675823028a6f08a5eda409e0c9840a028"
+    url "https://files.pythonhosted.org/packages/f1/b4/636b3b65173d3ce9a38ef5f0522789614e590dab6a8d505340a4efe4c567/anyio-4.10.0.tar.gz"
+    sha256 "3f3fae35c96039744587aa5b8371e7e8e603c0702999535961dd336026973ba6"
   end
 
   resource "apple-compress" do
@@ -78,8 +78,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b3/76/52c535bcebe74590f296d6c77c86dabf761c41980e1347a2422e4aa2ae41/certifi-2025.7.14.tar.gz"
-    sha256 "8ea99dbdfaaf2ba2f9bac77b9249ef62ec5218e7c2b2e903378ed5fccf765995"
+    url "https://files.pythonhosted.org/packages/dc/67/960ebe6bf230a96cda2e0abcf73af550ec4f090005363542f0765df162e0/certifi-2025.8.3.tar.gz"
+    sha256 "e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407"
   end
 
   resource "cffi" do
@@ -88,8 +88,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e4/33/89c2ced2b67d1c2a61c19c6751aa8902d46ce3dacb23600a283619f5a12d/charset_normalizer-3.4.2.tar.gz"
-    sha256 "5baececa9ecba31eff645232d59845c07aa030f0c81ee70184a90d35099a0e63"
+    url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"
+    sha256 "6fce4b8500244f6fcb71465d4a4930d132ba9ab8e71a7859e6a5d59851068d14"
   end
 
   resource "click" do
@@ -108,8 +108,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/95/1e/49527ac611af559665f71cbb8f92b332b5ec9c6fbc4e88b0f8e92f5e85df/cryptography-45.0.5.tar.gz"
-    sha256 "72e76caa004ab63accdf26023fccd1d087f6d90ec6048ff33ad0445abf7f605a"
+    url "https://files.pythonhosted.org/packages/d6/0d/d13399c94234ee8f3df384819dc67e0c5ce215fb751d567a55a1f4b028c7/cryptography-45.0.6.tar.gz"
+    sha256 "5c966c732cf6e4a276ce83b6e4c729edda2df6929083a952cc7da973c539c719"
   end
 
   resource "daemonize" do
@@ -163,8 +163,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "fastapi-cloud-cli" do
-    url "https://files.pythonhosted.org/packages/06/d7/4a987c3d73ddae4a7c93f5d2982ea5b1dd58d4cc1044568bb180227bd0f7/fastapi_cloud_cli-0.1.4.tar.gz"
-    sha256 "a0ab7633d71d864b4041896b3fe2f462de61546db7c52eb13e963f4d40af0eba"
+    url "https://files.pythonhosted.org/packages/a9/2e/3b6e5016affc310e5109bc580f760586eabecea0c8a7ab067611cd849ac0/fastapi_cloud_cli-0.1.5.tar.gz"
+    sha256 "341ee585eb731a6d3c3656cb91ad38e5f39809bf1a16d41de1333e38635a7937"
   end
 
   resource "gpxpy" do
@@ -223,8 +223,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "ipsw-parser" do
-    url "https://files.pythonhosted.org/packages/7b/e7/656985f92255720a8ae3e606afa8f2bb201bb9cf9b67d8dfdbcd3af7aba4/ipsw_parser-1.4.3.tar.gz"
-    sha256 "445e902db62d4751e58fa4568d100747b0a0e7c854e2c2f5eb989d749d55cf76"
+    url "https://files.pythonhosted.org/packages/13/38/a2aa8a4a506a49d8e8cdc45ee549e8f1366af976bccc976294d707f62861/ipsw_parser-1.4.4.tar.gz"
+    sha256 "26e0c187f25bfeb460c0e4c16878e58326d61ddbdd8564df4531cf58240fb951"
   end
 
   resource "ipython" do
@@ -268,8 +268,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
-    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+    url "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz"
+    sha256 "cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3"
   end
 
   resource "markupsafe" do
@@ -453,8 +453,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "qh3" do
-    url "https://files.pythonhosted.org/packages/3c/45/9e3104a3d0670f551cb36d2f165a90756be40bc7e8b5e721df67581f6e5b/qh3-1.5.3.tar.gz"
-    sha256 "ad873abae5c87a01763f17ae06c3aa77bd4bf3f8e4d4529174f9b2f3854d383f"
+    url "https://files.pythonhosted.org/packages/c0/60/c0afa2ad69ed41644f0f3fc925a2f74e56066ce85404a13badae193348bc/qh3-1.5.4.tar.gz"
+    sha256 "eaaab5103c521bfaf453ee29c09c50ab8a53ca4e226dd83680d3a3eec6012314"
   end
 
   resource "readchar" do
@@ -478,8 +478,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "rich-toolkit" do
-    url "https://files.pythonhosted.org/packages/1b/de/d3d329d670bb271ee82e7bbc2946f985b2782f4cae2857138ed94be1335b/rich_toolkit-0.14.8.tar.gz"
-    sha256 "1f77b32e6c25d9e3644c1efbce00d8d90daf2457b3abdb4699e263c03b9ca6cf"
+    url "https://files.pythonhosted.org/packages/65/36/cdb3d51371ad0cccbf1541506304783bd72d55790709b8eb68c0d401a13a/rich_toolkit-0.15.0.tar.gz"
+    sha256 "3f5730e9f2d36d0bfe01cf723948b7ecf4cc355d2b71e2c00e094f7963128c09"
   end
 
   resource "rignore" do
@@ -493,8 +493,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/b0/82/dfe4a91fd38e048fbb55ca6c072710408e8802015aa27cde18e8684bb1e9/sentry_sdk-2.33.2.tar.gz"
-    sha256 "e85002234b7b8efac9b74c2d91dbd4f8f3970dc28da8798e39530e65cb740f94"
+    url "https://files.pythonhosted.org/packages/3a/38/10d6bfe23df1bfc65ac2262ed10b45823f47f810b0057d3feeea1ca5c7ed/sentry_sdk-2.34.1.tar.gz"
+    sha256 "69274eb8c5c38562a544c3e9f68b5be0a43be4b697f5fd385bf98e4fbe672687"
   end
 
   resource "setuptools" do
@@ -553,8 +553,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/c9/95/6bdde7607da2e1e99ec1c1672a759d42f26644bbacf939916e086db34870/types_python_dateutil-2.9.0.20250708.tar.gz"
-    sha256 "ccdbd75dab2d6c9696c350579f34cffe2c281e4c5f27a585b2a2438dd1d5c8ab"
+    url "https://files.pythonhosted.org/packages/a3/53/07dac71db45fb6b3c71c2fd29a87cada2239eac7ecfb318e6ebc7da00a3b/types_python_dateutil-2.9.0.20250809.tar.gz"
+    sha256 "69cbf8d15ef7a75c3801d65d63466e46ac25a0baa678d89d0a137fc31a608cc1"
   end
 
   resource "typing-extensions" do
