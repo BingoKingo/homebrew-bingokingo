@@ -12,6 +12,8 @@ cask "jetifier" do
     skip
   end
 
+  depends_on formula: "openjdk"
+
   binary "jetifier-standalone/bin/jetifier-standalone"
   binary "jetifier-standalone/bin/jetifier-standalone", target: "jetifier"
 end
