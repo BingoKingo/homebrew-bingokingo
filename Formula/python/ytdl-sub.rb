@@ -2,8 +2,8 @@ class YtdlSub < Formula
   include Language::Python::Virtualenv
   desc "Automate downloading and metadata generation with Yt-dlp"
   homepage "https://ytdl-sub.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2a/0d/a5b13c9f0b57f20e25257ac5c15530d25c9fbb5a002c8a51be79b10f513f/ytdl_sub-2025.7.24.tar.gz"
-  sha256 "9389e2327db61a3a5392926b047107a1691d9f56f258fccbdd020e7fdbc432ce"
+  url "https://files.pythonhosted.org/packages/ca/d8/123ae0e9308bb21be4525dae565410cd603dd242e39a5e83dd59091512b6/ytdl_sub-2025.8.15.post2.tar.gz"
+  sha256 "4c0ba78348654a79e660ffa84a39f55df0520477712096b7bc2c5e83eeb395f5"
   license "GPL-3.0-or-later"
   head "https://github.com/jmbannon/ytdl-sub.git", branch: "master"
 
@@ -69,8 +69,8 @@ class YtdlSub < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "urllib3" do
@@ -84,8 +84,8 @@ class YtdlSub < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/7e/3a/343f7a0024ddd4c30f150e8d8f57fd7b924846f97d99fc0dcd75ea8d2773/yt_dlp-2025.7.21.tar.gz"
-    sha256 "46fbb53eab1afbe184c45b4c17e9a6eba614be680e4c09de58b782629d0d7f43"
+    url "https://files.pythonhosted.org/packages/80/72/de4a7f9bbfef886c7f0790b8246585310f155e4a6589dd38d846efa932e9/yt_dlp-2025.8.11.tar.gz"
+    sha256 "dc7c120a367fe55e0f711613dc80ea29d3a4e0ed8d66104cebfbe3d36e81fdfc"
   end
 
   def install

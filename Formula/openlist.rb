@@ -1,8 +1,8 @@
 class Openlist < Formula
   desc "File list program that supports multiple storage powered by Gin and Solidjs"
   homepage "https://oplist.org/"
-  url "https://github.com/OpenListTeam/OpenList/archive/refs/tags/v4.1.0.tar.gz"
-  sha256 "cdaf91413fe07b3d8155f644237a839dac09f084e812b25c76effca7dfc1d3f2"
+  url "https://github.com/OpenListTeam/OpenList/archive/refs/tags/v4.1.1.tar.gz"
+  sha256 "19233fbe67d848e1212b8c23e8af145b1c23533a2c09fd66c141d2de05b9b15c"
   license "AGPL-3.0-only"
   head "https://github.com/OpenListTeam/OpenList.git", branch: "main"
 
@@ -13,9 +13,7 @@ class Openlist < Formula
 
   resource "openlist-web" do
     # pull from git tag to get submodules
-    url "https://github.com/OpenListTeam/OpenList-Frontend.git",
-       tag:      "v4.1.0",
-       revision: "f1e97b2343c851034537958ab2b91b45854d3663"
+    url "https://github.com/OpenListTeam/OpenList-Frontend.git", branch: "main"
   end
 
   def install
@@ -48,6 +46,14 @@ class Openlist < Formula
         cd #{opt_prefix} && openlist admin
       Or reveal password via `sqlite3` command:
         sqlite3 #{etc}/openlist/data.db "select password from x_users where username = 'admin'"
+
+      Drives not support in OpenList but in Alist:
+        "github.com/alist-org/alist/v3/drivers/alist_v2"
+        "github.com/alist-org/alist/v3/drivers/baidu_share"
+        "github.com/alist-org/alist/v3/drivers/lark"
+        "github.com/alist-org/alist/v3/drivers/quqi"
+        "github.com/alist-org/alist/v3/drivers/trainbit"
+        "github.com/alist-org/alist/v3/drivers/vtencent"
     EOS
   end
 
