@@ -2,8 +2,8 @@ class Pymobiledevice3 < Formula
   include Language::Python::Virtualenv
   desc "Pure python3 implementation for working with iDevices"
   homepage "https://github.com/doronz88/pymobiledevice3/"
-  url "https://files.pythonhosted.org/packages/59/ee/de08ffc51a6b1cc861c8e654c777a7821571f9903972064008e4abe754a2/pymobiledevice3-4.23.0.tar.gz"
-  sha256 "1ae2f11346b404dec357fcf62a1842e22640a97d3b1f8d9b53da488f7caa4799"
+  url "https://files.pythonhosted.org/packages/ae/9e/5e798cf242a72261ae87d7fd105f1a5984081466ecc53e047308bcc4f48e/pymobiledevice3-4.24.1.tar.gz"
+  sha256 "c8bf0ea671da4e4055bbb284c58ced9bd3b50242550a66a450bca42081201fbf"
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pymobiledevice3.git", branch: "master"
 
@@ -298,8 +298,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/19/3b/fd9ff8ff64ae3900f11554d5cfc835fb73e501e043c420ad32ec574fe27f/orjson-3.11.1.tar.gz"
-    sha256 "48d82770a5fd88778063604c566f9c7c71820270c9cc9338d25147cbf34afd96"
+    url "https://files.pythonhosted.org/packages/df/1d/5e0ae38788bdf0721326695e65fdf41405ed535f633eb0df0f06f57552fa/orjson-3.11.2.tar.gz"
+    sha256 "91bdcf5e69a8fd8e8bdb3de32b31ff01d2bd60c1e8d5fe7d5afabdcf19920309"
   end
 
   resource "packaging" do
@@ -468,8 +468,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
-    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
+    url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
+    sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
   resource "rich" do
@@ -493,8 +493,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/3a/38/10d6bfe23df1bfc65ac2262ed10b45823f47f810b0057d3feeea1ca5c7ed/sentry_sdk-2.34.1.tar.gz"
-    sha256 "69274eb8c5c38562a544c3e9f68b5be0a43be4b697f5fd385bf98e4fbe672687"
+    url "https://files.pythonhosted.org/packages/31/83/055dc157b719651ef13db569bb8cf2103df11174478649735c1b2bf3f6bc/sentry_sdk-2.35.0.tar.gz"
+    sha256 "5ea58d352779ce45d17bc2fa71ec7185205295b83a9dbb5707273deb64720092"
   end
 
   resource "setuptools" do
@@ -548,8 +548,8 @@ class Pymobiledevice3 < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/c5/8c/7d682431efca5fd290017663ea4588bf6f2c6aad085c7f108c5dbc316e70/typer-0.16.0.tar.gz"
-    sha256 "af377ffaee1dbe37ae9440cb4e8f11686ea5ce4e9bae01b84ae7c63b87f1dd3b"
+    url "https://files.pythonhosted.org/packages/43/78/d90f616bf5f88f8710ad067c1f8705bf7618059836ca084e5bb2a0855d75/typer-0.16.1.tar.gz"
+    sha256 "d358c65a464a7a90f338e3bb7ff0c74ac081449e53884b12ba658cbd72990614"
   end
 
   resource "types-python-dateutil" do
