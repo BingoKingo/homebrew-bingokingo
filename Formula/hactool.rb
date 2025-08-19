@@ -13,7 +13,7 @@ class Hactool < Formula
 
   def caveats
     <<~EOS
-      \033[1m[M]\033[0m Modified from
+      [M] Modified from
       https://github.com/chasestubblefield/homebrew-brew/blob/master/hactool.rb
     EOS
   end

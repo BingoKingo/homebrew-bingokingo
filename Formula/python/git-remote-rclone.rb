@@ -14,8 +14,8 @@ class GitRemoteRclone < Formula
 
   def caveats
     <<~EOS
-    \033[1m[F]\033[0m Successor of https://github.com/datalad/git-remote-rclone
-      and https://github.com/redstreet/git-remote-rclone
+      [F] Successor of https://github.com/datalad/git-remote-rclone
+        and https://github.com/redstreet/git-remote-rclone
     EOS
   end
   test do

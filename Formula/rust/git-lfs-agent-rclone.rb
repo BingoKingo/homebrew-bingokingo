@@ -15,7 +15,7 @@ class GitLfsAgentRclone < Formula
 
   def caveats
     <<~EOS
-      \033[1m[F]\033[0m Fork of https://github.com/funatsufumiya/git-lfs-agent-rclone
+      [F] Fork of https://github.com/funatsufumiya/git-lfs-agent-rclone
     EOS
   end
   test do

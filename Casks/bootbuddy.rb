@@ -28,7 +28,7 @@ cask "bootbuddy" do
 
   caveats do
     <<~EOS
-      \033[1m[R]\033[0m Not ready for acceptance because of obscurity,
+      [R] Not ready for acceptance because of obscurity,
       more details from https://github.com/Homebrew/homebrew-cask/issues/112655
     EOS
   end

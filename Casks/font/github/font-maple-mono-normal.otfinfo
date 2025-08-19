@@ -1,0 +1,72 @@
+Family:              Maple Mono Normal
+Subfamily:           Italic
+Full name:           Maple Mono Normal Italic
+PostScript name:     MapleMonoNormal-Italic
+Version:             Version 7.500
+Unique ID:           Version 7.500;SUBF;MapleMonoNormal-Italic;2024;FL830;Variable;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+ss05;+ss06;+ss07;+ss08;+cv61;+cv62;+calt;
+Description:         A monospace font with round corner and ligatures
+Designer:            subframe7536
+Designer URL:        https://github.com/subframe7536
+Vendor URL:          https://github.com/subframe7536
+Copyright:           Copyright 2022 The Maple Mono Project Authors (https://github.com/subframe7536/maple-font)
+License URL:         https://openfontlicense.org
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           100 800
+Axis 0 default:         400
+Instance 0 name:        Thin Italic
+Instance 0 position:    100
+Instance 1 name:        Extra LightItalic
+Instance 1 position:    200
+Instance 2 name:        Light Italic
+Instance 2 position:    300
+Instance 3 name:        Italic
+Instance 3 position:    400
+Instance 4 name:        Medium Italic
+Instance 4 position:    500
+Instance 5 name:        SemiBold Italic
+Instance 5 position:    600
+Instance 6 name:        Bold Italic
+Instance 6 position:    700
+Instance 7 name:        ExtraBold Italic
+Instance 7 position:    800
+
+
+
+Family:              Maple Mono Normal
+Subfamily:           Regular
+Full name:           Maple Mono Normal Regular
+PostScript name:     MapleMonoNormal-Regular
+Version:             Version 7.500
+Unique ID:           Version 7.500;SUBF;MapleMonoNormal-Regular;2024;FL830;Variable;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+ss05;+ss06;+ss07;+ss08;+cv61;+cv62;+calt;
+Description:         A monospace font with round corner and ligatures
+Designer:            subframe7536
+Designer URL:        https://github.com/subframe7536
+Vendor URL:          https://github.com/subframe7536
+Copyright:           Copyright 2022 The Maple Mono Project Authors (https://github.com/subframe7536/maple-font)
+License URL:         https://openfontlicense.org
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           100 800
+Axis 0 default:         400
+Instance 0 name:        Thin
+Instance 0 position:    100
+Instance 1 name:        ExtraLight
+Instance 1 position:    200
+Instance 2 name:        Light
+Instance 2 position:    300
+Instance 3 name:        Regular
+Instance 3 position:    400
+Instance 4 name:        Medium
+Instance 4 position:    500
+Instance 5 name:        SemiBold
+Instance 5 position:    600
+Instance 6 name:        Bold
+Instance 6 position:    700
+Instance 7 name:        ExtraBold
+Instance 7 position:    800
+

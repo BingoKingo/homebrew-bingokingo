@@ -52,7 +52,7 @@ class GitfsKovan < Formula
 
   def caveats
     <<~EOS
-      \033[1m[F]\033[0m Fork project, modified from
+      [F] Fork project, modified from
       https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/gitfs-mac.rb
 
       gitfs clones repos in /var/lib/gitfs. You can either create it with

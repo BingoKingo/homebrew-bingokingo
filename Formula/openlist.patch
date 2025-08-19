@@ -1,0 +1,2472 @@
+From 0e12fa6adcb3892eccfb5fc26f3fb40452e344f8 Mon Sep 17 00:00:00 2001
+From: Anonymous <anonymous@anywhere.local>
+Date: Wed, 20 Aug 2025 17:36:13 +0800
+Subject: [PATCH] add back drivers: alist_v2 baidu_share lark trainbit vtencent
+
+go mod add github.com/larksuite/oapi-sdk-go github.com/minio/sio
+---
+ drivers/alist_v2/driver.go    | 118 ++++++++++
+ drivers/alist_v2/meta.go      |  26 +++
+ drivers/alist_v2/types.go     |  31 +++
+ drivers/alist_v2/util.go      |   1 +
+ drivers/all.go                |   4 +
+ drivers/baidu_share/driver.go | 251 +++++++++++++++++++++
+ drivers/baidu_share/meta.go   |  37 ++++
+ drivers/baidu_share/types.go  |   1 +
+ drivers/baidu_share/util.go   |   3 +
+ drivers/lark.go               |   8 +
+ drivers/lark/driver.go        | 403 ++++++++++++++++++++++++++++++++++
+ drivers/lark/meta.go          |  36 +++
+ drivers/lark/types.go         |  32 +++
+ drivers/lark/util.go          |  66 ++++++
+ drivers/trainbit/driver.go    | 137 ++++++++++++
+ drivers/trainbit/meta.go      |  29 +++
+ drivers/trainbit/types.go     |   1 +
+ drivers/trainbit/util.go      | 124 +++++++++++
+ drivers/vtencent/drive.go     | 210 ++++++++++++++++++
+ drivers/vtencent/meta.go      |  39 ++++
+ drivers/vtencent/signature.go |  33 +++
+ drivers/vtencent/types.go     | 252 +++++++++++++++++++++
+ drivers/vtencent/util.go      | 299 +++++++++++++++++++++++++
+ go.mod                        |   2 +
+ go.sum                        |  16 ++
+ 25 files changed, 2159 insertions(+)
+ create mode 100755 drivers/alist_v2/driver.go
+ create mode 100755 drivers/alist_v2/meta.go
+ create mode 100755 drivers/alist_v2/types.go
+ create mode 100755 drivers/alist_v2/util.go
+ create mode 100755 drivers/baidu_share/driver.go
+ create mode 100755 drivers/baidu_share/meta.go
+ create mode 100755 drivers/baidu_share/types.go
+ create mode 100755 drivers/baidu_share/util.go
+ create mode 100755 drivers/lark.go
+ create mode 100755 drivers/lark/driver.go
+ create mode 100755 drivers/lark/meta.go
+ create mode 100755 drivers/lark/types.go
+ create mode 100755 drivers/lark/util.go
+ create mode 100755 drivers/trainbit/driver.go
+ create mode 100755 drivers/trainbit/meta.go
+ create mode 100755 drivers/trainbit/types.go
+ create mode 100755 drivers/trainbit/util.go
+ create mode 100755 drivers/vtencent/drive.go
+ create mode 100755 drivers/vtencent/meta.go
+ create mode 100755 drivers/vtencent/signature.go
+ create mode 100755 drivers/vtencent/types.go
+ create mode 100755 drivers/vtencent/util.go
+
+diff --git a/drivers/alist_v2/driver.go b/drivers/alist_v2/driver.go
+new file mode 100755
+index 00000000..c9052546
+--- /dev/null
++++ b/drivers/alist_v2/driver.go
+@@ -0,0 +1,118 @@
++package alist_v2
++
++import (
++	"context"
++
++	"github.com/OpenListTeam/OpenList/v4/drivers/base"
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/errs"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++	"github.com/OpenListTeam/OpenList/v4/server/common"
++)
++
++type AListV2 struct {
++	model.Storage
++	Addition
++}
++
++func (d *AListV2) Config() driver.Config {
++	return config
++}
++
++func (d *AListV2) GetAddition() driver.Additional {
++	return &d.Addition
++}
++
++func (d *AListV2) Init(ctx context.Context) error {
++	if len(d.Addition.Address) > 0 && string(d.Addition.Address[len(d.Addition.Address)-1]) == "/" {
++		d.Addition.Address = d.Addition.Address[0 : len(d.Addition.Address)-1]
++	}
++	// TODO login / refresh token
++	//op.MustSaveDriverStorage(d)
++	return nil
++}
++
++func (d *AListV2) Drop(ctx context.Context) error {
++	return nil
++}
++
++func (d *AListV2) List(ctx context.Context, dir model.Obj, args model.ListArgs) ([]model.Obj, error) {
++	url := d.Address + "/api/public/path"
++	var resp common.Resp[PathResp]
++	_, err := base.RestyClient.R().
++		SetResult(&resp).
++		SetHeader("Authorization", d.AccessToken).
++		SetBody(PathReq{
++			PageNum:  0,
++			PageSize: 0,
++			Path:     dir.GetPath(),
++			Password: d.Password,
++		}).Post(url)
++	if err != nil {
++		return nil, err
++	}
++	var files []model.Obj
++	for _, f := range resp.Data.Files {
++		file := model.ObjThumb{
++			Object: model.Object{
++				Name:     f.Name,
++				Modified: *f.UpdatedAt,
++				Size:     f.Size,
++				IsFolder: f.Type == 1,
++			},
++			Thumbnail: model.Thumbnail{Thumbnail: f.Thumbnail},
++		}
++		files = append(files, &file)
++	}
++	return files, nil
++}
++
++func (d *AListV2) Link(ctx context.Context, file model.Obj, args model.LinkArgs) (*model.Link, error) {
++	url := d.Address + "/api/public/path"
++	var resp common.Resp[PathResp]
++	_, err := base.RestyClient.R().
++		SetResult(&resp).
++		SetHeader("Authorization", d.AccessToken).
++		SetBody(PathReq{
++			PageNum:  0,
++			PageSize: 0,
++			Path:     file.GetPath(),
++			Password: d.Password,
++		}).Post(url)
++	if err != nil {
++		return nil, err
++	}
++	return &model.Link{
++		URL: resp.Data.Files[0].Url,
++	}, nil
++}
++
++func (d *AListV2) MakeDir(ctx context.Context, parentDir model.Obj, dirName string) error {
++	return errs.NotImplement
++}
++
++func (d *AListV2) Move(ctx context.Context, srcObj, dstDir model.Obj) error {
++	return errs.NotImplement
++}
++
++func (d *AListV2) Rename(ctx context.Context, srcObj model.Obj, newName string) error {
++	return errs.NotImplement
++}
++
++func (d *AListV2) Copy(ctx context.Context, srcObj, dstDir model.Obj) error {
++	return errs.NotImplement
++}
++
++func (d *AListV2) Remove(ctx context.Context, obj model.Obj) error {
++	return errs.NotImplement
++}
++
++func (d *AListV2) Put(ctx context.Context, dstDir model.Obj, stream model.FileStreamer, up driver.UpdateProgress) error {
++	return errs.NotImplement
++}
++
++//func (d *AList) Other(ctx context.Context, args model.OtherArgs) (interface{}, error) {
++//	return nil, errs.NotSupport
++//}
++
++var _ driver.Driver = (*AListV2)(nil)
+diff --git a/drivers/alist_v2/meta.go b/drivers/alist_v2/meta.go
+new file mode 100755
+index 00000000..83f99ce4
+--- /dev/null
++++ b/drivers/alist_v2/meta.go
+@@ -0,0 +1,26 @@
++package alist_v2
++
++import (
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++)
++
++type Addition struct {
++	driver.RootPath
++	Address     string `json:"url" required:"true"`
++	Password    string `json:"password"`
++	AccessToken string `json:"access_token"`
++}
++
++var config = driver.Config{
++	Name:        "AList V2",
++	LocalSort:   true,
++	NoUpload:    true,
++	DefaultRoot: "/",
++}
++
++func init() {
++	op.RegisterDriver(func() driver.Driver {
++		return &AListV2{}
++	})
++}
+diff --git a/drivers/alist_v2/types.go b/drivers/alist_v2/types.go
+new file mode 100755
+index 00000000..b2317fbf
+--- /dev/null
++++ b/drivers/alist_v2/types.go
+@@ -0,0 +1,31 @@
++package alist_v2
++
++import (
++	"time"
++)
++
++type File struct {
++	Id        string     `json:"-"`
++	Name      string     `json:"name"`
++	Size      int64      `json:"size"`
++	Type      int        `json:"type"`
++	Driver    string     `json:"driver"`
++	UpdatedAt *time.Time `json:"updated_at"`
++	Thumbnail string     `json:"thumbnail"`
++	Url       string     `json:"url"`
++	SizeStr   string     `json:"size_str"`
++	TimeStr   string     `json:"time_str"`
++}
++
++type PathResp struct {
++	Type string `json:"type"`
++	//Meta  Meta         `json:"meta"`
++	Files []File `json:"files"`
++}
++
++type PathReq struct {
++	PageNum  int    `json:"page_num"`
++	PageSize int    `json:"page_size"`
++	Password string `json:"password"`
++	Path     string `json:"path"`
++}
+diff --git a/drivers/alist_v2/util.go b/drivers/alist_v2/util.go
+new file mode 100755
+index 00000000..e6682193
+--- /dev/null
++++ b/drivers/alist_v2/util.go
+@@ -0,0 +1 @@
++package alist_v2
+diff --git a/drivers/all.go b/drivers/all.go
+index 5b274eab..6c1f92d4 100644
+--- a/drivers/all.go
++++ b/drivers/all.go
+@@ -13,12 +13,14 @@ import (
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/189_tv"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/189pc"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/alias"
++	_ "github.com/OpenListTeam/OpenList/v4/drivers/alist_v2"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/aliyundrive"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/aliyundrive_open"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/aliyundrive_share"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/azure_blob"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/baidu_netdisk"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/baidu_photo"
++	_ "github.com/OpenListTeam/OpenList/v4/drivers/baidu_share"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/chaoxing"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/cloudreve"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/cloudreve_v4"
+@@ -64,9 +66,11 @@ import (
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunder"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunder_browser"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunderx"
++	_ "github.com/OpenListTeam/OpenList/v4/drivers/trainbit"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/url_tree"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/uss"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/virtual"
++	_ "github.com/OpenListTeam/OpenList/v4/drivers/vtencent"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/webdav"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/weiyun"
+ 	_ "github.com/OpenListTeam/OpenList/v4/drivers/wopan"
+diff --git a/drivers/baidu_share/driver.go b/drivers/baidu_share/driver.go
+new file mode 100755
+index 00000000..c31d8844
+--- /dev/null
++++ b/drivers/baidu_share/driver.go
+@@ -0,0 +1,251 @@
++package baidu_share
++
++import (
++	"context"
++	"encoding/json"
++	"fmt"
++	"io"
++	"net/http"
++	"net/url"
++	"path"
++	"time"
++
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/errs"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++	"github.com/go-resty/resty/v2"
++)
++
++type BaiduShare struct {
++	model.Storage
++	Addition
++	client *resty.Client
++	info   struct {
++		Root    string
++		Seckey  string
++		Shareid string
++		Uk      string
++	}
++}
++
++func (d *BaiduShare) Config() driver.Config {
++	return config
++}
++
++func (d *BaiduShare) GetAddition() driver.Additional {
++	return &d.Addition
++}
++
++func (d *BaiduShare) Init(ctx context.Context) error {
++	// TODO login / refresh token
++	//op.MustSaveDriverStorage(d)
++	d.client = resty.New().
++		SetBaseURL("https://pan.baidu.com").
++		SetHeader("User-Agent", "netdisk").
++		SetCookie(&http.Cookie{Name: "BDUSS", Value: d.BDUSS}).
++		SetCookie(&http.Cookie{Name: "ndut_fmt"})
++	respJson := struct {
++		Errno int64 `json:"errno"`
++		Data  struct {
++			List [1]struct {
++				Path string `json:"path"`
++			} `json:"list"`
++			Uk      json.Number `json:"uk"`
++			Shareid json.Number `json:"shareid"`
++			Seckey  string      `json:"seckey"`
++		} `json:"data"`
++	}{}
++	resp, err := d.client.R().
++		SetBody(url.Values{
++			"pwd":      {d.Pwd},
++			"root":     {"1"},
++			"shorturl": {d.Surl},
++		}.Encode()).
++		SetResult(&respJson).
++		Post("share/wxlist?channel=weixin&version=2.2.2&clienttype=25&web=1")
++	if err == nil {
++		if resp.IsSuccess() && respJson.Errno == 0 {
++			d.info.Root = path.Dir(respJson.Data.List[0].Path)
++			d.info.Seckey = respJson.Data.Seckey
++			d.info.Shareid = respJson.Data.Shareid.String()
++			d.info.Uk = respJson.Data.Uk.String()
++		} else {
++			err = fmt.Errorf(" %s; %s; ", resp.Status(), resp.Body())
++		}
++	}
++	return err
++}
++
++func (d *BaiduShare) Drop(ctx context.Context) error {
++	return nil
++}
++
++func (d *BaiduShare) List(ctx context.Context, dir model.Obj, args model.ListArgs) ([]model.Obj, error) {
++	// TODO return the files list, required
++	reqDir := dir.GetPath()
++	isRoot := "0"
++	if reqDir == d.RootFolderPath {
++		reqDir = path.Join(d.info.Root, reqDir)
++	}
++	if reqDir == d.info.Root {
++		isRoot = "1"
++	}
++	objs := []model.Obj{}
++	var err error
++	var page uint64 = 1
++	more := true
++	for more && err == nil {
++		respJson := struct {
++			Errno int64 `json:"errno"`
++			Data  struct {
++				More bool `json:"has_more"`
++				List []struct {
++					Fsid  json.Number `json:"fs_id"`
++					Isdir json.Number `json:"isdir"`
++					Path  string      `json:"path"`
++					Name  string      `json:"server_filename"`
++					Mtime json.Number `json:"server_mtime"`
++					Size  json.Number `json:"size"`
++				} `json:"list"`
++			} `json:"data"`
++		}{}
++		resp, e := d.client.R().
++			SetBody(url.Values{
++				"dir":      {reqDir},
++				"num":      {"1000"},
++				"order":    {"time"},
++				"page":     {fmt.Sprint(page)},
++				"pwd":      {d.Pwd},
++				"root":     {isRoot},
++				"shorturl": {d.Surl},
++			}.Encode()).
++			SetResult(&respJson).
++			Post("share/wxlist?channel=weixin&version=2.2.2&clienttype=25&web=1")
++		err = e
++		if err == nil {
++			if resp.IsSuccess() && respJson.Errno == 0 {
++				page++
++				more = respJson.Data.More
++				for _, v := range respJson.Data.List {
++					size, _ := v.Size.Int64()
++					mtime, _ := v.Mtime.Int64()
++					objs = append(objs, &model.Object{
++						ID:       v.Fsid.String(),
++						Path:     v.Path,
++						Name:     v.Name,
++						Size:     size,
++						Modified: time.Unix(mtime, 0),
++						IsFolder: v.Isdir.String() == "1",
++					})
++				}
++			} else {
++				err = fmt.Errorf(" %s; %s; ", resp.Status(), resp.Body())
++			}
++		}
++	}
++	return objs, err
++}
++
++func (d *BaiduShare) Link(ctx context.Context, file model.Obj, args model.LinkArgs) (*model.Link, error) {
++	// TODO return link of file, required
++	link := model.Link{Header: d.client.Header}
++	sign := ""
++	stamp := ""
++	signJson := struct {
++		Errno int64 `json:"errno"`
++		Data  struct {
++			Stamp json.Number `json:"timestamp"`
++			Sign  string      `json:"sign"`
++		} `json:"data"`
++	}{}
++	resp, err := d.client.R().
++		SetQueryParam("surl", d.Surl).
++		SetResult(&signJson).
++		Get("share/tplconfig?fields=sign,timestamp&channel=chunlei&web=1&app_id=250528&clienttype=0")
++	if err == nil {
++		if resp.IsSuccess() && signJson.Errno == 0 {
++			stamp = signJson.Data.Stamp.String()
++			sign = signJson.Data.Sign
++		} else {
++			err = fmt.Errorf(" %s; %s; ", resp.Status(), resp.Body())
++		}
++	}
++	if err == nil {
++		respJson := struct {
++			Errno int64 `json:"errno"`
++			List  [1]struct {
++				Dlink string `json:"dlink"`
++			} `json:"list"`
++		}{}
++		resp, err = d.client.R().
++			SetQueryParam("sign", sign).
++			SetQueryParam("timestamp", stamp).
++			SetBody(url.Values{
++				"encrypt":   {"0"},
++				"extra":     {fmt.Sprintf(`{"sekey":"%s"}`, d.info.Seckey)},
++				"fid_list":  {fmt.Sprintf("[%s]", file.GetID())},
++				"primaryid": {d.info.Shareid},
++				"product":   {"share"},
++				"type":      {"nolimit"},
++				"uk":        {d.info.Uk},
++			}.Encode()).
++			SetResult(&respJson).
++			Post("api/sharedownload?app_id=250528&channel=chunlei&clienttype=12&web=1")
++		if err == nil {
++			if resp.IsSuccess() && respJson.Errno == 0 && respJson.List[0].Dlink != "" {
++				link.URL = respJson.List[0].Dlink
++			} else {
++				err = fmt.Errorf(" %s; %s; ", resp.Status(), resp.Body())
++			}
++		}
++		if err == nil {
++			resp, err = d.client.R().
++				SetDoNotParseResponse(true).
++				Get(link.URL)
++			if err == nil {
++				defer resp.RawBody().Close()
++				if resp.IsError() {
++					byt, _ := io.ReadAll(resp.RawBody())
++					err = fmt.Errorf(" %s; %s; ", resp.Status(), byt)
++				}
++			}
++		}
++	}
++	return &link, err
++}
++
++func (d *BaiduShare) MakeDir(ctx context.Context, parentDir model.Obj, dirName string) error {
++	// TODO create folder, optional
++	return errs.NotSupport
++}
++
++func (d *BaiduShare) Move(ctx context.Context, srcObj, dstDir model.Obj) error {
++	// TODO move obj, optional
++	return errs.NotSupport
++}
++
++func (d *BaiduShare) Rename(ctx context.Context, srcObj model.Obj, newName string) error {
++	// TODO rename obj, optional
++	return errs.NotSupport
++}
++
++func (d *BaiduShare) Copy(ctx context.Context, srcObj, dstDir model.Obj) error {
++	// TODO copy obj, optional
++	return errs.NotSupport
++}
++
++func (d *BaiduShare) Remove(ctx context.Context, obj model.Obj) error {
++	// TODO remove obj, optional
++	return errs.NotSupport
++}
++
++func (d *BaiduShare) Put(ctx context.Context, dstDir model.Obj, stream model.FileStreamer, up driver.UpdateProgress) error {
++	// TODO upload file, optional
++	return errs.NotSupport
++}
++
++//func (d *Template) Other(ctx context.Context, args model.OtherArgs) (interface{}, error) {
++//	return nil, errs.NotSupport
++//}
++
++var _ driver.Driver = (*BaiduShare)(nil)
+diff --git a/drivers/baidu_share/meta.go b/drivers/baidu_share/meta.go
+new file mode 100755
+index 00000000..0647a0c9
+--- /dev/null
++++ b/drivers/baidu_share/meta.go
+@@ -0,0 +1,37 @@
++package baidu_share
++
++import (
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++)
++
++type Addition struct {
++	// Usually one of two
++	driver.RootPath
++	// driver.RootID
++	// define other
++	// Field string `json:"field" type:"select" required:"true" options:"a,b,c" default:"a"`
++	Surl  string `json:"surl"`
++	Pwd   string `json:"pwd"`
++	BDUSS string `json:"BDUSS"`
++}
++
++var config = driver.Config{
++	Name:              "BaiduShare",
++	LocalSort:         true,
++	OnlyLinkMFile:     false,
++	OnlyProxy:         false,
++	NoCache:           false,
++	NoUpload:          true,
++	NeedMs:            false,
++	DefaultRoot:       "/",
++	CheckStatus:       false,
++	Alert:             "",
++	NoOverwriteUpload: false,
++}
++
++func init() {
++	op.RegisterDriver(func() driver.Driver {
++		return &BaiduShare{}
++	})
++}
+diff --git a/drivers/baidu_share/types.go b/drivers/baidu_share/types.go
+new file mode 100755
+index 00000000..1f65cb60
+--- /dev/null
++++ b/drivers/baidu_share/types.go
+@@ -0,0 +1 @@
++package baidu_share
+diff --git a/drivers/baidu_share/util.go b/drivers/baidu_share/util.go
+new file mode 100755
+index 00000000..6bca3f93
+--- /dev/null
++++ b/drivers/baidu_share/util.go
+@@ -0,0 +1,3 @@
++package baidu_share
++
++// do others that not defined in Driver interface
+diff --git a/drivers/lark.go b/drivers/lark.go
+new file mode 100755
+index 00000000..7832320d
+--- /dev/null
++++ b/drivers/lark.go
+@@ -0,0 +1,8 @@
++// +build linux darwin windows
++// +build amd64 arm64
++
++package drivers
++
++import (
++	_ "github.com/OpenListTeam/OpenList/v4/drivers/lark"
++)
+diff --git a/drivers/lark/driver.go b/drivers/lark/driver.go
+new file mode 100755
+index 00000000..59b4e300
+--- /dev/null
++++ b/drivers/lark/driver.go
+@@ -0,0 +1,403 @@
++package lark
++
++import (
++	"context"
++	"errors"
++	"fmt"
++	"io"
++	"net/http"
++	"strconv"
++	"strings"
++	"time"
++
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/errs"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++	lark "github.com/larksuite/oapi-sdk-go/v3"
++	larkcore "github.com/larksuite/oapi-sdk-go/v3/core"
++	larkdrive "github.com/larksuite/oapi-sdk-go/v3/service/drive/v1"
++	"golang.org/x/time/rate"
++)
++
++type Lark struct {
++	model.Storage
++	Addition
++
++	client          *lark.Client
++	rootFolderToken string
++}
++
++func (c *Lark) Config() driver.Config {
++	return config
++}
++
++func (c *Lark) GetAddition() driver.Additional {
++	return &c.Addition
++}
++
++func (c *Lark) Init(ctx context.Context) error {
++	c.client = lark.NewClient(c.AppId, c.AppSecret, lark.WithTokenCache(newTokenCache()))
++
++	paths := strings.Split(c.RootFolderPath, "/")
++	token := ""
++
++	var ok bool
++	var file *larkdrive.File
++	for _, p := range paths {
++		if p == "" {
++			token = ""
++			continue
++		}
++
++		resp, err := c.client.Drive.File.ListByIterator(ctx, larkdrive.NewListFileReqBuilder().FolderToken(token).Build())
++		if err != nil {
++			return err
++		}
++
++		for {
++			ok, file, err = resp.Next()
++			if !ok {
++				return errs.ObjectNotFound
++			}
++
++			if err != nil {
++				return err
++			}
++
++			if *file.Type == "folder" && *file.Name == p {
++				token = *file.Token
++				break
++			}
++		}
++	}
++
++	c.rootFolderToken = token
++
++	return nil
++}
++
++func (c *Lark) Drop(ctx context.Context) error {
++	return nil
++}
++
++func (c *Lark) List(ctx context.Context, dir model.Obj, args model.ListArgs) ([]model.Obj, error) {
++	token, ok := c.getObjToken(ctx, dir.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	if token == emptyFolderToken {
++		return nil, nil
++	}
++
++	resp, err := c.client.Drive.File.ListByIterator(ctx, larkdrive.NewListFileReqBuilder().FolderToken(token).Build())
++	if err != nil {
++		return nil, err
++	}
++
++	ok = false
++	var file *larkdrive.File
++	var res []model.Obj
++
++	for {
++		ok, file, err = resp.Next()
++		if !ok {
++			break
++		}
++
++		if err != nil {
++			return nil, err
++		}
++
++		modifiedUnix, _ := strconv.ParseInt(*file.ModifiedTime, 10, 64)
++		createdUnix, _ := strconv.ParseInt(*file.CreatedTime, 10, 64)
++
++		f := model.Object{
++			ID:       *file.Token,
++			Path:     strings.Join([]string{c.RootFolderPath, dir.GetPath(), *file.Name}, "/"),
++			Name:     *file.Name,
++			Size:     0,
++			Modified: time.Unix(modifiedUnix, 0),
++			Ctime:    time.Unix(createdUnix, 0),
++			IsFolder: *file.Type == "folder",
++		}
++		res = append(res, &f)
++	}
++
++	return res, nil
++}
++
++func (c *Lark) Link(ctx context.Context, file model.Obj, args model.LinkArgs) (*model.Link, error) {
++	token, ok := c.getObjToken(ctx, file.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	resp, err := c.client.GetTenantAccessTokenBySelfBuiltApp(ctx, &larkcore.SelfBuiltTenantAccessTokenReq{
++		AppID:     c.AppId,
++		AppSecret: c.AppSecret,
++	})
++
++	if err != nil {
++		return nil, err
++	}
++
++	if !c.ExternalMode {
++		accessToken := resp.TenantAccessToken
++
++		url := fmt.Sprintf("https://open.feishu.cn/open-apis/drive/v1/files/%s/download", token)
++
++		req, err := http.NewRequest(http.MethodGet, url, nil)
++		if err != nil {
++			return nil, err
++		}
++
++		req.Header.Set("Authorization", fmt.Sprintf("Bearer %s", accessToken))
++		req.Header.Set("Range", "bytes=0-1")
++
++		ar, err := http.DefaultClient.Do(req)
++		if err != nil {
++			return nil, err
++		}
++
++		if ar.StatusCode != http.StatusPartialContent {
++			return nil, errors.New("failed to get download link")
++		}
++
++		return &model.Link{
++			URL: url,
++			Header: http.Header{
++				"Authorization": []string{fmt.Sprintf("Bearer %s", accessToken)},
++			},
++		}, nil
++	} else {
++		url := strings.Join([]string{c.TenantUrlPrefix, "file", token}, "/")
++
++		return &model.Link{
++			URL: url,
++		}, nil
++	}
++}
++
++func (c *Lark) MakeDir(ctx context.Context, parentDir model.Obj, dirName string) (model.Obj, error) {
++	token, ok := c.getObjToken(ctx, parentDir.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	body, err := larkdrive.NewCreateFolderFilePathReqBodyBuilder().FolderToken(token).Name(dirName).Build()
++	if err != nil {
++		return nil, err
++	}
++
++	resp, err := c.client.Drive.File.CreateFolder(ctx,
++		larkdrive.NewCreateFolderFileReqBuilder().Body(body).Build())
++	if err != nil {
++		return nil, err
++	}
++
++	if !resp.Success() {
++		return nil, errors.New(resp.Error())
++	}
++
++	return &model.Object{
++		ID:       *resp.Data.Token,
++		Path:     strings.Join([]string{c.RootFolderPath, parentDir.GetPath(), dirName}, "/"),
++		Name:     dirName,
++		Size:     0,
++		IsFolder: true,
++	}, nil
++}
++
++func (c *Lark) Move(ctx context.Context, srcObj, dstDir model.Obj) (model.Obj, error) {
++	srcToken, ok := c.getObjToken(ctx, srcObj.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	dstDirToken, ok := c.getObjToken(ctx, dstDir.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	req := larkdrive.NewMoveFileReqBuilder().
++		Body(larkdrive.NewMoveFileReqBodyBuilder().
++			Type("file").
++			FolderToken(dstDirToken).
++			Build()).FileToken(srcToken).
++		Build()
++
++	// 发起请求
++	resp, err := c.client.Drive.File.Move(ctx, req)
++	if err != nil {
++		return nil, err
++	}
++
++	if !resp.Success() {
++		return nil, errors.New(resp.Error())
++	}
++
++	return nil, nil
++}
++
++func (c *Lark) Rename(ctx context.Context, srcObj model.Obj, newName string) (model.Obj, error) {
++	// TODO rename obj, optional
++	return nil, errs.NotImplement
++}
++
++func (c *Lark) Copy(ctx context.Context, srcObj, dstDir model.Obj) (model.Obj, error) {
++	srcToken, ok := c.getObjToken(ctx, srcObj.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	dstDirToken, ok := c.getObjToken(ctx, dstDir.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	req := larkdrive.NewCopyFileReqBuilder().
++		Body(larkdrive.NewCopyFileReqBodyBuilder().
++			Name(srcObj.GetName()).
++			Type("file").
++			FolderToken(dstDirToken).
++			Build()).FileToken(srcToken).
++		Build()
++
++	// 发起请求
++	resp, err := c.client.Drive.File.Copy(ctx, req)
++	if err != nil {
++		return nil, err
++	}
++
++	if !resp.Success() {
++		return nil, errors.New(resp.Error())
++	}
++
++	return nil, nil
++}
++
++func (c *Lark) Remove(ctx context.Context, obj model.Obj) error {
++	token, ok := c.getObjToken(ctx, obj.GetPath())
++	if !ok {
++		return errs.ObjectNotFound
++	}
++
++	req := larkdrive.NewDeleteFileReqBuilder().
++		FileToken(token).
++		Type("file").
++		Build()
++
++	// 发起请求
++	resp, err := c.client.Drive.File.Delete(ctx, req)
++	if err != nil {
++		return err
++	}
++
++	if !resp.Success() {
++		return errors.New(resp.Error())
++	}
++
++	return nil
++}
++
++var uploadLimit = rate.NewLimiter(rate.Every(time.Second), 5)
++
++func (c *Lark) Put(ctx context.Context, dstDir model.Obj, stream model.FileStreamer, up driver.UpdateProgress) (model.Obj, error) {
++	token, ok := c.getObjToken(ctx, dstDir.GetPath())
++	if !ok {
++		return nil, errs.ObjectNotFound
++	}
++
++	// prepare
++	req := larkdrive.NewUploadPrepareFileReqBuilder().
++		FileUploadInfo(larkdrive.NewFileUploadInfoBuilder().
++			FileName(stream.GetName()).
++			ParentType(`explorer`).
++			ParentNode(token).
++			Size(int(stream.GetSize())).
++			Build()).
++		Build()
++
++	// 发起请求
++	err := uploadLimit.Wait(ctx)
++	if err != nil {
++		return nil, err
++	}
++	resp, err := c.client.Drive.File.UploadPrepare(ctx, req)
++	if err != nil {
++		return nil, err
++	}
++
++	if !resp.Success() {
++		return nil, errors.New(resp.Error())
++	}
++
++	uploadId := *resp.Data.UploadId
++	blockSize := *resp.Data.BlockSize
++	blockCount := *resp.Data.BlockNum
++
++	// upload
++	for i := 0; i < blockCount; i++ {
++		length := int64(blockSize)
++		if i == blockCount-1 {
++			length = stream.GetSize() - int64(i*blockSize)
++		}
++
++		reader := driver.NewLimitedUploadStream(ctx, io.LimitReader(stream, length))
++
++		req := larkdrive.NewUploadPartFileReqBuilder().
++			Body(larkdrive.NewUploadPartFileReqBodyBuilder().
++				UploadId(uploadId).
++				Seq(i).
++				Size(int(length)).
++				File(reader).
++				Build()).
++			Build()
++
++		// 发起请求
++		err = uploadLimit.Wait(ctx)
++		if err != nil {
++			return nil, err
++		}
++		resp, err := c.client.Drive.File.UploadPart(ctx, req)
++
++		if err != nil {
++			return nil, err
++		}
++
++		if !resp.Success() {
++			return nil, errors.New(resp.Error())
++		}
++
++		up(float64(i) / float64(blockCount))
++	}
++
++	//close
++	closeReq := larkdrive.NewUploadFinishFileReqBuilder().
++		Body(larkdrive.NewUploadFinishFileReqBodyBuilder().
++			UploadId(uploadId).
++			BlockNum(blockCount).
++			Build()).
++		Build()
++
++	// 发起请求
++	closeResp, err := c.client.Drive.File.UploadFinish(ctx, closeReq)
++	if err != nil {
++		return nil, err
++	}
++
++	if !closeResp.Success() {
++		return nil, errors.New(closeResp.Error())
++	}
++
++	return &model.Object{
++		ID: *closeResp.Data.FileToken,
++	}, nil
++}
++
++//func (d *Lark) Other(ctx context.Context, args model.OtherArgs) (interface{}, error) {
++//	return nil, errs.NotSupport
++//}
++
++var _ driver.Driver = (*Lark)(nil)
+diff --git a/drivers/lark/meta.go b/drivers/lark/meta.go
+new file mode 100755
+index 00000000..c42f761c
+--- /dev/null
++++ b/drivers/lark/meta.go
+@@ -0,0 +1,36 @@
++package lark
++
++import (
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++)
++
++type Addition struct {
++	// Usually one of two
++	driver.RootPath
++	// define other
++	AppId           string `json:"app_id" type:"text" help:"app id"`
++	AppSecret       string `json:"app_secret" type:"text" help:"app secret"`
++	ExternalMode    bool   `json:"external_mode" type:"bool" help:"external mode"`
++	TenantUrlPrefix string `json:"tenant_url_prefix" type:"text" help:"tenant url prefix"`
++}
++
++var config = driver.Config{
++	Name:              "Lark",
++	LocalSort:         false,
++	OnlyLinkMFile:     false,
++	OnlyProxy:         false,
++	NoCache:           false,
++	NoUpload:          false,
++	NeedMs:            false,
++	DefaultRoot:       "/",
++	CheckStatus:       false,
++	Alert:             "",
++	NoOverwriteUpload: true,
++}
++
++func init() {
++	op.RegisterDriver(func() driver.Driver {
++		return &Lark{}
++	})
++}
+diff --git a/drivers/lark/types.go b/drivers/lark/types.go
+new file mode 100755
+index 00000000..9cfc0f1f
+--- /dev/null
++++ b/drivers/lark/types.go
+@@ -0,0 +1,32 @@
++package lark
++
++import (
++	"context"
++	"github.com/OpenListTeam/go-cache"
++	"time"
++)
++
++type TokenCache struct {
++	cache.ICache[string]
++}
++
++func (t *TokenCache) Set(_ context.Context, key string, value string, expireTime time.Duration) error {
++	t.ICache.Set(key, value, cache.WithEx[string](expireTime))
++
++	return nil
++}
++
++func (t *TokenCache) Get(_ context.Context, key string) (string, error) {
++	v, ok := t.ICache.Get(key)
++	if ok {
++		return v, nil
++	}
++
++	return "", nil
++}
++
++func newTokenCache() *TokenCache {
++	c := cache.NewMemCache[string]()
++
++	return &TokenCache{c}
++}
+diff --git a/drivers/lark/util.go b/drivers/lark/util.go
+new file mode 100755
+index 00000000..101cb676
+--- /dev/null
++++ b/drivers/lark/util.go
+@@ -0,0 +1,66 @@
++package lark
++
++import (
++	"context"
++	"github.com/OpenListTeam/go-cache"
++	larkdrive "github.com/larksuite/oapi-sdk-go/v3/service/drive/v1"
++	log "github.com/sirupsen/logrus"
++	"path"
++	"time"
++)
++
++const objTokenCacheDuration = 5 * time.Minute
++const emptyFolderToken = "empty"
++
++var objTokenCache = cache.NewMemCache[string]()
++var exOpts = cache.WithEx[string](objTokenCacheDuration)
++
++func (c *Lark) getObjToken(ctx context.Context, folderPath string) (string, bool) {
++	if token, ok := objTokenCache.Get(folderPath); ok {
++		return token, true
++	}
++
++	dir, name := path.Split(folderPath)
++	// strip the last slash of dir if it exists
++	if len(dir) > 0 && dir[len(dir)-1] == '/' {
++		dir = dir[:len(dir)-1]
++	}
++	if name == "" {
++		return c.rootFolderToken, true
++	}
++
++	var parentToken string
++	var found bool
++	parentToken, found = c.getObjToken(ctx, dir)
++	if !found {
++		return emptyFolderToken, false
++	}
++
++	req := larkdrive.NewListFileReqBuilder().FolderToken(parentToken).Build()
++	resp, err := c.client.Drive.File.ListByIterator(ctx, req)
++
++	if err != nil {
++		log.WithError(err).Error("failed to list files")
++		return emptyFolderToken, false
++	}
++
++	var file *larkdrive.File
++	for {
++		found, file, err = resp.Next()
++		if !found {
++			break
++		}
++
++		if err != nil {
++			log.WithError(err).Error("failed to get next file")
++			break
++		}
++
++		if *file.Name == name {
++			objTokenCache.Set(folderPath, *file.Token, exOpts)
++			return *file.Token, true
++		}
++	}
++
++	return emptyFolderToken, false
++}
+diff --git a/drivers/trainbit/driver.go b/drivers/trainbit/driver.go
+new file mode 100755
+index 00000000..eb86b6e9
+--- /dev/null
++++ b/drivers/trainbit/driver.go
+@@ -0,0 +1,137 @@
++package trainbit
++
++import (
++	"context"
++	"encoding/json"
++	"fmt"
++	"io"
++	"net/http"
++	"net/url"
++	"strings"
++
++	"github.com/OpenListTeam/OpenList/v4/drivers/base"
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/errs"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++)
++
++type Trainbit struct {
++	model.Storage
++	Addition
++}
++
++var apiExpiredate, guid string
++
++func (d *Trainbit) Config() driver.Config {
++	return config
++}
++
++func (d *Trainbit) GetAddition() driver.Additional {
++	return &d.Addition
++}
++
++func (d *Trainbit) Init(ctx context.Context) error {
++	base.HttpClient.CheckRedirect = func(req *http.Request, via []*http.Request) error {
++		return http.ErrUseLastResponse
++	}
++	var err error
++	apiExpiredate, guid, err = getToken(d.ApiKey, d.AUSHELLPORTAL)
++	if err != nil {
++		return err
++	}
++	return nil
++}
++
++func (d *Trainbit) Drop(ctx context.Context) error {
++	return nil
++}
++
++func (d *Trainbit) List(ctx context.Context, dir model.Obj, args model.ListArgs) ([]model.Obj, error) {
++	form := make(url.Values)
++	form.Set("parentid", strings.Split(dir.GetID(), "_")[0])
++	res, err := postForm("https://trainbit.com/lib/api/v1/listoffiles", form, apiExpiredate, d.ApiKey, d.AUSHELLPORTAL)
++	if err != nil {
++		return nil, err
++	}
++	data, err := io.ReadAll(res.Body)
++	if err != nil {
++		return nil, err
++	}
++	var jsonData any
++	err = json.Unmarshal(data, &jsonData)
++	if err != nil {
++		return nil, err
++	}
++	object, err := parseRawFileObject(jsonData.(map[string]any)["items"].([]any))
++	if err != nil {
++		return nil, err
++	}
++	return object, nil
++}
++
++func (d *Trainbit) Link(ctx context.Context, file model.Obj, args model.LinkArgs) (*model.Link, error) {
++	res, err := get(fmt.Sprintf("https://trainbit.com/files/%s/", strings.Split(file.GetID(), "_")[0]), d.ApiKey, d.AUSHELLPORTAL)
++	if err != nil {
++		return nil, err
++	}
++	return &model.Link{
++		URL: res.Header.Get("Location"),
++	}, nil
++}
++
++func (d *Trainbit) MakeDir(ctx context.Context, parentDir model.Obj, dirName string) error {
++	form := make(url.Values)
++	form.Set("name", local2provider(dirName, true))
++	form.Set("parentid", strings.Split(parentDir.GetID(), "_")[0])
++	_, err := postForm("https://trainbit.com/lib/api/v1/createfolder", form, apiExpiredate, d.ApiKey, d.AUSHELLPORTAL)
++	return err
++}
++
++func (d *Trainbit) Move(ctx context.Context, srcObj, dstDir model.Obj) error {
++	form := make(url.Values)
++	form.Set("sourceid", strings.Split(srcObj.GetID(), "_")[0])
++	form.Set("destinationid", strings.Split(dstDir.GetID(), "_")[0])
++	_, err := postForm("https://trainbit.com/lib/api/v1/move", form, apiExpiredate, d.ApiKey, d.AUSHELLPORTAL)
++	return err
++}
++
++func (d *Trainbit) Rename(ctx context.Context, srcObj model.Obj, newName string) error {
++	form := make(url.Values)
++	form.Set("id", strings.Split(srcObj.GetID(), "_")[0])
++	form.Set("name", local2provider(newName, srcObj.IsDir()))
++	_, err := postForm("https://trainbit.com/lib/api/v1/edit", form, apiExpiredate, d.ApiKey, d.AUSHELLPORTAL)
++	return err
++}
++
++func (d *Trainbit) Copy(ctx context.Context, srcObj, dstDir model.Obj) error {
++	return errs.NotImplement
++}
++
++func (d *Trainbit) Remove(ctx context.Context, obj model.Obj) error {
++	form := make(url.Values)
++	form.Set("id", strings.Split(obj.GetID(), "_")[0])
++	_, err := postForm("https://trainbit.com/lib/api/v1/delete", form, apiExpiredate, d.ApiKey, d.AUSHELLPORTAL)
++	return err
++}
++
++func (d *Trainbit) Put(ctx context.Context, dstDir model.Obj, s model.FileStreamer, up driver.UpdateProgress) error {
++	endpoint, _ := url.Parse("https://tb28.trainbit.com/api/upload/send_raw/")
++	query := &url.Values{}
++	query.Add("q", strings.Split(dstDir.GetID(), "_")[1])
++	query.Add("guid", guid)
++	query.Add("name", url.QueryEscape(local2provider(s.GetName(), false)+"."))
++	endpoint.RawQuery = query.Encode()
++	progressReader := driver.NewLimitedUploadStream(ctx, &driver.ReaderUpdatingProgress{
++		Reader:         s,
++		UpdateProgress: up,
++	})
++	req, err := http.NewRequestWithContext(ctx, http.MethodPost, endpoint.String(), progressReader)
++	if err != nil {
++		return err
++	}
++	req.Header.Set("Content-Type", "text/json; charset=UTF-8")
++	_, err = base.HttpClient.Do(req)
++	return err
++}
++
++var _ driver.Driver = (*Trainbit)(nil)
+diff --git a/drivers/trainbit/meta.go b/drivers/trainbit/meta.go
+new file mode 100755
+index 00000000..2329e785
+--- /dev/null
++++ b/drivers/trainbit/meta.go
+@@ -0,0 +1,29 @@
++package trainbit
++
++import (
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++)
++
++type Addition struct {
++	driver.RootID
++	AUSHELLPORTAL string `json:"AUSHELLPORTAL" required:"true"`
++	ApiKey string `json:"apikey" required:"true"`
++}
++
++var config = driver.Config{
++	Name:          "Trainbit",
++	LocalSort:     false,
++	OnlyLinkMFile: false,
++	OnlyProxy:     false,
++	NoCache:       false,
++	NoUpload:      false,
++	NeedMs:        false,
++	DefaultRoot:   "0_000",
++}
++
++func init() {
++	op.RegisterDriver(func() driver.Driver {
++		return &Trainbit{}
++	})
++}
+diff --git a/drivers/trainbit/types.go b/drivers/trainbit/types.go
+new file mode 100755
+index 00000000..4de1a0ab
+--- /dev/null
++++ b/drivers/trainbit/types.go
+@@ -0,0 +1 @@
++package trainbit
+\ No newline at end of file
+diff --git a/drivers/trainbit/util.go b/drivers/trainbit/util.go
+new file mode 100755
+index 00000000..fae492df
+--- /dev/null
++++ b/drivers/trainbit/util.go
+@@ -0,0 +1,124 @@
++package trainbit
++
++import (
++	"html"
++	"io"
++	"net/http"
++	"net/url"
++	"regexp"
++	"strings"
++	"time"
++
++	"github.com/OpenListTeam/OpenList/v4/drivers/base"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++)
++
++func get(url string, apiKey string, AUSHELLPORTAL string) (*http.Response, error) {
++	req, err := http.NewRequest(http.MethodGet, url, nil)
++	if err != nil {
++		return nil, err
++	}
++	req.AddCookie(&http.Cookie{
++		Name:   ".AUSHELLPORTAL",
++		Value:  AUSHELLPORTAL,
++		MaxAge: 2 * 60,
++	})
++	req.AddCookie(&http.Cookie{
++		Name:   "retkeyapi",
++		Value:  apiKey,
++		MaxAge: 2 * 60,
++	})
++	res, err := base.HttpClient.Do(req)
++	return res, err
++}
++
++func postForm(endpoint string, data url.Values, apiExpiredate string, apiKey string, AUSHELLPORTAL string) (*http.Response, error) {
++	extData := make(url.Values)
++	for key, value := range data {
++		extData[key] = make([]string, len(value))
++		copy(extData[key], value)
++	}
++	extData.Set("apikey", apiKey)
++	extData.Set("expiredate", apiExpiredate)
++	req, err := http.NewRequest(http.MethodPost, endpoint, strings.NewReader(extData.Encode()))
++	if err != nil {
++		return nil, err
++	}
++	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
++	req.AddCookie(&http.Cookie{
++		Name:   ".AUSHELLPORTAL",
++		Value:  AUSHELLPORTAL,
++		MaxAge: 2 * 60,
++	})
++	req.AddCookie(&http.Cookie{
++		Name:   "retkeyapi",
++		Value:  apiKey,
++		MaxAge: 2 * 60,
++	})
++	res, err := base.HttpClient.Do(req)
++	return res, err
++}
++
++func getToken(apiKey string, AUSHELLPORTAL string) (string, string, error) {
++	res, err := get("https://trainbit.com/files/", apiKey, AUSHELLPORTAL)
++	if err != nil {
++		return "", "", err
++	}
++	data, err := io.ReadAll(res.Body)
++	if err != nil {
++		return "", "", err
++	}
++	text := string(data)
++	apiExpiredateReg := regexp.MustCompile(`core.api.expiredate = '([^']*)';`)
++	result := apiExpiredateReg.FindAllStringSubmatch(text, -1)
++	apiExpiredate := result[0][1]
++	guidReg := regexp.MustCompile(`app.vars.upload.guid = '([^']*)';`)
++	result = guidReg.FindAllStringSubmatch(text, -1)
++	guid := result[0][1]
++	return apiExpiredate, guid, nil
++}
++
++func local2provider(filename string, isFolder bool) string {
++	if isFolder {
++		return filename
++	}
++	return filename + ".delete_suffix"
++}
++
++func provider2local(filename string) string {
++	filename = html.UnescapeString(filename)
++	index := strings.LastIndex(filename, ".delete_suffix")
++	if index != -1 {
++		filename = filename[:index]
++	}
++	return filename
++}
++
++func parseRawFileObject(rawObject []any) ([]model.Obj, error) {
++	objectList := make([]model.Obj, 0)
++	for _, each := range rawObject {
++		object := each.(map[string]any)
++		if object["id"].(string) == "0" {
++			continue
++		}
++		isFolder := int64(object["ty"].(float64)) == 1
++		var name string
++		if object["ext"].(string) != "" {
++			name = strings.Join([]string{object["name"].(string), object["ext"].(string)}, ".")
++		} else {
++			name = object["name"].(string)
++		}
++		modified, err := time.Parse("2006/01/02 15:04:05", object["modified"].(string))
++		if err != nil {
++			return nil, err
++		}
++		objectList = append(objectList, model.Obj(&model.Object{
++			ID:       strings.Join([]string{object["id"].(string), strings.Split(object["uploadurl"].(string), "=")[1]}, "_"),
++			Name:     provider2local(name),
++			Size:     int64(object["byte"].(float64)),
++			Modified: modified.Add(-210 * time.Minute),
++			IsFolder: isFolder,
++		}))
++	}
++	return objectList, nil
++}
+diff --git a/drivers/vtencent/drive.go b/drivers/vtencent/drive.go
+new file mode 100755
+index 00000000..1f0d4ab3
+--- /dev/null
++++ b/drivers/vtencent/drive.go
+@@ -0,0 +1,210 @@
++package vtencent
++
++import (
++	"context"
++	"encoding/json"
++	"fmt"
++	"net/http"
++	"strconv"
++	"time"
++
++	"github.com/OpenListTeam/OpenList/v4/drivers/base"
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/errs"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++	"github.com/OpenListTeam/OpenList/v4/pkg/cron"
++	"github.com/OpenListTeam/OpenList/v4/pkg/utils"
++	"github.com/go-resty/resty/v2"
++)
++
++type Vtencent struct {
++	model.Storage
++	Addition
++	cron   *cron.Cron
++	config driver.Config
++	conf   Conf
++}
++
++func (d *Vtencent) Config() driver.Config {
++	return d.config
++}
++
++func (d *Vtencent) GetAddition() driver.Additional {
++	return &d.Addition
++}
++
++func (d *Vtencent) Init(ctx context.Context) error {
++	tfUid, err := d.LoadUser()
++	if err != nil {
++		d.Status = err.Error()
++		op.MustSaveDriverStorage(d)
++		return nil
++	}
++	d.Addition.TfUid = tfUid
++	op.MustSaveDriverStorage(d)
++	d.cron = cron.NewCron(time.Hour * 12)
++	d.cron.Do(func() {
++		_, err := d.LoadUser()
++		if err != nil {
++			d.Status = err.Error()
++			op.MustSaveDriverStorage(d)
++		}
++	})
++	return nil
++}
++
++func (d *Vtencent) Drop(ctx context.Context) error {
++	if d.cron != nil {
++		d.cron.Stop()
++	}
++	return nil
++}
++
++func (d *Vtencent) List(ctx context.Context, dir model.Obj, args model.ListArgs) ([]model.Obj, error) {
++	files, err := d.GetFiles(dir.GetID())
++	if err != nil {
++		return nil, err
++	}
++	return utils.SliceConvert(files, func(src File) (model.Obj, error) {
++		return fileToObj(src), nil
++	})
++}
++
++func (d *Vtencent) Link(ctx context.Context, file model.Obj, args model.LinkArgs) (*model.Link, error) {
++	form := fmt.Sprintf(`{"MaterialIds":["%s"]}`, file.GetID())
++	var dat map[string]interface{}
++	if err := json.Unmarshal([]byte(form), &dat); err != nil {
++		return nil, err
++	}
++	var resps RspDown
++	api := "https://api.vs.tencent.com/SaaS/Material/DescribeMaterialDownloadUrl"
++	rsp, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(dat)
++	}, &resps)
++	if err != nil {
++		return nil, err
++	}
++	if err := json.Unmarshal(rsp, &resps); err != nil {
++		return nil, err
++	}
++	if len(resps.Data.DownloadURLInfoSet) == 0 {
++		return nil, err
++	}
++	u := resps.Data.DownloadURLInfoSet[0].DownloadURL
++	link := &model.Link{
++		URL: u,
++		Header: http.Header{
++			"Referer":    []string{d.conf.referer},
++			"User-Agent": []string{d.conf.ua},
++		},
++		Concurrency: 2,
++		PartSize:    10 * utils.MB,
++	}
++	if file.GetSize() == 0 {
++		link.Concurrency = 0
++		link.PartSize = 0
++	}
++	return link, nil
++}
++
++func (d *Vtencent) MakeDir(ctx context.Context, parentDir model.Obj, dirName string) error {
++	classId, err := strconv.Atoi(parentDir.GetID())
++	if err != nil {
++		return err
++	}
++	_, err = d.request("https://api.vs.tencent.com/PaaS/Material/CreateClass", http.MethodPost, func(req *resty.Request) {
++		req.SetBody(base.Json{
++			"Owner": base.Json{
++				"Type": "PERSON",
++				"Id":   d.TfUid,
++			},
++			"ParentClassId": classId,
++			"Name":          dirName,
++			"VerifySign":    ""})
++	}, nil)
++	return err
++}
++
++func (d *Vtencent) Move(ctx context.Context, srcObj, dstDir model.Obj) error {
++	srcType := "MATERIAL"
++	if srcObj.IsDir() {
++		srcType = "CLASS"
++	}
++	form := fmt.Sprintf(`{"SourceInfos":[
++		{"Owner":{"Id":"%s","Type":"PERSON"},
++		"Resource":{"Type":"%s","Id":"%s"}}
++		],
++		"Destination":{"Owner":{"Id":"%s","Type":"PERSON"},
++		"Resource":{"Type":"CLASS","Id":"%s"}}
++		}`, d.TfUid, srcType, srcObj.GetID(), d.TfUid, dstDir.GetID())
++	var dat map[string]interface{}
++	if err := json.Unmarshal([]byte(form), &dat); err != nil {
++		return err
++	}
++	_, err := d.request("https://api.vs.tencent.com/PaaS/Material/MoveResource", http.MethodPost, func(req *resty.Request) {
++		req.SetBody(dat)
++	}, nil)
++	return err
++}
++
++func (d *Vtencent) Rename(ctx context.Context, srcObj model.Obj, newName string) error {
++	api := "https://api.vs.tencent.com/PaaS/Material/ModifyMaterial"
++	form := fmt.Sprintf(`{
++		"Owner":{"Type":"PERSON","Id":"%s"},
++	"MaterialId":"%s","Name":"%s"}`, d.TfUid, srcObj.GetID(), newName)
++	if srcObj.IsDir() {
++		classId, err := strconv.Atoi(srcObj.GetID())
++		if err != nil {
++			return err
++		}
++		api = "https://api.vs.tencent.com/PaaS/Material/ModifyClass"
++		form = fmt.Sprintf(`{"Owner":{"Type":"PERSON","Id":"%s"},
++	"ClassId":%d,"Name":"%s"}`, d.TfUid, classId, newName)
++	}
++	var dat map[string]interface{}
++	if err := json.Unmarshal([]byte(form), &dat); err != nil {
++		return err
++	}
++	_, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(dat)
++	}, nil)
++	return err
++}
++
++func (d *Vtencent) Copy(ctx context.Context, srcObj, dstDir model.Obj) error {
++	// TODO copy obj, optional
++	return errs.NotImplement
++}
++
++func (d *Vtencent) Remove(ctx context.Context, obj model.Obj) error {
++	srcType := "MATERIAL"
++	if obj.IsDir() {
++		srcType = "CLASS"
++	}
++	form := fmt.Sprintf(`{
++		"SourceInfos":[
++			{"Owner":{"Type":"PERSON","Id":"%s"},
++			"Resource":{"Type":"%s","Id":"%s"}}
++			]
++		}`, d.TfUid, srcType, obj.GetID())
++	var dat map[string]interface{}
++	if err := json.Unmarshal([]byte(form), &dat); err != nil {
++		return err
++	}
++	_, err := d.request("https://api.vs.tencent.com/PaaS/Material/DeleteResource", http.MethodPost, func(req *resty.Request) {
++		req.SetBody(dat)
++	}, nil)
++	return err
++}
++
++func (d *Vtencent) Put(ctx context.Context, dstDir model.Obj, stream model.FileStreamer, up driver.UpdateProgress) error {
++	err := d.FileUpload(ctx, dstDir, stream, up)
++	return err
++}
++
++//func (d *Vtencent) Other(ctx context.Context, args model.OtherArgs) (interface{}, error) {
++//	return nil, errs.NotSupport
++//}
++
++var _ driver.Driver = (*Vtencent)(nil)
+diff --git a/drivers/vtencent/meta.go b/drivers/vtencent/meta.go
+new file mode 100755
+index 00000000..fd6f847d
+--- /dev/null
++++ b/drivers/vtencent/meta.go
+@@ -0,0 +1,39 @@
++package vtencent
++
++import (
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/op"
++)
++
++type Addition struct {
++	driver.RootID
++	Cookie         string `json:"cookie" required:"true"`
++	TfUid          string `json:"tf_uid"`
++	OrderBy        string `json:"order_by" type:"select" options:"Name,Size,UpdateTime,CreatTime"`
++	OrderDirection string `json:"order_direction" type:"select" options:"Asc,Desc"`
++}
++
++type Conf struct {
++	ua      string
++	referer string
++	origin  string
++}
++
++func init() {
++	op.RegisterDriver(func() driver.Driver {
++		return &Vtencent{
++			config: driver.Config{
++				Name:              "VTencent",
++				OnlyProxy:         true,
++				OnlyLinkMFile:     false,
++				DefaultRoot:       "9",
++				NoOverwriteUpload: true,
++			},
++			conf: Conf{
++				ua:      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) quark-cloud-drive/2.5.20 Chrome/100.0.4896.160 Electron/18.3.5.4-b478491100 Safari/537.36 Channel/pckk_other_ch",
++				referer: "https://app.v.tencent.com/",
++				origin:  "https://app.v.tencent.com",
++			},
++		}
++	})
++}
+diff --git a/drivers/vtencent/signature.go b/drivers/vtencent/signature.go
+new file mode 100755
+index 00000000..14fda9bd
+--- /dev/null
++++ b/drivers/vtencent/signature.go
+@@ -0,0 +1,33 @@
++package vtencent
++
++import (
++	"crypto/hmac"
++	"crypto/sha1"
++	"encoding/hex"
++)
++
++func QSignatureKey(timeKey string, signPath string, key string) string {
++	signKey := hmac.New(sha1.New, []byte(key))
++	signKey.Write([]byte(timeKey))
++	signKeyBytes := signKey.Sum(nil)
++	signKeyHex := hex.EncodeToString(signKeyBytes)
++	sha := sha1.New()
++	sha.Write([]byte(signPath))
++	shaBytes := sha.Sum(nil)
++	shaHex := hex.EncodeToString(shaBytes)
++
++	O := "sha1\n" + timeKey + "\n" + shaHex + "\n"
++	dataSignKey := hmac.New(sha1.New, []byte(signKeyHex))
++	dataSignKey.Write([]byte(O))
++	dataSignKeyBytes := dataSignKey.Sum(nil)
++	dataSignKeyHex := hex.EncodeToString(dataSignKeyBytes)
++	return dataSignKeyHex
++}
++
++func QTwoSignatureKey(timeKey string, key string) string {
++	signKey := hmac.New(sha1.New, []byte(key))
++	signKey.Write([]byte(timeKey))
++	signKeyBytes := signKey.Sum(nil)
++	signKeyHex := hex.EncodeToString(signKeyBytes)
++	return signKeyHex
++}
+diff --git a/drivers/vtencent/types.go b/drivers/vtencent/types.go
+new file mode 100755
+index 00000000..045610ca
+--- /dev/null
++++ b/drivers/vtencent/types.go
+@@ -0,0 +1,252 @@
++package vtencent
++
++import (
++	"strconv"
++	"time"
++
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++)
++
++type RespErr struct {
++	Code    string `json:"Code"`
++	Message string `json:"Message"`
++}
++
++type Reqfiles struct {
++	ScrollToken string `json:"ScrollToken"`
++	Text        string `json:"Text"`
++	Offset      int    `json:"Offset"`
++	Limit       int    `json:"Limit"`
++	Sort        struct {
++		Field string `json:"Field"`
++		Order string `json:"Order"`
++	} `json:"Sort"`
++	CreateTimeRanges []any `json:"CreateTimeRanges"`
++	MaterialTypes    []any `json:"MaterialTypes"`
++	ReviewStatuses   []any `json:"ReviewStatuses"`
++	Tags             []any `json:"Tags"`
++	SearchScopes     []struct {
++		Owner struct {
++			Type string `json:"Type"`
++			ID   string `json:"Id"`
++		} `json:"Owner"`
++		ClassID        int  `json:"ClassId"`
++		SearchOneDepth bool `json:"SearchOneDepth"`
++	} `json:"SearchScopes"`
++}
++
++type File struct {
++	Type      string `json:"Type"`
++	ClassInfo struct {
++		ClassID     int       `json:"ClassId"`
++		Name        string    `json:"Name"`
++		UpdateTime  time.Time `json:"UpdateTime"`
++		CreateTime  time.Time `json:"CreateTime"`
++		FileInboxID string    `json:"FileInboxId"`
++		Owner       struct {
++			Type string `json:"Type"`
++			ID   string `json:"Id"`
++		} `json:"Owner"`
++		ClassPath      string `json:"ClassPath"`
++		ParentClassID  int    `json:"ParentClassId"`
++		AttachmentInfo struct {
++			SubClassCount int   `json:"SubClassCount"`
++			MaterialCount int   `json:"MaterialCount"`
++			Size          int64 `json:"Size"`
++		} `json:"AttachmentInfo"`
++		ClassPreviewURLSet []string `json:"ClassPreviewUrlSet"`
++	} `json:"ClassInfo"`
++	MaterialInfo struct {
++		BasicInfo struct {
++			MaterialID             string    `json:"MaterialId"`
++			MaterialType           string    `json:"MaterialType"`
++			Name                   string    `json:"Name"`
++			CreateTime             time.Time `json:"CreateTime"`
++			UpdateTime             time.Time `json:"UpdateTime"`
++			ClassPath              string    `json:"ClassPath"`
++			ClassID                int       `json:"ClassId"`
++			TagInfoSet             []any     `json:"TagInfoSet"`
++			TagSet                 []any     `json:"TagSet"`
++			PreviewURL             string    `json:"PreviewUrl"`
++			MediaURL               string    `json:"MediaUrl"`
++			UnifiedMediaPreviewURL string    `json:"UnifiedMediaPreviewUrl"`
++			Owner                  struct {
++				Type string `json:"Type"`
++				ID   string `json:"Id"`
++			} `json:"Owner"`
++			PermissionSet        any    `json:"PermissionSet"`
++			PermissionInfoSet    []any  `json:"PermissionInfoSet"`
++			TfUID                string `json:"TfUid"`
++			GroupID              string `json:"GroupId"`
++			VersionMaterialIDSet []any  `json:"VersionMaterialIdSet"`
++			FileType             string `json:"FileType"`
++			CmeMaterialPlayList  []any  `json:"CmeMaterialPlayList"`
++			Status               string `json:"Status"`
++			DownloadSwitch       string `json:"DownloadSwitch"`
++		} `json:"BasicInfo"`
++		MediaInfo struct {
++			Width          int     `json:"Width"`
++			Height         int     `json:"Height"`
++			Size           int     `json:"Size"`
++			Duration       float64 `json:"Duration"`
++			Fps            int     `json:"Fps"`
++			BitRate        int     `json:"BitRate"`
++			Codec          string  `json:"Codec"`
++			MediaType      string  `json:"MediaType"`
++			FavoriteStatus string  `json:"FavoriteStatus"`
++		} `json:"MediaInfo"`
++		MaterialStatus struct {
++			ContentReviewStatus          string `json:"ContentReviewStatus"`
++			EditorUsableStatus           string `json:"EditorUsableStatus"`
++			UnifiedPreviewStatus         string `json:"UnifiedPreviewStatus"`
++			EditPreviewImageSpiritStatus string `json:"EditPreviewImageSpiritStatus"`
++			TranscodeStatus              string `json:"TranscodeStatus"`
++			AdaptiveStreamingStatus      string `json:"AdaptiveStreamingStatus"`
++			StreamConnectable            string `json:"StreamConnectable"`
++			AiAnalysisStatus             string `json:"AiAnalysisStatus"`
++			AiRecognitionStatus          string `json:"AiRecognitionStatus"`
++		} `json:"MaterialStatus"`
++		ImageMaterial struct {
++			Height      int    `json:"Height"`
++			Width       int    `json:"Width"`
++			Size        int    `json:"Size"`
++			MaterialURL string `json:"MaterialUrl"`
++			Resolution  string `json:"Resolution"`
++			VodFileID   string `json:"VodFileId"`
++			OriginalURL string `json:"OriginalUrl"`
++		} `json:"ImageMaterial"`
++		VideoMaterial struct {
++			MetaData struct {
++				Size               int     `json:"Size"`
++				Container          string  `json:"Container"`
++				Bitrate            int     `json:"Bitrate"`
++				Height             int     `json:"Height"`
++				Width              int     `json:"Width"`
++				Duration           float64 `json:"Duration"`
++				Rotate             int     `json:"Rotate"`
++				VideoStreamInfoSet []struct {
++					Bitrate int    `json:"Bitrate"`
++					Height  int    `json:"Height"`
++					Width   int    `json:"Width"`
++					Codec   string `json:"Codec"`
++					Fps     int    `json:"Fps"`
++				} `json:"VideoStreamInfoSet"`
++				AudioStreamInfoSet []struct {
++					Bitrate      int    `json:"Bitrate"`
++					SamplingRate int    `json:"SamplingRate"`
++					Codec        string `json:"Codec"`
++				} `json:"AudioStreamInfoSet"`
++			} `json:"MetaData"`
++			ImageSpriteInfo    any    `json:"ImageSpriteInfo"`
++			MaterialURL        string `json:"MaterialUrl"`
++			CoverURL           string `json:"CoverUrl"`
++			Resolution         string `json:"Resolution"`
++			VodFileID          string `json:"VodFileId"`
++			OriginalURL        string `json:"OriginalUrl"`
++			AudioWaveformURL   string `json:"AudioWaveformUrl"`
++			SubtitleURL        string `json:"SubtitleUrl"`
++			TranscodeInfoSet   []any  `json:"TranscodeInfoSet"`
++			ImageSpriteInfoSet []any  `json:"ImageSpriteInfoSet"`
++		} `json:"VideoMaterial"`
++	} `json:"MaterialInfo"`
++}
++
++type RspFiles struct {
++	Code           string `json:"Code"`
++	Message        string `json:"Message"`
++	EnglishMessage string `json:"EnglishMessage"`
++	Data           struct {
++		TotalCount      int    `json:"TotalCount"`
++		ResourceInfoSet []File `json:"ResourceInfoSet"`
++		ScrollToken     string `json:"ScrollToken"`
++	} `json:"Data"`
++}
++
++type RspDown struct {
++	Code           string `json:"Code"`
++	Message        string `json:"Message"`
++	EnglishMessage string `json:"EnglishMessage"`
++	Data           struct {
++		DownloadURLInfoSet []struct {
++			MaterialID  string `json:"MaterialId"`
++			DownloadURL string `json:"DownloadUrl"`
++		} `json:"DownloadUrlInfoSet"`
++	} `json:"Data"`
++}
++
++type RspCreatrMaterial struct {
++	Code           string `json:"Code"`
++	Message        string `json:"Message"`
++	EnglishMessage string `json:"EnglishMessage"`
++	Data           struct {
++		UploadContext string `json:"UploadContext"`
++		VodUploadSign string `json:"VodUploadSign"`
++		QuickUpload   bool   `json:"QuickUpload"`
++	} `json:"Data"`
++}
++
++type RspApplyUploadUGC struct {
++	Code    int    `json:"code"`
++	Message string `json:"message"`
++	Data    struct {
++		Video struct {
++			StorageSignature string `json:"storageSignature"`
++			StoragePath      string `json:"storagePath"`
++		} `json:"video"`
++		StorageAppID    int    `json:"storageAppId"`
++		StorageBucket   string `json:"storageBucket"`
++		StorageRegion   string `json:"storageRegion"`
++		StorageRegionV5 string `json:"storageRegionV5"`
++		Domain          string `json:"domain"`
++		VodSessionKey   string `json:"vodSessionKey"`
++		TempCertificate struct {
++			SecretID    string `json:"secretId"`
++			SecretKey   string `json:"secretKey"`
++			Token       string `json:"token"`
++			ExpiredTime int    `json:"expiredTime"`
++		} `json:"tempCertificate"`
++		AppID                     int    `json:"appId"`
++		Timestamp                 int    `json:"timestamp"`
++		StorageRegionV50          string `json:"StorageRegionV5"`
++		MiniProgramAccelerateHost string `json:"MiniProgramAccelerateHost"`
++	} `json:"data"`
++}
++
++type RspCommitUploadUGC struct {
++	Code    int    `json:"code"`
++	Message string `json:"message"`
++	Data    struct {
++		Video struct {
++			URL           string `json:"url"`
++			VerifyContent string `json:"verify_content"`
++		} `json:"video"`
++		FileID string `json:"fileId"`
++	} `json:"data"`
++}
++
++type RspFinishUpload struct {
++	Code           string `json:"Code"`
++	Message        string `json:"Message"`
++	EnglishMessage string `json:"EnglishMessage"`
++	Data           struct {
++		MaterialID string `json:"MaterialId"`
++	} `json:"Data"`
++}
++
++func fileToObj(f File) *model.Object {
++	obj := &model.Object{}
++	if f.Type == "CLASS" {
++		obj.Name = f.ClassInfo.Name
++		obj.ID = strconv.Itoa(f.ClassInfo.ClassID)
++		obj.IsFolder = true
++		obj.Modified = f.ClassInfo.CreateTime
++		obj.Size = 0
++	} else if f.Type == "MATERIAL" {
++		obj.Name = f.MaterialInfo.BasicInfo.Name
++		obj.ID = f.MaterialInfo.BasicInfo.MaterialID
++		obj.IsFolder = false
++		obj.Modified = f.MaterialInfo.BasicInfo.CreateTime
++		obj.Size = int64(f.MaterialInfo.MediaInfo.Size)
++	}
++	return obj
++}
+diff --git a/drivers/vtencent/util.go b/drivers/vtencent/util.go
+new file mode 100755
+index 00000000..545d4b59
+--- /dev/null
++++ b/drivers/vtencent/util.go
+@@ -0,0 +1,299 @@
++package vtencent
++
++import (
++	"context"
++	"crypto/sha1"
++	"encoding/hex"
++	"errors"
++	"fmt"
++	"io"
++	"net/http"
++	"strconv"
++
++	"github.com/OpenListTeam/OpenList/v4/drivers/base"
++	"github.com/OpenListTeam/OpenList/v4/internal/driver"
++	"github.com/OpenListTeam/OpenList/v4/internal/model"
++	"github.com/OpenListTeam/OpenList/v4/pkg/http_range"
++	"github.com/OpenListTeam/OpenList/v4/pkg/utils"
++	"github.com/aws/aws-sdk-go/aws"
++	"github.com/aws/aws-sdk-go/aws/credentials"
++	"github.com/aws/aws-sdk-go/aws/session"
++	"github.com/aws/aws-sdk-go/service/s3/s3manager"
++	"github.com/go-resty/resty/v2"
++)
++
++func (d *Vtencent) request(url, method string, callback base.ReqCallback, resp interface{}) ([]byte, error) {
++	req := base.RestyClient.R()
++	req.SetHeaders(map[string]string{
++		"cookie":       d.Cookie,
++		"content-type": "application/json",
++		"origin":       d.conf.origin,
++		"referer":      d.conf.referer,
++	})
++	if callback != nil {
++		callback(req)
++	} else {
++		req.SetBody("{}")
++	}
++	if resp != nil {
++		req.SetResult(resp)
++	}
++	res, err := req.Execute(method, url)
++	if err != nil {
++		return nil, err
++	}
++	code := utils.Json.Get(res.Body(), "Code").ToString()
++	if code != "Success" {
++		switch code {
++		case "AuthFailure.SessionInvalid":
++			if err != nil {
++				return nil, errors.New(code)
++			}
++		default:
++			return nil, errors.New(code)
++		}
++		return d.request(url, method, callback, resp)
++	}
++	return res.Body(), nil
++}
++
++func (d *Vtencent) ugcRequest(url, method string, callback base.ReqCallback, resp interface{}) ([]byte, error) {
++	req := base.RestyClient.R()
++	req.SetHeaders(map[string]string{
++		"cookie":       d.Cookie,
++		"content-type": "application/json",
++		"origin":       d.conf.origin,
++		"referer":      d.conf.referer,
++	})
++	if callback != nil {
++		callback(req)
++	} else {
++		req.SetBody("{}")
++	}
++	if resp != nil {
++		req.SetResult(resp)
++	}
++	res, err := req.Execute(method, url)
++	if err != nil {
++		return nil, err
++	}
++	code := utils.Json.Get(res.Body(), "Code").ToInt()
++	if code != 0 {
++		message := utils.Json.Get(res.Body(), "message").ToString()
++		if len(message) == 0 {
++			message = utils.Json.Get(res.Body(), "msg").ToString()
++		}
++		return nil, errors.New(message)
++	}
++	return res.Body(), nil
++}
++
++func (d *Vtencent) LoadUser() (string, error) {
++	api := "https://api.vs.tencent.com/SaaS/Account/DescribeAccount"
++	res, err := d.request(api, http.MethodPost, func(req *resty.Request) {}, nil)
++	if err != nil {
++		return "", err
++	}
++	return utils.Json.Get(res, "Data", "TfUid").ToString(), nil
++}
++
++func (d *Vtencent) GetFiles(dirId string) ([]File, error) {
++	var res []File
++	//offset := 0
++	for {
++		api := "https://api.vs.tencent.com/PaaS/Material/SearchResource"
++		form := fmt.Sprintf(`{
++		"Text":"",
++		"Text":"",
++		"Offset":%d,
++		"Limit":50,
++		"Sort":{"Field":"%s","Order":"%s"},
++		"CreateTimeRanges":[],
++		"MaterialTypes":[],
++		"ReviewStatuses":[],
++		"Tags":[],
++		"SearchScopes":[{"Owner":{"Type":"PERSON","Id":"%s"},"ClassId":%s,"SearchOneDepth":true}]
++	}`, len(res), d.Addition.OrderBy, d.Addition.OrderDirection, d.TfUid, dirId)
++		var resp RspFiles
++		_, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++			req.SetBody(form).ForceContentType("application/json")
++		}, &resp)
++		if err != nil {
++			return nil, err
++		}
++		res = append(res, resp.Data.ResourceInfoSet...)
++		if len(resp.Data.ResourceInfoSet) <= 0 || len(res) >= resp.Data.TotalCount {
++			break
++		}
++	}
++	return res, nil
++}
++
++func (d *Vtencent) CreateUploadMaterial(classId int, fileName string, UploadSummaryKey string) (RspCreatrMaterial, error) {
++	api := "https://api.vs.tencent.com/PaaS/Material/CreateUploadMaterial"
++	form := base.Json{"Owner": base.Json{"Type": "PERSON", "Id": d.TfUid},
++		"MaterialType": "VIDEO", "Name": fileName, "ClassId": classId,
++		"UploadSummaryKey": UploadSummaryKey}
++	var resps RspCreatrMaterial
++	_, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(form).ForceContentType("application/json")
++	}, &resps)
++	if err != nil {
++		return RspCreatrMaterial{}, err
++	}
++	return resps, nil
++}
++
++func (d *Vtencent) ApplyUploadUGC(signature string, stream model.FileStreamer) (RspApplyUploadUGC, error) {
++	api := "https://vod2.qcloud.com/v3/index.php?Action=ApplyUploadUGC"
++	form := base.Json{
++		"signature": signature,
++		"videoName": stream.GetName(),
++		"videoType": utils.Ext(stream.GetName()),
++		"videoSize": stream.GetSize(),
++	}
++	var resps RspApplyUploadUGC
++	_, err := d.ugcRequest(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(form).ForceContentType("application/json")
++	}, &resps)
++	if err != nil {
++		return RspApplyUploadUGC{}, err
++	}
++	return resps, nil
++}
++
++func (d *Vtencent) CommitUploadUGC(signature string, vodSessionKey string) (RspCommitUploadUGC, error) {
++	api := "https://vod2.qcloud.com/v3/index.php?Action=CommitUploadUGC"
++	form := base.Json{
++		"signature":     signature,
++		"vodSessionKey": vodSessionKey,
++	}
++	var resps RspCommitUploadUGC
++	rsp, err := d.ugcRequest(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(form).ForceContentType("application/json")
++	}, &resps)
++	if err != nil {
++		return RspCommitUploadUGC{}, err
++	}
++	if len(resps.Data.Video.URL) == 0 {
++		return RspCommitUploadUGC{}, errors.New(string(rsp))
++	}
++	return resps, nil
++}
++
++func (d *Vtencent) FinishUploadMaterial(SummaryKey string, VodVerifyKey string, UploadContext, VodFileId string) (RspFinishUpload, error) {
++	api := "https://api.vs.tencent.com/PaaS/Material/FinishUploadMaterial"
++	form := base.Json{
++		"UploadContext": UploadContext,
++		"VodVerifyKey":  VodVerifyKey,
++		"VodFileId":     VodFileId,
++		"UploadFullKey": SummaryKey}
++	var resps RspFinishUpload
++	rsp, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(form).ForceContentType("application/json")
++	}, &resps)
++	if err != nil {
++		return RspFinishUpload{}, err
++	}
++	if len(resps.Data.MaterialID) == 0 {
++		return RspFinishUpload{}, errors.New(string(rsp))
++	}
++	return resps, nil
++}
++
++func (d *Vtencent) FinishHashUploadMaterial(SummaryKey string, UploadContext string) (RspFinishUpload, error) {
++	api := "https://api.vs.tencent.com/PaaS/Material/FinishUploadMaterial"
++	var resps RspFinishUpload
++	form := base.Json{
++		"UploadContext": UploadContext,
++		"UploadFullKey": SummaryKey}
++	rsp, err := d.request(api, http.MethodPost, func(req *resty.Request) {
++		req.SetBody(form).ForceContentType("application/json")
++	}, &resps)
++	if err != nil {
++		return RspFinishUpload{}, err
++	}
++	if len(resps.Data.MaterialID) == 0 {
++		return RspFinishUpload{}, errors.New(string(rsp))
++	}
++	return resps, nil
++}
++
++func (d *Vtencent) FileUpload(ctx context.Context, dstDir model.Obj, stream model.FileStreamer, up driver.UpdateProgress) error {
++	classId, err := strconv.Atoi(dstDir.GetID())
++	if err != nil {
++		return err
++	}
++	const chunkLength int64 = 1024 * 1024 * 10
++	reader, err := stream.RangeRead(http_range.Range{Start: 0, Length: chunkLength})
++	if err != nil {
++		return err
++	}
++	chunkHash, err := utils.HashReader(utils.SHA1, reader)
++	if err != nil {
++		return err
++	}
++	rspCreatrMaterial, err := d.CreateUploadMaterial(classId, stream.GetName(), chunkHash)
++	if err != nil {
++		return err
++	}
++	if rspCreatrMaterial.Data.QuickUpload {
++		SummaryKey := stream.GetHash().GetHash(utils.SHA1)
++		if len(SummaryKey) < utils.SHA1.Width {
++			if SummaryKey, err = utils.HashReader(utils.SHA1, stream); err != nil {
++				return err
++			}
++		}
++		UploadContext := rspCreatrMaterial.Data.UploadContext
++		_, err = d.FinishHashUploadMaterial(SummaryKey, UploadContext)
++		if err != nil {
++			return err
++		}
++		return nil
++	}
++	hash := sha1.New()
++	rspUGC, err := d.ApplyUploadUGC(rspCreatrMaterial.Data.VodUploadSign, stream)
++	if err != nil {
++		return err
++	}
++	params := rspUGC.Data
++	certificate := params.TempCertificate
++	cfg := &aws.Config{
++		HTTPClient: base.HttpClient,
++		// S3ForcePathStyle: aws.Bool(true),
++		Credentials: credentials.NewStaticCredentials(certificate.SecretID, certificate.SecretKey, certificate.Token),
++		Region:      aws.String(params.StorageRegionV5),
++		Endpoint:    aws.String(fmt.Sprintf("cos.%s.myqcloud.com", params.StorageRegionV5)),
++	}
++	ss, err := session.NewSession(cfg)
++	if err != nil {
++		return err
++	}
++	uploader := s3manager.NewUploader(ss)
++	if stream.GetSize() > s3manager.MaxUploadParts*s3manager.DefaultUploadPartSize {
++		uploader.PartSize = stream.GetSize() / (s3manager.MaxUploadParts - 1)
++	}
++	input := &s3manager.UploadInput{
++		Bucket: aws.String(fmt.Sprintf("%s-%d", params.StorageBucket, params.StorageAppID)),
++		Key:    &params.Video.StoragePath,
++		Body: driver.NewLimitedUploadStream(ctx,
++			io.TeeReader(stream, io.MultiWriter(hash, driver.NewProgress(stream.GetSize(), up)))),
++	}
++	_, err = uploader.UploadWithContext(ctx, input)
++	if err != nil {
++		return err
++	}
++	rspCommitUGC, err := d.CommitUploadUGC(rspCreatrMaterial.Data.VodUploadSign, rspUGC.Data.VodSessionKey)
++	if err != nil {
++		return err
++	}
++	VodVerifyKey := rspCommitUGC.Data.Video.VerifyContent
++	VodFileId := rspCommitUGC.Data.FileID
++	UploadContext := rspCreatrMaterial.Data.UploadContext
++	SummaryKey := hex.EncodeToString(hash.Sum(nil))
++	_, err = d.FinishUploadMaterial(SummaryKey, VodVerifyKey, UploadContext, VodFileId)
++	if err != nil {
++		return err
++	}
++	return nil
++}
+diff --git a/go.mod b/go.mod
+index a581ea80..145e12c1 100644
+--- a/go.mod
++++ b/go.mod
+@@ -87,8 +87,10 @@ require (
+ 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
+ 	github.com/ebitengine/purego v0.8.4 // indirect
+ 	github.com/lanrat/extsort v1.0.2 // indirect
++	github.com/larksuite/oapi-sdk-go/v3 v3.4.23 // indirect
+ 	github.com/mikelolasagasti/xz v1.0.1 // indirect
+ 	github.com/minio/minlz v1.0.0 // indirect
++	github.com/minio/sio v0.4.1 // indirect
+ 	github.com/minio/xxml v0.0.3 // indirect
+ 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
+ 	github.com/otiai10/mint v1.6.3 // indirect
+diff --git a/go.sum b/go.sum
+index d731a5b8..4ef2921f 100644
+--- a/go.sum
++++ b/go.sum
+@@ -301,6 +301,7 @@ github.com/goccy/go-json v0.10.5 h1:Fq85nIqj+gXn/S5ahsiTlK3TmC85qgirsdTP/+DeaC4=
+ github.com/goccy/go-json v0.10.5/go.mod h1:oq7eo15ShAhp70Anwd5lgX2pLfOS3QCiwU/PULtXL6M=
+ github.com/godbus/dbus/v5 v5.0.4/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=
+ github.com/gogo/protobuf v1.3.1/go.mod h1:SlYgWuQ5SjCEi6WLHjHCa1yvBfUnHcTbrrZtXPKa29o=
++github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
+ github.com/golang-jwt/jwt/v4 v4.5.1/go.mod h1:m21LjoU+eqJr34lmDMbreY2eSTRJ1cv77w39/MY0Ch0=
+ github.com/golang-jwt/jwt/v4 v4.5.2 h1:YtQM7lnr8iZ+j5q71MGKkNw9Mn7AjHM68uc9g5fXeUI=
+ github.com/golang-jwt/jwt/v4 v4.5.2/go.mod h1:m21LjoU+eqJr34lmDMbreY2eSTRJ1cv77w39/MY0Ch0=
+@@ -355,6 +356,7 @@ github.com/googleapis/gax-go/v2 v2.14.2 h1:eBLnkZ9635krYIPD+ag1USrOAI0Nr0QYF3+/3
+ github.com/googleapis/gax-go/v2 v2.14.2/go.mod h1:ON64QhlJkhVtSqp4v1uaK92VyZ2gmvDQsweuyLV+8+w=
+ github.com/gorilla/css v1.0.1 h1:ntNaBIghp6JmvWnxbZKANoLyuXTPZ4cAMlo6RyhlbO8=
+ github.com/gorilla/css v1.0.1/go.mod h1:BvnYkspnSzMmwRK+b8/xgNPLiIuNZr6vbZBTPQ2A3b0=
++github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+ github.com/gorilla/websocket v1.5.3 h1:saDtZ6Pbx/0u+bgYQ3q96pZgCzfhKXGPqt7kZ72aNNg=
+ github.com/gorilla/websocket v1.5.3/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
+ github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
+@@ -418,6 +420,7 @@ github.com/jzelinskie/whirlpool v0.0.0-20201016144138-0675e54bb004/go.mod h1:KmH
+ github.com/kdomanski/iso9660 v0.4.0 h1:BPKKdcINz3m0MdjIMwS0wx1nofsOjxOq8TOr45WGHFg=
+ github.com/kdomanski/iso9660 v0.4.0/go.mod h1:OxUSupHsO9ceI8lBLPJKWBTphLemjrCQY8LPXM7qSzU=
+ github.com/kisielk/errcheck v1.2.0/go.mod h1:/BMXB+zMLi60iA8Vv6Ksmxu/1UDYcXs4uQLJ+jE2L00=
++github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI2bnpBCr8=
+ github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
+ github.com/klauspost/compress v1.4.1/go.mod h1:RyIbtBH6LamlWaDj8nUwkbUhJ87Yi3uG0guNDohfE1A=
+ github.com/klauspost/compress v1.18.0 h1:c/Cqfb0r+Yi+JtIEq73FWXVkRonBlf0CRNYc8Zttxdo=
+@@ -442,6 +445,8 @@ github.com/kylelemons/godebug v1.1.0 h1:RPNrshWIDI6G2gRW9EHilWtl7Z6Sb1BR0xunSBf0
+ github.com/kylelemons/godebug v1.1.0/go.mod h1:9/0rRGxNHcop5bhtWyNeEfOS8JIWk580+fNqagV/RAw=
+ github.com/lanrat/extsort v1.0.2 h1:p3MLVpQEPwEGPzeLBb+1eSErzRl6Bgjgr+qnIs2RxrU=
+ github.com/lanrat/extsort v1.0.2/go.mod h1:ivzsdLm8Tv+88qbdpMElV6Z15StlzPUtZSKsGb51hnQ=
++github.com/larksuite/oapi-sdk-go/v3 v3.4.23 h1:C+2FePQRm3I5T8VjQg1sGiRfUD7QjBmpzdfVMSlwgyQ=
++github.com/larksuite/oapi-sdk-go/v3 v3.4.23/go.mod h1:ZEplY+kwuIrj/nqw5uSCINNATcH3KdxSN7y+UxYY5fI=
+ github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
+ github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
+ github.com/libp2p/go-buffer-pool v0.1.0 h1:oK4mSFcQz7cTQIfqbe4MIj9gLW+mnanjyFtc6cdF0Y8=
+@@ -482,6 +487,8 @@ github.com/minio/minlz v1.0.0 h1:Kj7aJZ1//LlTP1DM8Jm7lNKvvJS2m74gyyXXn3+uJWQ=
+ github.com/minio/minlz v1.0.0/go.mod h1:qT0aEB35q79LLornSzeDH75LBf3aH1MV+jB5w9Wasec=
+ github.com/minio/sha256-simd v1.0.1 h1:6kaan5IFmwTNynnKKpDHe6FWHohJOHhCPchzK49dzMM=
+ github.com/minio/sha256-simd v1.0.1/go.mod h1:Pz6AKMiUdngCLpeTL/RJY1M9rUuPMYujV5xJjtbRSN8=
++github.com/minio/sio v0.4.1 h1:EMe3YBC1nf+sRQia65Rutxi+Z554XPV0dt8BIBA+a/0=
++github.com/minio/sio v0.4.1/go.mod h1:oBSjJeGbBdRMZZwna07sX9EFzZy+ywu5aofRiV1g79I=
+ github.com/minio/xxml v0.0.3 h1:ZIpPQpfyG5uZQnqqC0LZuWtPk/WT8G/qkxvO6jb7zMU=
+ github.com/minio/xxml v0.0.3/go.mod h1:wcXErosl6IezQIMEWSK/LYC2VS7LJ1dAkgvuyIN3aH4=
+ github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
+@@ -653,6 +660,8 @@ github.com/xyproto/randomstring v1.0.5 h1:YtlWPoRdgMu3NZtP45drfy1GKoojuR7hmRcnhZ
+ github.com/xyproto/randomstring v1.0.5/go.mod h1:rgmS5DeNXLivK7YprL0pY+lTuhNQW3iGxZ18UQApw/E=
+ github.com/yeka/zip v0.0.0-20231116150916-03d6312748a9 h1:K8gF0eekWPEX+57l30ixxzGhHH/qscI3JCnuhbN6V4M=
+ github.com/yeka/zip v0.0.0-20231116150916-03d6312748a9/go.mod h1:9BnoKCcgJ/+SLhfAXj15352hTOuVmG5Gzo8xNRINfqI=
++github.com/yuin/goldmark v1.1.27/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
++github.com/yuin/goldmark v1.2.1/go.mod h1:3hX8gzYuyVAZsxl0MRgGTJEmQBFcNTphYh9decYSb74=
+ github.com/yuin/goldmark v1.4.13/go.mod h1:6yULJ656Px+3vBD8DxQVa3kxgyrAnzto9xy5taEt/CY=
+ github.com/yuin/goldmark v1.7.13 h1:GPddIs617DnBLFFVJFgpo1aBfe/4xcvMc3SB5t/D0pA=
+ github.com/yuin/goldmark v1.7.13/go.mod h1:ip/1k0VRfGynBgxOz0yCqHrbZXhcjxyuS66Brc7iBKg=
+@@ -729,6 +738,7 @@ golang.org/x/mod v0.0.0-20190513183733-4bf6d317e70e/go.mod h1:mXi4GBBbnImb6dmsKG
+ golang.org/x/mod v0.1.0/go.mod h1:0QHyrYULN0/3qlju5TqG8bIK38QM8yzMo5ekMj3DlcY=
+ golang.org/x/mod v0.1.1-0.20191105210325-c90efee705ee/go.mod h1:QqPTAvyqsEbceGzBzNggFXnrqF1CaUcvgkdR5Ot7KZg=
+ golang.org/x/mod v0.2.0/go.mod h1:s0Qsj1ACt9ePp/hMypM3fl4fZqREWJwdYDEqhRiZZUA=
++golang.org/x/mod v0.3.0/go.mod h1:s0Qsj1ACt9ePp/hMypM3fl4fZqREWJwdYDEqhRiZZUA=
+ golang.org/x/mod v0.6.0-dev.0.20220419223038-86c51ed26bb4/go.mod h1:jJ57K6gSWd91VN4djpZkiMVwK6gcyfeH4XE8wZrZaV4=
+ golang.org/x/mod v0.8.0/go.mod h1:iBbtSCu2XBx23ZKBPSOrRkjjQPZFPuis4dIYUhu/chs=
+ golang.org/x/mod v0.12.0/go.mod h1:iBbtSCu2XBx23ZKBPSOrRkjjQPZFPuis4dIYUhu/chs=
+@@ -747,6 +757,8 @@ golang.org/x/net v0.0.0-20190620200207-3b0461eec859/go.mod h1:z5CRVTTTmAJ677TzLL
+ golang.org/x/net v0.0.0-20190724013045-ca1201d0de80/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+ golang.org/x/net v0.0.0-20191209160850-c0dbc17a3553/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
+ golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
++golang.org/x/net v0.0.0-20200226121028-0de0cce0169b/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=
++golang.org/x/net v0.0.0-20201021035429-f5854403a974/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
+ golang.org/x/net v0.0.0-20201110031124-69a78807bb2b/go.mod h1:sp8m0HH+o8qH0wwXwYZr8TS3Oi6o0r6Gce1SSxlDquU=
+ golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
+ golang.org/x/net v0.0.0-20220722155237-a158d28d115b/go.mod h1:XRhObCWvk6IyKnWLug+ECip1KBveYUHfp+8e9klMJ9c=
+@@ -771,6 +783,7 @@ golang.org/x/sync v0.0.0-20181221193216-37e7f081c4d4/go.mod h1:RxMgew5VJxzue5/jJ
+ golang.org/x/sync v0.0.0-20190227155943-e225da77a7e6/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.0.0-20190423024810-112230192c58/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.0.0-20190911185100-cd5d95a43a6e/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
++golang.org/x/sync v0.0.0-20201020160332-67f06af15bc9/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.0.0-20220722155255-886fb9371eb4/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.1.0/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
+ golang.org/x/sync v0.3.0/go.mod h1:FU7BRWz2tNW+3quACPkgCx/L+uEAv1htQ0V83Z9Rj+Y=
+@@ -868,6 +881,8 @@ golang.org/x/tools v0.0.0-20191227053925-7b8e75db28f4/go.mod h1:TB2adYChydJhpapK
+ golang.org/x/tools v0.0.0-20200130002326-2f3ba24bd6e7/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
+ golang.org/x/tools v0.0.0-20200207183749-b753a1ba74fa/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
+ golang.org/x/tools v0.0.0-20200212150539-ea181f53ac56/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
++golang.org/x/tools v0.0.0-20200619180055-7c47624df98f/go.mod h1:EkVYQZoAsY45+roYkvgYkIh4xh/qjgUK9TdY2XT94GE=
++golang.org/x/tools v0.0.0-20210106214847-113979e3529a/go.mod h1:emZCQorbCU4vsT4fOWvOPXz4eW1wZW4PmDk9uLelYpA=
+ golang.org/x/tools v0.1.12/go.mod h1:hNGJHUnrk76NpqgfD5Aqm5Crs+Hm0VOH/i9J2+nxYbc=
+ golang.org/x/tools v0.6.0/go.mod h1:Xwgl3UAJ/d3gWutnCtw505GrjyAbvKui8lOU390QaIU=
+ golang.org/x/tools v0.13.0/go.mod h1:HvlwmtVNQAhOuCjW7xxvovg8wbNq7LwfXh/k7wXUl58=
+@@ -877,6 +892,7 @@ golang.org/x/tools v0.34.0/go.mod h1:pAP9OwEaY1CAW3HOmg3hLZC5Z0CCmzjAF2UQMSqNARg
+ golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
+ golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
+ golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
++golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
+ google.golang.org/api v0.4.0/go.mod h1:8k5glujaEP+g9n7WNsDg8QP6cUVNI86fCNMcbazEtwE=
+ google.golang.org/api v0.7.0/go.mod h1:WtwebWUNSVBH/HAw79HIFXZNqEvBhG+Ra+ax0hx3E3M=
+ google.golang.org/api v0.8.0/go.mod h1:o4eAsZoiT+ibD93RtjEohWalFOjRDx6CVaqeizhEnKg=
+-- 
+2.50.1
+

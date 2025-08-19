@@ -29,7 +29,7 @@ cask "neardropplus" do
 
   caveats do
     <<~EOS
-      \033[1m[F]\033[0m Forked version of https://github.com/grishka/NearDrop
+      [F] Forked version of https://github.com/grishka/NearDrop
     EOS
   end
 end

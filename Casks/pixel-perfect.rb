@@ -28,7 +28,7 @@ cask "pixel-perfect" do
 
   caveats do
     <<~EOS
-      \033[1m[R]\033[0m No notarization and inestimable ad-hoc signature,
+      [R] No notarization and inestimable ad-hoc signature,
       more details from https://github.com/Homebrew/homebrew-cask/pull/152173
     EOS
   end
