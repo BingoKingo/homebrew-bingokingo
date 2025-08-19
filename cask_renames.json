@@ -1,7 +1,7 @@
 {
   "alist": "openlist",
   "deskdock": "deskdockserver",
-  "font-microsoft-fluent-calibri": "font-fluent-calibri",
-  "font-microsoft-fluent-sitka-small": "font-fluent-sitka-small",
+  "font-microsoft-fluent-calibri": "font-fluent-calibri-and-sitka",
+  "font-microsoft-fluent-sitka-small": "font-fluent-calibri-and-sitka",
   "resourcefinagler": "resource-finagler"
 }

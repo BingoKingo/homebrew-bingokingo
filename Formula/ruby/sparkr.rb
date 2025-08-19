@@ -1,6 +1,6 @@
 class Sparkr < Formula
   desc "ASCII Sparklines in Ruby"
-  homepage "http://trivelop.de/sparkr/"
+  homepage "https://trivelop.de/sparkr/"
   url "https://rubygems.org/downloads/sparkr-0.4.1.gem"
   sha256 "2816acce87e6f8da783976c0e0d7b0f93c8d67a9fe28e1f15f14133bb22c56b7"
   license "MIT"

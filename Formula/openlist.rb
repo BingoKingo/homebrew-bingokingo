@@ -12,8 +12,12 @@ class Openlist < Formula
   depends_on "vite" => :build
 
   resource "openlist-web" do
-    # pull from git tag to get submodules
     url "https://github.com/OpenListTeam/OpenList-Frontend.git", branch: "main"
+  end
+
+  patch do
+    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/refs/heads/test/Formula/openlist.patch"
+    sha256 "b0f726255c17b161f8c26fa34e4325156a1e6c43d9fdc6f9cb42ed43ca75fc83"
   end
 
   def install
@@ -35,25 +39,23 @@ class Openlist < Formula
   end
 
   service do
-    run [opt_bin/"openlist", "server"]
+    run [opt_bin/"openlist", "server", "--data", etc/"openlist"]
+    log_path var/"log/openlist/log.log"
+    error_log_path var/"log/openlist/log.log"
     working_dir opt_prefix
     keep_alive true
   end
 
   def caveats
     <<~EOS
+      [P] Patched version, re-added drivers:
+        alist_v2, baidu_share, lark, trainbit, vtencent
+      Drivees not support in OpenList but in Alist:
+        quqi
       To reveal openlist admin user's info in default `config.json` again, run the following command:
         cd #{opt_prefix} && openlist admin
       Or reveal password via `sqlite3` command:
         sqlite3 #{etc}/openlist/data.db "select password from x_users where username = 'admin'"
-
-      Drives not support in OpenList but in Alist:
-        "github.com/alist-org/alist/v3/drivers/alist_v2"
-        "github.com/alist-org/alist/v3/drivers/baidu_share"
-        "github.com/alist-org/alist/v3/drivers/lark"
-        "github.com/alist-org/alist/v3/drivers/quqi"
-        "github.com/alist-org/alist/v3/drivers/trainbit"
-        "github.com/alist-org/alist/v3/drivers/vtencent"
     EOS
   end
 

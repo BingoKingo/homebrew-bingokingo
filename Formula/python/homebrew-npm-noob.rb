@@ -51,7 +51,7 @@ class HomebrewNpmNoob < Formula
 
   def caveats
     <<~EOS
-      \033[1m[M]\033[0m Modified form https://github.com/zmwangx/homebrew-npm-noob/blob/master/Formula/noob.rb
+      [M] Modified form https://github.com/zmwangx/homebrew-npm-noob/blob/master/Formula/noob.rb
     EOS
   end
   test do

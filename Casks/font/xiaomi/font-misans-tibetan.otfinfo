@@ -1,0 +1,36 @@
+Family:              MiSans Tibetan VF
+Subfamily:           Regular
+Full name:           MiSans Tibetan VF
+PostScript name:     MiSansTibetanVF
+Version:             Version 1.600
+Unique ID:           1.600;HNYI;MiSans Tibetan VF
+Designer:            Beijing Xiaomi Mobile Software Co.,Ltd & Hanyi Fonts
+Manufacturer:        Hanyi Fonts
+Copyright:           Copyright © 2023-2024 Beijing Xiaomi Mobile Software Co.,Ltd. All Rights Reserved.
+Vendor ID:           HNYI
+Permissions:         Editable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           150 700
+Axis 0 default:         330
+Instance 0 name:        Thin
+Instance 0 position:    150
+Instance 1 name:        ExtraLight
+Instance 1 position:    200
+Instance 2 name:        Light
+Instance 2 position:    250
+Instance 3 name:        Normal
+Instance 3 position:    305
+Instance 4 name:        Regular
+Instance 4 position:    330
+Instance 5 name:        Medium
+Instance 5 position:    380
+Instance 6 name:        Demibold
+Instance 6 position:    450
+Instance 7 name:        Semibold
+Instance 7 position:    520
+Instance 8 name:        Bold
+Instance 8 position:    630
+Instance 9 name:        Heavy
+Instance 9 position:    700
+

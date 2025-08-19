@@ -16,7 +16,7 @@ class Libflite < Formula
 
   def caveats
     <<~EOS
-      \033[1m[M]\033[0m Modified from
+      [M] Modified from
       https://github.com/signalwire/homebrew-signalwire/blob/master/Formula/flite.rb
     EOS
   end

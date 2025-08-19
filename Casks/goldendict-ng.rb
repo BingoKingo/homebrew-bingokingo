@@ -52,7 +52,7 @@ cask "goldendict-ng" do
 
   caveats do
     <<~EOS
-      \033[1m[F]\033[0m Forked application, modified from:
+      [F] Forked application, modified from:
       https://github.com/Homebrew/homebrew-cask/blob/HEAD/Casks/g/goldendict.rb
     EOS
   end

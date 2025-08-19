@@ -17,7 +17,7 @@ class RcloneFilen < Formula
 
   def caveats
     <<~EOS
-      \033[1m[M]\033[0m Modified from
+      [M] Modified from
       https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
     EOS
   end
