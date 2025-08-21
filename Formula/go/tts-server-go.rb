@@ -8,8 +8,14 @@ class TtsServerGo < Formula
   livecheck do
     skip
   end
-  deprecate! date: "2023-02-17", because: :discontinued
 
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_tahoe: "37abbf79744c62ad5c0b71ab071670cac207a452e4ef5e5ead9b21214d68f7f4"
+    sha256 cellar: :any_skip_relocation, arm64_linux: "be27b083a4139af87ac579af7276944b5a28c991aef7a54a5840c458f675898c"
+  end
+
+  deprecate! date: "2023-02-17", because: :discontinued
   depends_on "go" => :build
 
   def install

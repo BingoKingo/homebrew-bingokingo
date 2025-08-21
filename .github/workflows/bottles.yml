@@ -1,0 +1,89 @@
+name: Build and Publish Bottles
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_existing:
+        description: 'Skip formulae with existing bottles'
+        type: boolean
+        default: true
+        required: false
+
+jobs:
+  build-bottles:
+    strategy:
+      matrix:
+        os: [macos-13, macos-14, macos-15, ubuntu-latest, ubuntu-24.04-arm]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ matrix.os }}-rubygems-
+
+      - name: Set up git
+        uses: Homebrew/actions/git-user-config@master
+
+      - name: Build bottles
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.repository_owner }}
+          SKIP_EXISTING: ${{ github.event.inputs.skip_existing }}
+        run: |
+          cd "$(brew --repo $GITHUB_REPOSITORY)"
+          
+          # Get all formula files
+          formula_files=$(find Formula -name "*.rb" -type f)
+          
+          # Build bottles for each formula
+          for formula in $formula_files; do
+            formula_name=$(basename "$formula" .rb)
+            echo "Building bottle for $formula_name"
+            
+            # Skip if bottles already exist and skip_existing is true
+            if [[ "$SKIP_EXISTING" == "true" ]]; then
+              if brew info --json=v1 "bingokingo/$formula_name" | grep -q '"bottle":{"stable":{"rebuild"'; then
+                echo "Bottle already exists for $formula_name, skipping..."
+                continue
+              fi
+            fi
+            
+            # Build bottle
+            HOMEBREW_BOTTLE_DOMAIN=https://ghcr.io/v2/bingokingo/homebrew \
+            brew bottle --root-url=https://ghcr.io/v2/bingokingo/homebrew \
+                       --no-rebuild --json \
+                       "bingokingo/$formula_name" || true
+          done
+
+      - name: Upload bottles
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ github.token }}
+          HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.repository_owner }}
+        run: |
+          cd "$(brew --repo $GITHUB_REPOSITORY)"
+          
+          # Upload all bottles
+          for bottle_json in *.json; do
+            if [ -f "$bottle_json" ]; then
+              echo "Uploading $bottle_json"
+              brew pr-upload --verbose --root-url=https://ghcr.io/v2/bingokingo/homebrew --no-commit "$bottle_json"
+            fi
+          done
+
+      - name: Push bottle commits
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{ github.token }}
+          branch: main

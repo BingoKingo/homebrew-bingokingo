@@ -15,12 +15,12 @@ class NM3u8dlRe < Formula
       -p:PublishTrimmed=true
       -p:DebugType=None
       -p:DebugSymbols=false
-      -o #{bin}
+      -o #{libexec}
     ]
 
     system "dotnet", "publish", "src/N_m3u8DL-RE/N_m3u8DL-RE.csproj", *args
+    bin.install libexec/"N_m3u8DL-RE"
     bin.install_symlink bin/"N_m3u8DL-RE" => "m3u8dl"
-    rm_r(bin/"N_m3u8DL-RE.dSYM") if OS.mac?
   end
 
   test do

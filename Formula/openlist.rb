@@ -27,6 +27,23 @@ class Openlist < Formula
       system "npm", "run", "build"
       (buildpath/"public/dist").install Dir["dist/*"]
     end
+
+    # built_at = Time.now.strftime("%F %T %z")
+    # go_version = Utils.safe_popen_read("go", "version").sub("go version ", "").strip
+    # git_commit = Utils.safe_popen_read("git", "ls-remote", "https://github.com/OpenListTeam/OpenList", "refs/tags/v#{version}").split.first&.[](0, 7)
+    # git_author = "The OpenList Projects Contributors <noreply@openlist.team>"
+
+    # ldflags = %W[
+    #   -s -w
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.BuiltAt="#{built_at}"
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.GoVersion="#{go_version}"
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.GitAuthor="#{git_author}"
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.GitCommit="#{git_commit}"
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.Version="#{version}"
+    #   -X github.com/OpenListTeam/OpenList/internal/conf.WebVersion="Rolling"
+    # ]
+
+    # system "go", "build", *std_go_args(ldflags: ldflags)
     system "go", "build", *std_go_args
     generate_completions_from_executable(bin/"openlist", "completion")
   end
@@ -50,7 +67,7 @@ class Openlist < Formula
     <<~EOS
       [P] Patched version, re-added drivers:
         alist_v2, baidu_share, lark, trainbit, vtencent
-      Drivees not support in OpenList but in Alist:
+      Drives not support in OpenList but in Alist:
         quqi
       To reveal openlist admin user's info in default `config.json` again, run the following command:
         cd #{opt_prefix} && openlist admin
