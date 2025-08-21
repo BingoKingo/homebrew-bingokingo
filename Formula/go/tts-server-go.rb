@@ -8,8 +8,8 @@ class TtsServerGo < Formula
   livecheck do
     skip
   end
-  deprecate! date: "2023-02-17", because: :discontinued
 
+  deprecate! date: "2023-02-17", because: :discontinued
   depends_on "go" => :build
 
   def install

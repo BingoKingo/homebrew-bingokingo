@@ -7,10 +7,11 @@ class Bbdown < Formula
   head "https://github.com/nilaoda/BBDown.git", branch: "master"
 
   depends_on "dotnet"
+  depends_on "protobuf" => :build
 
   def install
-    system "dotnet", "publish", "BBDown", "-c", "Release", "-o", bin.to_s
-    rm_r(bin/"BBDown.dsym") if OS.mac?
+    system "dotnet", "publish", "BBDown", "-c", "Release", "-o", "#{libexec}"
+    bin.install libexec/"BBDown"
   end
 
   test do

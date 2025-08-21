@@ -1,0 +1,358 @@
+Family:              Shanggu Serif VF
+Subfamily:           Regular
+Full name:           Shanggu Serif VF
+PostScript name:     ShangguSerifVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif HW VF
+Subfamily:           Regular
+Full name:           Shanggu Serif HW VF
+PostScript name:     ShangguSerifHWVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifHWVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif TC VF
+Subfamily:           Regular
+Full name:           Shanggu Serif TC VF
+PostScript name:     ShangguSerifTCVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifTCVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif HW TC VF
+Subfamily:           Regular
+Full name:           Shanggu Serif HW TC VF
+PostScript name:     ShangguSerifHWTCVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifHWTCVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif SC VF
+Subfamily:           Regular
+Full name:           Shanggu Serif SC VF
+PostScript name:     ShangguSerifSCVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifSCVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif HW SC VF
+Subfamily:           Regular
+Full name:           Shanggu Serif HW SC VF
+PostScript name:     ShangguSerifHWSCVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifHWSCVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif JP VF
+Subfamily:           Regular
+Full name:           Shanggu Serif JP VF
+PostScript name:     ShangguSerifJPVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifJPVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif HW JP VF
+Subfamily:           Regular
+Full name:           Shanggu Serif HW JP VF
+PostScript name:     ShangguSerifHWJPVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifHWJPVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif ST VF
+Subfamily:           Regular
+Full name:           Shanggu Serif ST VF
+PostScript name:     ShangguSerifSTVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifSTVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
+
+
+Family:              Shanggu Serif HW ST VF
+Subfamily:           Regular
+Full name:           Shanggu Serif HW ST VF
+PostScript name:     ShangguSerifHWSTVF-ExtraLight
+Preferred subfamily: ExtraLight
+Version:             Version 1.022
+Unique ID:           1.022;GUIW;ShangguSerifHWSTVF-ExtraLight
+Description:         Pan-CJK font
+Designer:            GuiWonder
+Vendor URL:          https://github.com/GuiWonder/Shanggu
+Copyright:           © 2022-2025 Shanggu Fonts.
+License URL:         http://scripts.sil.org/OFL
+License Description: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+Vendor ID:           GUIW
+Permissions:         Installable
+Axis 0:                 wght
+Axis 0 name:            Weight
+Axis 0 range:           250 900
+Axis 0 default:         250
+Instance 0 name:        ExtraLight
+Instance 0 position:    250
+Instance 1 name:        Light
+Instance 1 position:    300
+Instance 2 name:        Regular
+Instance 2 position:    400
+Instance 3 name:        Medium
+Instance 3 position:    500
+Instance 4 name:        SemiBold
+Instance 4 position:    600
+Instance 5 name:        Bold
+Instance 5 position:    700
+Instance 6 name:        Heavy
+Instance 6 position:    900
+
