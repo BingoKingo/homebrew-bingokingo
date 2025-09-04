@@ -23,6 +23,17 @@ class TtsServerGo < Formula
   end
 
   test do
-    system bin/"tts-server-go"
+    system bin/"tts-server-go", "--help"
+    port = 1233
+    pid = fork do
+      exec bin/"tts-server-go", "-port", port.to_s
+    end
+    sleep 3
+    begin
+      require "socket"
+      TCPSocket.new("localhost", port).close
+    end
+    Process.kill("TERM", pid)
+    Process.wait(pid)
   end
 end

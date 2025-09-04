@@ -1,0 +1,140 @@
+name: brew bottles
+
+on:
+  workflow_dispatch:
+    inputs:
+      formulae:
+        description: 'Formulae to build'
+        required: true
+        default: ''
+        type: string
+
+jobs:
+  bottles:
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, macos-15]
+        # os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, macos-15, macos-sh, ubuntu-arm64-sh]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      packages: write
+      pull-requests: read
+    steps:
+        
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ matrix.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ matrix.os }}-rubygems-
+
+      - run: |
+          brew test-bot --only-cleanup-before
+          brew test-bot --only-setup
+          # brew test-bot --only-tap-syntax
+
+      - name: Base64-encode GITHUB_TOKEN for HOMEBREW_DOCKER_REGISTRY_TOKEN
+        id: base64-encode
+        env:
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          base64_token=$(echo -n "${TOKEN}" | base64 | tr -d "\n")
+          echo "::add-mask::${base64_token}"
+          echo "token=${base64_token}" >> "${GITHUB_OUTPUT}"
+
+      - name: Run test-bot for specified formulae
+        run: brew test-bot --only-formulae --root-url=https://ghcr.io/v2/bingokingo/homebrew ${{ github.event.inputs.formulae }}
+        env:
+          HOMEBREW_DOCKER_REGISTRY_TOKEN: ${{ steps.base64-encode.outputs.token }}
+
+      - name: Upload bottles as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bottles_${{ matrix.os }}
+          path: '*.bottle.*'
+
+  process-bottles:
+    needs: bottles
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      checks: read
+      contents: write
+      packages: write
+      pull-requests: read
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup and verify GitHub CLI
+        run: |
+          echo "Checking if gh is already installed..."
+          which gh || echo "gh not found in PATH"
+          
+          echo "Ensuring gh is installed via Homebrew..."
+          brew install gh || brew link --overwrite gh
+          
+          echo "Verifying gh installation..."
+          which gh
+          gh --version
+          
+      - name: Download workflow artifacts
+        id: download-artifacts
+        run: |
+          rm -rf bottles
+          mkdir -p bottles
+          cd bottles
+          artifact_ids=$(gh api repos/$GITHUB_REPOSITORY/actions/artifacts --jq '.artifacts[] | select(.name | startswith("bottles_")) | .id')
+          if [ -n "$artifact_ids" ]; then
+            for artifact_id in $artifact_ids; do
+              echo "Processing artifact ID: $artifact_id"
+              (
+                curl -L -o artifact_${artifact_id}.zip \
+                  -H "Authorization: token $GITHUB_TOKEN" \
+                  -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" && \
+                unzip -q artifact_${artifact_id}.zip && \
+                rm artifact_${artifact_id}.zip && \
+                echo "Completed processing artifact ID: $artifact_id"
+              ) &
+            done
+            wait
+            echo "All artifacts processed"
+            echo "artifacts_found=true" >> $GITHUB_OUTPUT
+          else
+            echo "No bottle artifacts found"
+            echo "artifacts_found=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Process and upload bottles
+        if: steps.download-artifacts.outputs.artifacts_found == 'true'
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.repository_owner }}
+          GIT_AUTHOR_NAME: "BingoKingo"
+          GIT_AUTHOR_EMAIL: "24961267+BingoKingo@users.noreply.github.com"
+          GIT_COMMITTER_NAME: "BingoKingo"
+          GIT_COMMITTER_EMAIL: "24961267+BingoKingo@users.noreply.github.com"
+        run: |
+          git config --global user.name "BingoKingo"
+          git config --global user.email "24961267+BingoKingo@users.noreply.github.com"
+          git fetch origin main
+          git reset --hard origin/bottles
+          cd bottles
+          brew pr-upload --keep-old --debug --verbose --root-url=https://ghcr.io/v2/bingokingo/homebrew
+          git push origin bottles

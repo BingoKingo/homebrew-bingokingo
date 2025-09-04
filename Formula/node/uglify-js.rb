@@ -6,7 +6,10 @@ class UglifyJs < Formula
   license "BSD-2-Clause"
   head "https://github.com/mishoo/UglifyJS.git", branch: "master"
 
+  depends_on "libnghttp2"
+  depends_on "libngtcp2"
   depends_on "node"
+  depends_on "uvwasi"
 
   def install
     system "npm", "i", *std_npm_args
