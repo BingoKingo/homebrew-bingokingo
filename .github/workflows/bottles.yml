@@ -13,15 +13,14 @@ jobs:
   bottles:
     strategy:
       matrix:
-        os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, macos-15]
-        # os: [ubuntu-22.04, ubuntu-24.04, macos-13, macos-14, macos-15, macos-sh, ubuntu-arm64-sh]
+        os: [ubuntu-22.04, macos-13, macos-14, macos-15]
+        # os: [ubuntu-22.04, macos-13, macos-14, macos-15, macos-sh, ubuntu-arm64-sh]
     runs-on: ${{ matrix.os }}
     permissions:
       actions: read
       checks: read
       contents: write
       packages: write
-      pull-requests: read
     steps:
         
       - name: Set up Homebrew
@@ -70,7 +69,6 @@ jobs:
       checks: read
       contents: write
       packages: write
-      pull-requests: read
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
