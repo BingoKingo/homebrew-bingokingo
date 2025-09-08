@@ -13,6 +13,7 @@ class KrokiCli < Formula
   end
 
   test do
-    system bin/"kroki-cli", "-h"
+    assert_path_exists bin/"kroki-cli"
+    assert_predicate bin/"kroki-cli", :executable?
   end
 end

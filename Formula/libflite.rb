@@ -22,6 +22,14 @@ class Libflite < Formula
   end
   test do
     system bin/"flite", "-h"
+    test_text = "Hello, this is a test"
+    output_file = testpath/"test_output.wav"
+    system bin/"flite", "-t", test_text, "-o", output_file
+    assert_path_exists output_file
+    assert_predicate output_file, :writable?
+    assert_operator output_file.size, :>, 0
+    system bin/"flite", "-lv"
+    system bin/"flite", "-t", "Test speech synthesis"
   end
 end
 __END__

@@ -9,6 +9,16 @@ class TtsServerGo < Formula
     skip
   end
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "954fb989a08131dd7c92cc9648a955f3d9ce4a9196189a775da0735941bc662c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "15647218bec2248db53fb27a9cbda241c898746eafbff76dd2a465e2b53a0747"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "fe47c42ccdcfff986e4cb84f0f32e98aadfe919cffc7c2a28689ac037da480cc"
+    sha256 cellar: :any_skip_relocation, ventura:       "6582bd2f1c8efba100ec5197668fdfe6201e42b4ecc4f9c60cc37a43681729ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c57fe7a7ec94b9ce57e50405e690ec0dbc043a0b87793174bd2786bae36c5562"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4accdbb0e1a178958e7ab40499097ab4aeab450ea6a95fcb26ed3faa764cce19"
+  end
+
   deprecate! date: "2023-02-17", because: :discontinued
   depends_on "go" => :build
 
