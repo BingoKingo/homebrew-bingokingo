@@ -1,8 +1,8 @@
 class Thor < Formula
   desc "Toolkit for building powerful command-line interfaces"
   homepage "https://whatisthor.com/"
-  url "https://rubygems.org/downloads/thor-1.4.0.gem"
-  sha256 "8763e822ccb0f1d7bee88cde131b19a65606657b847cc7b7b4b82e772bcd8a3d"
+  url "https://rubygems.org/downloads/thor-1.5.0.gem"
+  sha256 "e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73"
   license "MIT"
   head "https://github.com/rails/thor.git", branch: "main"
 

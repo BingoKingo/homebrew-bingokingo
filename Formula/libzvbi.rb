@@ -27,6 +27,7 @@ class Libzvbi < Formula
       https://github.com/afinne/homebrew-ffmpeg-with-zvbi/blob/master/zvbi.rb
     EOS
   end
+
   test do
     system bin/"zvbi-ntsc-cc", "-h"
   end

@@ -1,5 +1,6 @@
 class Beets < Formula
   include Language::Python::Virtualenv
+
   desc "Music geek’s media organizer"
   homepage "https://beets.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/b5/c5/7a328e8049874fb7799b32bb268c29408c7ca2f2326d7c5c83c3985519a6/beets-2.3.1.tar.gz"

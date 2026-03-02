@@ -1,32 +1,37 @@
 cask "goldendict-ng" do
-  version "25.07.0"
+  arch arm: "arm64", intel: "x86_64"
 
+  version "26.3.0,fce2b872"
   qt_version="6.9.1"
-  version_name="alpha"
-  commit="ef1eaebe"
 
-  on_arm do
-    sha256 "7152256476eb2a0a507544fafdceccea5683d73f5c6612fa76000f871aa12fcd"
+  sha256 arm:   "7dc4cc72ef0510f5b1716b82ef5377a3719b2bfcaba1dc9b14b960f3fe67d53e",
+         intel: "87acd2406b7064bae88906cd9b7a7127b16aff2dd494a8ab522e109d242ffdd3"
 
-    url "https://github.com/xiaoyifang/goldendict-ng/releases/download/v#{version}-#{version_name}.#{commit}/GoldenDict-ng-#{version}-Qt#{qt_version}-macOS-arm64.dmg",
-        verified: "github.com/xiaoyifang/goldendict-ng/"
-  end
-  on_intel do
-    sha256 "93f7dcd44180dd205f6cf27ae2602f93ff7299410cca4ec19b891d2225885184"
-
-    url "https://github.com/xiaoyifang/goldendict-ng/releases/download/v#{version}-#{version_name}.#{commit}/GoldenDict-ng-#{version}-Qt#{qt_version}-macOS-x86_64.dmg",
-        verified: "github.com/xiaoyifang/goldendict-ng/"
-  end
-
+  url "https://github.com/xiaoyifang/goldendict-ng/releases/download/v#{version.csv.first}-Release.#{version.csv.second}/GoldenDict-ng-#{version.csv.first}-Qt#{qt_version}-macOS-#{arch}.dmg",
+      verified: "github.com/xiaoyifang/goldendict-ng/"
   name "GoldenDict-ng"
   desc "Next Generation GoldenDict"
   homepage "https://xiaoyifang.github.io/goldendict-ng/"
 
-  conflicts_with cask: "goldendict"
+  livecheck do
+    url "https://api.github.com/repos/xiaoyifang/goldendict-ng/releases"
+    regex(/v?(\d+(?:\.\d+)+)-Release\.([a-zA-Z0-9]+)/i)
+    strategy :json do |json_array|
+      result = []
+      json_array.each do |json|
+        if (tag = json["tag_name"]) && (match = tag.match(/v?(\d+(?:\.\d+)+)-Release\.([a-zA-Z0-9]+)/i))
+          result << "#{match[1]},#{match[2]}"
+        end
+      end
+      result
+    end
+  end
+
+  conflicts_with cask: "goldendict-ng@alpha"
   depends_on macos: ">= :monterey"
 
-  app "GoldenDict-ng.app", target: "GoldenDict.app"
   shimscript = "#{staged_path}/goldendict.wrapper.sh"
+  app "GoldenDict-ng.app", target: "GoldenDict.app"
   binary shimscript, target: "goldendict"
 
   preflight do
@@ -39,7 +44,7 @@ cask "goldendict-ng" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/GoldenDict.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/GoldenDict.app"
                    ]
   end
 

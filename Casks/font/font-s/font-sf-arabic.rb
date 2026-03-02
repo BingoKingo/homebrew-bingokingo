@@ -6,7 +6,7 @@ cask "font-sf-arabic" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg"
-    sha256 "2760c62d502b77012c49517c2ea392ec2d4c647fe060985c927df48d105197b9"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

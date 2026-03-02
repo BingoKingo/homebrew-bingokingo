@@ -1,5 +1,6 @@
 class CharsetNormalizer < Formula
   include Language::Python::Virtualenv
+
   desc "Open, modern and actively maintained alternative to Chardet"
   homepage "https://github.com/jawah/charset_normalizer/"
   url "https://files.pythonhosted.org/packages/83/2d/5fd176ceb9b2fc619e63405525573493ca23441330fcdaee6bef9460e924/charset_normalizer-3.4.3.tar.gz"

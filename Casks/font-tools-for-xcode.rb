@@ -1,8 +1,8 @@
 cask "font-tools-for-xcode" do
-  version "26.beta.3"
-  sha256 "321e41326473c77e8790b855ff2fe1721a90f8993ff35b4b05cf2135cc45f5f9"
+  version "26.1"
+  sha256 "1015029d4cb006d024573de0f96a7f2ee8274607dc61ad8ae4e96ae74f82cf2f"
 
-  url "https://download.developer.apple.com/Developer_Tools/Font_Tools_for_Xcode_#{version.dots_to_underscores}/Font_Tools_for_Xcode_#{version.dots_to_underscores}.dmg",
+  url "https://download.developer.apple.com/Developer_Tools/Font_Tools_for_Xcode_#{version}/Font_Tools_for_Xcode_#{version}.dmg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {

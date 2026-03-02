@@ -1,11 +1,15 @@
 cask "suyu" do
-  version "0.0.1"
-  sha256 "cac09d4878ea80cacb173a4ed6bb759790e99a7ca581b79c46cfcd4f16931878"
+  version "0.0.3"
+  sha256 "38dc1efdb59369656e2b98527534557294b575635c1387a2e9a6309d0ab3682c"
 
-  url "https://git.suyu.dev/suyu/suyu/releases/download/v#{version}/Suyu-macOS_Arm64.dmg"
+  url "https://git.suyu.dev/suyu/suyu/releases/download/v#{version}/Suyu-macOS-ARM64.zip"
   name "suyu"
   desc "Nintendo Switch 1 emulator in c++"
   homepage "https://suyu.dev/"
+
+  livecheck do
+    url "https://git.suyu.dev/suyu/suyu.git"
+  end
 
   deprecate! date: "2024-10-06", because: :unmaintained
 
@@ -17,7 +21,7 @@ cask "suyu" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/suyu.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/suyu.app"
                    ]
   end
 

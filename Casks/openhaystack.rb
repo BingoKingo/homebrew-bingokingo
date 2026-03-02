@@ -15,7 +15,7 @@ cask "openhaystack" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/OpenHaystack.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/OpenHaystack.app"
                    ]
   end
 

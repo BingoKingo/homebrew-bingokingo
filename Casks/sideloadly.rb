@@ -1,11 +1,18 @@
 cask "sideloadly" do
-  version :latest
+  version "0.60"
   sha256 :no_check
 
   url "https://sideloadly.io/SideloadlySetup.dmg"
   name "Sideloadly"
   desc "Sideload games and apps"
   homepage "https://sideloadly.io/"
+
+  livecheck do
+    url "https://sideloadly.io/exe/darwin-amd64.json"
+    strategy :json do |json|
+      json["Version"]
+    end
+  end
 
   auto_updates true
 
@@ -14,7 +21,7 @@ cask "sideloadly" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/Sideloadly.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/Sideloadly.app"
                    ]
   end
 

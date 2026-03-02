@@ -1,5 +1,6 @@
 class Pyimg4 < Formula
   include Language::Python::Virtualenv
+
   desc "Tool for parsing Apple's Image4 format"
   homepage "https://github.com/m1stadev/PyIMG4/"
   url "https://files.pythonhosted.org/packages/3c/5c/69bad79b4e9d7be46063e9ea15e82c79ae0dec90811501453003588aab62/pyimg4-0.8.8.tar.gz"

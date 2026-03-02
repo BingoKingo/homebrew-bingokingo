@@ -1,5 +1,6 @@
 class GitFame < Formula
   include Language::Python::Virtualenv
+
   desc "Pretty-print git repository collaborators sorted by contributions"
   homepage "https://github.com/casperdcl/git-fame/"
   url "https://files.pythonhosted.org/packages/25/ab/ad71516d849d1b6160834b15c00590b9e83ba9f3b1f13c2f2ba43a86a81f/git_fame-3.1.1.tar.gz"

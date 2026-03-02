@@ -16,7 +16,7 @@ cask "pixel-perfect" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/Pixel Perfect.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/Pixel Perfect.app"
                    ]
   end
 

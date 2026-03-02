@@ -1,5 +1,6 @@
 class Panosifier < Formula
   include Language::Python::Virtualenv
+
   desc "Panose data editor for fonts"
   homepage "https://github.com/source-foundry/panosifier/"
   url "https://files.pythonhosted.org/packages/2c/9c/02f15854a93bf931b4db5e1de61631743285774b19f7d31fe8b7cbc561da/panosifier-1.0.1.tar.gz"

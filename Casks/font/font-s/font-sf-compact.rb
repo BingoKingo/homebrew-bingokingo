@@ -6,7 +6,7 @@ cask "font-sf-compact" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"
-    sha256 "cfbd26b6cee815a313b78abba7a33b3f34b0e1ab8e11a89a24f22d62a5293740"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

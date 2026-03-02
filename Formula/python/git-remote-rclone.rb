@@ -1,5 +1,6 @@
 class GitRemoteRclone < Formula
   include Language::Python::Virtualenv
+
   desc "Git remote helper for rclone-supported services"
   homepage "https://github.com/rixner/git-remote-rclone/"
   license "GPL-3.0-or-later"

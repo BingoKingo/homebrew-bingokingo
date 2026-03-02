@@ -13,12 +13,7 @@ cask "device-support-for-xcode" do
 
   pkg "DeviceSupport.pkg"
 
-  uninstall script:  {
-              executable: "uninstall.tool",
-              input:      ["Yes"],
-              sudo:       true,
-            },
-            pkgutil: ["com.apple.pkg.CoreTypes.#{version.csv.third}",
+  uninstall pkgutil: ["com.apple.pkg.CoreTypes.#{version.csv.third}",
                       "com.apple.pkg.MobileDevice"]
 
   caveats do

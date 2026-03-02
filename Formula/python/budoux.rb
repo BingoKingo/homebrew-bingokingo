@@ -1,5 +1,6 @@
 class Budoux < Formula
   include Language::Python::Virtualenv
+
   desc "Small, standalone, and language-neutral line break organizer"
   homepage "https://github.com/google/budoux/"
   url "https://files.pythonhosted.org/packages/75/58/5ac689c097f592072a6ad5f650d48b60db05c702355a2603682555c8be0e/budoux-0.7.0.tar.gz"

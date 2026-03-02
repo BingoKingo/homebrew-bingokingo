@@ -1,5 +1,6 @@
 class Afdko < Formula
   include Language::Python::Virtualenv
+
   desc "Adobe Font Development Kit for OpenType"
   homepage "https://adobe-type-tools.github.io/afdko/"
   url "https://files.pythonhosted.org/packages/c8/50/7e9cee87780b86843fbcb29d349e819cf2f8eb2363e08792ffc915b95705/afdko-4.0.2.tar.gz"

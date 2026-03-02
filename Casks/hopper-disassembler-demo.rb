@@ -1,8 +1,8 @@
 cask "hopper-disassembler-demo" do
-  version "5.19.5"
-  sha256 "1b319a69f02cd139ddb64667dcb172400efbda2e7b70c715348889c39a3c8ced"
+  version "6.1.0"
+  sha256 "984a8f6615c09368ec9a6028f8bff9c6b9f9dc3d3551f07d4372a2bd33eb0f71"
 
-  url "https://www.hopperapp.com/downloader/hopperv4/Hopper-#{version}-demo.dmg",
+  url "https://www.hopperapp.com/downloader/public/Hopper-#{version}-demo.dmg",
       user_agent: :browser
   name "Hopper Disassembler"
   desc "Reverse engineering tool to disassemble, decompile and debug your apps"
@@ -14,12 +14,14 @@ cask "hopper-disassembler-demo" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :monterey"
 
-  app "Hopper Disassembler v4.app"
+  app "Hopper Disassembler.app"
   # app "Hopper Disassembler v#{version.major}.app"
 
-  binary "#{appdir}/Hopper Disassembler v4.app/Contents/MacOS/hopper"
+  binary "#{appdir}/Hopper Disassembler.app/Contents/MacOS/hopper"
+
+  # binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"
 
   zap trash: [
     "~/Library/Application Support/Hopper Disassembler v4",

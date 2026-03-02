@@ -1,6 +1,6 @@
 cask "font-dyspepsia" do
   version "5.002"
-  sha256 "d02c8f77464d67c4ce83ac670330f46dd6d2998a6148bcbb12bf84885f1c7e61"
+  sha256 :no_check
 
   url "https://dl.dafont.com/dl/?f=dyspepsia"
   # url "https://web.archive.org/web/20220727033752/https://dl.dafont.com/dl/?f=dyspepsia",

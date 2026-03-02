@@ -1,5 +1,6 @@
 class OdesliCli < Formula
   include Language::Python::Virtualenv
+
   desc "CLI client for the Odesli/Songlink API"
   homepage "https://github.com/fabian-thomas/odesli-cli/"
   url "https://files.pythonhosted.org/packages/fe/b8/392fb7c6775d4f49a44319d50502d98c77bc44961e505fcb8d3829d0eab4/odesli-cli-0.0.3.tar.gz"

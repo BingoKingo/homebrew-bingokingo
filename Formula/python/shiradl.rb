@@ -1,5 +1,6 @@
 class Shiradl < Formula
   include Language::Python::Virtualenv
+
   desc "Download music from YouTube, YouTube Music and Soundcloud with great metadata"
   homepage "https://github.com/KraXen72/shira/"
   version "1.7.1"

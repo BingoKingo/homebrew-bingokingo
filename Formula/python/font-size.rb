@@ -1,5 +1,6 @@
 class FontSize < Formula
   include Language::Python::Virtualenv
+
   desc "Font file size and individual OpenType table size command-line reporting tool"
   homepage "https://github.com/source-foundry/font-size/"
   url "https://files.pythonhosted.org/packages/2f/87/1072186eaa0d888f5989a5c32188306df9a10e89276a424f0425ed65b404/font-size-0.1.2.tar.gz"

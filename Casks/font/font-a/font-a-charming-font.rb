@@ -1,6 +1,6 @@
 cask "font-a-charming-font" do
   version "1.03"
-  sha256 "8ae8664c80ccb9bc0bce849a35310e29cd1f09b27a686a2d512c89291a458604"
+  sha256 :no_check
 
   url "https://dl.dafont.com/dl/?f=a_charming_font"
   # url "https://web.archive.org/web/20230404033755/https://dl.dafont.com/dl/?f=a_charming_font",

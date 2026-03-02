@@ -1,5 +1,6 @@
 class Wireviz < Formula
   include Language::Python::Virtualenv
+
   desc "Easily document cables and wiring harnesses"
   homepage "https://github.com/wireviz/WireViz/"
   url "https://files.pythonhosted.org/packages/68/31/26e518535ae54f540dae0e83e583240d4bae9a883a6213d751b7b0c00304/wireviz-0.4.1.tar.gz"

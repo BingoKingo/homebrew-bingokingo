@@ -1,5 +1,6 @@
 class Opendrop < Formula
   include Language::Python::Virtualenv
+
   desc "Open Apple AirDrop implementation"
   homepage "https://owlink.org/"
   url "https://files.pythonhosted.org/packages/5a/04/11bdce13e7d97bbf533254d9737474bba99472304cbacbce6f8bf3779020/opendrop-0.13.0.tar.gz"

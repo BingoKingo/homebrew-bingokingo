@@ -1,5 +1,6 @@
 class Dehinter < Formula
   include Language::Python::Virtualenv
+
   desc "Tool for the removal of TrueType instruction sets (hints) in fonts"
   homepage "https://github.com/source-foundry/dehinter/"
   url "https://files.pythonhosted.org/packages/89/bd/5c97cd4e8f1251242f828b9e3d7f8534c5bc5992b51806d23da236cb94ec/dehinter-4.0.0.tar.gz"

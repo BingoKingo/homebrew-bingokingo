@@ -20,13 +20,15 @@ class Openlist < Formula
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "vite" => :build
+  depends_on "aria2" => :recommended
+  depends_on "ffmpeg" => :recommended
 
   resource "openlist-web" do
     url "https://github.com/OpenListTeam/OpenList-Frontend.git", branch: "main"
   end
 
   patch do
-    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/refs/heads/test/Formula/openlist.patch"
+    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/refs/heads/main/Patches/openlist/4.1.1.patch"
     sha256 "b0f726255c17b161f8c26fa34e4325156a1e6c43d9fdc6f9cb42ed43ca75fc83"
   end
 

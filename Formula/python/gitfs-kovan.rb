@@ -1,5 +1,6 @@
 class GitfsKovan < Formula
   include Language::Python::Virtualenv
+
   desc "Version controlled fuse filesystem (require macfuse)"
   homepage "https://github.com/kovan/gitfs/"
   license "Apache-2.0"
@@ -61,6 +62,7 @@ class GitfsKovan < Formula
 
     EOS
   end
+
   test do
     xy = Language::Python.major_minor_version Formula["python@3.13"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"

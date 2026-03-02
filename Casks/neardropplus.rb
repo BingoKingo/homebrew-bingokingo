@@ -16,7 +16,7 @@ cask "neardropplus" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/NearDropPlus.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/NearDropPlus.app"
                    ]
   end
 

@@ -1,14 +1,15 @@
 class Adflib < Formula
   desc "Free, portable and open implementation of the Amiga filesystem"
-  homepage "https://github.com/lclevy/ADFlib/"
-  url "https://github.com/lclevy/ADFlib/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "1181cda574fcc87ba6564d519ecf58f63fbc468e0bd408485471ffa2e9745c5c"
+  homepage "https://github.com/adflib/ADFlib/"
+  url "https://github.com/adflib/ADFlib/archive/refs/tags/v0.10.5.tar.gz"
+  sha256 "e7e67970cf07f3dda08edce0b2f395eda82c2bf24c95b357ef295f1ec7ec48d3"
   license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  head "https://github.com/lclevy/ADFlib", branch: "master"
+  head "https://github.com/adflib/ADFlib.git", branch: "master"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkgconf" => :build
 
   def install
     # Remove unrecognized options if they cause configure to fail
@@ -27,7 +28,9 @@ class Adflib < Formula
       https://github.com/barn/homebrew-misc/blob/main/adflib.rb
     EOS
   end
+
   test do
-    system bin/"unadf"
+    assert_match "Usage", shell_output("#{bin}/unadf -h")
+    assert_match version.to_s, shell_output("#{bin}/unadf -V")
   end
 end

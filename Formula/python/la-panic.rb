@@ -1,5 +1,6 @@
 class LaPanic < Formula
   include Language::Python::Virtualenv
+
   desc "AppleOS Kernel Panic Parser"
   homepage "https://gitlab.com/yanivhasbanidev/la_panic/"
   url "https://files.pythonhosted.org/packages/85/28/757e1ccd939162caa27c8a6173d490deb986c38a7fd73fe2f264f6d7485d/la-panic-0.5.0.tar.gz"

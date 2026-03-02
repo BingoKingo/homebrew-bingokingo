@@ -1,6 +1,6 @@
 cask "kernel-debug-kit" do
-  version "26.0,25A5279m"
-  sha256 "eb2e2b7dd534282c45c2d295e8b9a68f82cc6e5d52984949ca9be0685ca90cb1"
+  version "26.3,25D5087f"
+  sha256 "8d47ae70eea23e5811c211b1485eb096a64b4364556d13aac399eb22e8d822b9"
 
   url "https://download.developer.apple.com/macOS/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}.dmg",
       referer:    "https://developer.apple.com/",
@@ -13,12 +13,7 @@ cask "kernel-debug-kit" do
 
   pkg "KernelDebugKit.pkg"
 
-  uninstall script:  {
-              executable: "uninstall.tool",
-              input:      ["Yes"],
-              sudo:       true,
-            },
-            pkgutil: ["com.apple.pkg.KDK.#{version.csv.second}",
+  uninstall pkgutil: ["com.apple.pkg.KDK.#{version.csv.second}",
                       "com.apple.pkg.KDK_SDK.#{version.csv.second}"]
 
   caveats do

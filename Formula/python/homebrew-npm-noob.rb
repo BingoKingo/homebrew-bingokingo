@@ -1,5 +1,6 @@
 class HomebrewNpmNoob < Formula
   include Language::Python::Virtualenv
+
   desc "Generate Homebrew formulae for npm packages"
   homepage "https://github.com/zmwangx/homebrew-npm-noob/"
   url "https://files.pythonhosted.org/packages/0a/ca/f5038eecdbb57bf4c978a55aea9d3d2a2d77ada317c755706631b39045ac/homebrew-npm-noob-0.3.tar.gz"

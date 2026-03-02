@@ -1,5 +1,6 @@
 class Watchfiles < Formula
   include Language::Python::Virtualenv
+
   desc "File watching and code reload"
   homepage "https://watchfiles.helpmanual.io/"
   url "https://files.pythonhosted.org/packages/2a/9a/d451fcc97d029f5812e898fd30a53fd8c15c7bbd058fd75cfc6beb9bd761/watchfiles-1.1.0.tar.gz"

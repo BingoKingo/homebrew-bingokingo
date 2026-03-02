@@ -1,5 +1,6 @@
 class IpswParser < Formula
   include Language::Python::Virtualenv
+
   desc "Utility for parsing and extracting data from IPSW"
   homepage "https://github.com/doronz88/ipsw_parser/"
   url "https://files.pythonhosted.org/packages/13/38/a2aa8a4a506a49d8e8cdc45ee549e8f1366af976bccc976294d707f62861/ipsw_parser-1.4.4.tar.gz"

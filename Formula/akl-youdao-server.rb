@@ -15,7 +15,7 @@ class AklYoudaoServer < Formula
     skip
   end
 
-  deprecate! date: "2023-04-05", because: :discontinued
+  deprecate! date: "2023-04-05", because: :unmaintained
   def install
     if OS.mac?
       bin.install "youdaoTranslateServer_macos_x86_64" => "akl-youdao"

@@ -1,11 +1,17 @@
 cask "font-shanggu-sans" do
-  version "1.022"
-  sha256 "e3a8696f4dbf45882ea185aa60acd78209f80d43ce7f9032892e36fd03206045"
+  version "1.027"
+  sha256 "efa6c817ec7740bd8453de72bf5afd3bc4f042060835c88f46c39aef77e5dc4c"
 
   url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguSans-VF_OTCTTC.7z"
   name "Shangu Sans"
   name "尙古黑体"
   homepage "https://github.com/GuiWonder/Shanggu/"
+
+  livecheck do
+    url "https://github.com/GuiWonder/Shanggu/releases"
+    regex(%r{href="/GuiWonder/Shanggu/releases/tag/([0-9.]+)"})
+    strategy :page_match
+  end
 
   font "ShangguSans.ttc"
 

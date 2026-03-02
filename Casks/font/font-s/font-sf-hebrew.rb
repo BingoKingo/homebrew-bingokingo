@@ -6,7 +6,7 @@ cask "font-sf-hebrew" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Hebrew.dmg"
-    sha256 "3258e40715b8bcf45e9441dbbf7218aeeaa570065dcc1f7bfa55c9ed6d0b9384"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

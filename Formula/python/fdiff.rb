@@ -1,5 +1,6 @@
 class Fdiff < Formula
   include Language::Python::Virtualenv
+
   desc "OpenType table diff tool based on the fontTools TTX format"
   homepage "https://github.com/source-foundry/fdiff/"
   url "https://files.pythonhosted.org/packages/54/b5/f48c2fe1d1309e793829fe642cbcee1eb627e1b08032ca24cd9fd93c23c9/fdiff-3.0.0.tar.gz"

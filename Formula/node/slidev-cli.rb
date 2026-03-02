@@ -1,8 +1,8 @@
 class SlidevCli < Formula
   desc "Presentation slides for developers"
   homepage "https://sli.dev/"
-  url "https://registry.npmjs.org/@slidev/cli/-/cli-52.1.0.tgz"
-  sha256 "8df9a6869418f806c0c2d31f5429671a728edd30c120a96c1c5563e15dcfcbc3"
+  url "https://registry.npmjs.org/@slidev/cli/-/cli-52.11.5.tgz"
+  sha256 "e387c8aceeee3a7219aa41a14096e08aa8d8bf8b8be0224438a2791c664e0a07"
   license "MIT"
   head "https://github.com/slidevjs/slidev.git", branch: "main"
 

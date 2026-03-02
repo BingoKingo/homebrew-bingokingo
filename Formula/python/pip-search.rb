@@ -1,5 +1,6 @@
 class PipSearch < Formula
   include Language::Python::Virtualenv
+
   desc "PyPi search"
   homepage "https://github.com/victorgarric/pip_search/"
   url "https://files.pythonhosted.org/packages/74/fb/1eb3c6bb460cf3dd6cac10734aeadb3594e472bcf9789f96ba9d30c52969/pip_search-0.0.14.tar.gz"

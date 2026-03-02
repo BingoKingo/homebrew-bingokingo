@@ -1,5 +1,6 @@
 class FontV < Formula
   include Language::Python::Virtualenv
+
   desc "PFont version string reporting and modification library + executable tool"
   homepage "https://github.com/source-foundry/font-v/"
   url "https://files.pythonhosted.org/packages/e3/eb/d115b3d5f591873edce287409d3206db897dc665ffa97277eb90ad6f14e8/font-v-2.1.0.tar.gz"

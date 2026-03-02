@@ -5,6 +5,11 @@ class Avisynthplus < Formula
   sha256 "2533fafe5b5a8eb9f14d84d89541252a5efd0839ef62b8ae98f40b9f34b3f3d5"
   head "https://github.com/AviSynth/AviSynthPlus.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/v?(\d+(?:\.\d+)+)/i)
+  end
+
   depends_on "cmake" => :build
 
   def install

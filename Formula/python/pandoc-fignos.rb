@@ -1,5 +1,6 @@
 class PandocFignos < Formula
   include Language::Python::Virtualenv
+
   desc "Pandoc filter for numbering figures and figure references"
   homepage "https://github.com/tomduck/pandoc-fignos/"
   url "https://files.pythonhosted.org/packages/b5/ca/7fbf5c28111e0c1d8793e0579544314e7ce13292cd99105ecd662bd7dd6b/pandoc-fignos-2.4.0.tar.gz"

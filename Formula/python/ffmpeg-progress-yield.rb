@@ -1,5 +1,6 @@
 class FfmpegProgressYield < Formula
   include Language::Python::Virtualenv
+
   desc "Prefix ffmpeg command with progress"
   homepage "https://github.com/slhck/ffmpeg-progress-yield/"
   url "https://github.com/slhck/ffmpeg-progress-yield/archive/refs/tags/v1.0.1.tar.gz"

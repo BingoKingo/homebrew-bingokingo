@@ -1,6 +1,6 @@
 cask "font-old-english-att" do
   version "1.0"
-  sha256 "f83a27f84736e8ed33d41d2ad8dac39a289f0ce3fd4e9a3ea6e065d63bfb7791"
+  sha256 :no_check
 
   url "https://www.cufonfonts.com/get/font/download/85b319a27718032bfa84d7c65602502e"
   # url "https://web.archive.org/web/20250731143541/https://www.cufonfonts.com/get/font/download/85b319a27718032bfa84d7c65602502e",

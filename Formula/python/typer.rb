@@ -1,5 +1,6 @@
 class Typer < Formula
   include Language::Python::Virtualenv
+
   desc "CLIs builder based on Python type hints"
   homepage "https://typer.tiangolo.com/"
   url "https://files.pythonhosted.org/packages/43/78/d90f616bf5f88f8710ad067c1f8705bf7618059836ca084e5bb2a0855d75/typer-0.16.1.tar.gz"

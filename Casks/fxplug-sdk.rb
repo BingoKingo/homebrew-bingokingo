@@ -1,6 +1,6 @@
 cask "fxplug-sdk" do
-  version "4.3.3"
-  sha256 "4fbcdf6f7e8ace29f953a75ef982109ae37a82d12822be2dee525f96b4f590b2"
+  version "4.3.4"
+  sha256 "47f43137cf7ddff275b22c9f41a0545258ca574f77f9fbce9b40e8055b1c565b"
 
   url "https://download.developer.apple.com/Developer_Tools/FxPlug_SDK_#{version}/FxPlug_SDK_#{version}.dmg",
       referer:    "https://developer.apple.com/",
@@ -13,12 +13,7 @@ cask "fxplug-sdk" do
 
   pkg "FxPlugSDK.pkg"
 
-  uninstall script:  {
-              executable: "uninstall.tool",
-              input:      ["Yes"],
-              sudo:       true,
-            },
-            pkgutil: "com.apple.pkg.FxPlugSDK"
+  uninstall pkgutil: "com.apple.pkg.FxPlugSDK"
 
   caveats do
     <<~EOS

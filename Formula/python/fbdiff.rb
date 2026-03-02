@@ -1,5 +1,6 @@
 class Fbdiff < Formula
   include Language::Python::Virtualenv
+
   desc "Tool to show a brief summary of table differences in OpenType fonts"
   homepage "https://github.com/justvanrossum/fbdiff/"
   url "https://files.pythonhosted.org/packages/9d/2e/18dffe27f6865a0eb662e1bbe3ece7d33ae97213019b20eeb62fc5e3dd96/fbdiff-0.8.6.tar.gz"

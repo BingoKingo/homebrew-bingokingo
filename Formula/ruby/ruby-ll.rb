@@ -1,8 +1,8 @@
 class RubyLl < Formula
   desc "LL(1) parser generator for Ruby"
   homepage "https://github.com/yorickpeterse/ruby-ll/"
-  url "https://rubygems.org/downloads/ruby-ll-2.1.3.gem"
-  sha256 "312402d06ffe2a116c18d3559c2e3d3f05a7e1147cd0c837a82a156b26cd917a"
+  url "https://rubygems.org/downloads/ruby-ll-2.1.4.gem"
+  sha256 "bec3a40078e4b8578b20751f0b2e3dc3fcaa773e34fae3d9725b724032e47e0c"
   license "MPL-2.0"
   head "https://github.com/yorickpeterse/ruby-ll.git", branch: "main"
 

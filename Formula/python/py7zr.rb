@@ -1,5 +1,6 @@
 class Py7zr < Formula
   include Language::Python::Virtualenv
+
   desc "Pure python 7-zip library"
   homepage "https://py7zr.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/97/62/d6f18967875aa60182198a0dd287d3a50d8aea1d844239ea00c016f7be88/py7zr-1.0.0.tar.gz"

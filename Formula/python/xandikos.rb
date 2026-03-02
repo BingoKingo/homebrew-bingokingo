@@ -1,5 +1,6 @@
 class Xandikos < Formula
   include Language::Python::Virtualenv
+
   desc "CalDAV/CardDAV server backed by Git"
   homepage "https://www.xandikos.org/"
   url "https://files.pythonhosted.org/packages/56/4e/281268da325c7f45307df5827827e02cc2846896b8dc2fb3dd4b19578d68/xandikos-0.2.12.tar.gz"

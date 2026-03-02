@@ -1,5 +1,6 @@
 class Sublist3r < Formula
   include Language::Python::Virtualenv
+
   desc "Command-line Interface for Vulnerability Management"
   homepage "https://github.com/aboul3la/Sublist3r/"
   url "https://github.com/aboul3la/Sublist3r/archive/refs/tags/1.1.tar.gz"

@@ -1,5 +1,6 @@
 class Tldextract < Formula
   include Language::Python::Virtualenv
+
   desc "Separates a URL's subdomain, domain, and public suffix, using the PSL"
   homepage "https://github.com/john-kurkowski/tldextract/"
   url "https://files.pythonhosted.org/packages/97/78/182641ea38e3cfd56e9c7b3c0d48a53d432eea755003aa544af96403d4ac/tldextract-5.3.0.tar.gz"

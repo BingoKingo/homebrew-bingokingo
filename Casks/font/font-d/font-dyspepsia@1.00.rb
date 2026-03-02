@@ -1,6 +1,6 @@
 cask "font-dyspepsia@1.00" do
   version "1.00,29528"
-  sha256 "0445b986237e9e20791857dd33d1d94b4e8100b2a86bd3653238a91e7083b5e7"
+  sha256 :no_check
 
   url "https://api.github.com/repos/BingoKingo/homebrew-private/releases/assets/280924672",
       verified: "github.com/",

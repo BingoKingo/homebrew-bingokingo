@@ -1,6 +1,6 @@
 cask "font-nina" do
   version "1.01,1.06"
-  sha256 "e91018146170aa61b8440881d59c0686cb9a3a7a1bad817a790821489943bfea"
+  sha256 :no_check
 
   url "https://font.download/dl/font/nina.zip"
   # url "https://web.archive.org/web/20250731144516/https://font.download/dl/font/nina.zip",

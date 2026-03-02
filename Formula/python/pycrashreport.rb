@@ -1,5 +1,6 @@
 class Pycrashreport < Formula
   include Language::Python::Virtualenv
+
   desc "Python3 parser for Apple's crash reports"
   homepage "https://github.com/doronz88/pycrashreport/"
   url "https://files.pythonhosted.org/packages/7a/a8/d7c613321fd51054df00930264acfc20a188fc9d92d4ff52b8c83e7e7233/pycrashreport-1.2.6.tar.gz"

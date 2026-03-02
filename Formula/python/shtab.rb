@@ -1,5 +1,6 @@
 class Shtab < Formula
   include Language::Python::Virtualenv
+
   desc "Automagic shell tab completion for Python CLI applications"
   homepage "https://github.com/iterative/shtab/"
   url "https://files.pythonhosted.org/packages/5a/3e/837067b970c1d2ffa936c72f384a63fdec4e186b74da781e921354a94024/shtab-1.7.2.tar.gz"

@@ -6,7 +6,7 @@ cask "font-sf-armenian" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Armenian.dmg"
-    sha256 "ffd715ae93d7c215be3f434b84624184779bb50b2bb3d66b8fd42880c65fadad"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

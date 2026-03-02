@@ -1,5 +1,6 @@
 class YtdlSub < Formula
   include Language::Python::Virtualenv
+
   desc "Automate downloading and metadata generation with Yt-dlp"
   homepage "https://ytdl-sub.readthedocs.io/"
   url "https://files.pythonhosted.org/packages/ca/d8/123ae0e9308bb21be4525dae565410cd603dd242e39a5e83dd59091512b6/ytdl_sub-2025.8.15.post2.tar.gz"

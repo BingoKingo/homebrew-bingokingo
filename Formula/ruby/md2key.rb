@@ -1,8 +1,8 @@
 class Md2key < Formula
   desc "Convert markdown to keynote"
   homepage "https://github.com/k0kubun/md2key/"
-  url "https://rubygems.org/downloads/md2key-0.10.1.gem"
-  sha256 "f6498dec0c8d1b7cbb00d2f1e8402cd03ed41ce374892314342a8be517359006"
+  url "https://rubygems.org/downloads/md2key-0.10.2.gem"
+  sha256 "6dd86e14ac197d1e04083975d5bd9febb7fea041b104f50d1bc55ae5f250f652"
   license "MIT"
   head "https://github.com/k0kubun/md2key.git", branch: "master"
 

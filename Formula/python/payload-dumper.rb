@@ -1,5 +1,6 @@
 class PayloadDumper < Formula
   include Language::Python::Virtualenv
+
   desc "Dump Android's payload.bin online"
   homepage "https://github.com/5ec1cff/payload-dumper/"
   head "https://github.com/5ec1cff/payload-dumper.git", branch: "master"

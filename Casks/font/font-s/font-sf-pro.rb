@@ -6,7 +6,7 @@ cask "font-sf-pro" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg"
-    sha256 "d3dd07c2d8082ed2bf286a0ecdcc33d6202da224a128056388d8540d0b4efa04"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

@@ -2,8 +2,8 @@ Family:              Maple Mono Normal NL
 Subfamily:           Italic
 Full name:           Maple Mono Normal NL Italic
 PostScript name:     MapleMonoNormalNL-Italic
-Version:             Version 7.500
-Unique ID:           Version 7.500;SUBF;MapleMonoNormalNL-Italic;2024;FL830;Variable;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+ss05;+ss06;+ss07;+ss08;+cv61;+cv62;-calt;
+Version:             Version 7.900
+Unique ID:           Version 7.900;SUBF;MapleMonoNormalNL-Italic;2024;FL830;Variable;-calt;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+cv61;+cv62;+ss05;+ss06;+ss07;+ss08;
 Description:         A monospace font with round corner and ligatures
 Designer:            subframe7536
 Designer URL:        https://github.com/subframe7536
@@ -39,8 +39,8 @@ Family:              Maple Mono Normal NL
 Subfamily:           Regular
 Full name:           Maple Mono Normal NL Regular
 PostScript name:     MapleMonoNormalNL-Regular
-Version:             Version 7.500
-Unique ID:           Version 7.500;SUBF;MapleMonoNormalNL-Regular;2024;FL830;Variable;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+ss05;+ss06;+ss07;+ss08;+cv61;+cv62;-calt;
+Version:             Version 7.900
+Unique ID:           Version 7.900;SUBF;MapleMonoNormalNL-Regular;2024;FL830;Variable;-calt;+cv01;+cv02;+cv33;+cv34;+cv35;+cv36;+cv61;+cv62;+ss05;+ss06;+ss07;+ss08;
 Description:         A monospace font with round corner and ligatures
 Designer:            subframe7536
 Designer URL:        https://github.com/subframe7536

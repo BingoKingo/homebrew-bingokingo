@@ -1,5 +1,6 @@
 class Pykdebugparser < Formula
   include Language::Python::Virtualenv
+
   desc "Kdebug events and ktraces parser"
   homepage "https://github.com/matan1008/pykdebugparser/"
   url "https://files.pythonhosted.org/packages/fe/f0/aadf94718a4f768d2928f31544a16fbed5c0cb5e4bc2cf0f21939fbd1caa/pykdebugparser-1.2.7.tar.gz"

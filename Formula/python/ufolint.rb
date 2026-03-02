@@ -1,5 +1,6 @@
 class Ufolint < Formula
   include Language::Python::Virtualenv
+
   desc "UFO source format linter"
   homepage "https://github.com/source-foundry/ufolint/"
   url "https://files.pythonhosted.org/packages/9e/22/1dd70f9be173482352dc9c3555af04bc5db19874b9568b360060fe492ff8/ufolint-1.2.0.tar.gz"

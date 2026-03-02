@@ -1,5 +1,6 @@
 class Srptools < Formula
   include Language::Python::Virtualenv
+
   desc "Tools to implement Secure Remote Password (SRP) authentication"
   homepage "https://github.com/idlesign/srptools/"
   url "https://files.pythonhosted.org/packages/a1/8a/d62af55a56d56216e96563bc9c29c2d16d957317742c2e5bd4e79a524b06/srptools-1.0.1.tar.gz"

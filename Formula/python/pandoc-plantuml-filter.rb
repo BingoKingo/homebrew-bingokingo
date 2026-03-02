@@ -1,5 +1,6 @@
 class PandocPlantumlFilter < Formula
   include Language::Python::Virtualenv
+
   desc "Pandoc filter for plantUML code blocks"
   homepage "https://github.com/timofurrer/pandoc-plantuml-filter/"
   url "https://files.pythonhosted.org/packages/be/e2/e48d2c5053e566f89076a0d650d44ff8a1132701100da054c32fc557ee0d/pandoc-plantuml-filter-0.1.5.tar.gz"

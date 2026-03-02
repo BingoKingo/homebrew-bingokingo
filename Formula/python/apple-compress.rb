@@ -1,5 +1,6 @@
 class AppleCompress < Formula
   include Language::Python::Virtualenv
+
   desc "Python bindings for Apple's libcompression"
   homepage "https://github.com/m1stadev/apple-compress/"
   url "https://files.pythonhosted.org/packages/91/14/cdb0bdb6147a019d2d8a1e144910c6a8d257d0e58f63bbd105bda0fce7dc/apple_compress-0.2.3.tar.gz"

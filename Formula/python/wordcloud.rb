@@ -1,5 +1,6 @@
 class Wordcloud < Formula
   include Language::Python::Virtualenv
+
   desc "Little word cloud generator"
   homepage "https://github.com/amueller/word_cloud/"
   url "https://files.pythonhosted.org/packages/03/a1/0530b9001b05dcd13de21c2d4d821db5365dade5180242179fbc39372c57/wordcloud-1.9.4.tar.gz"

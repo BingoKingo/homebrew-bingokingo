@@ -1,5 +1,6 @@
 class Ffsubsync < Formula
   include Language::Python::Virtualenv
+
   desc "Language-agnostic synchronization of subtitles with video"
   homepage "https://github.com/smacke/ffsubsync/"
   url "https://github.com/smacke/ffsubsync/archive/refs/tags/0.4.29.tar.gz"

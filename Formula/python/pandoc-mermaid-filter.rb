@@ -1,5 +1,6 @@
 class PandocMermaidFilter < Formula
   include Language::Python::Virtualenv
+
   desc "Pandoc filter for mermaid code blocks"
   homepage "https://github.com/timofurrer/pandoc-mermaid-filter/"
   url "https://files.pythonhosted.org/packages/bc/99/27b5e980963c678c0fc2be4bbfe699aede864b7f4da14bd72d3b84b8a75c/pandoc-mermaid-filter-0.1.0.tar.gz"

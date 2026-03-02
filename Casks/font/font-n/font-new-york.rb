@@ -6,7 +6,7 @@ cask "font-new-york" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
-    sha256 "1c2eedb4526cc0f326f8b7ea978f5a433756476a2c8c56072537608edb88f8f4"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

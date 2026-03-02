@@ -1,5 +1,6 @@
 class Sidejitserver < Formula
   include Language::Python::Virtualenv
+
   desc "iOS 17 JIT enabler"
   homepage "https://github.com/nythepegasus/SideJITServer/"
   url "https://files.pythonhosted.org/packages/1a/70/f954194855d5a9871526fa9e92dc4201f59ce68e517be54c3e9f4c3f043c/sidejitserver-1.4.2.tar.gz"

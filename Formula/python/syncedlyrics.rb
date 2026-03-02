@@ -1,5 +1,6 @@
 class Syncedlyrics < Formula
   include Language::Python::Virtualenv
+
   desc "Get an LRC format (synchronized) lyrics for your music"
   homepage "https://github.com/moehmeni/syncedlyrics/"
   url "https://files.pythonhosted.org/packages/f1/7d/8b1d838a4c1a9fd9ed2dfd5296592e1090f935748cb3b4996e4efe531d5d/syncedlyrics-1.0.1.tar.gz"

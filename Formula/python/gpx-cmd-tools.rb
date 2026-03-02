@@ -1,5 +1,6 @@
 class GpxCmdTools < Formula
   include Language::Python::Virtualenv
+
   desc "Command-line tools for GPX"
   homepage "https://github.com/tkrajina/gpx-cmd-tools/"
   url "https://files.pythonhosted.org/packages/8f/53/ed7b5dfe430f55c75bbe805baaf8f275e458cc5f3907f36084ac2aeb58fa/gpx-cmd-tools-0.0.1.tar.gz"

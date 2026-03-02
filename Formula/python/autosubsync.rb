@@ -1,5 +1,6 @@
 class Autosubsync < Formula
   include Language::Python::Virtualenv
+
   desc "Human friendly output for text interfaces using Python"
   homepage "https://github.com/oseiskar/autosubsync/"
   url "https://github.com/oseiskar/autosubsync/archive/refs/tags/1.0.1.tar.gz"

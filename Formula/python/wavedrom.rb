@@ -1,5 +1,6 @@
 class Wavedrom < Formula
   include Language::Python::Virtualenv
+
   desc "Digital timing diagram rendering engine"
   homepage "https://wavedrom.com/"
   url "https://files.pythonhosted.org/packages/be/71/6739e3abac630540aaeaaece4584c39f88b5f8658ce6ca517efec455e3de/wavedrom-2.0.3.post3.tar.gz"

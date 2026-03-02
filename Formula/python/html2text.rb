@@ -1,5 +1,6 @@
 class Html2text < Formula
   include Language::Python::Virtualenv
+
   desc "Convert HTML to Markdown-formatted text"
   homepage "https://alir3z4.github.io/html2text/"
   url "https://files.pythonhosted.org/packages/f8/27/e158d86ba1e82967cc2f790b0cb02030d4a8bef58e0c79a8590e9678107f/html2text-2025.4.15.tar.gz"

@@ -1,5 +1,6 @@
 class Autosubset < Formula
   include Language::Python::Virtualenv
+
   desc "Automatic font subsetting for a provided text"
   homepage "https://gitlab.com/MarcelWaldvogel/autosubset/"
   url "https://files.pythonhosted.org/packages/5e/9a/cbef31056f9a562d40e4c75086fb08ce5486f8106e5ebf923d7cebdb113c/autosubset-0.3.0.tar.gz"

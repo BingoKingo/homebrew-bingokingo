@@ -1,5 +1,6 @@
 class PandocEqnos < Formula
   include Language::Python::Virtualenv
+
   desc "Pandoc filter for numbering equations and equation references"
   homepage "https://github.com/tomduck/pandoc-eqnos/"
   url "https://files.pythonhosted.org/packages/1e/4d/8958ccf9e6383c1a0b91dd6584711c130884a4f5ae3b85565613274ff4f0/pandoc-eqnos-2.5.0.tar.gz"

@@ -1,5 +1,6 @@
 class FfmpegNormalize < Formula
   include Language::Python::Virtualenv
+
   desc "Audio Normalization for Python/ffmpeg"
   homepage "https://github.com/slhck/ffmpeg-normalize/"
   url "https://github.com/slhck/ffmpeg-normalize/archive/refs/tags/v1.32.5.tar.gz"

@@ -6,11 +6,16 @@ class Bbdown < Formula
   license "MIT"
   head "https://github.com/nilaoda/BBDown.git", branch: "master"
 
-  depends_on "dotnet"
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   depends_on "protobuf" => :build
+  depends_on "dotnet"
 
   def install
-    system "dotnet", "publish", "BBDown", "-c", "Release", "-o", "#{libexec}"
+    system "dotnet", "publish", "BBDown", "-c", "Release", "-o", libexec.to_s
     bin.install libexec/"BBDown"
   end
 

@@ -17,7 +17,7 @@ cask "http-live-streaming-tools" do
     url "https://download.developer.apple.com/macOS/HTTP_Live_Streaming_Tools_for_macOS_Sequoia_and_later/HTTPLiveStreamingTools#{version}.dmg",
         referer: "https://developer.apple.com/",
         cookies: {
-          "ADCDownloadAuthCookie" => "",
+          "ADCDownloadAuthCookie" => ENV.fetch("ADC_DOWNLOAD_AUTH", nil).to_s,
         }
   end
 
@@ -26,12 +26,7 @@ cask "http-live-streaming-tools" do
 
   pkg "HTTP Live Streaming Tools - #{version}.pkg"
 
-  uninstall script:  {
-              executable: "uninstall.tool",
-              input:      ["Yes"],
-              sudo:       true,
-            },
-            pkgutil: "com.apple.pkg.httpLiveStreamingTools"
+  uninstall pkgutil: "com.apple.pkg.httpLiveStreamingTools"
 
   caveats do
     <<~EOS

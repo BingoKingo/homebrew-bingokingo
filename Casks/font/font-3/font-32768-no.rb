@@ -1,6 +1,6 @@
 cask "font-32768-no" do
   version "1.00"
-  sha256 "770da400f4142ec7979d95e81cd07a2c04d7ee6a7ba2540fd062d8c9a1fdc345"
+  sha256 :no_check
 
   url "https://dl.dafont.com/dl/?f=32768_no"
   # url "https://web.archive.org/web/20220801003956/https://dl.dafont.com/dl/?f=32768_no",

@@ -1,5 +1,6 @@
 class Nsz < Formula
   include Language::Python::Virtualenv
+
   desc "Homebrew compatible NSP/XCI compressor/decompressor"
   homepage "https://github.com/nicoboss/nsz/"
   url "https://files.pythonhosted.org/packages/5f/ec/83f85c0ba48227db5b2b9501dd75b8ea1ed9d44f72c6fa52e19d6b85a5ad/nsz-4.6.1.tar.gz"

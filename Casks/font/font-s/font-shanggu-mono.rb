@@ -1,6 +1,6 @@
 cask "font-shanggu-mono" do
-  version "1.022"
-  sha256 "91152784d5d3714e830a0334c835594f3afed92a2800da12923e5b275ccaf982"
+  version "1.027"
+  sha256 "435bc519f9d56d9829ba4fdd1cd188850f1e65330e0a11a31b6c7b1ff6bfcfd7"
 
   url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguMonoTTCs.7z"
   name "Shangu Mono"

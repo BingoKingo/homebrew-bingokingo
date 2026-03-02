@@ -1,14 +1,25 @@
 cask "aegisub-arch1t3cht" do
-  version "12"
-  sha256 "ea29a4fc30902e600e85776ef3baceb681ebf75222d186037888a05c7d30f5fb"
+  arch arm: "arm64", intel: "x86_64"
 
-  base_version="3.2.2"
-  url "https://github.com/arch1t3cht/Aegisub/releases/download/feature_#{version}/macOS.Release.-.installer.zip"
+  version "3.4.1,migration02-01"
+  sha256 arm:   "2487566e3b1aec275c87bc549063406f1adfaab3cd069eb3a6fcaa76916f6348",
+         intel: "9aed3f4181c0f82a366bb224ab94bf074ea73cab863f85b51cf3ca59c088bc91"
+
+  url "https://github.com/arch1t3cht/Aegisub/releases/download/#{version.csv.second}/macOS.#{arch}.Release.-.installer.zip"
   name "Aegisub"
   desc "Create and modify subtitles"
   homepage "https://github.com/arch1t3cht/Aegisub/"
 
-  container nested: "Aegisub-#{base_version}.dmg"
+  livecheck do
+    url "https://github.com/arch1t3cht/Aegisub/releases.atom"
+    strategy :page_match do |page|
+      body_version = page.scan(/(\d+\.\d+\.\d+)/).flatten.first
+      tag_name = page.scan(%r{/releases/tag/(\w+(?:-\d+)+)}).flatten.first
+      "#{body_version},#{tag_name}" if body_version && tag_name
+    end
+  end
+
+  container nested: "Aegisub-#{version.csv.first}.dmg"
 
   app "Aegisub.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
@@ -25,7 +36,7 @@ cask "aegisub-arch1t3cht" do
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/Aegisub.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/Aegisub.app"
                    ]
   end
 

@@ -1,8 +1,8 @@
 cask "additional-tools-for-xcode" do
-  version "26.beta.5"
-  sha256 "74d8547c0083e49aeba4a63a79cef4678dd0275e3f488345343c449b5a641b27"
+  version "26.4,beta"
+  sha256 "7f2f8683d397adefb3ab16d7cddbd2eae923986d110019131d09e474d7f0a315"
 
-  url "https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_#{version.dots_to_underscores}/Additional_Tools_for_Xcode_#{version.dots_to_underscores}.dmg",
+  url "https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_#{version.csv.first}_#{version.csv.second.dots_to_underscores}/Additional_Tools_for_Xcode_#{version.csv.first}_#{version.csv.second.dots_to_underscores}.dmg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {
@@ -12,7 +12,6 @@ cask "additional-tools-for-xcode" do
   homepage "https://developer.apple.com/download/all/"
 
   app "Audio/AU Lab.app"
-  app "Audio/HALLab.app"
   app "Hardware/CarPlay Simulator.app"
   app "Hardware/HomeKit Accessory Simulator.app"
   app "Hardware/Printer Simulator.app"

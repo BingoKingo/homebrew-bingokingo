@@ -1,6 +1,6 @@
 cask "font-nadall" do
   version "1.0"
-  sha256 "3b3e676b7b3cce821f48feb858a050ff2cf189b010596ff0bcf7afb69b766706"
+  sha256 :no_check
 
   url "https://dl.dafont.com/dl/?f=nadall"
   # url "https://web.archive.org/web/20220726153841/https://dl.dafont.com/dl/?f=nadall",

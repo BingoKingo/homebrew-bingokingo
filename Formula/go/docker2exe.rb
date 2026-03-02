@@ -13,6 +13,6 @@ class Docker2exe < Formula
   end
 
   test do
-    system bin/"docker2exe", "--help"
+    assert_match "USAGE", shell_output("#{bin}/docker2exe -h")
   end
 end

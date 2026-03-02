@@ -1,8 +1,8 @@
 cask "reality-converter" do
-  version "1.0,52"
+  version "1.0,53"
   sha256 :no_check
 
-  url "https://developer.apple.com/augmented-reality/tools/files/Reality_Converter_beta_5.dmg"
+  url "https://developer.apple.com/augmented-reality/tools/files/Reality_Converter_beta_6.dmg"
   name "Reality Converter"
   desc "Convert, view, and customize USDZ 3D objects"
   homepage "https://developer.apple.com/download/applications/"

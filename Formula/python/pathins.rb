@@ -1,5 +1,6 @@
 class Pathins < Formula
   include Language::Python::Virtualenv
+
   desc "Quadratic font curve path inspector"
   homepage "https://github.com/source-foundry/path-inspector/"
   url "https://files.pythonhosted.org/packages/56/8a/2c1abc0a7fb196dfa1cc4499a0e8702a7204dec95c3b5f6855a28217cd87/pathins-0.5.4.tar.gz"

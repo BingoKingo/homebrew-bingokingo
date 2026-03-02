@@ -17,7 +17,8 @@ class Hactool < Formula
       https://github.com/chasestubblefield/homebrew-brew/blob/master/hactool.rb
     EOS
   end
+
   test do
-    system bin/"hactool"
+    assert_match "hactool (c) SciresM.", shell_output("#{bin}/hactool 2>&1")
   end
 end

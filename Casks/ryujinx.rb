@@ -17,13 +17,14 @@ cask "ryujinx" do
   deprecate! date: "2024-10-06", because: :unmaintained
 
   auto_updates true
+  conflicts_with cask: ["ryujinx-greendev", "ryujinx-greendev@canary"]
 
   app "ryujinx.app", target: "Ryujinx.app"
 
   postflight do
     system_command "xattr",
                    args: [
-                     "-c", "#{appdir}/Ryujinx.app"
+                     "-dr", "com.apple.quarantine", "#{appdir}/Ryujinx.app"
                    ]
   end
 

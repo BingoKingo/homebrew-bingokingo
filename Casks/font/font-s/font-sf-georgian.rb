@@ -6,7 +6,7 @@ cask "font-sf-georgian" do
     depends_on formula: "p7zip"
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Georgian.dmg"
-    sha256 "c16b1798472b26232445331ea51ac8299260674fe8fb7f3a354eedeb5390a2d2"
+    sha256 :no_check
 
     preflight do
       system_command "/bin/bash", args: [

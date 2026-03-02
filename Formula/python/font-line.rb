@@ -1,5 +1,6 @@
 class FontLine < Formula
   include Language::Python::Virtualenv
+
   desc "OpenType vertical metrics reporting and font line spacing adjustment tool"
   homepage "https://github.com/source-foundry/font-line/"
   url "https://files.pythonhosted.org/packages/52/71/b9defbaad1e61a6795de1b43127fc0925021ad1b77a50f80ea0620f3ffef/font-line-3.1.4.tar.gz"

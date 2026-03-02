@@ -1,5 +1,6 @@
 class Remotezip < Formula
   include Language::Python::Virtualenv
+
   desc "Access zip file content hosted remotely without downloading the full file"
   homepage "https://github.com/gtsystem/python-remotezip/"
   url "https://files.pythonhosted.org/packages/fa/8d/908ad46bff752568a409ee6ac797c3c6817501db06f142989e3208414569/remotezip-0.12.3.tar.gz"
