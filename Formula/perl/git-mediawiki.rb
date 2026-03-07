@@ -96,7 +96,9 @@ class GitMediawiki < Formula
   end
 
   test do
-    assert_match "usage", shell_output("git-mw help")
+    output = shell_output("#{bin}/git-mw help")
+    assert_match "usage", output
+    assert_match "commands", output
   end
 end
 __END__

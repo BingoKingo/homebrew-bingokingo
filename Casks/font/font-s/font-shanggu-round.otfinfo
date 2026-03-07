@@ -2,8 +2,8 @@ Family:              Shanggu Round
 Subfamily:           Bold
 Full name:           Shanggu Round Bold
 PostScript name:     ShangguRound-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -19,8 +19,8 @@ Family:              Shanggu Round HW
 Subfamily:           Bold
 Full name:           Shanggu Round HW Bold
 PostScript name:     ShangguRoundHW-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -38,8 +38,8 @@ Full name:           Shanggu Round ExtraLight
 PostScript name:     ShangguRound-ExtraLight
 Preferred family:    Shanggu Round
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -57,8 +57,8 @@ Full name:           Shanggu Round HW ExtraLight
 PostScript name:     ShangguRoundHW-ExtraLight
 Preferred family:    Shanggu Round HW
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -76,8 +76,8 @@ Full name:           Shanggu Round TC ExtraLight
 PostScript name:     ShangguRoundTC-ExtraLight
 Preferred family:    Shanggu Round TC
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -95,8 +95,8 @@ Full name:           Shanggu Round HW TC ExtraLight
 PostScript name:     ShangguRoundHWTC-ExtraLight
 Preferred family:    Shanggu Round HW TC
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -114,8 +114,8 @@ Full name:           Shanggu Round SC ExtraLight
 PostScript name:     ShangguRoundSC-ExtraLight
 Preferred family:    Shanggu Round SC
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -133,8 +133,8 @@ Full name:           Shanggu Round HW SC ExtraLight
 PostScript name:     ShangguRoundHWSC-ExtraLight
 Preferred family:    Shanggu Round HW SC
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -152,8 +152,8 @@ Full name:           Shanggu Round JP ExtraLight
 PostScript name:     ShangguRoundJP-ExtraLight
 Preferred family:    Shanggu Round JP
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -171,8 +171,8 @@ Full name:           Shanggu Round HW JP ExtraLight
 PostScript name:     ShangguRoundHWJP-ExtraLight
 Preferred family:    Shanggu Round HW JP
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -190,8 +190,8 @@ Full name:           Shanggu Round ST ExtraLight
 PostScript name:     ShangguRoundST-ExtraLight
 Preferred family:    Shanggu Round ST
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -209,8 +209,8 @@ Full name:           Shanggu Round HW ST ExtraLight
 PostScript name:     ShangguRoundHWST-ExtraLight
 Preferred family:    Shanggu Round HW ST
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -226,8 +226,8 @@ Family:              Shanggu Round TC
 Subfamily:           Bold
 Full name:           Shanggu Round TC Bold
 PostScript name:     ShangguRoundTC-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -245,8 +245,8 @@ Full name:           Shanggu Round Heavy
 PostScript name:     ShangguRound-Heavy
 Preferred family:    Shanggu Round
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -264,8 +264,8 @@ Full name:           Shanggu Round HW Heavy
 PostScript name:     ShangguRoundHW-Heavy
 Preferred family:    Shanggu Round HW
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -283,8 +283,8 @@ Full name:           Shanggu Round TC Heavy
 PostScript name:     ShangguRoundTC-Heavy
 Preferred family:    Shanggu Round TC
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -302,8 +302,8 @@ Full name:           Shanggu Round HW TC Heavy
 PostScript name:     ShangguRoundHWTC-Heavy
 Preferred family:    Shanggu Round HW TC
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -321,8 +321,8 @@ Full name:           Shanggu Round SC Heavy
 PostScript name:     ShangguRoundSC-Heavy
 Preferred family:    Shanggu Round SC
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -340,8 +340,8 @@ Full name:           Shanggu Round HW SC Heavy
 PostScript name:     ShangguRoundHWSC-Heavy
 Preferred family:    Shanggu Round HW SC
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -359,8 +359,8 @@ Full name:           Shanggu Round JP Heavy
 PostScript name:     ShangguRoundJP-Heavy
 Preferred family:    Shanggu Round JP
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -378,8 +378,8 @@ Full name:           Shanggu Round HW JP Heavy
 PostScript name:     ShangguRoundHWJP-Heavy
 Preferred family:    Shanggu Round HW JP
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -397,8 +397,8 @@ Full name:           Shanggu Round ST Heavy
 PostScript name:     ShangguRoundST-Heavy
 Preferred family:    Shanggu Round ST
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -416,8 +416,8 @@ Full name:           Shanggu Round HW ST Heavy
 PostScript name:     ShangguRoundHWST-Heavy
 Preferred family:    Shanggu Round HW ST
 Preferred subfamily: Heavy
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Heavy
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Heavy
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -433,8 +433,8 @@ Family:              Shanggu Round HW TC
 Subfamily:           Bold
 Full name:           Shanggu Round HW TC Bold
 PostScript name:     ShangguRoundHWTC-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -452,8 +452,8 @@ Full name:           Shanggu Round Light
 PostScript name:     ShangguRound-Light
 Preferred family:    Shanggu Round
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -471,8 +471,8 @@ Full name:           Shanggu Round HW Light
 PostScript name:     ShangguRoundHW-Light
 Preferred family:    Shanggu Round HW
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -490,8 +490,8 @@ Full name:           Shanggu Round TC Light
 PostScript name:     ShangguRoundTC-Light
 Preferred family:    Shanggu Round TC
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -509,8 +509,8 @@ Full name:           Shanggu Round HW TC Light
 PostScript name:     ShangguRoundHWTC-Light
 Preferred family:    Shanggu Round HW TC
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -528,8 +528,8 @@ Full name:           Shanggu Round SC Light
 PostScript name:     ShangguRoundSC-Light
 Preferred family:    Shanggu Round SC
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -547,8 +547,8 @@ Full name:           Shanggu Round HW SC Light
 PostScript name:     ShangguRoundHWSC-Light
 Preferred family:    Shanggu Round HW SC
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -566,8 +566,8 @@ Full name:           Shanggu Round JP Light
 PostScript name:     ShangguRoundJP-Light
 Preferred family:    Shanggu Round JP
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -585,8 +585,8 @@ Full name:           Shanggu Round HW JP Light
 PostScript name:     ShangguRoundHWJP-Light
 Preferred family:    Shanggu Round HW JP
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -604,8 +604,8 @@ Full name:           Shanggu Round ST Light
 PostScript name:     ShangguRoundST-Light
 Preferred family:    Shanggu Round ST
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -623,8 +623,8 @@ Full name:           Shanggu Round HW ST Light
 PostScript name:     ShangguRoundHWST-Light
 Preferred family:    Shanggu Round HW ST
 Preferred subfamily: Light
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Light
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Light
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -640,8 +640,8 @@ Family:              Shanggu Round SC
 Subfamily:           Bold
 Full name:           Shanggu Round SC Bold
 PostScript name:     ShangguRoundSC-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -659,8 +659,8 @@ Full name:           Shanggu Round Medium
 PostScript name:     ShangguRound-Medium
 Preferred family:    Shanggu Round
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -678,8 +678,8 @@ Full name:           Shanggu Round HW Medium
 PostScript name:     ShangguRoundHW-Medium
 Preferred family:    Shanggu Round HW
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -697,8 +697,8 @@ Full name:           Shanggu Round TC Medium
 PostScript name:     ShangguRoundTC-Medium
 Preferred family:    Shanggu Round TC
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -716,8 +716,8 @@ Full name:           Shanggu Round HW TC Medium
 PostScript name:     ShangguRoundHWTC-Medium
 Preferred family:    Shanggu Round HW TC
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -735,8 +735,8 @@ Full name:           Shanggu Round SC Medium
 PostScript name:     ShangguRoundSC-Medium
 Preferred family:    Shanggu Round SC
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -754,8 +754,8 @@ Full name:           Shanggu Round HW SC Medium
 PostScript name:     ShangguRoundHWSC-Medium
 Preferred family:    Shanggu Round HW SC
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -773,8 +773,8 @@ Full name:           Shanggu Round JP Medium
 PostScript name:     ShangguRoundJP-Medium
 Preferred family:    Shanggu Round JP
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -792,8 +792,8 @@ Full name:           Shanggu Round HW JP Medium
 PostScript name:     ShangguRoundHWJP-Medium
 Preferred family:    Shanggu Round HW JP
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -811,8 +811,8 @@ Full name:           Shanggu Round ST Medium
 PostScript name:     ShangguRoundST-Medium
 Preferred family:    Shanggu Round ST
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -830,8 +830,8 @@ Full name:           Shanggu Round HW ST Medium
 PostScript name:     ShangguRoundHWST-Medium
 Preferred family:    Shanggu Round HW ST
 Preferred subfamily: Medium
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Medium
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Medium
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -847,8 +847,8 @@ Family:              Shanggu Round HW SC
 Subfamily:           Bold
 Full name:           Shanggu Round HW SC Bold
 PostScript name:     ShangguRoundHWSC-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -866,8 +866,8 @@ Full name:           Shanggu Round Normal
 PostScript name:     ShangguRound-Normal
 Preferred family:    Shanggu Round
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -885,8 +885,8 @@ Full name:           Shanggu Round HW Normal
 PostScript name:     ShangguRoundHW-Normal
 Preferred family:    Shanggu Round HW
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -904,8 +904,8 @@ Full name:           Shanggu Round TC Normal
 PostScript name:     ShangguRoundTC-Normal
 Preferred family:    Shanggu Round TC
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -923,8 +923,8 @@ Full name:           Shanggu Round HW TC Normal
 PostScript name:     ShangguRoundHWTC-Normal
 Preferred family:    Shanggu Round HW TC
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -942,8 +942,8 @@ Full name:           Shanggu Round SC Normal
 PostScript name:     ShangguRoundSC-Normal
 Preferred family:    Shanggu Round SC
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -961,8 +961,8 @@ Full name:           Shanggu Round HW SC Normal
 PostScript name:     ShangguRoundHWSC-Normal
 Preferred family:    Shanggu Round HW SC
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -980,8 +980,8 @@ Full name:           Shanggu Round JP Normal
 PostScript name:     ShangguRoundJP-Normal
 Preferred family:    Shanggu Round JP
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -999,8 +999,8 @@ Full name:           Shanggu Round HW JP Normal
 PostScript name:     ShangguRoundHWJP-Normal
 Preferred family:    Shanggu Round HW JP
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1018,8 +1018,8 @@ Full name:           Shanggu Round ST Normal
 PostScript name:     ShangguRoundST-Normal
 Preferred family:    Shanggu Round ST
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1037,8 +1037,8 @@ Full name:           Shanggu Round HW ST Normal
 PostScript name:     ShangguRoundHWST-Normal
 Preferred family:    Shanggu Round HW ST
 Preferred subfamily: Normal
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Normal
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Normal
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1054,8 +1054,8 @@ Family:              Shanggu Round JP
 Subfamily:           Bold
 Full name:           Shanggu Round JP Bold
 PostScript name:     ShangguRoundJP-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1071,8 +1071,8 @@ Family:              Shanggu Round
 Subfamily:           Regular
 Full name:           Shanggu Round Regular
 PostScript name:     ShangguRound-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRound-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRound-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1088,8 +1088,8 @@ Family:              Shanggu Round HW
 Subfamily:           Regular
 Full name:           Shanggu Round HW Regular
 PostScript name:     ShangguRoundHW-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHW-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHW-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1105,8 +1105,8 @@ Family:              Shanggu Round TC
 Subfamily:           Regular
 Full name:           Shanggu Round TC Regular
 PostScript name:     ShangguRoundTC-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundTC-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundTC-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1122,8 +1122,8 @@ Family:              Shanggu Round HW TC
 Subfamily:           Regular
 Full name:           Shanggu Round HW TC Regular
 PostScript name:     ShangguRoundHWTC-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWTC-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWTC-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1139,8 +1139,8 @@ Family:              Shanggu Round SC
 Subfamily:           Regular
 Full name:           Shanggu Round SC Regular
 PostScript name:     ShangguRoundSC-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundSC-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundSC-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1156,8 +1156,8 @@ Family:              Shanggu Round HW SC
 Subfamily:           Regular
 Full name:           Shanggu Round HW SC Regular
 PostScript name:     ShangguRoundHWSC-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWSC-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWSC-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1173,8 +1173,8 @@ Family:              Shanggu Round JP
 Subfamily:           Regular
 Full name:           Shanggu Round JP Regular
 PostScript name:     ShangguRoundJP-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundJP-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundJP-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1190,8 +1190,8 @@ Family:              Shanggu Round HW JP
 Subfamily:           Regular
 Full name:           Shanggu Round HW JP Regular
 PostScript name:     ShangguRoundHWJP-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1207,8 +1207,8 @@ Family:              Shanggu Round ST
 Subfamily:           Regular
 Full name:           Shanggu Round ST Regular
 PostScript name:     ShangguRoundST-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1224,8 +1224,8 @@ Family:              Shanggu Round HW ST
 Subfamily:           Regular
 Full name:           Shanggu Round HW ST Regular
 PostScript name:     ShangguRoundHWST-Regular
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Regular
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Regular
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1241,8 +1241,8 @@ Family:              Shanggu Round HW JP
 Subfamily:           Bold
 Full name:           Shanggu Round HW JP Bold
 PostScript name:     ShangguRoundHWJP-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWJP-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWJP-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1258,8 +1258,8 @@ Family:              Shanggu Round ST
 Subfamily:           Bold
 Full name:           Shanggu Round ST Bold
 PostScript name:     ShangguRoundST-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundST-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundST-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -1275,8 +1275,8 @@ Family:              Shanggu Round HW ST
 Subfamily:           Bold
 Full name:           Shanggu Round HW ST Bold
 PostScript name:     ShangguRoundHWST-Bold
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguRoundHWST-Bold
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguRoundHWST-Bold
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu

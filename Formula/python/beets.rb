@@ -16,8 +16,8 @@ class Beets < Formula
   depends_on "python@3.13"
 
   resource "confuse" do
-    url "https://files.pythonhosted.org/packages/a7/77/05e2284baff5f2106f74b528b9930caf764d6c400733eb42e617c4234a7d/confuse-2.0.1.tar.gz"
-    sha256 "7379a2ad49aaa862b79600cc070260c1b7974d349f4fa5e01f9afa6c4dd0611f"
+    url "https://files.pythonhosted.org/packages/a2/a6/444c7376439851ce1d07932f88b707910d4605466d1c313621943c738112/confuse-2.2.0.tar.gz"
+    sha256 "35c1b53e81be125f441bee535130559c935917b26aeaa61289010cd1f55c2b9e"
   end
 
   resource "filetype" do
@@ -26,13 +26,13 @@ class Beets < Formula
   end
 
   resource "jellyfish" do
-    url "https://files.pythonhosted.org/packages/7c/29/c0d39be806b5d5c201e9bf5265e43cf0e88bd63fb4e38edfc7a212ca38a7/jellyfish-1.2.0.tar.gz"
-    sha256 "5c7d73db4045dcc53b6efbfea21f3d3da432d3e052dc51827574d1a447fc23b4"
+    url "https://files.pythonhosted.org/packages/0b/14/fc5bdb637996df181e5c4fa3b15dcc27d33215e6c41753564ae453bdb40f/jellyfish-1.2.1.tar.gz"
+    sha256 "72d2fda61b23babe862018729be73c8b0dc12e3e6601f36f6e65d905e249f4db"
   end
 
   resource "lap" do
-    url "https://files.pythonhosted.org/packages/6c/cf/ef745c8977cbb26fba5f8433fd4bfd6bf009a90802c0a1cc7139e11f478b/lap-0.5.12.tar.gz"
-    sha256 "570b414ea7ae6c04bd49d0ec8cdac1dc5634737755784d44e37f9f668bab44fd"
+    url "https://files.pythonhosted.org/packages/f1/ae/5cc637c2e5158b7dcf1a9744d33b11dfc21d9309931169402f573e4d1ee3/lap-0.5.13.tar.gz"
+    sha256 "9eff7169e3ca452995af0493cc20d35452c4bfd06122c36c06457119ffbd411b"
   end
 
   resource "mediafile" do

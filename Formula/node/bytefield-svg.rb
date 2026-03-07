@@ -6,6 +6,11 @@ class BytefieldSvg < Formula
   license "EPL-2.0"
   head "https://github.com/Deep-Symmetry/bytefield-svg.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "ca6f4ce34ca559ad45cc9b4a4d54a419c6d37880a217a8f7069ebe801284eee9"
+  end
+
   depends_on "node"
 
   def install
@@ -14,6 +19,6 @@ class BytefieldSvg < Formula
   end
 
   test do
-    system bin/"bytefield-svg", "-h"
+    assert_match "Options", shell_output("#{bin}/bytefield-svg -h")
   end
 end
