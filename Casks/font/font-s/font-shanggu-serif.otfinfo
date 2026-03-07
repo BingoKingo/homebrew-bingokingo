@@ -1,10 +1,10 @@
 Family:              Shanggu Serif VF
 Subfamily:           Regular
-Full name:           Shanggu Serif VF
+Full name:           Shanggu Serif VF ExtraLight
 PostScript name:     ShangguSerifVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -36,11 +36,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif HW VF
 Subfamily:           Regular
-Full name:           Shanggu Serif HW VF
+Full name:           Shanggu Serif HW VF ExtraLight
 PostScript name:     ShangguSerifHWVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifHWVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifHWVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -72,11 +72,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif TC VF
 Subfamily:           Regular
-Full name:           Shanggu Serif TC VF
+Full name:           Shanggu Serif TC VF ExtraLight
 PostScript name:     ShangguSerifTCVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifTCVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifTCVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -108,11 +108,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif HW TC VF
 Subfamily:           Regular
-Full name:           Shanggu Serif HW TC VF
+Full name:           Shanggu Serif HW TC VF ExtraLight
 PostScript name:     ShangguSerifHWTCVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifHWTCVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifHWTCVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -144,11 +144,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif SC VF
 Subfamily:           Regular
-Full name:           Shanggu Serif SC VF
+Full name:           Shanggu Serif SC VF ExtraLight
 PostScript name:     ShangguSerifSCVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifSCVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifSCVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -180,11 +180,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif HW SC VF
 Subfamily:           Regular
-Full name:           Shanggu Serif HW SC VF
+Full name:           Shanggu Serif HW SC VF ExtraLight
 PostScript name:     ShangguSerifHWSCVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifHWSCVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifHWSCVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -216,11 +216,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif JP VF
 Subfamily:           Regular
-Full name:           Shanggu Serif JP VF
+Full name:           Shanggu Serif JP VF ExtraLight
 PostScript name:     ShangguSerifJPVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifJPVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifJPVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -252,11 +252,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif HW JP VF
 Subfamily:           Regular
-Full name:           Shanggu Serif HW JP VF
+Full name:           Shanggu Serif HW JP VF ExtraLight
 PostScript name:     ShangguSerifHWJPVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifHWJPVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifHWJPVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -288,11 +288,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif ST VF
 Subfamily:           Regular
-Full name:           Shanggu Serif ST VF
+Full name:           Shanggu Serif ST VF ExtraLight
 PostScript name:     ShangguSerifSTVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifSTVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifSTVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu
@@ -324,11 +324,11 @@ Instance 6 position:    900
 
 Family:              Shanggu Serif HW ST VF
 Subfamily:           Regular
-Full name:           Shanggu Serif HW ST VF
+Full name:           Shanggu Serif HW ST VF ExtraLight
 PostScript name:     ShangguSerifHWSTVF-ExtraLight
 Preferred subfamily: ExtraLight
-Version:             Version 1.027
-Unique ID:           1.027;GUIW;ShangguSerifHWSTVF-ExtraLight
+Version:             Version 1.028
+Unique ID:           1.028;GUIW;ShangguSerifHWSTVF-ExtraLight
 Description:         Pan-CJK font
 Designer:            GuiWonder
 Vendor URL:          https://github.com/GuiWonder/Shanggu

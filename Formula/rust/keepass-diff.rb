@@ -14,6 +14,12 @@ class KeepassDiff < Formula
   end
 
   test do
-    system bin/"keepass-diff", "-h"
+    output = shell_output("#{bin}/keepass-diff -h")
+    assert_match "keepass-diff #{version}", output
+    assert_match "USAGE", output
+    assert_match "ARGS", output
+    assert_match "OPTIONS", output
+    version_output = shell_output("#{bin}/keepass-diff -V")
+    assert_match "keepass-diff #{version}", version_output
   end
 end

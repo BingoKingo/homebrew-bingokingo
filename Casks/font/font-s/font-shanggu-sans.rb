@@ -1,8 +1,8 @@
 cask "font-shanggu-sans" do
-  version "1.027"
-  sha256 "efa6c817ec7740bd8453de72bf5afd3bc4f042060835c88f46c39aef77e5dc4c"
+  version "1.028"
+  sha256 "90f3b1b93724c21c7b737d15cffb282d07dab95ea5eb589914d11ca2297660eb"
 
-  url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguSans-VF_OTCTTC.7z"
+  url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguSansVF_TTCs.7z"
   name "Shangu Sans"
   name "尙古黑体"
   homepage "https://github.com/GuiWonder/Shanggu/"

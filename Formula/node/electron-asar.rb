@@ -1,8 +1,8 @@
 class ElectronAsar < Formula
   desc "Creating Electron app packages"
   homepage "https://github.com/electron/asar/"
-  url "https://registry.npmjs.org/@electron/asar/-/asar-4.0.1.tgz"
-  sha256 "d2c9020db3934aeed1ec8c2a29c11ad57955f4d341e6dff46d188d1c9df97f56"
+  url "https://registry.npmjs.org/@electron/asar/-/asar-4.1.0.tgz"
+  sha256 "275721a5d21e907875de74dabd3506335bc329016adea8fdc4113e7623b6a64b"
   license "MIT"
   head "https://github.com/electron/asar.git", branch: "main"
 
@@ -14,6 +14,11 @@ class ElectronAsar < Formula
   end
 
   test do
-    system bin/"asar", "-h"
+    output = shell_output("#{bin}/asar -h")
+    assert_match "Usage", output
+    assert_match "Options", output
+    assert_match "Commands", output
+    version_output = shell_output("#{bin}/asar -V")
+    assert_match "v#{version}", version_output
   end
 end

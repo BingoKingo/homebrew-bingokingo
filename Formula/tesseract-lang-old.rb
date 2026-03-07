@@ -5,6 +5,11 @@ class TesseractLangOld < Formula
   sha256 "990fffb9b7a9b52dc9a2d053a9ef6852ca2b72bd8dfb22988b0b990a700fd3c7"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "96028f6b6e531a6eebd3edeecb76d7cde1a1bb26955beccd4cd94d5417c19d5f"
+  end
+
   depends_on "tesseract"
   conflicts_with "tesseract-lang"
   conflicts_with "tesseract-lang-best"
