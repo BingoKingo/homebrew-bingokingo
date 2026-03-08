@@ -8,6 +8,11 @@ class AppleCompress < Formula
   license "MIT"
   head "https://github.com/m1stadev/apple-compress.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "f185ccc614213c529dda69481547873b01e9732117c755885d0ce935ce428baa"
+  end
+
   depends_on "python@3.14"
 
   resource "click" do
