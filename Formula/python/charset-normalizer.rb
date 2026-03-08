@@ -8,6 +8,11 @@ class CharsetNormalizer < Formula
   license "MIT"
   head "https://github.com/jawah/charset_normalizer", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "53117704600916268cb52ebd3693db5b08781e97af63e1af4fde15f38d47c222"
+  end
+
   depends_on "python@3.14"
 
   def install
