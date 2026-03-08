@@ -8,6 +8,11 @@ class Dehinter < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/dehinter.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "94b042417d9ec7bb35aa7d6624e36cad20589e263211ee26caab0af690a6ed4c"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.13"
 
