@@ -6,6 +6,15 @@ class JuicityServer < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/juicity/juicity.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "44021dd0a259c59a2088bb5c3429e8a1acac3db94842ce8c9c390ba2f836478e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "44021dd0a259c59a2088bb5c3429e8a1acac3db94842ce8c9c390ba2f836478e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "44021dd0a259c59a2088bb5c3429e8a1acac3db94842ce8c9c390ba2f836478e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "97b62e68799ed8cc9f27a933d86d402f6e98045c37374fb6c7abf21437257c8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ea7497514474f296aece7b600a7bbcbc9a8be244d5b608f5848e67f9741deb72"
+  end
+
   depends_on "go" => :build
 
   def install

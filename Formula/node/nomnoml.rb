@@ -6,6 +6,11 @@ class Nomnoml < Formula
   license "MIT"
   head "https://github.com/skanaar/nomnoml.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "6c3c08c3feb1cc912fa357a48d8d58cecd3030638477dae073947d962bda1e99"
+  end
+
   depends_on "node"
 
   def install
@@ -14,6 +19,7 @@ class Nomnoml < Formula
   end
 
   test do
-    system bin/"nomnoml", "--help"
+    output = shell_output("#{bin}/nomnoml --help")
+    assert_match "Nomnoml command line utility for generating SVG diagrams.", output
   end
 end

@@ -8,7 +8,7 @@ class Budoux < Formula
   license "Apache-2.0"
   head "https://github.com/google/budoux.git", branch: "main"
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/cf/8c/f834fbf984f691b4f7ff60f50b514cc3de5cc08abfc3295564dd89c5e2e7/importlib_resources-6.5.2.tar.gz"
@@ -20,6 +20,13 @@ class Budoux < Formula
   end
 
   test do
-    system bin/"budoux", "-h"
+    output = shell_output("#{bin}/budoux -h")
+    assert_match "usage", output
+    assert_match "BudouX is the successor to Budou,", output
+    assert_match "the machine learning powered line break organizer tool.", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/budoux -V")
+    assert_match "budoux #{version}", version_output
   end
 end

@@ -22,6 +22,7 @@ class RcloneTeldrive < Formula
       https://github.com/gromgit/homebrew-fuse/blob/HEAD/Formula/rclone-mac.rb
     EOS
   end
+
   test do
     (testpath/"file1.txt").write "Test!"
     system bin/name.to_s, "copy", testpath/"file1.txt", testpath/"dist"

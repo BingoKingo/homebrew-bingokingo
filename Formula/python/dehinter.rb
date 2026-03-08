@@ -9,11 +9,11 @@ class Dehinter < Formula
   head "https://github.com/source-foundry/dehinter.git", branch: "master"
 
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   def install
@@ -21,6 +21,12 @@ class Dehinter < Formula
   end
 
   test do
-    system bin/"dehinter", "-h"
+    output = shell_output("#{bin}/dehinter -h")
+    assert_match "usage", output
+    assert_match "A tool for the removal of TrueType instruction sets (hints) in fonts", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/dehinter --version")
+    assert_match "dehinter v#{version}", version_output
   end
 end
