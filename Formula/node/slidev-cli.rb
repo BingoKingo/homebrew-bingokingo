@@ -8,11 +8,11 @@ class SlidevCli < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any,                 arm64_tahoe:   "a90be02de20e275dee4e38a614790ce980653cb8f0872980f33e54b22e77a196"
-    sha256 cellar: :any,                 arm64_sequoia: "bcdfb858ed3dc9898973dde61b180cdb67a9a5581420487ea0c87c8828c3e9c2"
-    sha256 cellar: :any,                 arm64_sonoma:  "bcdfb858ed3dc9898973dde61b180cdb67a9a5581420487ea0c87c8828c3e9c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "453b79f4d3921718c974270c61e908b25907f80bb7384b52a56c3f9f98d6a253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f833c28e104761bc0ff07e800b45f0777aa6eed26f277a064a14b4c262850783"
+    sha256 cellar: :any,                 arm64_tahoe:   "6f8cfef498faee2060b6fa01ea2d5c6dccdc5955ab081b5eb7568984226f2728"
+    sha256 cellar: :any,                 arm64_sequoia: "9c75f7bb551d2f3ccc4a7a08600623d3466f4562098781fac5eff6fa251d1f2c"
+    sha256 cellar: :any,                 arm64_sonoma:  "9c75f7bb551d2f3ccc4a7a08600623d3466f4562098781fac5eff6fa251d1f2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40960616d4169a22b652d2c34131e36f2e48954b9a05ae14989d6634ee6ab52c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "79925f115c604c187e56c5361817c20eec855b052effb23d4df575bd85581124"
   end
 
   depends_on "node"
