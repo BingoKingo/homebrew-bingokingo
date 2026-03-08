@@ -6,6 +6,11 @@ class PuppeteerLottieCli < Formula
   license "MIT"
   head "https://github.com/transitive-bullshit/puppeteer-lottie-cli.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "a2c5234163ae1394a9ca35bb3663e57926c4deaae1be8ed6731d55e64fadc185"
+  end
+
   depends_on "node"
 
   def install
