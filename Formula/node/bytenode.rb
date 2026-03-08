@@ -6,6 +6,11 @@ class Bytenode < Formula
   license "MIT"
   head "https://github.com/bytenode/bytenode.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "c446c54bc4b7d27c6e0e4e5092030c3b1cc7374924bf1bd9f2c169e629cdc28c"
+  end
+
   depends_on "node"
 
   def install
