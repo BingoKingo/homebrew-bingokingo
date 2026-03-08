@@ -8,6 +8,15 @@ class FontSize < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/font-size.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc6786bb297ce7d9853c4722d2f0b195627c69bb312a3ec63718ceaa416946da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94a6329cd5005bb06c40e6bcffdbb6db449fe15a4fa02a773cf60b91a446c4fe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "287b5cf6a3cbb48898815ea843f8edace9377b7387027b90a24ce87f9bdd8492"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bf6a1e03f4867a9ce6b68dff43b968a60a742c6e465beb1133c9356b8c70656"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da9a9a881c5687a05da1a41d967005b2df32adb62ed56279911a66a8e5f8c1c6"
+  end
+
   depends_on "brotli"
   depends_on "fonttools"
   depends_on "pygments"
