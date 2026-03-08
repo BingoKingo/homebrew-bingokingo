@@ -7,6 +7,11 @@ class FontV < Formula
   sha256 "5c7dca0604a7ddf04633502c792364f3e1027d8fce4e44ffb8014ae38466bdd0"
   head "https://github.com/source-foundry/font-v.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "ce34f63b6d92e669959eff61fe986753a37e7f8c7deec733dcfedcd2e6d6f853"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.14"
 
