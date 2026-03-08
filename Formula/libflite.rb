@@ -5,6 +5,12 @@ class Libflite < Formula
   sha256 "ab1555fe5adc3f99f1d4a1a0eb1596d329fd6d74f1464a0097c81f53c0cf9e5c"
   head "https://github.com/festvox/flite.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "5a3e035a114e42457de0d46bccea0f273d3405ba263fd72f5ea5e075c063c33b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cc99408fb0478d4eb057eec1ee460a3229b4e2dd8f15ae315132e9647dcf722b"
+  end
+
   patch :DATA if OS.mac? && build.head?
 
   def install
