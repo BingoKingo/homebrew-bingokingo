@@ -6,6 +6,11 @@ class Inliner < Formula
   license "MIT"
   head "https://github.com/remy/inliner.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "5a770150e5bfc3cf32b9e98957fa89c02d9466ab3b7d2cbe63db1dc3db4900df"
+  end
+
   depends_on "node"
 
   def install
