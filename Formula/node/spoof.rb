@@ -6,6 +6,11 @@ class Spoof < Formula
   license "MIT"
   head "https://github.com/feross/spoof.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "31af919da3e5fac0d7287e790a3c9bb2c53a9ef6f6c7388604ec7b09c76c2398"
+  end
+
   depends_on "node"
 
   def install
