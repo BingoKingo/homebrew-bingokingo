@@ -8,6 +8,11 @@ class Fbdiff < Formula
   license "Apache-2.0"
   head "https://github.com/justvanrossum/fbdiff.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "31e668b2cac64ea9a17d497dc8c98fc109c0399abddfa4aa7c50c34c94e65732"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.13"
 
