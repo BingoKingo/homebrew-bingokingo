@@ -6,6 +6,11 @@ class Yalc < Formula
   license "MIT"
   head "https://github.com/whitecolor/yalc.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "310e256def40ec83a480c6c749a7ceca53380a4d25b6f8662e79a29a5bfd56eb"
+  end
+
   depends_on "node"
 
   def install
