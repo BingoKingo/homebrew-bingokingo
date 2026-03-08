@@ -7,6 +7,11 @@ class FontLine < Formula
   sha256 "21d8d64aa833fc237760d8f296e55fc5ad6ff3157db92679f2e91451e9abc8c6"
   head "https://github.com/source-foundry/font-line.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "dc0d56ff58507347002a4ee14b842078fd5cb6109883d884e4cc44413ad70eae"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.14"
 
