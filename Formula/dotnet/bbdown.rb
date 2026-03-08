@@ -11,6 +11,13 @@ class Bbdown < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ee8a312af44fa463a15ba1bd1bb217d585bd33ca62966f208b50df813b8a5dfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9411cbd4950fb347feb75ea4293de4dd5216849b2072a89cf5f5e34af137f662"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1f274a97640f853a6ef1b85a8528cc4ed0320a1260cc4b444cf73243797a797a"
+  end
+
   depends_on "protobuf" => :build
   depends_on "dotnet"
 
