@@ -13,7 +13,7 @@ class Budoux < Formula
     sha256 cellar: :any_skip_relocation, all: "a5c12314a051f11a6dc35a9624636fd3a199d1f61034c1167a04b869ad12031a"
   end
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "importlib-resources" do
     url "https://files.pythonhosted.org/packages/cf/8c/f834fbf984f691b4f7ff60f50b514cc3de5cc08abfc3295564dd89c5e2e7/importlib_resources-6.5.2.tar.gz"
@@ -25,6 +25,13 @@ class Budoux < Formula
   end
 
   test do
-    system bin/"budoux", "-h"
+    output = shell_output("#{bin}/budoux -h")
+    assert_match "usage", output
+    assert_match "BudouX is the successor to Budou,", output
+    assert_match "the machine learning powered line break organizer tool.", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/budoux -V")
+    assert_match "budoux #{version}", version_output
   end
 end

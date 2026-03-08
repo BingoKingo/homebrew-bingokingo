@@ -1,8 +1,8 @@
 cask "font-shanggu-serif" do
-  version "1.027"
-  sha256 "b3488bb01c60413ccc8a4ed987c530c8e4e7a5e9efdb981e68bb9a5b16609af6"
+  version "1.028"
+  sha256 "0ab868cc7e40ba60f34594ea34d4ead07234a7f489d4a174ab2915d98b6518da"
 
-  url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguSerif-VF_OTCTTC.7z"
+  url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguSerifVF_TTCs.7z"
   name "Shangu Serif"
   name "尙古明体"
   homepage "https://github.com/GuiWonder/Shanggu/"

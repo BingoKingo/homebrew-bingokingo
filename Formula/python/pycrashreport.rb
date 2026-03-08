@@ -3,8 +3,8 @@ class Pycrashreport < Formula
 
   desc "Python3 parser for Apple's crash reports"
   homepage "https://github.com/doronz88/pycrashreport/"
-  url "https://files.pythonhosted.org/packages/7a/a8/d7c613321fd51054df00930264acfc20a188fc9d92d4ff52b8c83e7e7233/pycrashreport-1.2.6.tar.gz"
-  sha256 "7d4aa523c34c63357dcf352044e57c83f6417d716bc5212cc4af8713573a4a55"
+  url "https://files.pythonhosted.org/packages/d5/0b/534e02c6badef117b5a4054c065b50e6055d833b983b024d57afb425b618/pycrashreport-1.2.7.tar.gz"
+  sha256 "8f4d52d3292c1ec479fac589633d1477d19fbeb6ab01960969389c6a9c63ed7f"
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pycrashreport.git", branch: "master"
 
@@ -17,8 +17,8 @@ class Pycrashreport < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "coloredlogs" do
@@ -37,8 +37,8 @@ class Pycrashreport < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   def install

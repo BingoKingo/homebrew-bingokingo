@@ -6,6 +6,11 @@ class NpmStatsCli < Formula
   license "MIT"
   head "https://github.com/tobilg/npm-stats-cli.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "ad141aebca78006f3606f7dd130539f8d3c6d845cc5c14725d28ccc37188b0cd"
+  end
+
   depends_on "node"
 
   def install
@@ -14,6 +19,9 @@ class NpmStatsCli < Formula
   end
 
   test do
-    system bin/"npm-stats", "--help"
+    output = shell_output("#{bin}/npm-stats --help")
+    assert_match "npm-stats usage", output
+    assert_match "Arguments", output
+    assert_match "Hints", output
   end
 end

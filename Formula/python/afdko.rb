@@ -16,13 +16,13 @@ class Afdko < Formula
   uses_from_macos "libxslt"
 
   resource "booleanoperations" do
-    url "https://files.pythonhosted.org/packages/57/d9/9eae7bc4ba3a38ab7426522fb08e12df54aec27595d7bcd1bc0670aec873/booleanOperations-0.9.0.zip"
-    sha256 "8cfa821c32ad374fa120d6b2e0b444ebeac57c91e6631528645fa19ac2a281b8"
+    url "https://files.pythonhosted.org/packages/b4/6e/63c0dba783d3811cdfe675883cafa4dec03fdd9d77b5743c58da01890dfe/booleanoperations-0.10.0.tar.gz"
+    sha256 "6d719f560d2a1dd676c812b844ecceb693c96791c76579089ab7d0f5db5cedbe"
   end
 
   resource "brotli" do
-    url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"
-    sha256 "81de08ac11bcb85841e440c13611c00b67d3bf82698314928d0b676362546724"
+    url "https://files.pythonhosted.org/packages/f7/16/c92ca344d646e71a43b8bb353f0a6490d7f6e06210f8554c8f874e454285/brotli-1.2.0.tar.gz"
+    sha256 "e310f77e41941c13340a95976fe66a8a95b01e783d430eeaf7a2f87e0a57dd0a"
   end
 
   resource "defcon" do
@@ -31,13 +31,13 @@ class Afdko < Formula
   end
 
   resource "fontmath" do
-    url "https://files.pythonhosted.org/packages/0d/ee/c23438eb01ee4b43beb79c148088589661a3eb1c6549ec82baebea059c99/fontmath-0.9.4.zip"
-    sha256 "1fd9190c9d784e1305c3c49771b91d910f246a4b7c44ede219c99a07ed7aeda4"
+    url "https://files.pythonhosted.org/packages/69/a5/9abc6de47d7fe4bb7ec7bd3bf67aceb7fcdf7164083d7dfb1e1beb5b0f39/fontmath-0.10.0.tar.gz"
+    sha256 "7b0b39336d83d7fc03fb9dc3c662ef7d26b2c15355a34c643d1cfbd03f89fb74"
   end
 
   resource "fontparts" do
-    url "https://files.pythonhosted.org/packages/a1/a4/031524c01e24b7cbcf6f3b5a18fbfc403cdfd61d55b7e5cdaaaf1616b3e8/fontparts-0.13.2.tar.gz"
-    sha256 "16fbf2eab51692dadd77e7fcab5aacca9552c9661db04c254854fbed91874e32"
+    url "https://files.pythonhosted.org/packages/1b/69/fe36adb1587aa6cddba72a3843089de7fd403312ed0372fef30f7a25c2b3/fontparts-0.14.1.tar.gz"
+    sha256 "b38c74326da2192958e41515b52549cb5335e9bd471aae464a386752b8846cb5"
   end
 
   resource "fontpens" do
@@ -46,13 +46,13 @@ class Afdko < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/c5/ed/60eb6fa2923602fba988d9ca7c5cdbd7cf25faa795162ed538b527a35411/lxml-6.0.0.tar.gz"
-    sha256 "032e65120339d44cdc3efc326c9f660f5f7205f3a535c1fdbf898b29ea01fb72"
+    url "https://files.pythonhosted.org/packages/aa/88/262177de60548e5a2bfc46ad28232c9e9cbde697bd94132aeb80364675cb/lxml-6.0.2.tar.gz"
+    sha256 "cd79f3367bd74b317dda655dc8fcfa304d9eb6e4fb06b7168c5cf27f96e0cd62"
   end
 
   resource "mutatormath" do
@@ -61,23 +61,23 @@ class Afdko < Formula
   end
 
   resource "pyclipper" do
-    url "https://files.pythonhosted.org/packages/4a/b2/550fe500e49c464d73fabcb8cb04d47e4885d6ca4cfc1f5b0a125a95b19a/pyclipper-1.3.0.post6.tar.gz"
-    sha256 "42bff0102fa7a7f2abdd795a2594654d62b786d0c6cd67b72d469114fdeb608c"
+    url "https://files.pythonhosted.org/packages/f6/21/3c06205bb407e1f79b73b7b4dfb3950bd9537c4f625a68ab5cc41177f5bc/pyclipper-1.4.0.tar.gz"
+    sha256 "9882bd889f27da78add4dd6f881d25697efc740bf840274e749988d25496c8e1"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   resource "ufonormalizer" do
-    url "https://files.pythonhosted.org/packages/23/37/a5e2128599ae94f23b9f598a6656554fe2385d6e8ed5717d14afa7b78acb/ufonormalizer-0.6.2.zip"
-    sha256 "4c5715bb948381f2c641af82b94938ad242d9b5365dd1c5b7ce3d75556a26c3a"
+    url "https://files.pythonhosted.org/packages/f2/67/557823860d2bc7a340ce4772261e35c969e2243621ec32fae62801a4ba6a/ufonormalizer-0.6.3.tar.gz"
+    sha256 "c3271097aba9d290594b75c2b432cf681088b74fe3eb334ca4319324e2bddd4e"
   end
 
   resource "ufoprocessor" do
-    url "https://files.pythonhosted.org/packages/7e/53/16268853919e6030b110adc4e9c7f14eb93e58a9b957ee2d11a53059c175/ufoprocessor-1.13.3.tar.gz"
-    sha256 "fca5c257713f446dc3f90af26a71f37f378d53690ee2e93e14117da3fb790785"
+    url "https://files.pythonhosted.org/packages/73/86/7564e3b6ff396372c4eb444181c5446f19a8bfa83cdb9f8ee1c8f1fa0de0/ufoprocessor-1.14.1.tar.gz"
+    sha256 "fd38d3cc359b94171ba8d3fdc1e4defde2206acef4f97d75b48503bb8ac03b01"
   end
 
   resource "wheel" do
@@ -86,8 +86,8 @@ class Afdko < Formula
   end
 
   resource "zopfli" do
-    url "https://files.pythonhosted.org/packages/5e/7c/a8f6696e694709e2abcbccd27d05ef761e9b6efae217e11d977471555b62/zopfli-0.2.3.post1.tar.gz"
-    sha256 "96484dc0f48be1c5d7ae9f38ed1ce41e3675fd506b27c11a6607f14b49101e99"
+    url "https://files.pythonhosted.org/packages/0a/4d/a8cc1768b2eda3c0c7470bf8059dcb94ef96d45dd91fc6edd29430d44072/zopfli-0.4.1.tar.gz"
+    sha256 "07a5cdc5d1aaa6c288c5d9f5a5383042ba743641abf8e2fd898dcad622d8a38e"
   end
 
   def install
