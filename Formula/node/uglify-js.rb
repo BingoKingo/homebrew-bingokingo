@@ -6,6 +6,11 @@ class UglifyJs < Formula
   license "BSD-2-Clause"
   head "https://github.com/mishoo/UglifyJS.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "d2258afe2c235dd1c6440528398ea33373807b3df9b048f3a2b88e6c1de522dc"
+  end
+
   depends_on "libnghttp2"
   depends_on "libngtcp2"
   depends_on "node"
