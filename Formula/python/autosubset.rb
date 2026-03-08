@@ -8,6 +8,15 @@ class Autosubset < Formula
   license "MIT"
   head "https://gitlab.com/MarcelWaldvogel/autosubset.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e91af5862dd2d8558e7e61288b7351f5987a2030acfa182c4bab827e504bc027"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9073d90001fc1319c753af1737b07384c07fa87d5560f4830657ceeaf729f614"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75546d3fd9b27d6104ddc5629f452b3c88ad434851deb562282de8e9732d2d20"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d26ed4bf186456c3cd396545a90f19def4f9b94dd0b618e9a6ce5d1f4c595c29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a25145e127fa1c41ac0e53088be4236211fe0363173c0095baa5d60b814581dd"
+  end
+
   depends_on "brotli"
   depends_on "fonttools"
   depends_on "python@3.14"
