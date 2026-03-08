@@ -8,6 +8,11 @@ class OdesliCli < Formula
   license "MIT"
   head "https://github.com/fabian-thomas/odesli-cli.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "49e15a339ebe3c63644dd0afc2fde2538b265c9369a10237fb5b448c89ba2e52"
+  end
+
   depends_on "certifi"
   depends_on "python@3.14"
 
