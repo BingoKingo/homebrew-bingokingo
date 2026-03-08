@@ -6,6 +6,11 @@ class OrgRuby < Formula
   license "MIT"
   head "https://github.com/wallyqs/org-ruby.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "6a9989a364a8d7580d9bc7eb8bd214ecc27dedaeb0f3b997bdd2d41488758f49"
+  end
+
   depends_on "ruby"
   # uses_from_macos "ruby"
 
