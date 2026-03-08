@@ -8,6 +8,11 @@ class Budoux < Formula
   license "Apache-2.0"
   head "https://github.com/google/budoux.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "a5c12314a051f11a6dc35a9624636fd3a199d1f61034c1167a04b869ad12031a"
+  end
+
   depends_on "python@3.14"
 
   resource "importlib-resources" do
