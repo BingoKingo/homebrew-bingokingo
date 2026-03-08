@@ -8,11 +8,16 @@ class AppleCompress < Formula
   license "MIT"
   head "https://github.com/m1stadev/apple-compress.git", branch: "master"
 
-  depends_on "python@3.13"
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "f185ccc614213c529dda69481547873b01e9732117c755885d0ce935ce428baa"
+  end
+
+  depends_on "python@3.14"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "loguru" do
@@ -25,6 +30,11 @@ class AppleCompress < Formula
   end
 
   test do
-    system bin/"acompress", "-h"
+    output = shell_output("#{bin}/acompress -h")
+    assert_match "Usage", output
+    assert_match "A Python CLI tool for compression using Apple's libcompression.", output
+    assert_match "Options", output
+    version_output = shell_output("#{bin}/acompress --version")
+    assert_match "acompress 0.2.3", version_output
   end
 end

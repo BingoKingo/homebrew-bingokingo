@@ -3,8 +3,8 @@ class Xandikos < Formula
 
   desc "CalDAV/CardDAV server backed by Git"
   homepage "https://www.xandikos.org/"
-  url "https://files.pythonhosted.org/packages/56/4e/281268da325c7f45307df5827827e02cc2846896b8dc2fb3dd4b19578d68/xandikos-0.2.12.tar.gz"
-  sha256 "593f6fe4dbaefd3e98e385c0b0b7685177c0c77d2ae524c8ebf7c679932ecf74"
+  url "https://files.pythonhosted.org/packages/67/56/ae2f249dcdb252a0ce832f834f1c71f1390778d22cb3dc343297fc42f740/xandikos-0.3.3.tar.gz"
+  sha256 "888678ea2282ebf55acc26e239c6ac8a067d2d546ab5e0ee828c0a3ee0036c91"
   license "GPL-3.0-or-later"
   head "https://github.com/jelmer/xandikos.git", branch: "master"
 

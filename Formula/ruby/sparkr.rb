@@ -6,6 +6,11 @@ class Sparkr < Formula
   license "MIT"
   head "https://github.com/rrrene/sparkr.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "be0096fef9916eb1c6d711973704be36464f6f6e40ef28a94e58d6e80b5e6a43"
+  end
+
   depends_on "ruby"
   # uses_from_macos "ruby"
 
@@ -19,6 +24,8 @@ class Sparkr < Formula
   end
 
   test do
-    system bin/"sparkr", "-h"
+    output = shell_output("#{bin}/sparkr -h")
+    assert_match "USAGE", output
+    assert_match "EXAMPLES", output
   end
 end

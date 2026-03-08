@@ -1,6 +1,6 @@
 cask "font-shanggu-round" do
-  version "1.027"
-  sha256 "0edad742c04f64cf8b159501c254678b4a024d4df487e745e692f50646ffcba0"
+  version "1.028"
+  sha256 "8b33e7b59c807de2ff0ee843bd9f8558aabbd548f85ae1d60b877b677a84b2f7"
 
   url "https://github.com/GuiWonder/Shanggu/releases/download/#{version}/ShangguRoundTTCs.7z"
   name "Shangu Round"

@@ -3,8 +3,8 @@ class Shtab < Formula
 
   desc "Automagic shell tab completion for Python CLI applications"
   homepage "https://github.com/iterative/shtab/"
-  url "https://files.pythonhosted.org/packages/5a/3e/837067b970c1d2ffa936c72f384a63fdec4e186b74da781e921354a94024/shtab-1.7.2.tar.gz"
-  sha256 "8c16673ade76a2d42417f03e57acf239bfb5968e842204c17990cae357d07d6f"
+  url "https://files.pythonhosted.org/packages/b0/7a/7f131b6082d8b592c32e4312d0a6da3d0b28b8f0d305ddd93e49c9d89929/shtab-1.8.0.tar.gz"
+  sha256 "75f16d42178882b7f7126a0c2cb3c848daed2f4f5a276dd1ded75921cc4d073a"
   license "Apache-2.0"
   head "https://github.com/iterative/shtab.git", branch: "main"
 
