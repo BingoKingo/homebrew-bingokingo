@@ -8,6 +8,11 @@ class GitFame < Formula
   license "MPL-2.0"
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "e793c07eef2c4b98b4eeb2a972e15b6cd92b14fe1834bd4ebb4f67a46820c2fb"
+  end
+
   depends_on "python-tabulate"
   depends_on "python@3.14"
 
