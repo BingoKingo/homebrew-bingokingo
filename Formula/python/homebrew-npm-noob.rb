@@ -7,6 +7,15 @@ class HomebrewNpmNoob < Formula
   sha256 "d4dfe5b9d72bd6970aa66d9e25c77fc30e09050facc36b989fdb325a85d2b00d"
   license "MIT"
   head "https://github.com/zmwangx/homebrew-npm-noob.git", branch: "master"
+
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "326ced7915d2b873f053c314e1a6061b63e0fae52d81cec62f0deb8a0c7a1b9e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8f6249d9f3a790f179a93de979b282b705c5ffaca46b471d688a9bea139e02d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c3498376859c79dc096fdba7ac73e78a4bf64cda25768f6fc2b9bd1d44cb4470"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "5b75ca8160936ef1c57a7bef182f87c42e6671f91024618d7925cf53b23b8b72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3db274300935d84fb84e750bfed8e2cc3c998cdf8d389decd2c70cb3bd16b7c4"
+  end
   deprecate! date: "2020-12-06", because: :unmaintained
   depends_on "certifi"
   depends_on "python@3.14"
