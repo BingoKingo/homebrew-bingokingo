@@ -7,6 +7,15 @@ class HomebrewPypiPoet < Formula
   sha256 "e09e997e35a98f66445f9a39ccb33d6d93c5cd090302a59f231707eac0bf378e"
   license "MIT"
   head "https://github.com/tdsmith/homebrew-pypi-poet.git", branch: "master"
+
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da56ae7b3b94f9e917010477d26d90323d925a771b37fa5b2125077ccf4987f7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "100f1a258977329ca78414dc306182845664a39c1e026c2ca9e262cbbdbc56af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0eebf8b8eb984689c852117bdb987a73e204b9ca4a37ef8f35cd9ae4715eec77"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8adbb33432747bec77b94e3a9f91c0efc9d3550cf812f5eeecf29fac0fc81d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5e200ba9834d668e70eca64191aacfb086fecd6ea69822a1272d4bffb5e0a76"
+  end
   deprecate! date: "2018-02-23", because: :unmaintained
   depends_on "python-setuptools" => :build
   depends_on "python@3.14"
