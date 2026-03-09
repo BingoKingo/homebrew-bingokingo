@@ -7,6 +7,15 @@ class PandocFignos < Formula
   sha256 "7058edeae48824412e9fe090dd5f72500a9ef7d33a40391826b17338397d8849"
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-fignos.git", branch: "master"
+
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "16ea1011ae2f4671beea025046570d06ccdf87e63b7755aa6677ae284860b543"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "486511744c2754ee894808eccc1e011df4722e28709947b92fefa686b3278c58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ee9bbfe80ae0a6c07bd0342ec198b9c9d6c87256bc1638797501ac78513ed0fc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "76d613495996fa545197654cfd9a6b1a2a5cd2156143052019c7c04507057db6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f43eeaa4a292ee67be0038c3b70bca5f92e3222075c5b836c21c446de82aa2f"
+  end
   deprecate! date: "2020-11-11", because: :unmaintained
   depends_on "python@3.14"
 
