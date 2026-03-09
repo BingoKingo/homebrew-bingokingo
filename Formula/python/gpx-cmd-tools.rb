@@ -8,6 +8,11 @@ class GpxCmdTools < Formula
   license "Apache-2.0"
   head "https://github.com/tkrajina/gpx-cmd-tools.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "2a587c37170163c9d590b8dfdf497d65eb337ee7b03783cefba4a117bc097eb7"
+  end
+
   depends_on "python@3.14"
 
   resource "gpxpy" do
