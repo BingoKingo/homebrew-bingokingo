@@ -8,6 +8,13 @@ class Autosubsync < Formula
   license "MIT"
   head "https://github.com/oseiskar/autosubsync.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any, arm64_tahoe:   "18a59b75a90346c754f82c55f6bb39bc2fa815ee9912c050b2eb1a5331dcf1f2"
+    sha256 cellar: :any, arm64_sequoia: "b71a47fb24af99294ac3478bb5b2b2a4e2e5ca8d00869aa1a57033c6554f4776"
+    sha256 cellar: :any, arm64_sonoma:  "0d411bb9c90a0781f57af2ba462651494404b6e4ce4a52c165e2bce8573bf49d"
+  end
+
   depends_on "cffi"
   depends_on "numpy"
   depends_on "pycparser"
