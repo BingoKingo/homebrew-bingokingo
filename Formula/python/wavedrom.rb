@@ -9,7 +9,7 @@ class Wavedrom < Formula
   head "https://github.com/wavedrom/wavedrom.git", branch: "trunk"
 
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "six"
 
   resource "pyyaml" do
@@ -33,6 +33,8 @@ class Wavedrom < Formula
   end
 
   test do
-    system bin/"wavedrompy", "-h"
+    output = shell_output("#{bin}/wavedrompy -h")
+    assert_match "usage", output
+    assert_match "options", output
   end
 end

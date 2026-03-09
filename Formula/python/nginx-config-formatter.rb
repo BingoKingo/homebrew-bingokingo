@@ -8,13 +8,17 @@ class NginxConfigFormatter < Formula
   license "Apache-2.0"
   head "https://github.com/slomkowski/nginx-config-formatter.git", branch: "master"
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    system bin/"nginxfmt", "-h"
+    output = shell_output("#{bin}/nginxfmt -h 2>&1")
+    assert_match "usage", output
+    assert_match "Formats nginx configuration files in consistent way.", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

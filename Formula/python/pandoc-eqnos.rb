@@ -8,7 +8,7 @@ class PandocEqnos < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-eqnos.git", branch: "master"
   deprecate! date: "2020-12-06", because: :unmaintained
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pandoc-xnos" do
     url "https://files.pythonhosted.org/packages/f8/67/2f775963c0959f43821c4242e66143d42f39a01ac8e0c17f7d67ed126df7/pandoc-xnos-2.5.0.tar.gz"
@@ -30,6 +30,12 @@ class PandocEqnos < Formula
   end
 
   test do
-    system bin/"pandoc-eqnos", "-h"
+    output = shell_output("#{bin}/pandoc-eqnos -h")
+    assert_match "usage", output
+    assert_match "Pandoc equations numbers filter.", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/pandoc-eqnos --version")
+    assert_match "pandoc-eqnos #{version}", version_output
   end
 end

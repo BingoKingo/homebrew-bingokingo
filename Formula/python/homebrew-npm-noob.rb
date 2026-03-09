@@ -9,7 +9,7 @@ class HomebrewNpmNoob < Formula
   head "https://github.com/zmwangx/homebrew-npm-noob.git", branch: "master"
   deprecate! date: "2020-12-06", because: :unmaintained
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz"
@@ -55,7 +55,13 @@ class HomebrewNpmNoob < Formula
       [M] Modified form https://github.com/zmwangx/homebrew-npm-noob/blob/master/Formula/noob.rb
     EOS
   end
+
   test do
-    system bin/"noob", "-h"
+    output = shell_output("#{bin}/noob -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/noob -v")
+    assert_match version.to_s, version_output
   end
 end

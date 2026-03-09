@@ -8,7 +8,7 @@ class Ufolint < Formula
   head "https://github.com/source-foundry/ufolint.git", branch: "master"
 
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "commandlines" do
     url "https://files.pythonhosted.org/packages/b9/4c/d380f7f9aaa12175b189cfe087e823cd9aa2a99afc95a8d6e028142311c9/commandlines-0.4.1.tar.gz"
@@ -25,6 +25,11 @@ class Ufolint < Formula
   end
 
   test do
-    system bin/"ufolint", "-h"
+    output = shell_output("#{bin}/ufolint -h")
+    assert_match "Copyright 2019 Source Foundry Authors", output
+    assert_match "ufolint is a UFO source file linter.", output
+    assert_match "Usage", output
+    version_output = shell_output("#{bin}/ufolint -v")
+    assert_match "ufolint v#{version}", version_output
   end
 end

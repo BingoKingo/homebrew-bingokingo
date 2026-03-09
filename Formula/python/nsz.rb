@@ -56,6 +56,9 @@ class Nsz < Formula
   end
 
   test do
-    system bin/"nsz", "-h"
+    output = shell_output("#{bin}/nsz -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

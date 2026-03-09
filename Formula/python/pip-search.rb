@@ -9,7 +9,7 @@ class PipSearch < Formula
 
   depends_on "certifi"
   depends_on "pygments"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rich-cli"
 
   resource "beautifulsoup4" do
@@ -83,6 +83,12 @@ class PipSearch < Formula
   end
 
   test do
-    system bin/"pip_search", "-h"
+    output = shell_output("#{bin}/pip_search -h")
+    assert_match "usage", output
+    assert_match "Search for packages on PyPI", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/pip_search --version")
+    assert_match "pip_search", version_output
   end
 end

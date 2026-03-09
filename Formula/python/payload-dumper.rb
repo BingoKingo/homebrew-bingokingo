@@ -7,7 +7,7 @@ class PayloadDumper < Formula
 
   depends_on "certifi"
   depends_on "protobuf"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/95/7d/4c1bd541d4dffa1b52bd83fb8527089e097a106fc90b467a7313b105f840/anyio-4.9.0.tar.gz"
@@ -80,6 +80,10 @@ class PayloadDumper < Formula
   end
 
   test do
-    system bin/"payload-dumper", "-h"
+    output = shell_output("#{bin}/payload-dumper -h")
+    assert_match "usage", output
+    assert_match "OTA payload dumper", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

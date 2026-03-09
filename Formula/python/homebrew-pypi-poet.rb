@@ -9,7 +9,7 @@ class HomebrewPypiPoet < Formula
   head "https://github.com/tdsmith/homebrew-pypi-poet.git", branch: "master"
   deprecate! date: "2018-02-23", because: :unmaintained
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "jinja2" do
     url "https://files.pythonhosted.org/packages/df/bf/f7da0350254c0ed7c72f3e33cef02e048281fec7ecec5f032d4aac52226b/jinja2-3.1.6.tar.gz"
@@ -22,8 +22,8 @@ class HomebrewPypiPoet < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
-    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
+    url "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz"
+    sha256 "8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"
   end
 
   def install
@@ -31,6 +31,10 @@ class HomebrewPypiPoet < Formula
   end
 
   test do
-    system bin/"poet", "-h"
+    output = shell_output("#{bin}/poet -h")
+    assert_match "usage", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/poet -V")
+    assert_match "homebrew-pypi-poet #{version}", version_output
   end
 end

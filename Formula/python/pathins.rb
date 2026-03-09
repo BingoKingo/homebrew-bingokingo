@@ -10,7 +10,7 @@ class Pathins < Formula
 
   depends_on "cython"
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cython" do
     url "https://files.pythonhosted.org/packages/91/85/7574c9cd44b69a27210444b6650f6477f56c75fee1b70d7672d3e4166167/cython-3.2.4.tar.gz"
@@ -32,6 +32,12 @@ class Pathins < Formula
   end
 
   test do
-    system bin/"pathins", "-h"
+    output = shell_output("#{bin}/pathins -h")
+    assert_match "usage", output
+    assert_match "Quadratic font curve path inspector", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/pathins -v")
+    assert_match "pathins v#{version}", version_output
   end
 end

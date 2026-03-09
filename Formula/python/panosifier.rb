@@ -9,7 +9,7 @@ class Panosifier < Formula
   head "https://github.com/source-foundry/panosifier.git", branch: "main"
 
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "fonttools" do
     url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
@@ -21,6 +21,12 @@ class Panosifier < Formula
   end
 
   test do
-    system bin/"panosifier", "-h"
+    output = shell_output("#{bin}/panosifier -h")
+    assert_match "usage", output
+    assert_match "Panose data editor for fonts", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/panosifier -v")
+    assert_match "panosifier v#{version}", version_output
   end
 end

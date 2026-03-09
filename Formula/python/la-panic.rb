@@ -9,7 +9,7 @@ class LaPanic < Formula
   head "https://gitlab.com/yanivhasbanidev/la_panic.git", branch: "main"
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cached-property" do
     url "https://files.pythonhosted.org/packages/76/4b/3d870836119dbe9a5e3c9a61af8cc1a8b69d75aea564572e385882d5aefb/cached_property-2.0.1.tar.gz"
@@ -42,6 +42,9 @@ class LaPanic < Formula
   end
 
   test do
-    system bin/"la_panic", "--help"
+    output = shell_output("#{bin}/la_panic --help")
+    assert_match "Usage", output
+    assert_match "Options", output
+    assert_match "Commands", output
   end
 end

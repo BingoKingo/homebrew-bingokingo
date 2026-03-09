@@ -9,7 +9,7 @@ class GitFame < Formula
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
   depends_on "python-tabulate"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "argopt" do
     url "https://files.pythonhosted.org/packages/a3/8c/f1dbbb7ca1b6bdfebd8b3ae1d44f099c5678a1592f1562547037e76330d4/argopt-0.9.1.tar.gz"
@@ -31,6 +31,12 @@ class GitFame < Formula
   end
 
   test do
-    system bin/"git-fame", "-h"
+    output = shell_output("#{bin}/git-fame -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    assert_match "Copyright (c) 2016-2025 Casper da Costa-Luis", output
+    version_output = shell_output("#{bin}/git-fame -v")
+    assert_match version.to_s, version_output
   end
 end

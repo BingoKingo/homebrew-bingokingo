@@ -11,7 +11,7 @@ class Wireviz < Formula
   depends_on "graphviz"
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
@@ -38,6 +38,11 @@ class Wireviz < Formula
   end
 
   test do
-    system bin/"wireviz", "-h"
+    output = shell_output("#{bin}/wireviz -h")
+    assert_match "Usage", output
+    assert_match "Parses the provided FILE and generates the specified outputs.", output
+    assert_match "Options", output
+    version_output = shell_output("#{bin}/wireviz -V")
+    assert_match "WireViz #{version}", version_output
   end
 end

@@ -9,7 +9,7 @@ class Syncedlyrics < Formula
   head "https://github.com/moehmeni/syncedlyrics.git", branch: "main"
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/c3/b0/1c6a16426d389813b48d95e26898aff79abbde42ad353958ad95cc8c9b21/beautifulsoup4-4.14.3.tar.gz"
@@ -61,6 +61,10 @@ class Syncedlyrics < Formula
   end
 
   test do
-    system bin/"syncedlyrics", "-h"
+    output = shell_output("#{bin}/syncedlyrics -h")
+    assert_match "usage", output
+    assert_match "Search for an LRC format (synchronized lyrics) of a music", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end
