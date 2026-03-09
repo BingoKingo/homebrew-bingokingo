@@ -7,6 +7,11 @@ class PipSearch < Formula
   sha256 "2d20b923162d01a0d151e172eaa42bc7465d11d2db8eb87c756753bc1a854436"
   head "https://github.com/victorgarric/pip_search.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "d4df8aeb10355f38b0379eb7fdfc7a823df47500798b18c67de630a95f334186"
+  end
+
   depends_on "certifi"
   depends_on "pygments"
   depends_on "python@3.14"
