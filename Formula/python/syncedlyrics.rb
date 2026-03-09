@@ -8,6 +8,11 @@ class Syncedlyrics < Formula
   license "MIT"
   head "https://github.com/moehmeni/syncedlyrics.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "de9f97afac1de09d512785f9ad655ebf8278c6dbf86245a82f9fc61c6c15015e"
+  end
+
   depends_on "certifi"
   depends_on "python@3.14"
 
