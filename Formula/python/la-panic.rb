@@ -8,6 +8,11 @@ class LaPanic < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/yanivhasbanidev/la_panic.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "a6c4133edb985d9021770abfcf5e03d9e42a6f5b4afc41959f9209c6a82125b0"
+  end
+
   depends_on "python-setuptools" => :build
   depends_on "python@3.14"
 
