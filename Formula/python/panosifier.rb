@@ -8,6 +8,11 @@ class Panosifier < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/panosifier.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "897cf06f4d1c9957c0249554ad733a2d1e5a0cdd00205be177010bfa4822dbf7"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.14"
 
