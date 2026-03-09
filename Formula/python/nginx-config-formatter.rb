@@ -8,6 +8,11 @@ class NginxConfigFormatter < Formula
   license "Apache-2.0"
   head "https://github.com/slomkowski/nginx-config-formatter.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "02ed915a2faf018dd021b28eedf8204668a7a8000663826ecf832822b0e6a95c"
+  end
+
   depends_on "python@3.14"
 
   def install
