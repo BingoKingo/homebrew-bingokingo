@@ -7,6 +7,11 @@ class Ufolint < Formula
   sha256 "5578c2a17949b33e9a9d2d069849f7a83ca82b5f0a3d35bef8d24668be95bbe7"
   head "https://github.com/source-foundry/ufolint.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "2b130c65f21ba4016ad5b84e54f096ab01ab3988d107fc131143868d13c31149"
+  end
+
   depends_on "fonttools"
   depends_on "python@3.14"
 
