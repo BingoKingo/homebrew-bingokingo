@@ -7,6 +7,15 @@ class PandocEqnos < Formula
   sha256 "f0cc9250743342cef234cab27e0006a524bf155ecaf9897adf07396d32da94c7"
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-eqnos.git", branch: "master"
+
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e08f8f911822f89e4bf87c8feee44d1aac67272db3f4e8e77a8a239d7ff4fb4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8d708c5e3d7f044ada1dc14eba8320fe205ec750391ed51bab4e2e4aed8f836"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb169c80583e9ff06779fa4155603d56cce4ea9c016abb88a916ab35d1bf4e52"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "19edeb8b50c42250895ad492200f7de69596d3b404882881fbff7e29e05c6dc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "712c4617f2dc843f6f16128f0e1f4e78a6f63154faa147688281b65d19aa1a87"
+  end
   deprecate! date: "2020-12-06", because: :unmaintained
   depends_on "python@3.14"
 
