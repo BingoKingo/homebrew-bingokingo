@@ -8,8 +8,13 @@ class GitFame < Formula
   license "MPL-2.0"
   head "https://github.com/casperdcl/git-fame.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "e793c07eef2c4b98b4eeb2a972e15b6cd92b14fe1834bd4ebb4f67a46820c2fb"
+  end
+
   depends_on "python-tabulate"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "argopt" do
     url "https://files.pythonhosted.org/packages/a3/8c/f1dbbb7ca1b6bdfebd8b3ae1d44f099c5678a1592f1562547037e76330d4/argopt-0.9.1.tar.gz"
@@ -17,13 +22,13 @@ class GitFame < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
-    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+    url "https://files.pythonhosted.org/packages/46/58/8c37dea7bbf769b20d58e7ace7e5edfe65b849442b00ffcdd56be88697c6/tabulate-0.10.0.tar.gz"
+    sha256 "e2cfde8f79420f6deeffdeda9aaec3b6bc5abce947655d17ac662b126e48a60d"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   def install
@@ -31,6 +36,12 @@ class GitFame < Formula
   end
 
   test do
-    system bin/"git-fame", "-h"
+    output = shell_output("#{bin}/git-fame -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    assert_match "Copyright (c) 2016-2025 Casper da Costa-Luis", output
+    version_output = shell_output("#{bin}/git-fame -v")
+    assert_match version.to_s, version_output
   end
 end

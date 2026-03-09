@@ -7,8 +7,13 @@ class FontLine < Formula
   sha256 "21d8d64aa833fc237760d8f296e55fc5ad6ff3157db92679f2e91451e9abc8c6"
   head "https://github.com/source-foundry/font-line.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "dc0d56ff58507347002a4ee14b842078fd5cb6109883d884e4cc44413ad70eae"
+  end
+
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "commandlines" do
     url "https://files.pythonhosted.org/packages/b9/4c/d380f7f9aaa12175b189cfe087e823cd9aa2a99afc95a8d6e028142311c9/commandlines-0.4.1.tar.gz"
@@ -16,8 +21,8 @@ class FontLine < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   resource "standardstreams" do
@@ -30,6 +35,13 @@ class FontLine < Formula
   end
 
   test do
-    system bin/"font-line", "-h"
+    output = shell_output("#{bin}/font-line -h")
+    assert_match "Copyright 2019 Christopher Simpkins", output
+    assert_match "ABOUT", output
+    assert_match "SUB-COMMANDS", output
+    assert_match "OPTIONS", output
+    assert_match "USAGE", output
+    version_output = shell_output("#{bin}/font-line -v")
+    assert_match "font-line v#{version}", version_output
   end
 end

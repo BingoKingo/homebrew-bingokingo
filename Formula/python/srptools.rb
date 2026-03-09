@@ -8,12 +8,12 @@ class Srptools < Formula
   license "BSD-3-Clause"
   head "https://github.com/idlesign/srptools.git", branch: "master"
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "six" do
@@ -26,6 +26,14 @@ class Srptools < Formula
   end
 
   test do
-    system bin/"srptools", "--help"
+    output = shell_output("#{bin}/srptools --help")
+    assert_match "Usage", output
+    assert_match "srptools command line utility.", output
+    assert_match "Tools to implement Secure Remote Password (SRP) authentication.", output
+    assert_match "Basic scenario", output
+    assert_match "Options", output
+    assert_match "Commands", output
+    version_output = shell_output("#{bin}/srptools --version")
+    assert_match "srptools, version #{version}", version_output
   end
 end

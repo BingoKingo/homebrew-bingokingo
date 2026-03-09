@@ -7,12 +7,17 @@ class FontV < Formula
   sha256 "5c7dca0604a7ddf04633502c792364f3e1027d8fce4e44ffb8014ae38466bdd0"
   head "https://github.com/source-foundry/font-v.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "ce34f63b6d92e669959eff61fe986753a37e7f8c7deec733dcfedcd2e6d6f853"
+  end
+
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   resource "gitdb" do
@@ -21,8 +26,8 @@ class FontV < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/9a/c8/dd58967d119baab745caec2f9d853297cec1989ec1d63f677d3880632b88/gitpython-3.1.45.tar.gz"
-    sha256 "85b0ee964ceddf211c41b9f27a49086010a190fd8132a24e21f362a4b36a791c"
+    url "https://files.pythonhosted.org/packages/df/b5/59d16470a1f0dfe8c793f9ef56fd3826093fc52b3bd96d6b9d6c26c7e27b/gitpython-3.1.46.tar.gz"
+    sha256 "400124c7d0ef4ea03f7310ac2fbf7151e09ff97f2a3288d64a440c584a29c37f"
   end
 
   resource "smmap" do
@@ -35,6 +40,10 @@ class FontV < Formula
   end
 
   test do
-    system bin/"font-v", "-h"
+    output = shell_output("#{bin}/font-v -h")
+    assert_match "Copyright 2018 Christopher Simpkins", output
+    assert_match "USAGE", output
+    assert_match "Subcommands and options", output
+    assert_match "NOTES", output
   end
 end

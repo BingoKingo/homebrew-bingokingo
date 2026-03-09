@@ -8,7 +8,12 @@ class GpxCmdTools < Formula
   license "Apache-2.0"
   head "https://github.com/tkrajina/gpx-cmd-tools.git", branch: "master"
 
-  depends_on "python@3.13"
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "2a587c37170163c9d590b8dfdf497d65eb337ee7b03783cefba4a117bc097eb7"
+  end
+
+  depends_on "python@3.14"
 
   resource "gpxpy" do
     url "https://files.pythonhosted.org/packages/20/ad/6f1a34e702c72cb495bb258396f237ded76c00f9fe67054a44d778d24ed9/gpxpy-1.6.2.tar.gz"
@@ -24,7 +29,12 @@ class GpxCmdTools < Formula
       `gpx-info` is not available.
     EOS
   end
+
   test do
-    system bin/"gpxsimplify", "-h"
+    output = shell_output("#{bin}/gpxsimplify -h")
+    assert_match "usage", output
+    assert_match "Simplify tracks using the Ramer-Douglas-Peucker algorithm", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

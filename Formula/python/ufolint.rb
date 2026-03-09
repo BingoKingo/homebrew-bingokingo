@@ -7,8 +7,13 @@ class Ufolint < Formula
   sha256 "5578c2a17949b33e9a9d2d069849f7a83ca82b5f0a3d35bef8d24668be95bbe7"
   head "https://github.com/source-foundry/ufolint.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "2b130c65f21ba4016ad5b84e54f096ab01ab3988d107fc131143868d13c31149"
+  end
+
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "commandlines" do
     url "https://files.pythonhosted.org/packages/b9/4c/d380f7f9aaa12175b189cfe087e823cd9aa2a99afc95a8d6e028142311c9/commandlines-0.4.1.tar.gz"
@@ -16,8 +21,8 @@ class Ufolint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   def install
@@ -25,6 +30,11 @@ class Ufolint < Formula
   end
 
   test do
-    system bin/"ufolint", "-h"
+    output = shell_output("#{bin}/ufolint -h")
+    assert_match "Copyright 2019 Source Foundry Authors", output
+    assert_match "ufolint is a UFO source file linter.", output
+    assert_match "Usage", output
+    version_output = shell_output("#{bin}/ufolint -v")
+    assert_match "ufolint v#{version}", version_output
   end
 end

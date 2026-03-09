@@ -8,23 +8,32 @@ class Pathins < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/path-inspector.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a9886fdf9d720b13fa61ac7a109035cafe9f748a4e39e6ba2b25c85529bf10f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a920a2e3dd4ff0cfd2939c3983201b86afcf5e57ec83a89e3995f7fafde00bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d3eb3904866226ea44a7c9ab65bece574412929f20063f6a8851e6dcab8b580"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57e6f96319c3f941c21b53e31fcff67192d1f90b11c8e23d98ab867d3fb47e81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9e926e2999d2e714c6f25fa95bd646f6da569e4c371cb4f62deed3d97691c63"
+  end
+
   depends_on "cython"
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/18/40/7b17cd866158238db704965da1b5849af261dbad393ea3ac966f934b2d39/cython-3.1.2.tar.gz"
-    sha256 "6bbf7a953fa6762dfecdec015e3b054ba51c0121a45ad851fa130f63f5331381"
+    url "https://files.pythonhosted.org/packages/91/85/7574c9cd44b69a27210444b6650f6477f56c75fee1b70d7672d3e4166167/cython-3.2.4.tar.gz"
+    sha256 "84226ecd313b233da27dc2eb3601b4f222b8209c3a7216d8733b031da1dc64e6"
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   resource "skia-pathops" do
-    url "https://files.pythonhosted.org/packages/e5/85/4c6ce1f1f3e8d3888165f2830adcf340922416c155647b12ebac2dcc423e/skia_pathops-0.8.0.post2.zip"
-    sha256 "9e252cdeb6c4d162e82986d31dbd89c675d1677cb8019c2e13e6295d4a557269"
+    url "https://files.pythonhosted.org/packages/4a/f6/ab37d6fa21f25965d4ad059745c76f13ddfb92a2c06a842a42ad77961c24/skia_pathops-0.9.2.tar.gz"
+    sha256 "4b6d8459f6f4a69282cb26fca0c2bb0b321cc58a9bf9cc6579a52a391edc0319"
   end
 
   def install
@@ -32,6 +41,12 @@ class Pathins < Formula
   end
 
   test do
-    system bin/"pathins", "-h"
+    output = shell_output("#{bin}/pathins -h")
+    assert_match "usage", output
+    assert_match "Quadratic font curve path inspector", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/pathins -v")
+    assert_match "pathins v#{version}", version_output
   end
 end

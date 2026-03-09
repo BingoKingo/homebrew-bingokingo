@@ -3,21 +3,21 @@ class FfmpegNormalize < Formula
 
   desc "Audio Normalization for Python/ffmpeg"
   homepage "https://github.com/slhck/ffmpeg-normalize/"
-  url "https://github.com/slhck/ffmpeg-normalize/archive/refs/tags/v1.32.5.tar.gz"
-  sha256 "b599f62a116109e3cfe89fa36bf9d5ef6323bee1b3f79d6894cf39080cb2afb1"
+  url "https://github.com/slhck/ffmpeg-normalize/archive/refs/tags/v1.37.3.tar.gz"
+  sha256 "36155d586d16a4faa0a0d1fa1ea8e756d5c272c35228f4f10ba3c927cccae09b"
   license "MIT"
   head "https://github.com/slhck/ffmpeg-normalize.git", branch: "master"
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/d3/7a/359f4d5df2353f26172b3cc39ea32daa39af8de522205f512f458923e677/colorlog-6.9.0.tar.gz"
-    sha256 "bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2"
+    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
+    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
   end
 
   resource "ffmpeg-progress-yield" do
-    url "https://files.pythonhosted.org/packages/88/b1/1f88ee6006f212e36e2d1867d20bdaffd0f5a065c17d34c7083a3b03b4f3/ffmpeg_progress_yield-1.0.1-py3-none-any.whl"
-    sha256 "3c24844110accc84d48bde8c7c4d5a8c163cc652f1cf0e2f62c803565ae42dae"
+    url "https://files.pythonhosted.org/packages/ee/52/ef3dbb7509ec04288908ae5c1ea6cdea880aa8fa1236f37742d9f6639399/ffmpeg_progress_yield-1.1.2.tar.gz"
+    sha256 "bebdfb26f1e47dd3a1334692496ed35fb43fb0bbdc7e1b5263b3dde9e02e955e"
   end
 
   resource "mutagen" do
@@ -26,8 +26,8 @@ class FfmpegNormalize < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz"
-    sha256 "f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2"
+    url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
+    sha256 "7d825f03f89244ef73f1d4ce193cb1774a8179fd96f31d7e1dcde62092b960bb"
   end
 
   def install
@@ -41,6 +41,18 @@ class FfmpegNormalize < Formula
   end
 
   test do
-    system bin/"ffmpeg-normalize", "-h"
+    output = shell_output("#{bin}/ffmpeg-normalize -h")
+    assert_match "usage", output
+    assert_match "ffmpeg-normalize v#{version} -- command line tool for normalizing audio files", output
+    assert_match "options", output
+    assert_match "File Input/output", output
+    assert_match "General Options", output
+    assert_match "Normalization", output
+    assert_match "Encoding", output
+    assert_match "Author: Werner Robitza", output
+    assert_match "License: MIT", output
+    assert_match "Homepage / Issues", output
+    version_output = shell_output("#{bin}/ffmpeg-normalize --version")
+    assert_match "ffmpeg-normalize v#{version}", version_output
   end
 end

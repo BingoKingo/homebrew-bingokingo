@@ -8,12 +8,17 @@ class Panosifier < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/panosifier.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "897cf06f4d1c9957c0249554ad733a2d1e5a0cdd00205be177010bfa4822dbf7"
+  end
+
   depends_on "fonttools"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/8a/27/ec3c723bfdf86f34c5c82bf6305df3e0f0d8ea798d2d3a7cb0c0a866d286/fonttools-4.59.0.tar.gz"
-    sha256 "be392ec3529e2f57faa28709d60723a763904f71a2b63aabe14fee6648fe3b14"
+    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
+    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
   end
 
   def install
@@ -21,6 +26,12 @@ class Panosifier < Formula
   end
 
   test do
-    system bin/"panosifier", "-h"
+    output = shell_output("#{bin}/panosifier -h")
+    assert_match "usage", output
+    assert_match "Panose data editor for fonts", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/panosifier -v")
+    assert_match "panosifier v#{version}", version_output
   end
 end

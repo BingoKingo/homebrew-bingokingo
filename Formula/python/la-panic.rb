@@ -8,8 +8,13 @@ class LaPanic < Formula
   license "GPL-3.0-or-later"
   head "https://gitlab.com/yanivhasbanidev/la_panic.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "a6c4133edb985d9021770abfcf5e03d9e42a6f5b4afc41959f9209c6a82125b0"
+  end
+
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cached-property" do
     url "https://files.pythonhosted.org/packages/76/4b/3d870836119dbe9a5e3c9a61af8cc1a8b69d75aea564572e385882d5aefb/cached_property-2.0.1.tar.gz"
@@ -17,8 +22,8 @@ class LaPanic < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/60/6c/8ca2efa64cf75a977a0d7fac081354553ebe483345c734fb6b6515d96bbc/click-8.2.1.tar.gz"
-    sha256 "27c491cc05d968d271d5a1db13e3b5a184636d9d930f148c50b038f0d0646202"
+    url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
+    sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
 
   resource "coloredlogs" do
@@ -32,8 +37,8 @@ class LaPanic < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
-    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
+    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
+    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
   end
 
   def install
@@ -42,6 +47,9 @@ class LaPanic < Formula
   end
 
   test do
-    system bin/"la_panic", "--help"
+    output = shell_output("#{bin}/la_panic --help")
+    assert_match "Usage", output
+    assert_match "Options", output
+    assert_match "Commands", output
   end
 end

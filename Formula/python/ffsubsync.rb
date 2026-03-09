@@ -3,8 +3,8 @@ class Ffsubsync < Formula
 
   desc "Language-agnostic synchronization of subtitles with video"
   homepage "https://github.com/smacke/ffsubsync/"
-  url "https://github.com/smacke/ffsubsync/archive/refs/tags/0.4.29.tar.gz"
-  sha256 "b33877e6cd598ca2395908188ef02e8694357fc8a5ce62269df8aeb0b58be382"
+  url "https://github.com/smacke/ffsubsync/archive/refs/tags/0.4.31.tar.gz"
+  sha256 "7fac9de45d0bae599dc58e3efbe22c771372e25290141389c59b49a046b7cb09"
   license "MIT"
   head "https://github.com/smacke/ffsubsync.git", branch: "master"
 
@@ -13,7 +13,7 @@ class Ffsubsync < Formula
   depends_on "ffmpeg"
   depends_on "numpy"
   depends_on "pygments"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rich-cli"
   depends_on "six"
 
@@ -112,6 +112,12 @@ class Ffsubsync < Formula
   end
 
   test do
-    system bin/"ffsubsync", "-h"
+    output = shell_output("#{bin}/ffsubsync -h")
+    assert_match "usage", output
+    assert_match "Synchronize subtitles with video.", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/ffsubsync -v")
+    assert_match "ffsubsync #{version}", version_output
   end
 end
