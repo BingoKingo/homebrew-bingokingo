@@ -8,6 +8,15 @@ class Pathins < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/path-inspector.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a9886fdf9d720b13fa61ac7a109035cafe9f748a4e39e6ba2b25c85529bf10f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a920a2e3dd4ff0cfd2939c3983201b86afcf5e57ec83a89e3995f7fafde00bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d3eb3904866226ea44a7c9ab65bece574412929f20063f6a8851e6dcab8b580"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "57e6f96319c3f941c21b53e31fcff67192d1f90b11c8e23d98ab867d3fb47e81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9e926e2999d2e714c6f25fa95bd646f6da569e4c371cb4f62deed3d97691c63"
+  end
+
   depends_on "cython"
   depends_on "fonttools"
   depends_on "python@3.14"
