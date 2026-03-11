@@ -8,6 +8,13 @@ class FfmpegNormalize < Formula
   license "MIT"
   head "https://github.com/slhck/ffmpeg-normalize.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "6b208165236dd3768bb807a0963071937448cca7c97749c2899be2f1d47c2de8"
+  end
+
+  depends_on "maturin" => :build
+  depends_on "rust" => :build
   depends_on "python@3.14"
 
   resource "colorlog" do
@@ -51,7 +58,7 @@ class FfmpegNormalize < Formula
     assert_match "Encoding", output
     assert_match "Author: Werner Robitza", output
     assert_match "License: MIT", output
-    assert_match "Homepage / Issues", output
+    assert_match "Website / Issues", output
     version_output = shell_output("#{bin}/ffmpeg-normalize --version")
     assert_match "ffmpeg-normalize v#{version}", version_output
   end

@@ -11,6 +11,8 @@ class Textplay < Formula
   end
 
   test do
-    system bin/"textplay", "-h"
+    output = shell_output("#{bin}/textplay -h", 255)
+    assert_match "TEXTPLAY", output
+    assert_match "textplay [options]", output
   end
 end

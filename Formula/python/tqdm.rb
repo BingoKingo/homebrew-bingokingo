@@ -8,13 +8,22 @@ class Tqdm < Formula
   license all_of: ["MIT", "MPL-2.0"]
   head "https://github.com/tqdm/tqdm.git", branch: "master"
 
-  depends_on "python@3.13"
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "590cf416013a930e9abbeebae05d89e0e5abb9e9f8ad0d385f5f9ad3706cdc71"
+  end
+
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    system bin/"tqdm", "--help"
+    output = shell_output("#{bin}/tqdm -h")
+    assert_match "Usage", output
+    assert_match "Options", output
+    output = shell_output("#{bin}/tqdm -v")
+    assert_match version.to_s, output
   end
 end

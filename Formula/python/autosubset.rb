@@ -10,11 +10,11 @@ class Autosubset < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e91af5862dd2d8558e7e61288b7351f5987a2030acfa182c4bab827e504bc027"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9073d90001fc1319c753af1737b07384c07fa87d5560f4830657ceeaf729f614"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "75546d3fd9b27d6104ddc5629f452b3c88ad434851deb562282de8e9732d2d20"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d26ed4bf186456c3cd396545a90f19def4f9b94dd0b618e9a6ce5d1f4c595c29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a25145e127fa1c41ac0e53088be4236211fe0363173c0095baa5d60b814581dd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5be23150b76607d418f2dd1ce3a5c032fd3d39b1f292bdec8c9680d579cb9570"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "533449ff17efc90ab9a5a7d262ee1fb11b85ca02ff1c99bafad1b6b674db0940"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "697e7fa94a4861c6653b631b9dcd9d8f70fbf0726cfd9239f4bf98ff0e318ab5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "85e1cefb76d956cda7abd8e08242f7b733c76739cc662aed3279e578e0e2ad5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e407d006280b656f3e44ad20291a5481891f0ba3695c4eaf198fb2dc80f24498"
   end
 
   depends_on "brotli"
@@ -27,8 +27,8 @@ class Autosubset < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   resource "zopfli" do

@@ -9,6 +9,11 @@ cask "hosts" do
   desc "Cocoa GUI Prefpane for Hosts"
   homepage "https://github.com/specialunderwear/Hosts.prefpane/"
 
+  livecheck do
+    url "https://github.com/specialunderwear/Hosts.prefpane.git"
+    strategy :git
+  end
+
   deprecate! date: "2020-09-26", because: :unmaintained
 
   # app "Hosts.app"

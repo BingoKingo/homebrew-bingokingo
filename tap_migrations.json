@@ -6,5 +6,6 @@
   "font-sarasa-gothic": "homebrew/cask/font-sarasa-gothic",
   "mermaid-cli": "homebrew/core/mermaid-cli",
   "neardrop": "grishka/grishka/neardrop",
+  "py7zr": "homebrew/core/py7zr",
   "stash-mac": "homebrew/cask/stash"
 }

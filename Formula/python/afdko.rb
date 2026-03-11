@@ -3,17 +3,20 @@ class Afdko < Formula
 
   desc "Adobe Font Development Kit for OpenType"
   homepage "https://adobe-type-tools.github.io/afdko/"
-  url "https://files.pythonhosted.org/packages/c8/50/7e9cee87780b86843fbcb29d349e819cf2f8eb2363e08792ffc915b95705/afdko-4.0.2.tar.gz"
-  sha256 "e1a31e871e83dd022635b852297c433c8e9c9d9d4f0c0f634e8d55dde28ad930"
+  url "https://files.pythonhosted.org/packages/73/fd/4fdefdfcb0c698b55dd385cdfd87cb40a878c7666ab1f59846ee58eb7e02/afdko-4.0.3.tar.gz"
+  sha256 "5feed7c2468e25b25fce0479c04af07f4ed2680bc9251bb4c4aef9ec2fba5720"
   license "Apache-2.0"
   head "https://github.com/adobe-type-tools/afdko.git", branch: "develop"
 
   depends_on "cmake" => :build
   depends_on "brotli"
-  depends_on "python@3.13"
+  depends_on "python-packaging"
+  depends_on "python@3.14"
   depends_on "util-linux" if OS.linux?
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  pypi_packages extra_packages: %w[packaging wheel]
 
   resource "booleanoperations" do
     url "https://files.pythonhosted.org/packages/b4/6e/63c0dba783d3811cdfe675883cafa4dec03fdd9d77b5743c58da01890dfe/booleanoperations-0.10.0.tar.gz"
@@ -46,8 +49,8 @@ class Afdko < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   resource "lxml" do
@@ -58,6 +61,11 @@ class Afdko < Formula
   resource "mutatormath" do
     url "https://files.pythonhosted.org/packages/44/02/d1ddbbc5698db8ad2a0d1f8a23d52305e66166b6fea5ada5e146dd3a709a/MutatorMath-3.0.1.zip"
     sha256 "8127c1ffad1646f11a953752296c43f5d88cbd5293fff03f093d916b0bc13864"
+  end
+
+  resource "packaging" do
+  url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
+  sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
   end
 
   resource "pyclipper" do
@@ -80,9 +88,14 @@ class Afdko < Formula
     sha256 "fd38d3cc359b94171ba8d3fdc1e4defde2206acef4f97d75b48503bb8ac03b01"
   end
 
+  resource "unicodedata2" do
+    url "https://files.pythonhosted.org/packages/44/cb/520721a715da85530e21c71953b9b9a85a44e0d80d3b34bf9303c422d208/unicodedata2-17.0.1.tar.gz"
+    sha256 "d79943d153f5f6bfbe3f55a5ec611985184bda37fcedb3ecc75322d82ae6ad3b"
+  end
+
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/8a/98/2d9906746cdc6a6ef809ae6338005b3f21bb568bea3165cfc6a243fdc25c/wheel-0.45.1.tar.gz"
-    sha256 "661e1abd9198507b1409a20c02106d9670b2576e916d58f520316666abca6729"
+    url "https://files.pythonhosted.org/packages/89/24/a2eb353a6edac9a0303977c4cb048134959dd2a51b48a269dfc9dde00c8a/wheel-0.46.3.tar.gz"
+    sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
   end
 
   resource "zopfli" do

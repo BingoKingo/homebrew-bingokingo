@@ -1,5 +1,7 @@
 cask "font-sf-hebrew" do
-  version "19.2d1e1,20.0d1e1"
+  version "c0ada71e4677feffab273597e360789f"
+
+  # version "19.2d1e1,20.0d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-hebrew" do
   name "San Francisco Hebrew"
   name "SF Hebrew"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Hebrew.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Hebrew.ttc"
 

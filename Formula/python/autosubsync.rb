@@ -10,9 +10,9 @@ class Autosubsync < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any, arm64_tahoe:   "18a59b75a90346c754f82c55f6bb39bc2fa815ee9912c050b2eb1a5331dcf1f2"
-    sha256 cellar: :any, arm64_sequoia: "b71a47fb24af99294ac3478bb5b2b2a4e2e5ca8d00869aa1a57033c6554f4776"
-    sha256 cellar: :any, arm64_sonoma:  "0d411bb9c90a0781f57af2ba462651494404b6e4ce4a52c165e2bce8573bf49d"
+    sha256 cellar: :any, arm64_tahoe:   "c59a3c0246d4f3794cc7dc6dd5f824e2b560ffa61beb6ca37e04426e433ba8d5"
+    sha256 cellar: :any, arm64_sequoia: "826de1543b37ac6ae7b8ddc63539761a70c490237c62158f1dec0e885b8e036a"
+    sha256 cellar: :any, arm64_sonoma:  "d197734b7723c7c4af75a7710e56ba99f71fc505510d64e074b5243fbda905e5"
   end
 
   depends_on "cffi"
@@ -26,8 +26,8 @@ class Autosubsync < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/57/fd/0005efbd0af48e55eb3c7208af93f2862d4b1a56cd78e84309a2d959208d/numpy-2.4.2.tar.gz"
-    sha256 "659a6107e31a83c4e33f763942275fd278b21d095094044eb35569e86a21ddae"
+    url "https://files.pythonhosted.org/packages/10/8b/c265f4823726ab832de836cdd184d0986dcf94480f81e8739692a7ac7af2/numpy-2.4.3.tar.gz"
+    sha256 "483a201202b73495f00dbc83796c6ae63137a9bdade074f7648b3e32613412dd"
   end
 
   resource "pycparser" do

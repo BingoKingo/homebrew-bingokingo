@@ -8,7 +8,14 @@ class FfmpegProgressYield < Formula
   license "MIT"
   head "https://github.com/slhck/ffmpeg-progress-yield.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "b58a47c116bd2891a7be653d4f4e33d7f9c8dd6e9b31a335424a125c7b78c2b5"
+  end
+
+  depends_on "maturin" => :build
   depends_on "python-setuptools" => :build
+  depends_on "rust" => :build
   depends_on "ffmpeg"
   depends_on "python@3.14"
 

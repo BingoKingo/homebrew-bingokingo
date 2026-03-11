@@ -3,14 +3,21 @@ class Typer < Formula
 
   desc "CLIs builder based on Python type hints"
   homepage "https://typer.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/43/78/d90f616bf5f88f8710ad067c1f8705bf7618059836ca084e5bb2a0855d75/typer-0.16.1.tar.gz"
-  sha256 "d358c65a464a7a90f338e3bb7ff0c74ac081449e53884b12ba658cbd72990614"
+  url "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz"
+  sha256 "e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45"
   license "MIT"
   head "https://github.com/fastapi/typer.git", branch: "master"
 
   depends_on "pygments"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rich-cli"
+
+  pypi_packages extra_packages: %w[typing-extensions]
+
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz"
+    sha256 "fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4"
+  end
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
@@ -43,8 +50,8 @@ class Typer < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/98/5a/da40306b885cc8c09109dc2e1abd358d5684b1425678151cdaed4731c822/typing_extensions-4.14.1.tar.gz"
-    sha256 "38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"
+    url "https://files.pythonhosted.org/packages/72/94/1a15dd82efb362ac84269196e94cf00f187f7ed21c242792a923cdb1c61f/typing_extensions-4.15.0.tar.gz"
+    sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
   def install
@@ -52,6 +59,12 @@ class Typer < Formula
   end
 
   test do
-    system bin/"typer", "--help"
+    output = shell_output("#{bin}/typer --help")
+    assert_match "Usage", output
+    assert_match "Arguments", output
+    assert_match "Options", output
+    assert_match "Commands", output
+    version_output = shell_output("#{bin}/typer --version")
+    assert_match "Typer version: #{version}", version_output
   end
 end

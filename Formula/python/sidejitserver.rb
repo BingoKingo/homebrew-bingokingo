@@ -23,11 +23,13 @@ class Sidejitserver < Formula
   depends_on "pycparser"
   depends_on "pygments"
   depends_on "python-packaging"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rich-cli"
-  depends_on "six"
   depends_on "uvicorn"
   depends_on "xonsh"
+
+  pypi_packages exclude_packages: "qh3",
+                extra_packages:   %w[lzfse pdm-backend]
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/0b/03/a88171e277e8caa88a4c77808c20ebb04ba74cc4681bf1e9416c862de237/aiofiles-24.1.0.tar.gz"
@@ -630,7 +632,7 @@ class Sidejitserver < Formula
   end
 
   def install
-    virtualenv_install_with_resources(using: "python@3.13")
+    virtualenv_install_with_resources(using: "python@3.14")
   end
 
   service do

@@ -1,5 +1,7 @@
 cask "font-sf-georgian" do
-  version "19.0d4e1,20.0d1e1"
+  version "c600f1d50594e8fcedb0eddbbe3e7f9d"
+
+  # version "19.0d4e1,20.0d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-georgian" do
   name "San Francisco Georgian"
   name "SF Georgian"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Georgian.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Georgian.ttc"
 

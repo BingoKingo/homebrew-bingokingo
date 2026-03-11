@@ -1,5 +1,7 @@
 cask "font-sf-pro" do
-  version "21.0d5e1"
+  version "077beb1bedaec3bc33c88db16683f362-13"
+
+  # version "21.1d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-pro" do
   name "San Francisco Pro"
   name "SF Pro"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Pro.ttc"
 

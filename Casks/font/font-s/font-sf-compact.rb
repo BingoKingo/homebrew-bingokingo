@@ -1,5 +1,7 @@
 cask "font-sf-compact" do
-  version "21.0d5e1"
+  version "e3249290a54ad35b2095bbfff355393a-11"
+
+  # version "21.1d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-compact" do
   name "San Francisco Compact"
   name "SF Compact"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Compact.ttc"
 

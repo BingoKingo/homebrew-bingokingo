@@ -6,6 +6,11 @@ class ElectronAsar < Formula
   license "MIT"
   head "https://github.com/electron/asar.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "36f82e20fb7b8b57e04ff97d3d63fd75cba572875ddad79d1a009081aa8ee889"
+  end
+
   depends_on "node"
 
   def install

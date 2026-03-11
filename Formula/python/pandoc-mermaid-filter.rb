@@ -8,7 +8,7 @@ class PandocMermaidFilter < Formula
   license "MIT"
   head "https://github.com/timofurrer/pandoc-mermaid-filter.git", branch: "master"
   deprecate! date: "2019-11-03", because: :unmaintained
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "pandocfilters" do
     url "https://files.pythonhosted.org/packages/70/6f/3dd4940bbe001c06a65f88e36bad298bc7a0de5036115639926b0c5c0458/pandocfilters-1.5.1.tar.gz"

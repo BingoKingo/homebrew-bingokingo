@@ -3,14 +3,25 @@ class IpswParser < Formula
 
   desc "Utility for parsing and extracting data from IPSW"
   homepage "https://github.com/doronz88/ipsw_parser/"
-  url "https://files.pythonhosted.org/packages/13/38/a2aa8a4a506a49d8e8cdc45ee549e8f1366af976bccc976294d707f62861/ipsw_parser-1.4.4.tar.gz"
-  sha256 "26e0c187f25bfeb460c0e4c16878e58326d61ddbdd8564df4531cf58240fb951"
+  url "https://files.pythonhosted.org/packages/2c/96/c820ec1e2f50d398c2442b2f8759448a896a300745c2920c4cf7ba89dd4c/ipsw_parser-1.5.0.tar.gz"
+  sha256 "5becd2000017b7b8549cc6b6e3f5149541792bf6353663d0f77932965bf26aad"
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/ipsw_parser.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "54fb0e64f3068c81928c4d356f618c0244d698290041e1a7b6016c9ecd829ada"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d4fe40eeb30a605ff10e8e5d3499fd02bfe4f327f9941eb6f6ac66aba6bdf94b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5ae42f36deaba6865ec3031a638304b065da93a3c4e605105fa5950097713632"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c72b0a2ae160b298f4c5e07a725f45b13dd52ea25e52ddeb7bbfc994c5aa72de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "867d5479a12f82c3f250f5740888fa9445d67f6f551bc7c93579c58daec9f7fc"
+  end
+
   depends_on "rust" => :build
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages extra_packages: %w[lzfse]
 
   resource "apple-compress" do
     url "https://files.pythonhosted.org/packages/91/14/cdb0bdb6147a019d2d8a1e144910c6a8d257d0e58f63bbd105bda0fce7dc/apple_compress-0.2.3.tar.gz"
@@ -117,6 +128,10 @@ class IpswParser < Formula
   end
 
   test do
-    system bin/"ipsw-parser", "--help"
+    output = shell_output("#{bin}/ipsw-parser -h")
+    assert_match "Usage", output
+    assert_match "CLI utility for extracting info from IPSW files", output
+    assert_match "Options", output
+    assert_match "Commands", output
   end
 end

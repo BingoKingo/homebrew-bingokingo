@@ -1,7 +1,7 @@
 cask "deskflow@continuous" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "1.26.0.77"
+  version "1.26.0.79"
   sha256 :no_check
 
   url "https://github.com/deskflow/deskflow/releases/download/continuous/deskflow-continuous-macos-#{arch}.dmg"

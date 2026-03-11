@@ -9,7 +9,7 @@ class FontLine < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, all: "dc0d56ff58507347002a4ee14b842078fd5cb6109883d884e4cc44413ad70eae"
+    sha256 cellar: :any_skip_relocation, all: "9a4d7f4b0c773913756ca5869b4d8493684db9d86837324ef613e06fd1838dd7"
   end
 
   depends_on "fonttools"
@@ -21,8 +21,8 @@ class FontLine < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   resource "standardstreams" do

@@ -1,6 +1,6 @@
 cask "kernel-debug-kit" do
-  version "26.3,25D5087f"
-  sha256 "8d47ae70eea23e5811c211b1485eb096a64b4364556d13aac399eb22e8d822b9"
+  version "26.3.1,25D2128"
+  sha256 "6242e437e4141a1eae99ceaa6980a60ff9433daa3dd1eb2b7d0bab45f2a16e40"
 
   url "https://download.developer.apple.com/macOS/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}.dmg",
       referer:    "https://developer.apple.com/",
@@ -10,6 +10,17 @@ cask "kernel-debug-kit" do
       }
   name "Kernel Debug Kit"
   homepage "https://developer.apple.com/download/all/"
+
+  livecheck do
+    url "https://raw.githubusercontent.com/dortania/KdkSupportPkg/refs/heads/gh-pages/manifest.json"
+    strategy :json do |json|
+      json.filter_map do |item|
+        version = item["version"]
+        build = item["build"]
+        "#{version},#{build}" if version && build
+      end
+    end
+  end
 
   pkg "KernelDebugKit.pkg"
 

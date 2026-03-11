@@ -6,7 +6,7 @@ class GitRemoteRclone < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/rixner/git-remote-rclone.git", branch: "main"
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rclone"
 
   def install

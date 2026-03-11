@@ -13,8 +13,7 @@ class Xandikos < Formula
   depends_on "python-setuptools" => :build
   depends_on "dbus"
   depends_on "patchelf"
-  depends_on "python@3.13"
-  depends_on "six"
+  depends_on "python@3.14"
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/26/30/f84a107a9c4331c14b2b586036f40965c128aa4fee4dda5d3d51cb14ad54/aiohappyeyeballs-2.6.1.tar.gz"
@@ -143,6 +142,6 @@ class Xandikos < Formula
   end
 
   test do
-    system bin/"xandikos", "--defaults", "-d", "dav"
+    system bin/"xandikos", "--defaults", "-d", "dav", "-p", "8080"
   end
 end

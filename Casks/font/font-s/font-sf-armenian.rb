@@ -1,5 +1,7 @@
 cask "font-sf-armenian" do
-  version "19.0d5e1,20.0d1e1"
+  version "ca2a937a02f35061fc0703b3d9ec7373"
+
+  # version "19.0d5e1,20.0d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-armenian" do
   name "San Francisco Armenian"
   name "SF Armenian"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Armenian.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Armenian.ttc"
 

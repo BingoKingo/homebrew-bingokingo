@@ -10,11 +10,11 @@ class FontSize < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "bc6786bb297ce7d9853c4722d2f0b195627c69bb312a3ec63718ceaa416946da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "94a6329cd5005bb06c40e6bcffdbb6db449fe15a4fa02a773cf60b91a446c4fe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "287b5cf6a3cbb48898815ea843f8edace9377b7387027b90a24ce87f9bdd8492"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3bf6a1e03f4867a9ce6b68dff43b968a60a742c6e465beb1133c9356b8c70656"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da9a9a881c5687a05da1a41d967005b2df32adb62ed56279911a66a8e5f8c1c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "b8ea4393efdc286fa8ad211f26af3e92a9453f305759c290cee7233c8fad7cb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1920ff06bf541cee45b8b13257cff7082418a8d16d71a626057c63e9f6fe0cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "36938e569448af563da34767f04ad8e0234cc290210ec8dcf4c6515661b78f62"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "41a281f8a7a711c58071a1a25e6163ce736a117f7bde94b129902cc8a0beea94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5adc5385a5a96598f8b01eda7870c5f0096af3762b03ec989b2271f013121a27"
   end
 
   depends_on "brotli"
@@ -29,8 +29,8 @@ class FontSize < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   resource "markdown-it-py" do

@@ -336,7 +336,7 @@ jobs:
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         run: git checkout -b "$BOTTLE_BRANCH" origin/${{github.ref_name}}
 
-      - name: Upload Bottles to GitHub Packages # no --keep-old
+      - name: Upload Bottles to GitHub Packages
         id: upload
         env:
           HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.repository_owner }}
@@ -345,7 +345,7 @@ jobs:
           HOMEBREW_REPO_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
         working-directory: ${{ env.BOTTLES_DIR }}
         run: |
-          brew pr-upload --verbose --committer="$COMMITTER_NAME_EMAIL" --root-url="https://ghcr.io/v2/bingokingo/homebrew"
+          brew pr-upload --verbose --keep-old --committer="$COMMITTER_NAME_EMAIL" --root-url="https://ghcr.io/v2/bingokingo/homebrew"
           echo "title=$(git -C "$HOMEBREW_REPO_PATH" log -1 --format='%s' "$BOTTLE_BRANCH")" >> "$GITHUB_OUTPUT"
           echo "head_sha=$(git -C "$HOMEBREW_REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
@@ -359,17 +359,17 @@ jobs:
           GIT_COMMITTER_NAME: ${{ github.actor }}
           GIT_COMMITTER_EMAIL: ${{ github.actor }}@users.noreply.github.com
 
-      - name: Open PR with Bottle Commit
-        id: create-pr
-        uses: Homebrew/actions/create-pull-request@main
-        with:
-          token: ${{secrets.GITHUB_TOKEN}}
-          base: ${{github.ref_name}}
-          head: ${{env.BOTTLE_BRANCH}}
-          title: ${{steps.upload.outputs.title}}
-          body: Created by [`brew dispatch-build-bottle`](${{env.RUN_URL}})
-          labels: CI-published-bottle-commits
-          reviewers: ${{github.actor}}
+      # - name: Open PR with Bottle Commit
+      #   id: create-pr
+      #   uses: Homebrew/actions/create-pull-request@main
+      #   with:
+      #     token: ${{secrets.GITHUB_TOKEN}}
+      #     base: ${{github.ref_name}}
+      #     head: ${{env.BOTTLE_BRANCH}}
+      #     title: ${{steps.upload.outputs.title}}
+      #     body: Created by [`brew dispatch-build-bottle`](${{env.RUN_URL}})
+      #     labels: CI-published-bottle-commits
+      #     reviewers: ${{github.actor}}
 
       # - name: Enable Automerge
       #   env:

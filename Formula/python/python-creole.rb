@@ -9,7 +9,7 @@ class PythonCreole < Formula
   head "https://github.com/jedie/python-creole.git", branch: "main"
 
   depends_on "docutils"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/ae/b6/03bb70946330e88ffec97aefd3ea75ba575cb2e762061e0e62a213befee8/docutils-0.22.4.tar.gz"
@@ -21,6 +21,13 @@ class PythonCreole < Formula
   end
 
   test do
-    system bin/"html2creole", "--help"
+    %w[creole2html html2creole html2ReSt html2textile].each do |cmd|
+      output = shell_output("#{bin}/#{cmd} -h")
+      assert_match "usage", output
+      assert_match "positional arguments", output
+      assert_match "options", output
+      version_output = shell_output("#{bin}/#{cmd} --version")
+      assert_match "from python-creole v#{version}", version_output
+    end
   end
 end

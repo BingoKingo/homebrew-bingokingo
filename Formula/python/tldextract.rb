@@ -8,8 +8,13 @@ class Tldextract < Formula
   license "BSD-3-Clause"
   head "https://github.com/john-kurkowski/tldextract.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "d3d96373212dfdca92ec1f09f6b90469f02eff4a72d46b5cd310b1d24586ac12"
+  end
+
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz"
@@ -22,8 +27,8 @@ class Tldextract < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/77/18/a1fd2231c679dcb9726204645721b12498aeac28e1ad0601038f94b42556/filelock-3.25.0.tar.gz"
-    sha256 "8f00faf3abf9dc730a1ffe9c354ae5c04e079ab7d3a683b7c32da5dd05f26af3"
+    url "https://files.pythonhosted.org/packages/b3/8b/4c32ecde6bea6486a2a5d05340e695174351ff6b06cf651a74c005f9df00/filelock-3.25.1.tar.gz"
+    sha256 "b9a2e977f794ef94d77cdf7d27129ac648a61f585bff3ca24630c1629f701aa9"
   end
 
   resource "idna" do
@@ -51,6 +56,11 @@ class Tldextract < Formula
   end
 
   test do
-    system bin/"tldextract", "-h"
+    output = shell_output("#{bin}/tldextract -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/tldextract --version")
+    assert_match "tldextract #{version}", version_output
   end
 end

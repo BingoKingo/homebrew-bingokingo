@@ -1,5 +1,7 @@
 cask "font-sf-arabic" do
-  version "20.0d1e1,20.0d1e2"
+  version "5ee8902e46a34f2acea971429230e0c5"
+
+  # version "20.0d1e1,20.0d1e2"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-arabic" do
   name "San Francisco Arabic"
   name "SF Arabic"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Arabic.ttc"
 

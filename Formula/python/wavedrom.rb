@@ -8,9 +8,17 @@ class Wavedrom < Formula
   license "MIT"
   head "https://github.com/wavedrom/wavedrom.git", branch: "trunk"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any,                 arm64_tahoe:   "7eee4b51cf498314497ca679b67c82d034cb821de4fd8339f6f21c387d639306"
+    sha256 cellar: :any,                 arm64_sequoia: "3e85c55ebb3dbbcecefd79997fcfc7905865bc5c192247885cf2ab7894090436"
+    sha256 cellar: :any,                 arm64_sonoma:  "6f49b3978284258f687765fd8c0629ed7f7d4ecbd63b45f30bf471b55a4bafec"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "ecbb5f563ebeb46b9aa39470253e02ed89e7761462141a4a9cbac6c42106feb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f4078ef10d616d18db5e57ec6992fca9cef4cbc5cbc791c2f642e8908c75c3b"
+  end
+
   depends_on "libyaml"
   depends_on "python@3.14"
-  depends_on "six"
 
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"

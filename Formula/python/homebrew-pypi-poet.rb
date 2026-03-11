@@ -10,11 +10,11 @@ class HomebrewPypiPoet < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "da56ae7b3b94f9e917010477d26d90323d925a771b37fa5b2125077ccf4987f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "100f1a258977329ca78414dc306182845664a39c1e026c2ca9e262cbbdbc56af"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0eebf8b8eb984689c852117bdb987a73e204b9ca4a37ef8f35cd9ae4715eec77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "c8adbb33432747bec77b94e3a9f91c0efc9d3550cf812f5eeecf29fac0fc81d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5e200ba9834d668e70eca64191aacfb086fecd6ea69822a1272d4bffb5e0a76"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "849a745076819ace3a67104935d852f01db0a1f55224f4b8cdc09fff894e1588"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2afc9505f7e7597013f67b38eddd028f7467c9699da3db31d4e8899b69c37432"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cbd7d8d977d5818723d5b0eb6d760778a8c82618b728c5ee46ca6be4572a9e26"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "80884afa5b359f71dcf9d6e4f3814ce8949a0cfec3d7b0143d2a60f5613311b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddcd2ac3b15778668672966df207a6ddb0ba8c0085672f7bf4a4ccc04c033200"
   end
   deprecate! date: "2018-02-23", because: :unmaintained
   depends_on "python-setuptools" => :build
@@ -31,8 +31,8 @@ class HomebrewPypiPoet < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/76/95/faf61eb8363f26aa7e1d762267a8d602a1b26d4f3a1e758e92cb3cb8b054/setuptools-80.10.2.tar.gz"
-    sha256 "8b0e9d10c784bf7d262c4e5ec5d4ec94127ce206e8738f29a437945fbc219b70"
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
   def install

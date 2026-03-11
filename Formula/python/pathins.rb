@@ -10,11 +10,11 @@ class Pathins < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2a9886fdf9d720b13fa61ac7a109035cafe9f748a4e39e6ba2b25c85529bf10f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a920a2e3dd4ff0cfd2939c3983201b86afcf5e57ec83a89e3995f7fafde00bf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2d3eb3904866226ea44a7c9ab65bece574412929f20063f6a8851e6dcab8b580"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "57e6f96319c3f941c21b53e31fcff67192d1f90b11c8e23d98ab867d3fb47e81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9e926e2999d2e714c6f25fa95bd646f6da569e4c371cb4f62deed3d97691c63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "4ad513ee607bbada75954a4e04933bd616fe96c58e8a9cbca43f11581acbc579"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f8be65b1e63b828b3f714a54f692452679d6d4e7a1e820f15d8d4d4a2844b48a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "47cdf5a9caf407d095cfd67e90a57a1704b3d73d38c773e039e3286a07d32e0a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "51cedea4c7532074da869a203c070c20e574af1b5a5082e9ac403fca2d32665f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "53065dfc26a9b6de9d6e75dbc2555b569da0682b713adb182a9e7b2fbb308184"
   end
 
   depends_on "cython"
@@ -27,8 +27,8 @@ class Pathins < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   resource "skia-pathops" do

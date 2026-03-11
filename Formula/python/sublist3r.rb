@@ -9,7 +9,7 @@ class Sublist3r < Formula
   head "https://github.com/aboul3la/Sublist3r.git", branch: "master"
 
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz"

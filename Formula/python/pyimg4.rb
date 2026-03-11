@@ -8,9 +8,18 @@ class Pyimg4 < Formula
   license "MIT"
   head "https://github.com/m1stadev/PyIMG4.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1ec9df4f09d542e0486a9fc98eb00cb0631a82c80d47c423747290fbd7db9efb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b95506f3f66c80c20ce1d2b4c7e2538ada9cbc23cf08415f5fc1bda3aca9fdbc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "638fb10a077a5cc6af6533dce13d11a7f8e7d4e308fec93a39dfc91be7a8ae14"
+  end
+
   depends_on "maturin" => :build
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
+
+  pypi_packages extra_packages: %w[lzfse numpy]
 
   resource "apple-compress" do
     url "https://files.pythonhosted.org/packages/91/14/cdb0bdb6147a019d2d8a1e144910c6a8d257d0e58f63bbd105bda0fce7dc/apple_compress-0.2.3.tar.gz"
@@ -43,8 +52,8 @@ class Pyimg4 < Formula
   end
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/37/7d/3fec4199c5ffb892bed55cff901e4f39a58c81df9c44c280499e92cad264/numpy-2.3.2.tar.gz"
-    sha256 "e0486a11ec30cdecb53f184d496d1c6a20786c81e55e41640270130056f8ee48"
+    url "https://files.pythonhosted.org/packages/10/8b/c265f4823726ab832de836cdd184d0986dcf94480f81e8739692a7ac7af2/numpy-2.4.3.tar.gz"
+    sha256 "483a201202b73495f00dbc83796c6ae63137a9bdade074f7648b3e32613412dd"
   end
 
   resource "pycryptodome" do
@@ -62,6 +71,12 @@ class Pyimg4 < Formula
   end
 
   test do
-    system bin/"pyimg4", "--help"
+    output = shell_output("#{bin}/pyimg4 --help")
+    assert_match "Usage", output
+    assert_match "A Python CLI tool for parsing Apple's Image4 format.", output
+    assert_match "Options", output
+    assert_match "Commands", output
+    version_output = shell_output("#{bin}/pyimg4 --version")
+    assert_match "PyIMG4 #{version}", version_output
   end
 end

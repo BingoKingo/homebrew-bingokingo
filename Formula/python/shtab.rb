@@ -8,13 +8,23 @@ class Shtab < Formula
   license "Apache-2.0"
   head "https://github.com/iterative/shtab.git", branch: "main"
 
-  depends_on "python@3.13"
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "d18c26864b16439c814fb4e0f1ef46bf3941fbc0fb44c9a6773b6322dd2e234f"
+  end
+
+  depends_on "python@3.14"
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    system bin/"shtab", "-h"
+    output = shell_output("#{bin}/shtab -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/shtab --version")
+    assert_match "shtab #{version}", version_output
   end
 end

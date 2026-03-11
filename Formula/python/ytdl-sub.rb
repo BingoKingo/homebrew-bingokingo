@@ -3,15 +3,24 @@ class YtdlSub < Formula
 
   desc "Automate downloading and metadata generation with Yt-dlp"
   homepage "https://ytdl-sub.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/ca/d8/123ae0e9308bb21be4525dae565410cd603dd242e39a5e83dd59091512b6/ytdl_sub-2025.8.15.post2.tar.gz"
-  sha256 "4c0ba78348654a79e660ffa84a39f55df0520477712096b7bc2c5e83eeb395f5"
+  url "https://files.pythonhosted.org/packages/6e/bd/3aa7b1d4b7d59c2eda6d1775996a12201753861c8cbc3d3b5e0a39c04819/ytdl_sub-2026.3.5.tar.gz"
+  sha256 "c458af79a16242f9e0217c4c9688a520b80648555ee74774a940a58fb36ca9b6"
   license "GPL-3.0-or-later"
   head "https://github.com/jmbannon/ytdl-sub.git", branch: "master"
+
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any,                 arm64_tahoe:   "84d50f4f0551c2da13994d13c4a9be8025b78f8d670cdeb311e6eb5c3dde17bf"
+    sha256 cellar: :any,                 arm64_sequoia: "2d0a1c24ebf0db9544536c399d04dea4ee64a09a59377063881cd106a15c0300"
+    sha256 cellar: :any,                 arm64_sonoma:  "bf80156bff3066fab49d80a1ae3a8144fa018378c8a902d86b35d8a079462ec6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "6619031bcd6637652b0a76260354969b3917c24f8a611ffdab14bbd5c6d3e34d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89af2612443530d98dc49ca74e675fc83e07788e12d19f452d484cd4ab24c090"
+  end
 
   depends_on "brotli"
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "yt-dlp"
 
   resource "brotli" do
@@ -85,8 +94,13 @@ class YtdlSub < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/80/72/de4a7f9bbfef886c7f0790b8246585310f155e4a6589dd38d846efa932e9/yt_dlp-2025.8.11.tar.gz"
-    sha256 "dc7c120a367fe55e0f711613dc80ea29d3a4e0ed8d66104cebfbe3d36e81fdfc"
+    url "https://files.pythonhosted.org/packages/66/6f/7427d23609353e5ef3470ff43ef551b8bd7b166dd4fef48957f0d0e040fe/yt_dlp-2026.3.3.tar.gz"
+    sha256 "3db7969e3a8964dc786bdebcffa2653f31123bf2a630f04a17bdafb7bbd39952"
+  end
+
+  resource "yt-dlp-ejs" do
+    url "https://files.pythonhosted.org/packages/6b/0d/b9e4ab1b47cdeba0842df634b74b3c0144307640ad5b632a5e189c4ab7ce/yt_dlp_ejs-0.5.0.tar.gz"
+    sha256 "8dfae59e418232f485253dcf8e197fefa232423c3af7824fe19e4517b173293b"
   end
 
   def install
@@ -94,6 +108,13 @@ class YtdlSub < Formula
   end
 
   test do
-    system bin/"ytdl-sub", "-h"
+    output = shell_output("#{bin}/ytdl-sub -h")
+    assert_match "usage", output
+    assert_match "ytdl-sub: Automate download and adding metadata with YoutubeDL", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/ytdl-sub -v")
+    date_version = version.to_s.split(".post").first
+    assert_match "ytdl-sub #{date_version}", version_output
   end
 end

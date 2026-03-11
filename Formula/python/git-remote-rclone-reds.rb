@@ -9,7 +9,7 @@ class GitRemoteRcloneReds < Formula
   head "https://github.com/redstreet/git-remote-rclone.git", branch: "main"
   deprecate! date: "2023-08-27", because: :unmaintained
 
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   depends_on "rclone"
 
   def install

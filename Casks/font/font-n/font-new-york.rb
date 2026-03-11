@@ -1,5 +1,7 @@
 cask "font-new-york" do
-  version "16.0d2e2,17.0d5e1"
+  version "78c1a96a9c3402c5661e74f48b07e4d3"
+
+  # version "16.0d2e2,17.0d5e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-new-york" do
   name "New York"
   name "NY"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "NewYork.ttc"
 

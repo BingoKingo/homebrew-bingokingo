@@ -8,8 +8,13 @@ class Remotezip < Formula
   license "MIT"
   head "https://github.com/gtsystem/python-remotezip.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "051e52fb813200caf3df06ee80df04189462b4ca418b89fba04cd3bc18f12f58"
+  end
+
   depends_on "certifi"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz"
@@ -41,6 +46,10 @@ class Remotezip < Formula
   end
 
   test do
-    system bin/"remotezip", "-h"
+    output = shell_output("#{bin}/remotezip -h")
+    assert_match "usage", output
+    assert_match "Unzip remote files", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

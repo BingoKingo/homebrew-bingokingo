@@ -8,8 +8,13 @@ class Pykdebugparser < Formula
   license "MIT"
   head "https://github.com/matan1008/pykdebugparser.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "4102c20ede7c32c42b4dea0aa2bfb8576adbb8f0e07da2b028f84b1f1b575df7"
+  end
+
   depends_on "pygments"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
@@ -36,6 +41,9 @@ class Pykdebugparser < Formula
   end
 
   test do
-    system bin/"pykdebugparser", "--help"
+    output = shell_output("#{bin}/pykdebugparser --help")
+    assert_match "Usage", output
+    assert_match "Options", output
+    assert_match "Commands", output
   end
 end

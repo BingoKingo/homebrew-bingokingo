@@ -3,8 +3,8 @@ class Beets < Formula
 
   desc "Music geek’s media organizer"
   homepage "https://beets.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b5/c5/7a328e8049874fb7799b32bb268c29408c7ca2f2326d7c5c83c3985519a6/beets-2.3.1.tar.gz"
-  sha256 "87598721a14af89a06d5ad3d9e8138f8ac112510271a981a90b840ed784d5712"
+  url "https://files.pythonhosted.org/packages/b6/c4/b18579bf9d60ade2f0528fa7546874c271001cbd635c7c8911262402a048/beets-2.7.0.tar.gz"
+  sha256 "129f315810e381e0dbb4236fb3fa59bf0af79fdf5c2d4844b4586ac08ec25a72"
   license "MIT"
   head "https://github.com/beetbox/beets.git", branch: "master"
 
@@ -13,7 +13,7 @@ class Beets < Formula
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "confuse" do
     url "https://files.pythonhosted.org/packages/a2/a6/444c7376439851ce1d07932f88b707910d4605466d1c313621943c738112/confuse-2.2.0.tar.gz"

@@ -8,6 +8,13 @@ class Ffsubsync < Formula
   license "MIT"
   head "https://github.com/smacke/ffsubsync.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a08bb13d06d87619b337a135d64a1f6a9097c1517995c4c21ddaf9702983949"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "985a28c64db971af2b003a85e98d62740cf2d244c60e042c57e168e934bc2f48"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "267e623b8d8a1edf0c437a27c38c7bec9586903d5a6d38f0a08407664df24e7f"
+  end
+
   depends_on "python-setuptools" => :build
   depends_on "chardet"
   depends_on "ffmpeg"
@@ -15,7 +22,8 @@ class Ffsubsync < Formula
   depends_on "pygments"
   depends_on "python@3.14"
   depends_on "rich-cli"
-  depends_on "six"
+
+  pypi_packages extra_packages: %w[six]
 
   resource "auditok" do
     url "https://files.pythonhosted.org/packages/7a/10/36727094aeb828ad4d9bc70e9c5bb422b1abf64d2b5fe8ad305ce337522b/auditok-0.1.5.tar.gz"

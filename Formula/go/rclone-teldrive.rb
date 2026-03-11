@@ -5,6 +5,7 @@ class RcloneTeldrive < Formula
   sha256 "78512389b00ca56675c845a12fb9f45fbb3bd141613b5332b1c1d80b3d3ca961"
   license "MIT"
   head "https://github.com/divyam234/rclone.git", branch: "main"
+
   depends_on "go" => :build
   depends_on :macos
 

@@ -8,10 +8,13 @@ class Opendrop < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/seemoo-lab/opendrop.git", branch: "master"
 
+  depends_on "python-setuptools" => :build
   depends_on "certifi"
   depends_on "pillow"
-  depends_on "python@3.13"
+  depends_on "python@3.14"
   uses_from_macos "libarchive"
+
+  pypi_packages extra_packages: %w[setuptools]
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/af/2d/7bf41579a8986e348fa033a31cdd0e4121114f6bce2457e8876010b092dd/certifi-2026.2.25.tar.gz"
@@ -56,6 +59,11 @@ class Opendrop < Formula
   resource "requests-toolbelt" do
     url "https://files.pythonhosted.org/packages/f3/61/d7545dafb7ac2230c70d38d31cbfe4cc64f7144dc41f6e4e4b78ecd9f5bb/requests-toolbelt-1.0.0.tar.gz"
     sha256 "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
   resource "urllib3" do

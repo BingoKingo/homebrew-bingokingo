@@ -1,5 +1,7 @@
 cask "font-sf-mono" do
-  version "18.0d1e1"
+  version "48f4f88060af434c0e4aa685c0a033ee"
+
+  # version "18.0d1e1"
 
   on_macos do
     depends_on formula: "fonttools"
@@ -42,6 +44,13 @@ cask "font-sf-mono" do
   name "San Francisco Mono"
   name "SF Mono"
   homepage "https://developer.apple.com/fonts/"
+
+  livecheck do
+    url "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg"
+    strategy :header_match do |headers|
+      headers["etag"]&.delete_prefix('"')&.delete_suffix('"')
+    end
+  end
 
   font "SF-Mono.ttc"
 

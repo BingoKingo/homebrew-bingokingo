@@ -8,8 +8,13 @@ class Pycrashreport < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/doronz88/pycrashreport.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "583295c2bddab9879b176985527c8a1977ee58b7dc1c1ae0537fcd95c79e47d9"
+  end
+
   depends_on "python-setuptools" => :build
-  depends_on "python@3.13"
+  depends_on "python@3.14"
 
   resource "cached-property" do
     url "https://files.pythonhosted.org/packages/76/4b/3d870836119dbe9a5e3c9a61af8cc1a8b69d75aea564572e385882d5aefb/cached_property-2.0.1.tar.gz"
@@ -37,8 +42,8 @@ class Pycrashreport < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/82/f3/748f4d6f65d1756b9ae577f329c951cda23fb900e4de9f70900ced962085/setuptools-82.0.0.tar.gz"
-    sha256 "22e0a2d69474c6ae4feb01951cb69d515ed23728cf96d05513d36e42b62b37cb"
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
   def install
@@ -46,6 +51,8 @@ class Pycrashreport < Formula
   end
 
   test do
-    system bin/"pycrashreport", "--help"
+    output = shell_output("#{bin}/pycrashreport --help")
+    assert_match "Usage", output
+    assert_match "Options", output
   end
 end

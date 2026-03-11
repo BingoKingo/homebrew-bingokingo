@@ -9,7 +9,7 @@ class Ufolint < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, all: "2b130c65f21ba4016ad5b84e54f096ab01ab3988d107fc131143868d13c31149"
+    sha256 cellar: :any_skip_relocation, all: "8fdfbdd6b840de9fbded4b6bf98daf6b86721bd33f1d80d7f6b51c0ebbd4939c"
   end
 
   depends_on "fonttools"
@@ -21,8 +21,8 @@ class Ufolint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/ec/ca/cf17b88a8df95691275a3d77dc0a5ad9907f328ae53acbe6795da1b2f5ed/fonttools-4.61.1.tar.gz"
-    sha256 "6675329885c44657f826ef01d9e4fb33b9158e9d93c537d84ad8399539bc6f69"
+    url "https://files.pythonhosted.org/packages/5a/96/686339e0fda8142b7ebed39af53f4a5694602a729662f42a6209e3be91d0/fonttools-4.62.0.tar.gz"
+    sha256 "0dc477c12b8076b4eb9af2e440421b0433ffa9e1dcb39e0640a6c94665ed1098"
   end
 
   def install
