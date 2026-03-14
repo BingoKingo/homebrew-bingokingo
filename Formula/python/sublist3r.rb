@@ -8,6 +8,11 @@ class Sublist3r < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/aboul3la/Sublist3r.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "77fc8d1bda671309060f78aa8b3e152fc538c1680e95844e36aba63f0003a5b7"
+  end
+
   depends_on "certifi"
   depends_on "python@3.14"
 
@@ -46,6 +51,9 @@ class Sublist3r < Formula
   end
 
   test do
-    system bin/"sublist3r", "-h"
+    output = shell_output("#{bin}/sublist3r -h")
+    assert_match "usage", output
+    assert_match "OPTIONS", output
+    assert_match "Example", output
   end
 end

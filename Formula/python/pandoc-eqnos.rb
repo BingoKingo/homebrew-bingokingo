@@ -10,18 +10,21 @@ class PandocEqnos < Formula
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8e08f8f911822f89e4bf87c8feee44d1aac67272db3f4e8e77a8a239d7ff4fb4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c8d708c5e3d7f044ada1dc14eba8320fe205ec750391ed51bab4e2e4aed8f836"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cb169c80583e9ff06779fa4155603d56cce4ea9c016abb88a916ab35d1bf4e52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "19edeb8b50c42250895ad492200f7de69596d3b404882881fbff7e29e05c6dc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "712c4617f2dc843f6f16128f0e1f4e78a6f63154faa147688281b65d19aa1a87"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "a6d8e76ae45ad2015d716e5ed00363eb2b524589517a3f587b0ee5f135943a4e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c2ab04e4d28b7d1bd4c5706efa24141acedb82332d9eb72dce2fc479326f3723"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9edc3650073872f75f20328afdbe0afd30af94ad17ebc1400614d628699e8ccf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b2f837737db7d001ea0225cbb2bbb02d815394031a5f8f6ed57a1e8377bc7fe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b27dee8b83dc11131ae057b1c48626c014f7057520315565460e4046efec959a"
   end
+
   deprecate! date: "2020-12-06", because: :unmaintained
+  depends_on "pandoc"
   depends_on "python@3.14"
 
   resource "pandoc-xnos" do
     url "https://files.pythonhosted.org/packages/f8/67/2f775963c0959f43821c4242e66143d42f39a01ac8e0c17f7d67ed126df7/pandoc-xnos-2.5.0.tar.gz"
     sha256 "7c18738c899e4ecec573dc6565abd8d43281fc894d41b82743d51df3dde250ae"
+    patch :DATA
   end
 
   resource "pandocfilters" do
@@ -48,3 +51,17 @@ class PandocEqnos < Formula
     assert_match "pandoc-eqnos #{version}", version_output
   end
 end
+__END__
+diff --git a/pandocxnos/core.py b/pandocxnos/core.py
+index d58f3f4..d2af146 100644
+--- a/pandocxnos/core.py
++++ b/pandocxnos/core.py
+@@ -171,7 +171,7 @@ def _get_pandoc_version(pandocversion, doc):
+             pass
+ 
+     # Test `pandocversion` and if it is OK then return it
+-    pattern = re.compile(r'^[1-2]\.[0-9]+(?:\.[0-9]+)?(?:\.[0-9]+)?$')
++    pattern = re.compile(r'^[1-3]\.[0-9]+(?:\.[0-9]+)?(?:\.[0-9]+)?$')
+     if pandocversion is not None:
+         if pattern.match(pandocversion):
+             return pandocversion

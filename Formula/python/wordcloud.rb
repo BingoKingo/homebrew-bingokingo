@@ -8,14 +8,16 @@ class Wordcloud < Formula
   license "MIT"
   head "https://github.com/amueller/word_cloud.git", branch: "main"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "meson" => :build
+  depends_on "python-setuptools" => :build
   depends_on "fonttools"
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python-packaging"
   depends_on "python@3.14"
-  depends_on "six"
 
   pypi_packages extra_packages: %w[pybind11]
 
@@ -74,6 +76,11 @@ class Wordcloud < Formula
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
@@ -85,6 +92,11 @@ class Wordcloud < Formula
   end
 
   test do
-    system bin/"wordcloud_cli", "--help"
+    output = shell_output("#{bin}/wordcloud_cli -h")
+    assert_match "usage", output
+    assert_match "A simple command line interface for wordcloud module.", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/wordcloud_cli --version")
+    assert_match "wordcloud_cli #{version}", version_output
   end
 end

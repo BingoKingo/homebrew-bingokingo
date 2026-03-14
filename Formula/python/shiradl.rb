@@ -8,10 +8,21 @@ class Shiradl < Formula
   license "MIT"
   head "https://github.com/KraXen72/shira.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any,                 arm64_tahoe:   "f70c05fc7fae4b8b494d265b3c40cccb985d4dd4405b7c14f4eec4852bbe53cc"
+    sha256 cellar: :any,                 arm64_sequoia: "5755156e8c6209d496ad15231e30480eebd951acb4366b984719515afa49a1ce"
+    sha256 cellar: :any,                 arm64_sonoma:  "d0f97f3cec16b89ce51e5009e673b178a88c0fcef28d2a4fa4b2d8784e954d83"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "2a4498bf8d85eb40e78b9c8d4ce2cc172aac652ca7b5b1d0d218874473a74c53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "67a47418fb167f47de21cd2ee8395eea43fd752cfed5bb3fcb880b07acca68f9"
+  end
+
+  depends_on "pkgconf" => :build
   depends_on "ffmpeg"
   depends_on "pillow"
   depends_on "python@3.14"
   depends_on "yt-dlp"
+  depends_on "zlib"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz"
@@ -118,7 +129,13 @@ class Shiradl < Formula
   end
 
   test do
-    system bin/"mbtag", "-h"
-    system bin/"shiradl", "-h"
+    mbtag_output = shell_output("#{bin}/mbtag --help")
+    assert_match "Usage", mbtag_output
+    assert_match "Options", mbtag_output
+    shiradl_output = shell_output("#{bin}/shiradl -h")
+    assert_match "Usage", shiradl_output
+    assert_match "Options", shiradl_output
+    version_output = shell_output("#{bin}/shiradl --version")
+    assert_match "shiradl, version #{version}", version_output
   end
 end

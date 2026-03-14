@@ -8,10 +8,12 @@ class Wireviz < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/wireviz/WireViz.git", branch: "master"
 
+  depends_on "autoconf" => :build
   depends_on "graphviz"
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "python@3.14"
+  depends_on "zlib"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"

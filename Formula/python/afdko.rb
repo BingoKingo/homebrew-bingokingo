@@ -8,6 +8,15 @@ class Afdko < Formula
   license "Apache-2.0"
   head "https://github.com/adobe-type-tools/afdko.git", branch: "develop"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "2f3556914661a7967e5836c5c741c60a6af02e3549114e98715a669a28b35fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9be55619255283e96208d99c563dd7d535861e156ab78e84308d906d5329c83a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0ad0d107eb41ffc991ecfd3e35d801802213b8ee26ae0c34bfd30c3597e33628"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "f3399b1f7aa7ae2ca2fee5047cf0a1b1bc075ad2afdbcfdd262e902a84566795"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "723f3c79cbacdfce4ee8fce67aa035cad32fe902d9ef9651c171b69bf654be68"
+  end
+
   depends_on "cmake" => :build
   depends_on "brotli"
   depends_on "python-packaging"
@@ -106,5 +115,48 @@ class Afdko < Formula
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
     virtualenv_install_with_resources
+  end
+
+  test do
+    system bin/"buildcff2vf", "-h"
+    system bin/"buildcff2vf", "--version"
+    system bin/"buildmasterotfs", "-h"
+    system bin/"buildmasterotfs", "--version"
+    system bin/"charplot", "-h"
+    system bin/"checkoutlinesufo", "-h"
+    system bin/"checkoutlinesufo", "--version"
+    system bin/"comparefamily", "-h"
+    system bin/"detype1", "-h"
+    system bin/"digiplot", "-h"
+    system bin/"fontplot", "-h"
+    system bin/"fontplot2", "-h"
+    system bin/"fontsetplot", "-h"
+    system bin/"hintplot", "-h"
+    system bin/"makeinstancesufo", "-h"
+    system bin/"makeotf", "-h"
+    system bin/"makeotf", "-v"
+    system bin/"makeotfexe", "-h"
+    system bin/"mergefonts", "-h"
+    system bin/"mergefonts", "-v"
+    system bin/"otc2otf", "-h"
+    system bin/"otc2otf", "--version"
+    system bin/"otf2otc", "-h"
+    system bin/"otf2otc", "-v"
+    system bin/"otf2ttf", "-h"
+    system bin/"otfautohint", "-h"
+    system bin/"otfautohint", "--version"
+    system bin/"otfstemhist", "-h"
+    system bin/"otfstemhist", "--version"
+    system bin/"rotatefont", "-h"
+    system bin/"sfntdiff", "-h"
+    system bin/"sfntedit", "-h"
+    system bin/"spot", "-h"
+    system bin/"ttfcomponentizer", "-h"
+    system bin/"ttfcomponentizer", "--version"
+    system bin/"ttfdecomponentizer", "-h"
+    system bin/"ttxn", "-h"
+    system bin/"tx", "-h"
+    system bin/"type1", "-h"
+    system bin/"waterfallplot", "-h"
   end
 end

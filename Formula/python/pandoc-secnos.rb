@@ -1,23 +1,23 @@
-class PandocFignos < Formula
+class PandocSecnos < Formula
   include Language::Python::Virtualenv
 
-  desc "Pandoc filter for numbering figures and figure references"
-  homepage "https://github.com/tomduck/pandoc-fignos/"
-  url "https://files.pythonhosted.org/packages/b5/ca/7fbf5c28111e0c1d8793e0579544314e7ce13292cd99105ecd662bd7dd6b/pandoc-fignos-2.4.0.tar.gz"
-  sha256 "7058edeae48824412e9fe090dd5f72500a9ef7d33a40391826b17338397d8849"
+  desc "Pandoc filter for numbering section references"
+  homepage "https://github.com/tomduck/pandoc-secnos/"
+  url "https://files.pythonhosted.org/packages/07/04/34f10643d02bbbb9843342f19bf013a3b5cf014e08215e3f9ab7a5721215/pandoc-secnos-2.2.2.tar.gz"
+  sha256 "16b7fec4cb076ab800042c8fb3a42a45e654651f0261d99560868e157ffa107c"
   license "GPL-3.0-or-later"
-  head "https://github.com/tomduck/pandoc-fignos.git", branch: "master"
+  head "https://github.com/tomduck/pandoc-secnos.git", branch: "master"
 
   bottle do
     root_url "https://ghcr.io/v2/bingokingo/homebrew"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ce7c272daa1d7deb8a69c1db9de8a71f4633e5dbd3812ce880d93f8165e9e962"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "06ff29d573ccce4f7114bf61e3dc4e95c8e5cdbca82a9944a1d48b3e727f8e83"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "85afe695a463a00a3bd1feb00fb82836e7c5bad50e01e5a70c8e2db070b2eb38"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "8347665aadf7fac2af02acceadd14b1cf9cd5e636c0049e307b49660da3c071c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2377c81373ee77e7c14b9a8355a8f4a519ec9cdbf7983e550d58099c5d226545"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "292421cec9a52b73ed7b0c4f37d809b039296277b4c686280569d4efbff76664"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f5f9c64cc03928a9ec2c7ff373d0fb03107e8d0c30e7787c09a9e0b1cfe1c533"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e0e758eb475b73df85f422fbfe90b58dce5184c0f067811cca840346fc60bf7e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "b3aa01eb583c959e0f3f0eaf05ded9aab67ab3231ffec19fa25262e8db973274"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de8a077dce6454e9062fd2f05523278f21503a2a9684f08e91132ba6ed405c4c"
   end
 
-  deprecate! date: "2020-11-11", because: :unmaintained
+  deprecate! date: "2020-08-08", because: :unmaintained
   depends_on "pandoc"
   depends_on "python@3.14"
 
@@ -37,18 +37,23 @@ class PandocFignos < Formula
     sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
   end
 
+  patch do
+    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/test/Patches/pandoc-secnos/pandoc-secnos-2.2.2.diff"
+    sha256 "cb747e349f9276de250bba1630ebef9f630736cc5c9cd929c41003e6956a2eaa"
+  end
+
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    output = shell_output("#{bin}/pandoc-fignos -h")
+    output = shell_output("#{bin}/pandoc-secnos -h")
     assert_match "usage", output
-    assert_match "Pandoc figure numbers filter.", output
+    assert_match "Pandoc section numbers filter.", output
     assert_match "positional arguments", output
     assert_match "options", output
-    version_output = shell_output("#{bin}/pandoc-fignos --version")
-    assert_match "pandoc-fignos #{version}", version_output
+    version_output = shell_output("#{bin}/pandoc-secnos --version")
+    assert_match "pandoc-secnos #{version}", version_output
   end
 end
 __END__

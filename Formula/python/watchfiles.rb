@@ -8,7 +8,17 @@ class Watchfiles < Formula
   license "MIT"
   head "https://github.com/samuelcolvin/watchfiles.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any,                 arm64_tahoe:   "a66b67d1d36189be022171776df8fa377450e26f98dffe29846ca74a23c7852e"
+    sha256 cellar: :any,                 arm64_sequoia: "1aeaf2de1edce5478e3724c64f1d1b94341187921439085add693c6322c20fc7"
+    sha256 cellar: :any,                 arm64_sonoma:  "6120fcc942dd7ca50b431f1c8f93753765a0dbf87294ee8d198abc35844e1886"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d210c84c8e6f9a730880fbfefc3af2e200a2bfbe47191a41175e431a16bcbd8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09324cedf5e1c798bee81d372cd9d82f9f6529cd0461a9707395c729e0710098"
+  end
+
   depends_on "maturin" => :build
+  depends_on "rust" => :build
   depends_on "python@3.14"
 
   pypi_packages extra_packages: %w[sniffio]
@@ -33,6 +43,11 @@ class Watchfiles < Formula
   end
 
   test do
-    system bin/"watchfiles", "-h"
+    output = shell_output("#{bin}/watchfiles -h")
+    assert_match "usage", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/watchfiles -V")
+    assert_match "watchfiles v#{version}", version_output
   end
 end

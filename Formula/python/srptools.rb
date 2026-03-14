@@ -8,13 +8,19 @@ class Srptools < Formula
   license "BSD-3-Clause"
   head "https://github.com/idlesign/srptools.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "201fb06b4181e38fbc08fea692ca72ab94fa3a04f081b0e7062e3cc4ed431f91"
+  end
+
   depends_on "python@3.14"
+
+  pypi_packages extra_packages: %w[click]
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
     sha256 "12ff4785d337a1bb490bb7e9c2b1ee5da3112e94a8622f26a6c77f5d2fc6842a"
   end
-  pypi_packages extra_packages: %w[click]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"

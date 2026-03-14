@@ -8,6 +8,7 @@ class PandocPlantumlFilter < Formula
   license "MIT"
   head "https://github.com/timofurrer/pandoc-plantuml-filter.git", branch: "master"
 
+  depends_on "pandoc"
   depends_on "python@3.14"
 
   resource "pandocfilters" do

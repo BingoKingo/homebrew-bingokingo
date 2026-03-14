@@ -8,6 +8,12 @@ class PythonCreole < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/jedie/python-creole.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "b9e2ff96e5fba2a2aca9b3b6417169309452dcd58fdf3f6131963aa0dfdc9200"
+  end
+
+  depends_on "rust" => :build
   depends_on "docutils"
   depends_on "python@3.14"
 

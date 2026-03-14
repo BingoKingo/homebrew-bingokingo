@@ -8,6 +8,16 @@ class Fdiff < Formula
   license "Apache-2.0"
   head "https://github.com/source-foundry/fdiff.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "6a15b47bdb878d07b8b89d44c51f9c50cc80c9a532a65d5a5163fdc7b8630b8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9ebce051bc4a50b814ab23d4108c92ad2f428d9d943eab946d7e0b7d5e1dfdff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8b86a7295b10b47c7b39d8f0f9e7f4ff41afc3b189d54871cb73395092e4140b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "46fe5b9a0837b268e731921787cc837477a49b9002df03be710b41fbe40c7673"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "221f7d264c66a95f1d1dacf5887c6757e8e5b99daba4c971e494ab480fbbabc4"
+  end
+
+  depends_on "cmake" => :build
   depends_on "cffi"
   depends_on "fonttools"
   depends_on "pycparser"

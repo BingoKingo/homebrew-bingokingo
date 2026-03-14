@@ -8,6 +8,10 @@ class Nsz < Formula
   license "MIT"
   head "https://github.com/nicoboss/nsz.git", branch: "master"
 
+  depends_on "libglu" => :build
+  depends_on "mesa" => :build
+  depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build
   depends_on "certifi"
   depends_on "docutils"
   depends_on "pygments"
@@ -78,6 +82,11 @@ class Nsz < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/c9/74/b3ff8e6c8446842c3f5c837e9c3dfcfe2018ea6ecef224c710c85ef728f4/requests-2.32.5.tar.gz"
     sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4f/db/cfac1baf10650ab4d1c111714410d2fbb77ac5a616db26775db562c8fab2/setuptools-82.0.1.tar.gz"
+    sha256 "7d872682c5d01cfde07da7bccc7b65469d3dca203318515ada1de5eda35efbf9"
   end
 
   resource "six" do

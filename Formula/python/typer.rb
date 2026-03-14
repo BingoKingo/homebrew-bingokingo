@@ -8,6 +8,11 @@ class Typer < Formula
   license "MIT"
   head "https://github.com/fastapi/typer.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "6fe0f61bb40979971bf3c7e58518024b485b27a3f68563153004dcef4414accf"
+  end
+
   depends_on "pygments"
   depends_on "python@3.14"
   depends_on "rich-cli"
