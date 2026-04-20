@@ -8,12 +8,23 @@ class Wireviz < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/wireviz/WireViz.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any,                 arm64_tahoe:   "3e05e788ce13e7b2e9d90df9d2815b0b2c2ca840d11cb93494f2801bfab12919"
+    sha256 cellar: :any,                 arm64_sequoia: "8661b7fc824f206ac8d2ed3415a09a7600fa4c0a627f877d915802a1b1efa11e"
+    sha256 cellar: :any,                 arm64_sonoma:  "f2585a800a0f2e06bdb954be173928c799f637147c747d414448ab42f51a1bd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "140369ea0ef849c354a5eed98c48425f9a3f9aa7c43d363cdd8ba2a555b17fba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6b6efb2a2f03b543621f7827e46104b1eca1607cd14a4a1de5c09fd7bf50821"
+  end
+
   depends_on "autoconf" => :build
   depends_on "graphviz"
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "python@3.14"
   depends_on "zlib"
+
+  pypi_packages extra_packages: %w[pillow]
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/3d/fa/656b739db8587d7b5dfa22e22ed02566950fbfbcdc20311993483657a5c0/click-8.3.1.tar.gz"
@@ -23,11 +34,6 @@ class Wireviz < Formula
   resource "graphviz" do
     url "https://files.pythonhosted.org/packages/f8/b3/3ac91e9be6b761a4b30d66ff165e54439dcd48b83f4e20d644867215f6ca/graphviz-0.21.tar.gz"
     sha256 "20743e7183be82aaaa8ad6c93f8893c923bd6658a04c32ee115edb3c8a835f78"
-  end
-
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz"
-    sha256 "9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4"
   end
 
   resource "pyyaml" do

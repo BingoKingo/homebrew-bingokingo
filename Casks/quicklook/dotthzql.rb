@@ -1,6 +1,6 @@
 cask "dotthzql" do
-  version "0.2.0"
-  sha256 "ca3b6a54efff28b81c4c39cd4c136fdd3e0841afb41dbcf6ec2ebfe1dde6bb2d"
+  version "0.3.0"
+  sha256 "1733ab5d66fdcbe6b735d0a7907a7de4ffdfe8144464b8127527d935d48590d7"
 
   url "https://github.com/hacknus/DotTHzQL/releases/download/#{version}/DotTHzQL-aarch64-apple-darwin.app.zip"
   name "DotTHzQL"

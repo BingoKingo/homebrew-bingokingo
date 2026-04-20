@@ -32,8 +32,6 @@ This repository may be rebased. If you encounter any issues, please try force re
 
 **Cask** `font-courier-prime` was removed.
 
-**Cask** `font-misans-arabic.otfinfo` was removed.
-
 **Cask** `font-misans-arabic` was removed.
 
 **Cask** `font-pacifico` was removed.

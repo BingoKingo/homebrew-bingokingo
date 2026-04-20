@@ -1,6 +1,6 @@
 cask "kernel-debug-kit" do
-  version "26.3.1,25D2128"
-  sha256 "6242e437e4141a1eae99ceaa6980a60ff9433daa3dd1eb2b7d0bab45f2a16e40"
+  version "26.4,25E5233c"
+  sha256 "25989a9d2c56ffcdfcdf34b631e007ef23dac599ba44d4c775df561fa3372052"
 
   url "https://download.developer.apple.com/macOS/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}/Kernel_Debug_Kit_#{version.csv.first}_build_#{version.csv.second}.dmg",
       referer:    "https://developer.apple.com/",

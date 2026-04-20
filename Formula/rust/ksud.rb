@@ -21,9 +21,9 @@ class Ksud < Formula
 
   def install
     cd "userspace/ksud" do
-        ENV["KSUD_VERSION"] = version
-        system "cargo", "install", *std_cargo_args
-        bin.install "target/release/ksud"
+      ENV["KSUD_VERSION"] = version
+      system "cargo", "install", *std_cargo_args
+      bin.install "target/release/ksud"
     end
   end
 

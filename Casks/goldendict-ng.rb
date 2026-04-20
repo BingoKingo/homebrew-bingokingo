@@ -1,11 +1,11 @@
 cask "goldendict-ng" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "26.3.0,fce2b872"
+  version "26.5.1,9973c461"
   qt_version="6.9.1"
 
-  sha256 arm:   "7dc4cc72ef0510f5b1716b82ef5377a3719b2bfcaba1dc9b14b960f3fe67d53e",
-         intel: "87acd2406b7064bae88906cd9b7a7127b16aff2dd494a8ab522e109d242ffdd3"
+  sha256 arm:   "b53ebb8f345f552a947dfb493b1363464cc78398306c2416471a15458957b958",
+         intel: "d2700b223ee547e0bd7e8b1fce08486ea278766c3b025824174d03560360aceb"
 
   url "https://github.com/xiaoyifang/goldendict-ng/releases/download/v#{version.csv.first}-Release.#{version.csv.second}/GoldenDict-ng-#{version.csv.first}-Qt#{qt_version}-macOS-#{arch}.dmg",
       verified: "github.com/xiaoyifang/goldendict-ng/"
