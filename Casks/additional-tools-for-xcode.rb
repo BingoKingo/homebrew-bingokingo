@@ -1,8 +1,8 @@
 cask "additional-tools-for-xcode" do
-  version "26.4,beta.3"
-  sha256 "bc9438a71cb20b32620c34f6acb21c1a975c119996b17776d96959602997da48"
+  version "26.4"
+  sha256 "3be4fe178b747e24123591ba9f7c8553f14e6b43160d619b024126cef8667bd1"
 
-  url "https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_#{version.csv.first}_#{version.csv.second.dots_to_underscores}/Additional_Tools_for_Xcode_#{version.csv.first}_#{version.csv.second.dots_to_underscores}.dmg",
+  url "https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_#{version.csv.first}/Additional_Tools_for_Xcode_#{version.csv.first}.dmg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {

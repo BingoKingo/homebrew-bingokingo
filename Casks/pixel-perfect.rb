@@ -1,6 +1,6 @@
 cask "pixel-perfect" do
-  version "1.4"
-  sha256 "31b98c0d3afc71df6e4ea99be82c89d3d910ca7dbb2c6d553254e4ac86f25ece"
+  version "1.5"
+  sha256 "94c2fbb35850b3703e1677959421c761b4ad9860a8d17f383c07900fbd89c99a"
 
   url "https://github.com/cormiertyshawn895/PixelPerfect/releases/download/#{version}/PixelPerfect.#{version}.zip"
   name "Pixel Perfect"

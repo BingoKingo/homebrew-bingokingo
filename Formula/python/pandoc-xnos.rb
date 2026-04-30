@@ -8,6 +8,15 @@ class PandocXnos < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/tomduck/pandoc-xnos.git", branch: "master"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "8da09b2e279bda566eddac1c54530694d3fca5a0db758c40a5eed8f6c1a93ba7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "cf65b799efe45a20123c6e517b228ff653390787c54a6fdc72ee9804abd101ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0336f6cea24d07aef71e875f96b9ab1a3c35c84b6d22d7ff6bbfd75bbeb89207"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "623c88e88a8eb8c597ec5ab8fa9629e4fbdd43f7f0a721d0a96aff6e90aa7260"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "994c8b77f87f3a4454a036d778ba0abdf9ccd33673743f709b1ced2e4f40a225"
+  end
+
   deprecate! date: "2020-11-11", because: :unmaintained
   depends_on "pandoc"
   depends_on "python@3.14"
@@ -29,7 +38,26 @@ class PandocXnos < Formula
   end
 
   test do
-    system bin/"pandoc-xnos"
+    testpath = Pathname.new("test")
+    testpath.mkpath
+    outpath = testpath.join("out")
+    outpath.mkpath
+
+    system "curl", "-s", "-o", testpath.join("demo.md"), "https://raw.githubusercontent.com/tomduck/pandoc-xnos/refs/heads/master/test/integration/demo.md"
+    system "curl", "-s", "-o", testpath.join("fig.png"), "https://raw.githubusercontent.com/tomduck/pandoc-xnos/refs/heads/master/test/integration/fig.png"
+
+    Dir.chdir(testpath) do
+      system "pandoc", "--standalone", "--top-level-division=section", "--number-sections", "--filter",
+"pandoc-xnos", "-o", "out/demo.pdf", "demo.md"
+      system "pandoc", "--standalone", "--top-level-division=section", "--number-sections", "--filter",
+"pandoc-xnos", "-o", "out/demo.html", "demo.md"
+      system "pandoc", "--standalone", "--top-level-division=section", "--number-sections", "--filter",
+"pandoc-xnos", "-o", "out/demo.docx", "demo.md"
+      system "pandoc", "--standalone", "--top-level-division=section", "--number-sections", "--filter",
+"pandoc-xnos", "-o", "out/demo.json", "demo.md"
+      system "pandoc", "--standalone", "--top-level-division=section", "--number-sections", "--filter",
+"pandoc-xnos", "-o", "out/demo.tex", "demo.md"
+    end
   end
 end
 __END__

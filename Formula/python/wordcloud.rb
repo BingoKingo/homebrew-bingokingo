@@ -8,6 +8,15 @@ class Wordcloud < Formula
   license "MIT"
   head "https://github.com/amueller/word_cloud.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1167d7ed2d9633eeca76eff875a445f0801d8818ec071eb4f86edb91f963f328"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "888247de5457540354b5b808a9e87d2d8a6a9b8563edef46d6cf83b7acd90ac4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "96dfe9e42bf444ee49aef75bd6bef39ec8ac6b511ddaa413b2c495d3e81ccc04"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "3ed84b2fc4dc0b5e8c1820660849e178244afa20f50822612e09bb7dff6c4b42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9fe231bac57d23c7b66d9246fca7b9c2cf267d333bd9ef2eb12459592c7638b4"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
@@ -19,7 +28,7 @@ class Wordcloud < Formula
   depends_on "python-packaging"
   depends_on "python@3.14"
 
-  pypi_packages extra_packages: %w[pybind11]
+  pypi_packages extra_packages: %w[pillow pybind11]
 
   resource "contourpy" do
     url "https://files.pythonhosted.org/packages/58/01/1253e6698a07380cd31a736d248a3f2a50a7c88779a1813da27503cadc2a/contourpy-1.3.3.tar.gz"
@@ -54,11 +63,6 @@ class Wordcloud < Formula
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz"
     sha256 "00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4"
-  end
-
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz"
-    sha256 "9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4"
   end
 
   resource "pybind11" do

@@ -1,6 +1,6 @@
 cask "eden" do
-  version "0.2.0-rc1"
-  sha256 "c1fec63d61d9346eb69e3bc63fcd1610b879df1f9ef492e83cd9e27aa081f654"
+  version "0.2.0-rc2"
+  sha256 "6987944af48380667c716a55b237620872d8402c98acd8f84346d278d87331cb"
 
   url "https://git.eden-emu.dev/eden-emu/eden/releases/download/v#{version}/Eden-macOS-v#{version}.tar.gz"
   name "eden"

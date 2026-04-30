@@ -8,13 +8,15 @@ class Tikzgif < Formula
   license "MIT"
   head "https://github.com/j-vaught/tikzgif.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "dd536403149043cf1253b15c6813ac76556ce927d2ad0430834e04a31eec6871"
+  end
+
   depends_on "pillow"
   depends_on "python@3.14"
 
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/1f/42/5c74462b4fd957fcd7b13b04fb3205ff8349236ea74c7c375766d6c82288/pillow-12.1.1.tar.gz"
-    sha256 "9ad8fa5937ab05218e2b6a4cff30295ad35afd2f83ac592e68c0d871bb0fdbc4"
-  end
+  pypi_packages extra_packages: %w[pillow]
 
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/09/a9/6ba95a270c6f1fbcd8dac228323f2777d886cb206987444e4bce66338dd4/tqdm-4.67.3.tar.gz"
@@ -26,6 +28,11 @@ class Tikzgif < Formula
   end
 
   test do
-    system "false"
+    output = shell_output("#{bin}/tikzgif -h")
+    assert_match "Parameterized TikZ to animation pipeline", output
+    assert_match "positional arguments", output
+    assert_match "options", output
+    version_output = shell_output("#{bin}/tikzgif --version")
+    assert_match "tikzgif #{version}", version_output
   end
 end

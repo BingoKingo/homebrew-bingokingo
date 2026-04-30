@@ -9,18 +9,25 @@ class FaradayCli < Formula
   head "https://github.com/infobyte/faraday-cli.git", branch: "master"
 
   depends_on "gcc" => :build
+  depends_on "maturin" => :build
+  depends_on "rust" => :build
   depends_on "certifi"
   depends_on "libyaml"
+  depends_on "ncurses"
   depends_on "numpy"
   depends_on "pygments"
   depends_on "python-packaging"
   depends_on "python-tabulate"
   depends_on "python@3.14"
-  depends_on "readline"
   depends_on "rich-cli"
   depends_on "six"
+  uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/96/f0/5eb65b2bb0d09ac6776f2eb54adee6abe8228ea05b20a5ad0e4945de8aac/anyio-4.12.1.tar.gz"
@@ -82,9 +89,11 @@ class FaradayCli < Formula
     sha256 "b64ece2b38f4ca29dd3e810287aa8c48182bbecd1ae6e9ae126c9b35f1382694"
   end
 
-  resource "gnureadline" do
-    url "https://files.pythonhosted.org/packages/34/33/d0a1a41e687f0d1956cc5a7b07735c6893f3fa061440fddb7a2c9d2bcd35/gnureadline-8.3.3.tar.gz"
-    sha256 "0972392bd2f31244e2d981178246fe8b729c8766454fdaeb275946ac47b7e9fd"
+  if OS.linux?
+    resource "gnureadline" do
+      url "https://files.pythonhosted.org/packages/34/33/d0a1a41e687f0d1956cc5a7b07735c6893f3fa061440fddb7a2c9d2bcd35/gnureadline-8.3.3.tar.gz"
+      sha256 "0972392bd2f31244e2d981178246fe8b729c8766454fdaeb275946ac47b7e9fd"
+    end
   end
 
   resource "h11" do
@@ -308,10 +317,26 @@ class FaradayCli < Formula
   end
 
   def install
+    ENV["LDFLAGS"] = "-L#{Formula["readline"].opt_lib} -L#{Formula["ncurses"].opt_lib}"
+    ENV["CPPFLAGS"] = "-I#{Formula["readline"].opt_include} -I#{Formula["ncurses"].opt_include}"
+    ENV["PKG_CONFIG_PATH"] = "#{Formula["readline"].opt_lib}/pkgconfig"
+
+    # Create dummy RELEASE.md and requirements.txt to avoid FileNotFoundError during build
+    (buildpath/"RELEASE.md").write("")
+    req_file = buildpath/"requirements.txt"
+    requirements = resources.map do |r|
+      "#{r.name}==#{r.version}"
+    end
+    req_file.write requirements.join("\n")
+
     virtualenv_install_with_resources
   end
 
   test do
-    system bin/"faraday-cli", "-h"
+    output = shell_output("#{bin}/faraday-cli -h")
+    assert_match "usage: faraday-cli [-h] [command]", output
+    assert_match "Commands as arguments", output
+    assert_match "positional arguments", output
+    assert_match "options", output
   end
 end

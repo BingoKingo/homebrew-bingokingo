@@ -1,6 +1,6 @@
 cask "hopper-disassembler-demo" do
-  version "6.1.0"
-  sha256 "984a8f6615c09368ec9a6028f8bff9c6b9f9dc3d3551f07d4372a2bd33eb0f71"
+  version "6.2.6"
+  sha256 "44ae4d8d156aa2f5d31bcc4c928976fd34ccbf751366b2f3b17ab631a32083ea"
 
   url "https://www.hopperapp.com/downloader/public/Hopper-#{version}-demo.dmg",
       user_agent: :browser
@@ -36,7 +36,7 @@ cask "hopper-disassembler-demo" do
     "~/Library/Saved Application State/com.cryptic-apps.hopper-web-4.savedState",
     # "~/Library/Saved Application State/com.cryptic-apps.hopper-web-#{version.major}.savedState",
     "~/Library/WebKit/com.cryptic-apps.hopper-web-4",
-    # "~/Library/WebKit/com.cryptic-apps.hopper-web-#{version.major}",
+    # "~/Library/WebKit/com.cryptic-apps.hopper-web-#{version.major}"
   ]
 
   # binary "#{appdir}/Hopper Disassembler v#{version.major}.app/Contents/MacOS/hopper"

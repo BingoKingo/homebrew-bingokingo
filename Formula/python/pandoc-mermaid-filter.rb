@@ -21,6 +21,13 @@ class PandocMermaidFilter < Formula
   end
 
   test do
-    system bin/"pandoc-mermaid"
+    testpath = Pathname.new("test")
+    testpath.mkpath
+
+    system "curl", "-s", "-o", testpath.join("sample.md"), "https://raw.githubusercontent.com/timofurrer/pandoc-mermaid-filter/refs/heads/master/tests/sample.md"
+
+    Dir.chdir(testpath) do
+      system "pandoc", "-o", "sample.pdf", "--filter", "pandoc-mermaid", "sample.md"
+    end
   end
 end
