@@ -19,6 +19,8 @@ cask "2z695-0105-pop-piano-3-suspended-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0105_Pop Piano 3_Suspended Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0105_Pop Piano 3_Suspended Chords"

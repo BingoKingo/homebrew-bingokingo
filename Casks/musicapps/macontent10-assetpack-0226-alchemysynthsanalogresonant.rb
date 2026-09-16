@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0226-alchemysynthsanalogresonant" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0226_AlchemySynthsAnalogResonant.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0226_AlchemySynthsAnalogResonant"

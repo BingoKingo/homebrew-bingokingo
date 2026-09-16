@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0668-appleloopsreggaetonpop" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0668_AppleLoopsReggaetonPop.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0668_AppleLoopsReggaetonPop"

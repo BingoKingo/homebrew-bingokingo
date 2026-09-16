@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0238-alchemysynthsdigitalpluck" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0238_AlchemySynthsDigitalPluck.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0238_AlchemySynthsDigitalPluck"

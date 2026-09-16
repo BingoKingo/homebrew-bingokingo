@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0863-exs-electronicdrumkitswatchthesoundhollywoodfol
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0863_EXS_ElectronicDrumkitsWatchTheSoundHollywoodFoley.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0863_EXS_ElectronicDrumkitsWatchTheSoundHollywoodFoley"

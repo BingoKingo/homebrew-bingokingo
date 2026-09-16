@@ -11,6 +11,8 @@ cask "font-tools-for-xcode" do
   name "Font Tools for Xcode"
   homepage "https://developer.apple.com/download/all/"
 
+  depends_on :macos
+
   pkg "macOS Font Tools.pkg"
 
   uninstall pkgutil: ["com.apple.pkg.FontCommandLineTools",

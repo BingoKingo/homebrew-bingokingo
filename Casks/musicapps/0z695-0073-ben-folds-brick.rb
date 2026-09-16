@@ -19,6 +19,8 @@ cask "0z695-0073-ben-folds-brick" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0073_Ben Folds_Brick.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0073_Ben Folds_Brick"

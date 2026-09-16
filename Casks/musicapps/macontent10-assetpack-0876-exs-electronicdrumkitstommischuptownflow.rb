@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0876-exs-electronicdrumkitstommischuptownflow" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0876_EXS_ElectronicDrumkitsTomMischUptownFlow.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0876_EXS_ElectronicDrumkitsTomMischUptownFlow"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0962-exs-electronicdrumkitshardwellhardwired" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0962_EXS_ElectronicDrumkitsHardwellHardwired.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0962_EXS_ElectronicDrumkitsHardwellHardwired"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0831-exs-electronicdrumkitsfluidshadow" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0831_EXS_ElectronicDrumkitsFluidShadow.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0831_EXS_ElectronicDrumkitsFluidShadow"

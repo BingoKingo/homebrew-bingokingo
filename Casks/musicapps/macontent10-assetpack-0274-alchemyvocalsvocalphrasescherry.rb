@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0274-alchemyvocalsvocalphrasescherry" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0274_AlchemyVocalsVocalPhrasesCherry.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0274_AlchemyVocalsVocalPhrasesCherry"

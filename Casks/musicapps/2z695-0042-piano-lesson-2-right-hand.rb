@@ -19,6 +19,8 @@ cask "2z695-0042-piano-lesson-2-right-hand" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0042_Piano Lesson 2_Right Hand.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0042_Piano Lesson 2_Right Hand"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1000-exs-electronicdrumkitspompomgreenlights" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1000_EXS_ElectronicDrumkitsPomPomGreenLights.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1000_EXS_ElectronicDrumkitsPomPomGreenLights"

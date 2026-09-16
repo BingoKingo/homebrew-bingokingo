@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0319-appleloopsdeephouse" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0319_AppleLoopsDeepHouse.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0319_AppleLoopsDeepHouse"

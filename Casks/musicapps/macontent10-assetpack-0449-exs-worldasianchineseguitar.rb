@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0449-exs-worldasianchineseguitar" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0449_EXS_WorldAsianChineseGuitar.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0449_EXS_WorldAsianChineseGuitar"

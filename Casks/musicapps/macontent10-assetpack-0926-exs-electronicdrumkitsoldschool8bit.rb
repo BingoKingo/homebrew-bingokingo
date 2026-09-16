@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0926-exs-electronicdrumkitsoldschool8bit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0926_EXS_ElectronicDrumkitsOldSchool8Bit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0926_EXS_ElectronicDrumkitsOldSchool8Bit"

@@ -4,11 +4,12 @@ cask "font-sf-arabic" do
   # version "20.0d1e1,20.0d1e2"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Arabic.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-arabic" do
       ]
     end
   end
-
   on_linux do
     sha256 "643e04537a5db4e2b350de8619aa34462af99549da0d5a4725e44febc7172833"
 

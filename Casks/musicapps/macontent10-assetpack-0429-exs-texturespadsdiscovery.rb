@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0429-exs-texturespadsdiscovery" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0429_EXS_TexturesPadsDiscovery.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0429_EXS_TexturesPadsDiscovery"

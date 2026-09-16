@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0424-exs-texturesfxtrailer3" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0424_EXS_TexturesFXTrailer3.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0424_EXS_TexturesFXTrailer3"

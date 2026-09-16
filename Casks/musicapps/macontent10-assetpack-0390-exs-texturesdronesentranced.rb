@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0390-exs-texturesdronesentranced" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0390_EXS_TexturesDronesEntranced.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0390_EXS_TexturesDronesEntranced"

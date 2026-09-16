@@ -16,6 +16,8 @@ cask "qlcodec" do
   desc "QuickLook extension for unsupported video and audio formats"
   homepage "https://github.com/Oil3/QLCodec/"
 
+  depends_on :macos
+
   app "QLC.app"
 
   zap trash: [

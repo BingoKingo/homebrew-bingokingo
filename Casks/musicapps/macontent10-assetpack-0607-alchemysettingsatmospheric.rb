@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0607-alchemysettingsatmospheric" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0607_AlchemySettingsAtmospheric.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0607_AlchemySettingsAtmospheric"

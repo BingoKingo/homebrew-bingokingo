@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -a
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin${PATH:+:${PATH}}"
+set +a
+
+newline=$'\n'
 
 casks_dir="$(dirname "$0")/../Casks/musicapps"
 if [[ ! -d "${casks_dir}" ]]
@@ -53,22 +59,38 @@ do
   echo "Found ${item_count} items in RSS"
 
   # Process each item separately using awk
-  echo "${items}" | awk 'BEGIN { RS="</item>" } /<item>/ { print $0 "</item>" }' | while read -r item; do
+  items_file=$(mktemp)
+  echo "${items}" | awk 'BEGIN { RS="</item>" } /<item>/ { print $0 "</item>" }' >"${items_file}"
+  while read -r item
+  do
     # Extract uniquecontentid from <item> tag
-    uniquecontentid=$(echo "${item}" | grep -o '<uniquecontentid>[^<]*</uniquecontentid>' | sed 's/<uniquecontentid>//g' | sed 's/<\/uniquecontentid>//g' | tr -d '[:space:]')
+    _raw=$(printf '%s' "${item}" | grep -o '<uniquecontentid>[^<]*</uniquecontentid>')
+    uniquecontentid=${_raw#<uniquecontentid>}
+    uniquecontentid=${uniquecontentid%</uniquecontentid>}
+    uniquecontentid=$(printf '%s' "${uniquecontentid}" | tr -d '[:space:]')
 
     # If uniquecontentid not found, try alternative parsing
     if [[ -z "${uniquecontentid}" ]]
     then
-      uniquecontentid=$(echo "${item}" | sed 's/<item>//' | sed 's/<title>.*//' | tr -d '[:space:]' | sed 's/<\/uniquecontentid>//g')
+      _alt=${item#*<item>}
+      _alt=${_alt%%<title>*}
+      uniquecontentid=$(printf '%s' "${_alt}" | tr -d '[:space:]')
     fi
 
     # Clean up uniquecontentid to remove any remaining XML tags
-    uniquecontentid=$(echo "${uniquecontentid}" | sed 's/<[^>]*>//g' | tr -d '[:space:]')
+    uniquecontentid=${uniquecontentid//<[^>]*>/}
+    uniquecontentid=$(printf '%s' "${uniquecontentid}" | tr -d '[:space:]')
 
     # Extract title and subtitle
-    title=$(echo "${item}" | grep -o '<title>[^<]*</title>' | sed 's/<title>//g' | sed 's/<\/title>//g' | tr -d '[:space:]')
-    subtitle=$(echo "${item}" | grep -o '<subtitle>[^<]*</subtitle>' | sed 's/<subtitle>//g' | sed 's/<\/subtitle>//g' | tr -d '[:space:]')
+    _rtitle=$(printf '%s' "${item}" | grep -o '<title>[^<]*</title>')
+    title=${_rtitle#<title>}
+    title=${title%</title>}
+    title=$(printf '%s' "${title}" | tr -d '[:space:]')
+
+    _rsub=$(printf '%s' "${item}" | grep -o '<subtitle>[^<]*</subtitle>')
+    subtitle=${_rsub#<subtitle>}
+    subtitle=${subtitle%</subtitle>}
+    subtitle=$(printf '%s' "${subtitle}" | tr -d '[:space:]')
 
     if [[ -z "${uniquecontentid}" ]]
     then
@@ -103,21 +125,27 @@ do
     trash_paths=()
     if [[ -f "${temp_dir}/${bundle_filename}" ]]
     then
-      files=$(aa list -i "${temp_dir}/${bundle_filename}" -include-type f 2>/dev/null | grep -v "^$")
+      files_file=$(mktemp)
+      aa list -i "${temp_dir}/${bundle_filename}" -include-type f 2>/dev/null | grep -v "^$" >"${files_file}"
 
-      dirs=$(aa list -i "${temp_dir}/${bundle_filename}" -include-type d 2>/dev/null | grep -v "^$")
+      dirs_file=$(mktemp)
+      aa list -i "${temp_dir}/${bundle_filename}" -include-type d 2>/dev/null | grep -v "^$" >"${dirs_file}"
 
-      unique_dirs=$(echo "${files}" | while IFS= read -r line; do
+      unique_dirs_file=$(mktemp)
+      while IFS= read -r line
+      do
         if [[ -n "${line}" ]]
         then
           line=${line#/}
           dirname "${line}"
         fi
-      done | sort | uniq)
+      done <"${files_file}" | sort -u >"${unique_dirs_file}"
 
       while IFS= read -r dir
       do
-        aar_files=$(echo "${files}" | while IFS= read -r line; do
+        aar_files_file=$(mktemp)
+        while IFS= read -r line
+        do
           if [[ -n "${line}" ]]
           then
             line=${line#/}
@@ -126,7 +154,7 @@ do
               basename "${line}"
             fi
           fi
-        done | sort)
+        done <"${files_file}" | sort >"${aar_files_file}"
 
         if [[ "${dir}" == "." ]]
         then
@@ -136,29 +164,66 @@ do
             then
               trash_paths+=("${HOME}/Music/Logic Pro Library.bundle/${file}")
             fi
-          done <<<"${aar_files}"
+          done <"${aar_files_file}"
         else
           bundle_dir="${HOME}/Music/Logic Pro Library.bundle/${dir}"
           if [[ -d "${bundle_dir}" ]]
           then
-            bundle_files=$(find "${bundle_dir}" -type f -exec basename {} \; | sort)
+            bundle_files_file=$(mktemp)
+            find "${bundle_dir}" -type f ! -name ".DS_Store" -exec basename {} \; | sort >"${bundle_files_file}"
 
-            bundle_subdirs=$(find "${bundle_dir}" -type d -exec basename {} \; | sort)
+            bundle_subdirs_file=$(mktemp)
+            find "${bundle_dir}" -mindepth 1 -type d ! -name ".DS_Store" -exec basename {} \; | sort >"${bundle_subdirs_file}"
 
-            aar_subdirs=$(echo "${dirs}" | grep "^${dir}/" | sed "s|^${dir}/||" | sort)
+            aar_subdirs_file=$(mktemp)
+            grep "^${dir}/" "${dirs_file}" | sed "s|^${dir}/||" | sort >"${aar_subdirs_file}"
 
-            if [[ "${aar_files}" == "${bundle_files}" && "${aar_subdirs}" == "${bundle_subdirs}" ]]
+            aar_files_count=$(wc -l <"${aar_files_file}")
+            bundle_files_count=$(wc -l <"${bundle_files_file}")
+            aar_subdirs_count=$(wc -l <"${aar_subdirs_file}")
+            bundle_subdirs_count=$(wc -l <"${bundle_subdirs_file}")
+
+            if [[ "${aar_files_count}" -eq "${bundle_files_count}" && "${aar_subdirs_count}" -eq "${bundle_subdirs_count}" ]]
             then
-              trash_paths+=("${bundle_dir}")
-            else
-              while IFS= read -r file
+              files_match=true
+              while IFS= read -r aar_file && IFS= read -r bundle_file <&3
               do
-                if [[ -n "${file}" ]]
+                if [[ "${aar_file}" != "${bundle_file}" ]]
                 then
-                  trash_paths+=("${bundle_dir}/${file}")
+                  files_match=false
+                  break
                 fi
-              done <<<"${aar_files}"
+              done 3<"${bundle_files_file}" <"${aar_files_file}"
+
+              dirs_match=true
+              while IFS= read -r aar_subdir && IFS= read -r bundle_subdir <&3
+              do
+                if [[ "${aar_subdir}" != "${bundle_subdir}" ]]
+                then
+                  dirs_match=false
+                  break
+                fi
+              done 3<"${bundle_subdirs_file}" <"${aar_subdirs_file}"
+
+              rm -f "${bundle_files_file}" "${bundle_subdirs_file}" "${aar_subdirs_file}"
+
+              if [[ "${files_match}" == true && "${dirs_match}" == true ]]
+              then
+                trash_paths+=("${bundle_dir}")
+                rm -f "${aar_files_file}"
+                continue
+              fi
+            else
+              rm -f "${bundle_files_file}" "${bundle_subdirs_file}" "${aar_subdirs_file}"
             fi
+
+            while IFS= read -r file
+            do
+              if [[ -n "${file}" ]]
+              then
+                trash_paths+=("${bundle_dir}/${file}")
+              fi
+            done <"${aar_files_file}"
           else
             while IFS= read -r file
             do
@@ -166,10 +231,25 @@ do
               then
                 trash_paths+=("${bundle_dir}/${file}")
               fi
-            done <<<"${aar_files}"
+            done <"${aar_files_file}"
           fi
+          rm -f "${aar_files_file}"
         fi
-      done <<<"${unique_dirs}"
+      done <"${unique_dirs_file}"
+
+      rm -f "${files_file}" "${dirs_file}" "${unique_dirs_file}"
+    fi
+
+    if [[ ${#trash_paths[@]} -gt 0 ]]
+    then
+      trash_paths_sorted=$(mktemp)
+      printf "%s\n" "${trash_paths[@]}" | sort -u >"${trash_paths_sorted}"
+      trash_paths=()
+      while IFS= read -r path
+      do
+        trash_paths+=("${path}")
+      done <"${trash_paths_sorted}"
+      rm -f "${trash_paths_sorted}"
     fi
 
     rm -rf "${temp_dir}"
@@ -182,10 +262,10 @@ do
     trash_list=""
     for path in "${trash_paths[@]}"
     do
-      escaped_path=$(echo "${path}" | sed 's/"/\\"/g')
-      trash_list+="    \"${escaped_path}\",\n"
+      escaped_path="${path//\"/\\\"}"
+      trash_list+="    \"${escaped_path}\",${newline}"
     done
-    trash_list=${trash_list%\n}
+    trash_list=${trash_list%"${newline}"}
 
     if [[ -n "${desc}" ]]
     then
@@ -266,7 +346,8 @@ EOF
     echo "${count}" >"${counter_file}"
     echo "Generated ${cask_file}"
     ls -la "${cask_file}"
-  done
+  done <"${items_file}"
+  rm "${items_file}"
 done
 
 count=$(cat "${counter_file}")

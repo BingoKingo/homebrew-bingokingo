@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0343-irswarpeddrumtransformers" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0343_IRsWarpedDrumTransformers.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0343_IRsWarpedDrumTransformers"

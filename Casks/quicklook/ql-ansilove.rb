@@ -9,5 +9,7 @@ cask "ql-ansilove" do
 
   deprecate! date: "2023-02-24", because: :discontinued
 
+  depends_on :macos
+
   qlplugin "QLAnsilove.qlgenerator"
 end

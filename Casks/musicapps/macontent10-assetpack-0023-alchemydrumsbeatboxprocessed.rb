@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0023-alchemydrumsbeatboxprocessed" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0023_AlchemyDrumsBeatBoxProcessed.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0023_AlchemyDrumsBeatBoxProcessed"

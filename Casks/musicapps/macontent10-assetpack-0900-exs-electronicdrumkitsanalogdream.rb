@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0900-exs-electronicdrumkitsanalogdream" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0900_EXS_ElectronicDrumkitsAnalogDream.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0900_EXS_ElectronicDrumkitsAnalogDream"

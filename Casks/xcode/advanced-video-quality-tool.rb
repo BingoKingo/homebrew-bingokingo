@@ -15,6 +15,8 @@ cask "advanced-video-quality-tool" do
   name "Advanced Video Quality Tool"
   homepage "https://developer.apple.com/download/all/"
 
+  depends_on :macos
+
   pkg "AVQT.pkg"
 
   uninstall pkgutil: "com.apple.pkg.AVQT"

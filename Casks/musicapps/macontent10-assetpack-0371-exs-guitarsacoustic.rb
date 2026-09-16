@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0371-exs-guitarsacoustic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0371_EXS_GuitarsAcoustic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0371_EXS_GuitarsAcoustic"

@@ -19,6 +19,8 @@ cask "0z695-0061-ben-folds-zak-and-sara" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0061_Ben Folds_Zak and Sara.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0061_Ben Folds_Zak and Sara"

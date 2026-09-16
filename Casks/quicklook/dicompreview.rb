@@ -7,6 +7,7 @@ cask "dicompreview" do
   desc "QuickLook Application for viewing DICOMs"
   homepage "https://github.com/neuralink/DicomPreview/"
 
+  depends_on :macos
   container nested: "DicomPreview.dmg"
 
   app "DicomPreview.app"

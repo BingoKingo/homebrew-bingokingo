@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0387-exs-texturesdronesdreamscape" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0387_EXS_TexturesDronesDreamscape.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0387_EXS_TexturesDronesDreamscape"

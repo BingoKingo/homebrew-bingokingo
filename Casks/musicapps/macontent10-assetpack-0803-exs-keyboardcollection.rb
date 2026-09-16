@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0803-exs-keyboardcollection" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0803_EXS_KeyboardCollection.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0803_EXS_KeyboardCollection"

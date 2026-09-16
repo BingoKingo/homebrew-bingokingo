@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0362-exs-basselectricpicked" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0362_EXS_BassElectricPicked.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0362_EXS_BassElectricPicked"

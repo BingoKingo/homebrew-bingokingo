@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0923-exs-electronicdrumkitsconsoleoperator" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0923_EXS_ElectronicDrumkitsConsoleOperator.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0923_EXS_ElectronicDrumkitsConsoleOperator"

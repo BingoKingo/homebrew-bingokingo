@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0763-qs-electronicdrums-chromekit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0763_QS_ElectronicDrums_ChromeKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0763_QS_ElectronicDrums_ChromeKit"

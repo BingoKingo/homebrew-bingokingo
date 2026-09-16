@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0835-exs-electronicdrumkitswarmembers" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0835_EXS_ElectronicDrumkitsWarmEmbers.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0835_EXS_ElectronicDrumkitsWarmEmbers"

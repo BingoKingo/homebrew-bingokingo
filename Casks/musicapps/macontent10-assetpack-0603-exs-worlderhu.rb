@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0603-exs-worlderhu" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0603_EXS_WorldErhu.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0603_EXS_WorldErhu"

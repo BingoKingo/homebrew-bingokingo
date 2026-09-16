@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0880-exs-electronicdrumkitstrakgirlhardknocking" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0880_EXS_ElectronicDrumkitsTrakgirlHardKnocking.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0880_EXS_ElectronicDrumkitsTrakgirlHardKnocking"

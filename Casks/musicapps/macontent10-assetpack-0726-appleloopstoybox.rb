@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0726-appleloopstoybox" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0726_AppleLoopsToyBox.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0726_AppleLoopsToyBox"

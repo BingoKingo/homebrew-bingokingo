@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0799-qs-basic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0799_QS_Basic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0799_QS_Basic"

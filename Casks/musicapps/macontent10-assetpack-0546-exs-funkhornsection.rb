@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0546-exs-funkhornsection" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0546_EXS_FunkHornSection.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0546_EXS_FunkHornSection"

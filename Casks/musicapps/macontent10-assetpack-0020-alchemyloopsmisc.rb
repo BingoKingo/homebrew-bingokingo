@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0020-alchemyloopsmisc" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0020_AlchemyLoopsMisc.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0020_AlchemyLoopsMisc"

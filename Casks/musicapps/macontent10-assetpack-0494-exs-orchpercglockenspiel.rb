@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0494-exs-orchpercglockenspiel" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0494_EXS_OrchPercGlockenspiel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0494_EXS_OrchPercGlockenspiel"

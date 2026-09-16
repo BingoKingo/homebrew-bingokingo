@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0702-soundeffectscustom" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0702_SoundEffectsCustom.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0702_SoundEffectsCustom"

@@ -19,6 +19,8 @@ cask "worldmusic-instruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "WorldMusic_Instruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.WorldMusic_Instruments"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0051-alchemypadsdigitaldreamstealer" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0051_AlchemyPadsDigitalDreamstealer.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0051_AlchemyPadsDigitalDreamstealer"

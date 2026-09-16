@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0457-exs-worldeuroharp" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0457_EXS_WorldEuroHarp.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0457_EXS_WorldEuroHarp"

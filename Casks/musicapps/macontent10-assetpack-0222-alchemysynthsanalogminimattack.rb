@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0222-alchemysynthsanalogminimattack" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0222_AlchemySynthsAnalogMiniMAttack.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0222_AlchemySynthsAnalogMiniMAttack"

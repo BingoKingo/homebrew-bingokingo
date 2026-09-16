@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0945-exs-electronicdrumkitscoryslinndrum" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0945_EXS_ElectronicDrumkitsCorysLinnDrum.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0945_EXS_ElectronicDrumkitsCorysLinnDrum"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0174-alchemyguitarselectricchorusf" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0174_AlchemyGuitarsElectricChorusf.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0174_AlchemyGuitarsElectricChorusf"

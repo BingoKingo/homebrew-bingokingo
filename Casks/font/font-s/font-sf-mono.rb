@@ -4,11 +4,12 @@ cask "font-sf-mono" do
   # version "18.0d1e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Mono.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-mono" do
       ]
     end
   end
-
   on_linux do
     sha256 "062841cffc1d31adb5d5de9cd0b781c1712acbd1a6e45b21a5e60aeae7e09e01"
 

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0228-alchemysynthsanalogsync" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0228_AlchemySynthsAnalogSync.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0228_AlchemySynthsAnalogSync"

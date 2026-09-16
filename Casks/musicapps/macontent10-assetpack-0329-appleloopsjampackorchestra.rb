@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0329-appleloopsjampackorchestra" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0329_AppleLoopsJamPackOrchestra"

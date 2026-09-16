@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0441-exs-worldafricankalimba" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0441_EXS_WorldAfricanKalimba.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0441_EXS_WorldAfricanKalimba"

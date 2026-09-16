@@ -6,6 +6,15 @@ class WecomCli < Formula
   license "MIT"
   head "https://github.com/WecomTeam/wecom-cli.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "c6e554ad8d7398cb231c4f1cc4d7515986c1a3ebeae990a5b423197a374be0dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c6e554ad8d7398cb231c4f1cc4d7515986c1a3ebeae990a5b423197a374be0dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c6e554ad8d7398cb231c4f1cc4d7515986c1a3ebeae990a5b423197a374be0dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "d335489c53843e0c203a7b10c78e14370655fb11ee92c0e4511109782bc4b304"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30bb780434d98cec59d69f8c08c56d1af010889d41e873fefa5b4e0dc3d61333"
+  end
+
   depends_on "node"
 
   def install

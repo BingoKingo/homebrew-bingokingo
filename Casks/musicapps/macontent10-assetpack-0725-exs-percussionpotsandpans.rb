@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0725-exs-percussionpotsandpans" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0725_EXS_PercussionPotsAndPans.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0725_EXS_PercussionPotsAndPans"

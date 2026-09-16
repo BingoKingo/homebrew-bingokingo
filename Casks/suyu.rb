@@ -13,7 +13,7 @@ cask "suyu" do
 
   deprecate! date: "2024-10-06", because: :unmaintained
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
   depends_on arch: :arm64
 
   app "suyu.app"

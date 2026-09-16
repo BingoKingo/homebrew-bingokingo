@@ -19,6 +19,8 @@ cask "2z695-0106-pop-piano-4-7th-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0106_Pop Piano 4_7th Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0106_Pop Piano 4_7th Chords"

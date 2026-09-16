@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0163-alchemyguitarselectricfatplectrr" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0163_AlchemyGuitarsElectricFatPlectRR.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0163_AlchemyGuitarsElectricFatPlectRR"

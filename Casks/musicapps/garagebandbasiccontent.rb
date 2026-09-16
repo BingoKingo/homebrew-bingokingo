@@ -19,6 +19,8 @@ cask "garagebandbasiccontent" do
     end
   end
 
+  depends_on :macos
+
   pkg "GarageBandBasicContent.pkg"
 
   uninstall pkgutil: "com.apple.pkg.GarageBandBasicContent"

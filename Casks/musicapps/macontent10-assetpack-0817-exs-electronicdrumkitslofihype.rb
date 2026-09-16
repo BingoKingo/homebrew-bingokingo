@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0817-exs-electronicdrumkitslofihype" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0817_EXS_ElectronicDrumkitsLoFiHype.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0817_EXS_ElectronicDrumkitsLoFiHype"

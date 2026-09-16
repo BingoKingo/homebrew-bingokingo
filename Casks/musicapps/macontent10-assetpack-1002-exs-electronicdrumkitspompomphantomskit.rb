@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1002-exs-electronicdrumkitspompomphantomskit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1002_EXS_ElectronicDrumkitsPomPomPhantomsKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1002_EXS_ElectronicDrumkitsPomPomPhantomsKit"

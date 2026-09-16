@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0759-exs-electronicdrumkitshardknock" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0759_EXS_ElectronicDrumkitsHardKnock.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0759_EXS_ElectronicDrumkitsHardKnock"

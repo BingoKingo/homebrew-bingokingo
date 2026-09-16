@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0439-exs-texturespadstidal" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0439_EXS_TexturesPadsTidal.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0439_EXS_TexturesPadsTidal"

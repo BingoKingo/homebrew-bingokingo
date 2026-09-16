@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0089-alchemybasscustomnsingle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0089_AlchemyBassCustomNSingle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0089_AlchemyBassCustomNSingle"

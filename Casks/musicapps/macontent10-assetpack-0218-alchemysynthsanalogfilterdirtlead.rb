@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0218-alchemysynthsanalogfilterdirtlead" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0218_AlchemySynthsAnalogFilterDirtLead.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0218_AlchemySynthsAnalogFilterDirtLead"

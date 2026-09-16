@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0221-alchemysynthsanaloghugesquare" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0221_AlchemySynthsAnalogHugeSquare.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0221_AlchemySynthsAnalogHugeSquare"

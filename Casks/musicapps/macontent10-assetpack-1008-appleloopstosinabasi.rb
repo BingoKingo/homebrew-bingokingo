@@ -19,6 +19,8 @@ cask "macontent10-assetpack-1008-appleloopstosinabasi" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1008_AppleLoopsTosinAbasi.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1008_AppleLoopsTosinAbasi"

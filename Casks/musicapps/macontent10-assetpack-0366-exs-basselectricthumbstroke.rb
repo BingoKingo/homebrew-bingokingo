@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0366-exs-basselectricthumbstroke" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0366_EXS_BassElectricThumbStroke.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0366_EXS_BassElectricThumbStroke"

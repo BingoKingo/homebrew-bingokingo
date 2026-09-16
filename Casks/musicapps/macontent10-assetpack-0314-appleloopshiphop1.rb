@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0314-appleloopshiphop1" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0314_AppleLoopsHipHop1.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0314_AppleLoopsHipHop1"

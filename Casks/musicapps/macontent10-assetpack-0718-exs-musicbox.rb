@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0718-exs-musicbox" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0718_EXS_MusicBox.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0718_EXS_MusicBox"

@@ -17,6 +17,8 @@ cask "hosts" do
   deprecate! date: "2020-09-26", because: :unmaintained
 
   # app "Hosts.app"
+  depends_on :macos
+
   pkg "Hosts-PrefPane-#{version}.pkg", allow_untrusted: true
 
   uninstall pkgutil: "de.dirk-froehling.hosts"

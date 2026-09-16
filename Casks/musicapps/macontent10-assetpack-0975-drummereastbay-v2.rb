@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0975-drummereastbay-v2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0975_DrummerEastbay_v2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0975_DrummerEastbay_v2"

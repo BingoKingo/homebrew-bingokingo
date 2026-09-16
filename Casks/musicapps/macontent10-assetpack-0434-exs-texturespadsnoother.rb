@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0434-exs-texturespadsnoother" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0434_EXS_TexturesPadsNoOther.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0434_EXS_TexturesPadsNoOther"

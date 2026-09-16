@@ -19,6 +19,8 @@ cask "2z695-0107-pop-piano-5-slash-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0107_Pop Piano 5_Slash Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0107_Pop Piano 5_Slash Chords"

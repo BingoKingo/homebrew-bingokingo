@@ -19,6 +19,8 @@ cask "2z695-0053-guitar-lesson-5-single-note-melodies" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0053_Guitar Lesson 5_Single Note Melodies.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0053_Guitar Lesson 5_Single Note Melodies"

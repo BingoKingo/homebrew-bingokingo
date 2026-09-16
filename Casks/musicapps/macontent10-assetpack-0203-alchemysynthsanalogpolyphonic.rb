@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0203-alchemysynthsanalogpolyphonic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0203_AlchemySynthsAnalogPolyphonic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0203_AlchemySynthsAnalogPolyphonic"

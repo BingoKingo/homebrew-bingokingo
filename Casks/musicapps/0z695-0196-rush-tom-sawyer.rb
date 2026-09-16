@@ -19,6 +19,8 @@ cask "0z695-0196-rush-tom-sawyer" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0196_Rush_Tom Sawyer.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0196_Rush_Tom Sawyer"

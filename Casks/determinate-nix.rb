@@ -1,6 +1,6 @@
 cask "determinate-nix" do
-  version "3.17.3"
-  sha256 "8cc2c4e9ab0aaa49a9f859a3cd94689055ff5bcfe3155dce1ac0b9e66ab1216d"
+  version "3.22.2"
+  sha256 "2874f09c2192dd1ff2498fd2d36ba3cf4809b5739d5d859679f783a5ed2d066f"
 
   url "https://determinate-pkg20240826203520431200000001.s3.dualstack.us-east-2.amazonaws.com/v#{version}/Determinate.pkg-Universal",
       verified: "determinate-pkg20240826203520431200000001.s3.dualstack.us-east-2.amazonaws.com/"
@@ -11,6 +11,8 @@ cask "determinate-nix" do
     url "https://github.com/DeterminateSystems/nix-installer"
     strategy :github_latest
   end
+
+  depends_on :macos
 
   pkg "Determinate.pkg"
 

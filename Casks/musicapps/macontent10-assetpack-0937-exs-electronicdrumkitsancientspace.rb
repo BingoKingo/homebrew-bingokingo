@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0937-exs-electronicdrumkitsancientspace" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0937_EXS_ElectronicDrumkitsAncientSpace.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0937_EXS_ElectronicDrumkitsAncientSpace"

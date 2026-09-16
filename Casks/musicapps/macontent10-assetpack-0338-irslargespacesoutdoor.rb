@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0338-irslargespacesoutdoor" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0338_IRsLargeSpacesOutdoor.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0338_IRsLargeSpacesOutdoor"

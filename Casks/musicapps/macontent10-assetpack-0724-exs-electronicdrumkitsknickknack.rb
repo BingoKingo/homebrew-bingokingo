@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0724-exs-electronicdrumkitsknickknack" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0724_EXS_ElectronicDrumkitsKnickKnack.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0724_EXS_ElectronicDrumkitsKnickKnack"

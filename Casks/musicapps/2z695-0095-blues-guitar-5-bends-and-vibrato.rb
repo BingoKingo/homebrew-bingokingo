@@ -19,6 +19,8 @@ cask "2z695-0095-blues-guitar-5-bends-and-vibrato" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0095_Blues Guitar 5_Bends and Vibrato.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0095_Blues Guitar 5_Bends and Vibrato"

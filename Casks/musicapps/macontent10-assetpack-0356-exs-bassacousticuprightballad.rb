@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0356-exs-bassacousticuprightballad" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0356_EXS_BassAcousticUprightBallad.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0356_EXS_BassAcousticUprightBallad"

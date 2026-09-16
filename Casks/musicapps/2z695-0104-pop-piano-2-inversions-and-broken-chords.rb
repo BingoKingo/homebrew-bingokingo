@@ -19,6 +19,8 @@ cask "2z695-0104-pop-piano-2-inversions-and-broken-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0104_Pop Piano 2_Inversions and Broken Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0104_Pop Piano 2_Inversions and Broken Chords"

@@ -1,19 +1,21 @@
-cask "metal-shader-converter" do
-  version "3.1_beta_1"
-  sha256 "4fb9ab1022c1a2977979577d5510958dd52ae769d8cf7bf4757f4b2f09b853bd"
+cask "workflow-extensions-sdk" do
+  version "1.0.3"
+  sha256 "fbd245c2d1439a93b86284cce2b6bb028fddea90d76aa4960d48502fa05c376a"
 
-  url "https://download.developer.apple.com/Developer_Tools/Metal_Shader_Converter_#{version}/Metal_Shader_Converter_#{version}.pkg",
+  url "https://download.developer.apple.com/Developer_Tools/Workflow_Extensions_SDK_#{version}/Workflow_Extensions_SDK_#{version}.dmg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {
         "ADCDownloadAuth" => ENV.fetch("ADC_DOWNLOAD_AUTH", nil).to_s,
       }
-  name "Metal Shader Converter"
+  name "Workflow Extensions SDK"
   homepage "https://developer.apple.com/download/all/"
 
-  pkg "Metal_Shader_Converter_#{version}.pkg"
+  depends_on :macos
 
-  uninstall pkgutil: "com.apple.metal"
+  pkg "WorkflowExtensionsSDK.pkg"
+
+  uninstall pkgutil: "com.apple.pkg.WorkflowExtensionsSDK"
 
   caveats do
     <<~EOS

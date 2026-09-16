@@ -19,6 +19,8 @@ cask "2z695-0092-blues-guitar-2-minor-pentatonic-scale" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0092_Blues Guitar 2_Minor Pentatonic Scale.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0092_Blues Guitar 2_Minor Pentatonic Scale"

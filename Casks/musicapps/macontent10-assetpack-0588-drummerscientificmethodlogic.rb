@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0588-drummerscientificmethodlogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0588_DrummerScientificMethodLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0588_DrummerScientificMethodLogic"

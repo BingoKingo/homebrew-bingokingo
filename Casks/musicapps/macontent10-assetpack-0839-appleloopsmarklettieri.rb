@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0839-appleloopsmarklettieri" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0839_AppleLoopsMarkLettieri.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0839_AppleLoopsMarkLettieri"

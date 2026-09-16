@@ -4,11 +4,12 @@ cask "font-sf-hebrew" do
   # version "19.2d1e1,20.0d1e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Hebrew.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-hebrew" do
       ]
     end
   end
-
   on_linux do
     sha256 "6f7a7b7e9e222212cde14b1f2aef0c8fdf285374e5a5ad7956b510f8d330a749"
 

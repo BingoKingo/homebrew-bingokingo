@@ -18,11 +18,11 @@ This repository may be rebased. If you encounter any issues, please try force re
 
 ## What is renamed/removed from this tap?
 
+**Formula** `git-remote-rclone` was removed.
+
 **Formula** `html2text` was removed.
 
 **Formula** `rclone-filen` was removed.
-
-**Formula** `adbfs-mac` was removed.
 
 **Formula** `akl-mstts-server` was removed.
 

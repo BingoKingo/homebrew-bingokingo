@@ -4,11 +4,12 @@ cask "font-sf-pro" do
   # version "21.1d1e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Pro.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-pro" do
       ]
     end
   end
-
   on_linux do
     sha256 "4d9153163b7de501dce3f6e811836a104dac2b0dfd6181036e256de86a34573b"
 

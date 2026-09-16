@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0859-exs-electronicdrumkitstakeadaytripwashington" d
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0859_EXS_ElectronicDrumkitsTakeADaytripWashington.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0859_EXS_ElectronicDrumkitsTakeADaytripWashington"

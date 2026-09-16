@@ -11,7 +11,7 @@ cask "hrsword" do
 
   deprecate! date: "2024-11-22", because: :discontinued
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "HRSWord.app"
 

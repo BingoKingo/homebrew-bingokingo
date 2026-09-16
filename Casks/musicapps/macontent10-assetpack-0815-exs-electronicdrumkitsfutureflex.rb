@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0815-exs-electronicdrumkitsfutureflex" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0815_EXS_ElectronicDrumkitsFutureFlex.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0815_EXS_ElectronicDrumkitsFutureFlex"

@@ -10,6 +10,8 @@ cask "linkedideas" do
 
   deprecate! date: "2021-07-13", because: :unmaintained
 
+  depends_on :macos
+
   app "LinkedIdeas.app"
 
   zap trash: [

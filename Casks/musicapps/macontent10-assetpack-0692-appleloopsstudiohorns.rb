@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0692-appleloopsstudiohorns" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0692_AppleLoopsStudioHorns.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0692_AppleLoopsStudioHorns"

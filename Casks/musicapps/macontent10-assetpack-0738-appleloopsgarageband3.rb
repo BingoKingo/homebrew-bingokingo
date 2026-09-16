@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0738-appleloopsgarageband3" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0738_AppleLoopsGarageBand3.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0738_AppleLoopsGarageBand3"

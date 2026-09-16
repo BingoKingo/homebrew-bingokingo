@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0411-exs-texturesdronessolemnis" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0411_EXS_TexturesDronesSolemnis.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0411_EXS_TexturesDronesSolemnis"

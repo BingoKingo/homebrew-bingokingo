@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0331-irssmallspaces" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0331_IRsSmallSpaces.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0331_IRsSmallSpaces"

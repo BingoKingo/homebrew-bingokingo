@@ -19,6 +19,8 @@ cask "2z695-0056-guitar-lesson-8-minor-barre-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0056_Guitar Lesson 8_Minor Barre Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0056_Guitar Lesson 8_Minor Barre Chords"

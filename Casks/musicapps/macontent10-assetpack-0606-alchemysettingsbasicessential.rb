@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0606-alchemysettingsbasicessential" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0606_AlchemySettingsBasicEssential.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0606_AlchemySettingsBasicEssential"

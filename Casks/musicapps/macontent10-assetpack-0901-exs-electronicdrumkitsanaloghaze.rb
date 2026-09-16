@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0901-exs-electronicdrumkitsanaloghaze" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0901_EXS_ElectronicDrumkitsAnalogHaze.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0901_EXS_ElectronicDrumkitsAnalogHaze"

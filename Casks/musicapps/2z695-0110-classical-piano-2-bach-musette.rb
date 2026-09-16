@@ -19,6 +19,8 @@ cask "2z695-0110-classical-piano-2-bach-musette" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0110_Classical Piano 2_Bach Musette.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0110_Classical Piano 2_Bach Musette"

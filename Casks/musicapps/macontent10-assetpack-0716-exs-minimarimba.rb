@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0716-exs-minimarimba" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0716_EXS_MiniMarimba.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0716_EXS_MiniMarimba"

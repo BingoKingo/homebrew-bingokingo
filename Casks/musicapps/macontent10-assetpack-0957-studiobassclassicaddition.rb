@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0957-studiobassclassicaddition" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0957_StudioBassClassicAddition.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0957_StudioBassClassicAddition"

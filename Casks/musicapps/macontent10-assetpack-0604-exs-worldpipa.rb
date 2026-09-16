@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0604-exs-worldpipa" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0604_EXS_WorldPipa.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0604_EXS_WorldPipa"

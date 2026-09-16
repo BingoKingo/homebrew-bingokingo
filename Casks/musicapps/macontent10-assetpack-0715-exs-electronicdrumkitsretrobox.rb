@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0715-exs-electronicdrumkitsretrobox" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0715_EXS_ElectronicDrumkitsRetroBox.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0715_EXS_ElectronicDrumkitsRetroBox"

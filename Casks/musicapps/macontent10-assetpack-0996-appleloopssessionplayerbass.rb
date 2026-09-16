@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0996-appleloopssessionplayerbass" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0996_AppleLoopsSessionPlayerBass.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0996_AppleLoopsSessionPlayerBass"

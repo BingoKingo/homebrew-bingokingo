@@ -19,6 +19,8 @@ cask "0z695-0065-fall-out-boy-sugar-we-are-goin-down" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0065_Fall Out Boy_Sugar We are Goin Down.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0065_Fall Out Boy_Sugar We are Goin Down"

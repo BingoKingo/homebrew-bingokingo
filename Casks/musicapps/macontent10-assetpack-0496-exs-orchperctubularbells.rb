@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0496-exs-orchperctubularbells" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0496_EXS_OrchPercTubularBells.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0496_EXS_OrchPercTubularBells"

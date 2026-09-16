@@ -1,6 +1,6 @@
 cask "loon" do
-  version "0.2.0,57"
-  sha256 "b36bc66fddf3e11e63bdac014f2eec903c5cc060a7e82a3867ba914ddad92ad0"
+  version "0.4.0,73"
+  sha256 "256b270f92b1c7d8190adb24103838bac5238acf88f162870a9ffc98aedae05b"
 
   url "https://github.com/Loon0x00/Loon4Mac/releases/download/#{version.csv.first}(#{version.csv.second})/Loon-#{version.csv.first}-beta-#{version.csv.second}.dmg"
   name "Loon"
@@ -15,7 +15,7 @@ cask "loon" do
     end
   end
 
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "Loon.app"
 

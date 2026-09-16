@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0820-exs-electronicdrumkitsmodernthrowback" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0820_EXS_ElectronicDrumkitsModernThrowback.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0820_EXS_ElectronicDrumkitsModernThrowback"

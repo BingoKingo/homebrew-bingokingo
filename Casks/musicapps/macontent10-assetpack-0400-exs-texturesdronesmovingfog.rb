@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0400-exs-texturesdronesmovingfog" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0400_EXS_TexturesDronesMovingFog.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0400_EXS_TexturesDronesMovingFog"

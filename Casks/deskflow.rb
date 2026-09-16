@@ -11,7 +11,7 @@ cask "deskflow" do
   homepage "https://github.com/deskflow/deskflow/"
 
   conflicts_with cask: "deskflow@continuous"
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Deskflow.app"
   binary "#{appdir}/Deskflow.app/Contents/MacOS/deskflow-core"

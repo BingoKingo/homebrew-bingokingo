@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0535-drummertightmaple" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0535_DrummerTightMaple.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0535_DrummerTightMaple"

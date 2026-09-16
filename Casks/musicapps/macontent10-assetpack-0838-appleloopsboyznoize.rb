@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0838-appleloopsboyznoize" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0838_AppleLoopsBoyzNoize.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0838_AppleLoopsBoyzNoize"

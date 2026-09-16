@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0950-studiopianoconcertgrand" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0950_StudioPianoConcertGrand.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0950_StudioPianoConcertGrand"

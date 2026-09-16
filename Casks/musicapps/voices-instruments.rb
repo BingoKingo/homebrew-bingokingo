@@ -19,6 +19,8 @@ cask "voices-instruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "Voices_Instruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.Voices_Instruments"

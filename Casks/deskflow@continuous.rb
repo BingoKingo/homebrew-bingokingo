@@ -1,7 +1,7 @@
 cask "deskflow@continuous" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "1.26.0.145"
+  version "1.26.0.415"
   sha256 :no_check
 
   url "https://github.com/deskflow/deskflow/releases/download/continuous/deskflow-continuous-macos-#{arch}.dmg"
@@ -24,7 +24,7 @@ cask "deskflow@continuous" do
   end
 
   conflicts_with cask: "deskflow"
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Deskflow.app"
   binary "#{appdir}/Deskflow.app/Contents/MacOS/deskflow-core"

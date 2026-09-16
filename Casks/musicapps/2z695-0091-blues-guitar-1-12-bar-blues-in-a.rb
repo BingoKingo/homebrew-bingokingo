@@ -19,6 +19,8 @@ cask "2z695-0091-blues-guitar-1-12-bar-blues-in-a" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0091_Blues Guitar 1_12 Bar Blues in A.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0091_Blues Guitar 1_12 Bar Blues in A"

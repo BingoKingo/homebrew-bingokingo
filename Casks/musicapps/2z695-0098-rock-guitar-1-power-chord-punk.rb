@@ -19,6 +19,8 @@ cask "2z695-0098-rock-guitar-1-power-chord-punk" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0098_Rock Guitar 1_Power Chord Punk.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0098_Rock Guitar 1_Power Chord Punk"

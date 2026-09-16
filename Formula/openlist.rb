@@ -28,8 +28,8 @@ class Openlist < Formula
   end
 
   patch do
-    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/refs/heads/main/Patches/openlist/4.1.1.patch"
-    sha256 "b0f726255c17b161f8c26fa34e4325156a1e6c43d9fdc6f9cb42ed43ca75fc83"
+    url "https://github.com/BingoKingo/homebrew-bingokingo/raw/refs/heads/main/Patches/openlist/4.1.1.diff"
+    sha256 "0247a2b5b448749f46b716fa53d5a8aa6674aa7012ce9407b656addde71b4af8"
   end
 
   def install

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0219-alchemysynthsanalogglisstriangles" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0219_AlchemySynthsAnalogGlissTriangles.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0219_AlchemySynthsAnalogGlissTriangles"

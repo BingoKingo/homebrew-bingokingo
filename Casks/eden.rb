@@ -12,7 +12,7 @@ cask "eden" do
     regex(/Eden-macOS-v([0-9.]+(?:-rc\d+)?)\.tar\.gz/i)
   end
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
   depends_on arch: :arm64
 
   # conflict_with cask: "yuzu"

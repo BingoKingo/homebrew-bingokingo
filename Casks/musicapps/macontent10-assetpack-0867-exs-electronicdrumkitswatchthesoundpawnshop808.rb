@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0867-exs-electronicdrumkitswatchthesoundpawnshop808"
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0867_EXS_ElectronicDrumkitsWatchTheSoundPawnShop808.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0867_EXS_ElectronicDrumkitsWatchTheSoundPawnShop808"

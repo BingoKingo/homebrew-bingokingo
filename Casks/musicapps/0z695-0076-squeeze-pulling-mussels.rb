@@ -19,6 +19,8 @@ cask "0z695-0076-squeeze-pulling-mussels" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0076_Squeeze_Pulling Mussels.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0076_Squeeze_Pulling Mussels"

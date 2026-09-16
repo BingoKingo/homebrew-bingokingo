@@ -19,6 +19,8 @@ cask "0z695-0068-sara-bareilles-love-song" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0068_Sara Bareilles_Love Song.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0068_Sara Bareilles_Love Song"

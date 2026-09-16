@@ -9,7 +9,7 @@ cask "vrmquicklook" do
 
   deprecate! date: "2019-10-29", because: :unmaintained
 
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: :high_sierra
 
   qlplugin "VRMQuickLook_v#{version}/VRMQuickLook.qlgenerator"
 end

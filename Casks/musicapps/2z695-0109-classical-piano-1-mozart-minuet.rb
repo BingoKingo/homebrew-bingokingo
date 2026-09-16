@@ -19,6 +19,8 @@ cask "2z695-0109-classical-piano-1-mozart-minuet" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0109_Classical Piano 1_Mozart Minuet.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0109_Classical Piano 1_Mozart Minuet"

@@ -19,6 +19,8 @@ cask "2z695-0054-guitar-lesson-6-power-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0054_Guitar Lesson 6_Power Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0054_Guitar Lesson 6_Power Chords"

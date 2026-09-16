@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0737-exs-electronicdrumkitsvintagesdsv" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0737_EXS_ElectronicDrumkitsVintageSDSV.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0737_EXS_ElectronicDrumkitsVintageSDSV"

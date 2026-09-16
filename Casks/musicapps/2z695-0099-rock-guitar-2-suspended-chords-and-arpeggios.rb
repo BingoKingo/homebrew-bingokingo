@@ -19,6 +19,8 @@ cask "2z695-0099-rock-guitar-2-suspended-chords-and-arpeggios" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0099_Rock Guitar 2_Suspended Chords and Arpeggios.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0099_Rock Guitar 2_Suspended Chords and Arpeggios"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0645-appleloopsdrummerzak" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0645_AppleLoopsDrummerZak.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0645_AppleLoopsDrummerZak"

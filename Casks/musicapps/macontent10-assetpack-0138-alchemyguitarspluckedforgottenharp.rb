@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0138-alchemyguitarspluckedforgottenharp" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0138_AlchemyGuitarsPluckedForgottenHarp.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0138_AlchemyGuitarsPluckedForgottenHarp"

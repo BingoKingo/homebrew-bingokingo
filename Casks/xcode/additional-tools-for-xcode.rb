@@ -1,6 +1,6 @@
 cask "additional-tools-for-xcode" do
-  version "26.4"
-  sha256 "3be4fe178b747e24123591ba9f7c8553f14e6b43160d619b024126cef8667bd1"
+  version "26.5"
+  sha256 "ec9d4757846ead311657c99d6560fa2c253301f555f40188561a6887ee5dd418"
 
   url "https://download.developer.apple.com/Developer_Tools/Additional_Tools_for_Xcode_#{version.csv.first}/Additional_Tools_for_Xcode_#{version.csv.first}.dmg",
       referer:    "https://developer.apple.com/",
@@ -10,6 +10,8 @@ cask "additional-tools-for-xcode" do
       }
   name "Additional Tools for Xcode"
   homepage "https://developer.apple.com/download/all/"
+
+  depends_on :macos
 
   app "Audio/AU Lab.app"
   app "Hardware/CarPlay Simulator.app"

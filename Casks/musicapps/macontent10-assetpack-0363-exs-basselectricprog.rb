@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0363-exs-basselectricprog" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0363_EXS_BassElectricProg.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0363_EXS_BassElectricProg"

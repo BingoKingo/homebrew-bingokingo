@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0679-exs-electronicdrumkitshacienda" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0679_EXS_ElectronicDrumkitsHacienda.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0679_EXS_ElectronicDrumkitsHacienda"

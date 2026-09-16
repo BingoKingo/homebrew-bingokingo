@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0844-exs-electronicdrumkitsboysnoizecontrolvoltage" 
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0844_EXS_ElectronicDrumkitsBoysNoizeControlVoltage.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0844_EXS_ElectronicDrumkitsBoysNoizeControlVoltage"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0656-alchemymallets" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0656_AlchemyMallets.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0656_AlchemyMallets"

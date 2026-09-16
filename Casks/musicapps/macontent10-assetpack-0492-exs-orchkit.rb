@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0492-exs-orchkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0492_EXS_OrchKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0492_EXS_OrchKit"

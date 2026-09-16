@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0039-alchemypadsdigitalwalkingmoon" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0039_AlchemyPadsDigitalWalkingMoon.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0039_AlchemyPadsDigitalWalkingMoon"

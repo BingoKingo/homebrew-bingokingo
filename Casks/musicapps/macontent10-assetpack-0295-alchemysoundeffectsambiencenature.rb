@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0295-alchemysoundeffectsambiencenature" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0295_AlchemySoundEffectsAmbienceNature.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0295_AlchemySoundEffectsAmbienceNature"

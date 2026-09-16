@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0326-appleloopsjampack1" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0326_AppleLoopsJamPack1.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0326_AppleLoopsJamPack1"

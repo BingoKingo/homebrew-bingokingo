@@ -19,6 +19,8 @@ cask "jampack1" do
     end
   end
 
+  depends_on :macos
+
   pkg "JamPack1.pkg"
 
   uninstall pkgutil: "com.apple.pkg.JamPack1"

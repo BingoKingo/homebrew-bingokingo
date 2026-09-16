@@ -19,6 +19,8 @@ cask "macontent10-assetpack-1006-alchemysamplesmodularmelodies" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1006_AlchemySamplesModularMelodies.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1006_AlchemySamplesModularMelodies"

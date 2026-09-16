@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0757-exs-electronicdrumkitsblowingspeakers" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0757_EXS_ElectronicDrumkitsBlowingSpeakers.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0757_EXS_ElectronicDrumkitsBlowingSpeakers"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0748-exs-electronicdrumkitshardbasshouse" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0748_EXS_ElectronicDrumkitsHardBassHouse.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0748_EXS_ElectronicDrumkitsHardBassHouse"

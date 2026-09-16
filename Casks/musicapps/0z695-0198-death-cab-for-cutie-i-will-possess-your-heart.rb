@@ -19,6 +19,8 @@ cask "0z695-0198-death-cab-for-cutie-i-will-possess-your-heart" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0198_Death Cab for Cutie_I Will Possess Your Heart.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0198_Death Cab for Cutie_I Will Possess Your Heart"

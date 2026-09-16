@@ -4,11 +4,12 @@ cask "font-sf-compact" do
   # version "21.1d1e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Compact.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-compact" do
       ]
     end
   end
-
   on_linux do
     sha256 "339ded8a52cec1dc2b0c18edd2c5a17489be4f24dcb1c03da3963557b854bf76"
 

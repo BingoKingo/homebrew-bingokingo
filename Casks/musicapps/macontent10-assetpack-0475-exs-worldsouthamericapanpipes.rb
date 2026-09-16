@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0475-exs-worldsouthamericapanpipes" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0475_EXS_WorldSouthAmericaPanpipes.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0475_EXS_WorldSouthAmericaPanpipes"

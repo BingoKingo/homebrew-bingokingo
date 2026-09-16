@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0998-appleloopssessionplayerkeyboard" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0998_AppleLoopsSessionPlayerKeyboard.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0998_AppleLoopsSessionPlayerKeyboard"

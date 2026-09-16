@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1022-exs-electronicdrumkitsnewworld" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1022_EXS_ElectronicDrumkitsNewWorld.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1022_EXS_ElectronicDrumkitsNewWorld"

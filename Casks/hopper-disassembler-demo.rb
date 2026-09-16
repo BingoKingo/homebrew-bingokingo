@@ -1,6 +1,6 @@
 cask "hopper-disassembler-demo" do
-  version "6.2.6"
-  sha256 "44ae4d8d156aa2f5d31bcc4c928976fd34ccbf751366b2f3b17ab631a32083ea"
+  version "6.5.0"
+  sha256 "4d1a55a98034d9440dd729f921d39b7a9943cb94021861463e79226bddddd1b6"
 
   url "https://www.hopperapp.com/downloader/public/Hopper-#{version}-demo.dmg",
       user_agent: :browser
@@ -14,7 +14,7 @@ cask "hopper-disassembler-demo" do
   end
 
   auto_updates true
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "Hopper Disassembler.app"
   # app "Hopper Disassembler v#{version.major}.app"

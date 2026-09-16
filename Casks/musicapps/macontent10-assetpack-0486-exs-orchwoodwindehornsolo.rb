@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0486-exs-orchwoodwindehornsolo" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0486_EXS_OrchWoodwindEHornSolo.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0486_EXS_OrchWoodwindEHornSolo"

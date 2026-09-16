@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0651-exs-studiostrings" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0651_EXS_StudioStrings.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0651_EXS_StudioStrings"

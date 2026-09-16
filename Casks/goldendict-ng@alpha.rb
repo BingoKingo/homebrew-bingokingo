@@ -28,7 +28,7 @@ cask "goldendict-ng@alpha" do
   end
 
   conflicts_with cask: "goldendict-ng"
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   shimscript = "#{staged_path}/goldendict.wrapper.sh"
   app "GoldenDict-ng.app", target: "GoldenDict.app"

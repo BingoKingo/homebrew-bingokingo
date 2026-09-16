@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1017-exs-electronicdrumkitsbreathofair" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1017_EXS_ElectronicDrumkitsBreathOfAir.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1017_EXS_ElectronicDrumkitsBreathOfAir"

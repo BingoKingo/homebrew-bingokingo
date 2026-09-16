@@ -11,8 +11,6 @@ cask "font-0xproto-nerd-font" do
     strategy :github_latest
   end
 
-  no_autobump! because: :bumped_by_upstream
-
   depends_on formula: "fonttools"
 
   font "0xProtoNerdFont.ttc"

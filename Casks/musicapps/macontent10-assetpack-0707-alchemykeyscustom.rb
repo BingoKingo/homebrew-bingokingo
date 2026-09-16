@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0707-alchemykeyscustom" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0707_AlchemyKeysCustom.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0707_AlchemyKeysCustom"

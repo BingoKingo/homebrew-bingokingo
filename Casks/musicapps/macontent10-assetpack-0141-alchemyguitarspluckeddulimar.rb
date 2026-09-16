@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0141-alchemyguitarspluckeddulimar" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0141_AlchemyGuitarsPluckedDulimar.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0141_AlchemyGuitarsPluckedDulimar"

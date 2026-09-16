@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0333-irslargespacesrooms" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0333_IRsLargeSpacesRooms.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0333_IRsLargeSpacesRooms"

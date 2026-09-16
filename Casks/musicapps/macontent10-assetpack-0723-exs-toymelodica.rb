@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0723-exs-toymelodica" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0723_EXS_ToyMelodica.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0723_EXS_ToyMelodica"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0377-exs-mellotron" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0377_EXS_Mellotron.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0377_EXS_Mellotron"

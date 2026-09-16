@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0548-exs-iosinstruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0548_EXS_iOSInstruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0548_EXS_iOSInstruments"

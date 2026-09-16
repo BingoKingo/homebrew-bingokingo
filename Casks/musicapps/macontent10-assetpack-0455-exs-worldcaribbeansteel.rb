@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0455-exs-worldcaribbeansteel" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0455_EXS_WorldCaribbeanSteel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0455_EXS_WorldCaribbeanSteel"

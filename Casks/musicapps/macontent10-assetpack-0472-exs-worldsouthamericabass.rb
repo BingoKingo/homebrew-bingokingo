@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0472-exs-worldsouthamericabass" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0472_EXS_WorldSouthAmericaBass.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0472_EXS_WorldSouthAmericaBass"

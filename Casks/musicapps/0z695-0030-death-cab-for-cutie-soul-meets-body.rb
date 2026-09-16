@@ -19,6 +19,8 @@ cask "0z695-0030-death-cab-for-cutie-soul-meets-body" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0030_Death Cab for Cutie_Soul Meets Body.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0030_Death Cab for Cutie_Soul Meets Body"

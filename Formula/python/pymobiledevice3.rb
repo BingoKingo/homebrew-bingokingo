@@ -628,13 +628,7 @@ class Pymobiledevice3 < Formula
 
   def install
     virtualenv_install_with_resources
-  end
-
-  def caveats
-    <<~EOS
-      Install auto-completion for all available sub-commands by running the following command:
-        pymobiledevice3 install-completions
-    EOS
+    # system "pymobiledevice3", "install-completions"
   end
 
   test do

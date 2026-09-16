@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0091-alchemybassmini3vcosaws" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0091_AlchemyBassMini3VCOSaws.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0091_AlchemyBassMini3VCOSaws"

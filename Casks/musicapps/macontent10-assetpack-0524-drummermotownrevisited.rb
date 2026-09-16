@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0524-drummermotownrevisited" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0524_DrummerMotownRevisited.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0524_DrummerMotownRevisited"

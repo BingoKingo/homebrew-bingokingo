@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0414-exs-texturesdronesspreadingrain" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0414_EXS_TexturesDronesSpreadingRain.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0414_EXS_TexturesDronesSpreadingRain"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0272-alchemyvocalsfxnnoisespercussionkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0272_AlchemyVocalsFXNNoisesPercussionKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0272_AlchemyVocalsFXNNoisesPercussionKit"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0301-alchemydrumselectronicalchemy" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0301_AlchemyDrumsElectronicAlchemy.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0301_AlchemyDrumsElectronicAlchemy"

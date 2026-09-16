@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0827-appleloopsultimate808s" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0827_AppleLoopsUltimate808s.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0827_AppleLoopsUltimate808s"

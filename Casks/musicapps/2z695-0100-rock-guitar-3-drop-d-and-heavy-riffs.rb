@@ -19,6 +19,8 @@ cask "2z695-0100-rock-guitar-3-drop-d-and-heavy-riffs" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0100_Rock Guitar 3_Drop D and Heavy Riffs.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0100_Rock Guitar 3_Drop D and Heavy Riffs"

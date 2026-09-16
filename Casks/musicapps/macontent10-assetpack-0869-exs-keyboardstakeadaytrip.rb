@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0869-exs-keyboardstakeadaytrip" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0869_EXS_KeyboardsTakeADaytrip.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0869_EXS_KeyboardsTakeADaytrip"

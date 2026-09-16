@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0801-appleloopsprismaticab" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0801_AppleLoopsPrismaticaB.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0801_AppleLoopsPrismaticaB"

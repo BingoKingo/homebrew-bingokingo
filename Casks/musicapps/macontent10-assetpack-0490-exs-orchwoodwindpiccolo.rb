@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0490-exs-orchwoodwindpiccolo" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0490_EXS_OrchWoodwindPiccolo.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0490_EXS_OrchWoodwindPiccolo"

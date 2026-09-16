@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0104-alchemybassanalognasalboostbass" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0104_AlchemyBassAnalogNasalBoostBass.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0104_AlchemyBassAnalogNasalBoostBass"

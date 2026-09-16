@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0489-exs-orchwoodwindoboesolo" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0489_EXS_OrchWoodwindOboeSolo.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0489_EXS_OrchWoodwindOboeSolo"

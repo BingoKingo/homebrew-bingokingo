@@ -19,6 +19,8 @@ cask "2z695-0055-guitar-lesson-7-major-barre-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0055_Guitar Lesson 7_Major Barre Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0055_Guitar Lesson 7_Major Barre Chords"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0868-exs-keyboardswatchthesound" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0868_EXS_KeyboardsWatchTheSound.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0868_EXS_KeyboardsWatchTheSound"

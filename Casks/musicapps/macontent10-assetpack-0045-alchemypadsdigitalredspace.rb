@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0045-alchemypadsdigitalredspace" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0045_AlchemyPadsDigitalRedspace.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0045_AlchemyPadsDigitalRedspace"

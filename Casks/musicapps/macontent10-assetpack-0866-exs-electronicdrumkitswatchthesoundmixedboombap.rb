@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0866-exs-electronicdrumkitswatchthesoundmixedboombap
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0866_EXS_ElectronicDrumkitsWatchTheSoundMixedBoomBap.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0866_EXS_ElectronicDrumkitsWatchTheSoundMixedBoomBap"

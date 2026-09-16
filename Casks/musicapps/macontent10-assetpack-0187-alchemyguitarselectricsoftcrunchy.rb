@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0187-alchemyguitarselectricsoftcrunchy" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0187_AlchemyGuitarsElectricSoftCrunchy.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0187_AlchemyGuitarsElectricSoftCrunchy"

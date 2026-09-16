@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0897-exs-electronicdrumkitsanalogarchitecture" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0897_EXS_ElectronicDrumkitsAnalogArchitecture.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0897_EXS_ElectronicDrumkitsAnalogArchitecture"

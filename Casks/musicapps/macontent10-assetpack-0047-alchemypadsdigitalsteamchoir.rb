@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0047-alchemypadsdigitalsteamchoir" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0047_AlchemyPadsDigitalSteamChoir.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0047_AlchemyPadsDigitalSteamChoir"

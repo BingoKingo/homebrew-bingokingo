@@ -7,7 +7,7 @@ cask "quicklookprotein" do
   desc "Quick Look extension to preview protein/3D structure files (PDB, SDF, CIF)"
   homepage "https://github.com/JethroHemmann/QuickLookProtein/"
 
-  depends_on macos: ">=:big_sur"
+  depends_on macos: :big_sur
 
   app "QuickLookProtein.app"
 

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0428-exs-texturespadscavernous" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0428_EXS_TexturesPadsCavernous.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0428_EXS_TexturesPadsCavernous"

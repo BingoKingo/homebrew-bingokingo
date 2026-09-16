@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0254-alchemysynthsdigitalspersonality" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0254_AlchemySynthsDigitalSPersonality.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0254_AlchemySynthsDigitalSPersonality"

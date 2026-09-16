@@ -19,6 +19,8 @@ cask "0z695-0060-america-ventura-highway" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0060_America_Ventura Highway.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0060_America_Ventura Highway"

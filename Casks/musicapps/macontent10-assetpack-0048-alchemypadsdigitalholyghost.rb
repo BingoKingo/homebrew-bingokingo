@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0048-alchemypadsdigitalholyghost" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0048_AlchemyPadsDigitalHolyGhost.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0048_AlchemyPadsDigitalHolyGhost"

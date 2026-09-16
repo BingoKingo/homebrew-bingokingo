@@ -11,6 +11,8 @@ cask "device-support-for-xcode" do
   name "Device Support for Xcode"
   homepage "https://developer.apple.com/download/all/"
 
+  depends_on :macos
+
   pkg "DeviceSupport.pkg"
 
   uninstall pkgutil: ["com.apple.pkg.CoreTypes.#{version.csv.third}",

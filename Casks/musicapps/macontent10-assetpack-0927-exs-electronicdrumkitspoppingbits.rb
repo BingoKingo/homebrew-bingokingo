@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0927-exs-electronicdrumkitspoppingbits" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0927_EXS_ElectronicDrumkitsPoppingBits.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0927_EXS_ElectronicDrumkitsPoppingBits"

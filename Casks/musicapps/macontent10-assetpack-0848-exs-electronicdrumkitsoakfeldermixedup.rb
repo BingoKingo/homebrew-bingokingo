@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0848-exs-electronicdrumkitsoakfeldermixedup" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0848_EXS_ElectronicDrumkitsOakFelderMixedUp.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0848_EXS_ElectronicDrumkitsOakFelderMixedUp"

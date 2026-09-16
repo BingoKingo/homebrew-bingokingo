@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0128-alchemyguitarsacousticyacoustic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0128_AlchemyGuitarsAcousticYAcoustic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0128_AlchemyGuitarsAcousticYAcoustic"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0928-exs-electronicdrumkitsvintagearcade" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0928_EXS_ElectronicDrumkitsVintageArcade.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0928_EXS_ElectronicDrumkitsVintageArcade"

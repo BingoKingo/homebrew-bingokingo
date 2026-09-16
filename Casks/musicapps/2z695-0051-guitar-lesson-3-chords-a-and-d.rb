@@ -19,6 +19,8 @@ cask "2z695-0051-guitar-lesson-3-chords-a-and-d" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0051_Guitar Lesson 3_Chords - A and D.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0051_Guitar Lesson 3_Chords - A and D"

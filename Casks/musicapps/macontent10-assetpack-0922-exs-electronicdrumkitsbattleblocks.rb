@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0922-exs-electronicdrumkitsbattleblocks" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0922_EXS_ElectronicDrumkitsBattleBlocks.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0922_EXS_ElectronicDrumkitsBattleBlocks"

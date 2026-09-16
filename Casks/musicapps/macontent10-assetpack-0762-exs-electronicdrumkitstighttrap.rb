@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0762-exs-electronicdrumkitstighttrap" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0762_EXS_ElectronicDrumkitsTightTrap.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0762_EXS_ElectronicDrumkitsTightTrap"

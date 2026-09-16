@@ -9,7 +9,7 @@ cask "qlsubtitles" do
 
   deprecate! date: "2023-08-14", because: :unmaintained
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "Quick Look Subtitles.app"
 

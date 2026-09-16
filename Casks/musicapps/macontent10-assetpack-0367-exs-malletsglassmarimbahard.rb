@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0367-exs-malletsglassmarimbahard" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0367_EXS_MalletsGlassMarimbaHard.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0367_EXS_MalletsGlassMarimbaHard"

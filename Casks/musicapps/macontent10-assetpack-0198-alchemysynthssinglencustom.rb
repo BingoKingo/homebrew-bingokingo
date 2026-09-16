@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0198-alchemysynthssinglencustom" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0198_AlchemySynthsSingleNCustom.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0198_AlchemySynthsSingleNCustom"

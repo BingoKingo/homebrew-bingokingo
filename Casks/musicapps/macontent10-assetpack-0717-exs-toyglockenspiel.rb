@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0717-exs-toyglockenspiel" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0717_EXS_ToyGlockenspiel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0717_EXS_ToyGlockenspiel"

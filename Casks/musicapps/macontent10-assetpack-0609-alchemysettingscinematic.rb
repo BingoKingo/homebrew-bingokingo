@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0609-alchemysettingscinematic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0609_AlchemySettingsCinematic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0609_AlchemySettingsCinematic"

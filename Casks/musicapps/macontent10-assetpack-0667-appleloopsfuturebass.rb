@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0667-appleloopsfuturebass" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0667_AppleLoopsFutureBass.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0667_AppleLoopsFutureBass"

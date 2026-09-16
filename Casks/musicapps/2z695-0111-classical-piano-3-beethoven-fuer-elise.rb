@@ -19,6 +19,8 @@ cask "2z695-0111-classical-piano-3-beethoven-fuer-elise" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0111_Classical Piano 3_Beethoven Fuer Elise.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0111_Classical Piano 3_Beethoven Fuer Elise"

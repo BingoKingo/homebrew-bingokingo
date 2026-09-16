@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0682-exs-electronicdrumkitsminimalist" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0682_EXS_ElectronicDrumkitsMinimalist.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0682_EXS_ElectronicDrumkitsMinimalist"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0433-exs-texturespadsmomentum" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0433_EXS_TexturesPadsMomentum.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0433_EXS_TexturesPadsMomentum"

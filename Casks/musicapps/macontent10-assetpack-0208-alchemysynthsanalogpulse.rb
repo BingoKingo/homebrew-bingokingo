@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0208-alchemysynthsanalogpulse" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0208_AlchemySynthsAnalogPulse.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0208_AlchemySynthsAnalogPulse"

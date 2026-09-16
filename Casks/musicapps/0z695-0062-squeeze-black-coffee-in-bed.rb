@@ -19,6 +19,8 @@ cask "0z695-0062-squeeze-black-coffee-in-bed" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0062_Squeeze_Black Coffee in Bed.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0062_Squeeze_Black Coffee in Bed"

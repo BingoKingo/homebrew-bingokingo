@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0038-alchemypadsdigitaleatherdrone" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0038_AlchemyPadsDigitalEatherDrone.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0038_AlchemyPadsDigitalEatherDrone"

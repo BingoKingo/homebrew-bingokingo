@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0977-drummerheavy-v2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0977_DrummerHeavy_v2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0977_DrummerHeavy_v2"

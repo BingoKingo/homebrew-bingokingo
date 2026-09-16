@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0643-appleloopsdrummerparker" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0643_AppleLoopsDrummerParker.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0643_AppleLoopsDrummerParker"

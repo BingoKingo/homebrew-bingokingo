@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0460-exs-worldeurobouzouki" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0460_EXS_WorldEuroBouzouki.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0460_EXS_WorldEuroBouzouki"

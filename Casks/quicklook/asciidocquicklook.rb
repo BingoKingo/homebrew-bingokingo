@@ -9,5 +9,7 @@ cask "asciidocquicklook" do
 
   deprecate! date: "2018-09-16", because: :unmaintained
 
+  depends_on :macos
+
   qlplugin "AsciiDoc.qlgenerator"
 end

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0884-exs-keyboardssoulection" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0884_EXS_KeyboardsSoulection.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0884_EXS_KeyboardsSoulection"

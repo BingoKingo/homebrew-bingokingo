@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0768-qs-electronicdrums-topazkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0768_QS_ElectronicDrums_TopazKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0768_QS_ElectronicDrums_TopazKit"

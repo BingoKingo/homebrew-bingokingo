@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0007-alchemykeyselectric" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0007_AlchemyKeysElectric.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0007_AlchemyKeysElectric"

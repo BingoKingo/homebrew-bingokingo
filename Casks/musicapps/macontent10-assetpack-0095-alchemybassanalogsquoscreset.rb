@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0095-alchemybassanalogsquoscreset" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0095_AlchemyBassAnalogSquOscReset.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0095_AlchemyBassAnalogSquOscReset"

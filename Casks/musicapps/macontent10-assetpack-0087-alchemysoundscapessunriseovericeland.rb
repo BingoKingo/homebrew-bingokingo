@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0087-alchemysoundscapessunriseovericeland" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0087_AlchemySoundscapesSunriseOverIceland.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0087_AlchemySoundscapesSunriseOverIceland"

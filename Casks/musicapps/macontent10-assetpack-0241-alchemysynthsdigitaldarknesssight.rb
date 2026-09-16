@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0241-alchemysynthsdigitaldarknesssight" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0241_AlchemySynthsDigitalDarknessSight.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0241_AlchemySynthsDigitalDarknessSight"

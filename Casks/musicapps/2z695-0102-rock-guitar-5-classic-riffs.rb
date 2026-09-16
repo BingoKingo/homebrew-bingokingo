@@ -19,6 +19,8 @@ cask "2z695-0102-rock-guitar-5-classic-riffs" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0102_Rock Guitar 5_Classic Riffs.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0102_Rock Guitar 5_Classic Riffs"

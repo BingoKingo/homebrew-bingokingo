@@ -11,6 +11,8 @@ cask "apple-spatial-audio-format-production-suite" do
   name "Apple Spatial Audio Format - Production Suite"
   homepage "https://developer.apple.com/download/all/"
 
+  depends_on :macos
+
   pkg "ASAF AAX v#{version}.pkg"
 
   uninstall pkgutil: "com.Apple.pkg.ASAF.AAX"

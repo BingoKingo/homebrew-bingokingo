@@ -1,19 +1,21 @@
-cask "workflow-extensions-sdk" do
-  version "1.0.3"
-  sha256 "fbd245c2d1439a93b86284cce2b6bb028fddea90d76aa4960d48502fa05c376a"
+cask "fxplug-sdk" do
+  version "4.3.4"
+  sha256 "47f43137cf7ddff275b22c9f41a0545258ca574f77f9fbce9b40e8055b1c565b"
 
-  url "https://download.developer.apple.com/Developer_Tools/Workflow_Extensions_SDK_#{version}/Workflow_Extensions_SDK_#{version}.dmg",
+  url "https://download.developer.apple.com/Developer_Tools/FxPlug_SDK_#{version}/FxPlug_SDK_#{version}.dmg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {
         "ADCDownloadAuth" => ENV.fetch("ADC_DOWNLOAD_AUTH", nil).to_s,
       }
-  name "Workflow Extensions SDK"
+  name "FxPlug SDK"
   homepage "https://developer.apple.com/download/all/"
 
-  pkg "WorkflowExtensionsSDK.pkg"
+  depends_on :macos
 
-  uninstall pkgutil: "com.apple.pkg.WorkflowExtensionsSDK"
+  pkg "FxPlugSDK.pkg"
+
+  uninstall pkgutil: "com.apple.pkg.FxPlugSDK"
 
   caveats do
     <<~EOS

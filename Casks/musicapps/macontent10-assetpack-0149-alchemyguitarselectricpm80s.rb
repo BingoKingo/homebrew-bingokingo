@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0149-alchemyguitarselectricpm80s" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0149_AlchemyGuitarsElectricPM80s.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0149_AlchemyGuitarsElectricPM80s"

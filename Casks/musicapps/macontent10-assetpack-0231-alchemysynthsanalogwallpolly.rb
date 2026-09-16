@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0231-alchemysynthsanalogwallpolly" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0231_AlchemySynthsAnalogWallPolly.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0231_AlchemySynthsAnalogWallPolly"

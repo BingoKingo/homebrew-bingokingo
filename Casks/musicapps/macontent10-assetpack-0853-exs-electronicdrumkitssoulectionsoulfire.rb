@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0853-exs-electronicdrumkitssoulectionsoulfire" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0853_EXS_ElectronicDrumkitsSoulectionSoulFire.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0853_EXS_ElectronicDrumkitsSoulectionSoulFire"

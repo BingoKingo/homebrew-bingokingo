@@ -9,7 +9,7 @@ cask "qlwindowsapps" do
 
   deprecate! date: "2022-11-20", because: :unmaintained
 
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: :high_sierra
 
   pkg "QLWindowsApps-#{version}.pkg", allow_untrusted: true
 

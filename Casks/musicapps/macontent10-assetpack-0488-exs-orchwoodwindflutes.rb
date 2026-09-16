@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0488-exs-orchwoodwindflutes" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0488_EXS_OrchWoodwindFlutes.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0488_EXS_OrchWoodwindFlutes"

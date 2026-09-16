@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0647-appleloopsdrummerpercussion" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0647_AppleLoopsDrummerPercussion.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0647_AppleLoopsDrummerPercussion"

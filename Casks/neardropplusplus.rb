@@ -7,7 +7,7 @@ cask "neardropplusplus" do
   desc "Unofficial Google Nearby Share app (Advanced version)"
   homepage "https://github.com/JiachengHou-PnR/NearDropPlusPlus/"
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "NearDropPlusPlus.app"
 

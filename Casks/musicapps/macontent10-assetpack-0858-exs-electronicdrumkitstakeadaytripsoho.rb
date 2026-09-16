@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0858-exs-electronicdrumkitstakeadaytripsoho" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0858_EXS_ElectronicDrumkitsTakeADaytripSoHo.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0858_EXS_ElectronicDrumkitsTakeADaytripSoHo"

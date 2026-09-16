@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0031-alchemydrumsunusualdarkstrike" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0031_AlchemyDrumsUnusualDarkStrike.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0031_AlchemyDrumsUnusualDarkStrike"

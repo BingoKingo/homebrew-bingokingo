@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0370-exs-malletsvibraphone" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0370_EXS_MalletsVibraphone.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0370_EXS_MalletsVibraphone"

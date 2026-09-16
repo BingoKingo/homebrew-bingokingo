@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1018-exs-electronicdrumkitsdancefloorbliss" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1018_EXS_ElectronicDrumkitsDancefloorBliss.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1018_EXS_ElectronicDrumkitsDancefloorBliss"

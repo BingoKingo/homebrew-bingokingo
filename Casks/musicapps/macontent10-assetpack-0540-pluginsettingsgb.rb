@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0540-pluginsettingsgb" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0540_PlugInSettingsGB.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0540_PlugInSettingsGB"

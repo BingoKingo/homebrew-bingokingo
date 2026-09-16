@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0447-exs-worldasianchineseviolin" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0447_EXS_WorldAsianChineseViolin.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0447_EXS_WorldAsianChineseViolin"

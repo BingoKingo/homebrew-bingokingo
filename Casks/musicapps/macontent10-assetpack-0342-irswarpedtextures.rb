@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0342-irswarpedtextures" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0342_IRsWarpedTextures.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0342_IRsWarpedTextures"

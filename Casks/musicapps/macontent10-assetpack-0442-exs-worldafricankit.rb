@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0442-exs-worldafricankit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0442_EXS_WorldAfricanKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0442_EXS_WorldAfricanKit"

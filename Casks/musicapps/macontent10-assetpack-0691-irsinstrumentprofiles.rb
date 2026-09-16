@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0691-irsinstrumentprofiles" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0691_IRsInstrumentProfiles.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0691_IRsInstrumentProfiles"

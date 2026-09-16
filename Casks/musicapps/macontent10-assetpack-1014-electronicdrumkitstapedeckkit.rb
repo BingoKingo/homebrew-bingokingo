@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1014-electronicdrumkitstapedeckkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1014_ElectronicDrumKitsTapeDeckKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1014_ElectronicDrumKitsTapeDeckKit"

@@ -19,6 +19,8 @@ cask "0z695-0077-death-cab-for-cutie-i-will-follow-you-into-the-dark" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0077_Death Cab for Cutie_I Will Follow You Into The Dark.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0077_Death Cab for Cutie_I Will Follow You Into The Dark"

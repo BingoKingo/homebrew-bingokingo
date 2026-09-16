@@ -1,19 +1,21 @@
-cask "fxplug-sdk" do
-  version "4.3.4"
-  sha256 "47f43137cf7ddff275b22c9f41a0545258ca574f77f9fbce9b40e8055b1c565b"
+cask "metal-shader-converter" do
+  version "3.1_beta_1"
+  sha256 "4fb9ab1022c1a2977979577d5510958dd52ae769d8cf7bf4757f4b2f09b853bd"
 
-  url "https://download.developer.apple.com/Developer_Tools/FxPlug_SDK_#{version}/FxPlug_SDK_#{version}.dmg",
+  url "https://download.developer.apple.com/Developer_Tools/Metal_Shader_Converter_#{version}/Metal_Shader_Converter_#{version}.pkg",
       referer:    "https://developer.apple.com/",
       user_agent: :browser,
       cookies:    {
         "ADCDownloadAuth" => ENV.fetch("ADC_DOWNLOAD_AUTH", nil).to_s,
       }
-  name "FxPlug SDK"
+  name "Metal Shader Converter"
   homepage "https://developer.apple.com/download/all/"
 
-  pkg "FxPlugSDK.pkg"
+  depends_on :macos
 
-  uninstall pkgutil: "com.apple.pkg.FxPlugSDK"
+  pkg "Metal_Shader_Converter_#{version}.pkg"
+
+  uninstall pkgutil: "com.apple.metal"
 
   caveats do
     <<~EOS

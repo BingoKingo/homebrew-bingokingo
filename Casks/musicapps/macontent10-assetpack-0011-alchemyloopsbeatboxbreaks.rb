@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0011-alchemyloopsbeatboxbreaks" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0011_AlchemyLoopsBeatBoxBreaks.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0011_AlchemyLoopsBeatBoxBreaks"

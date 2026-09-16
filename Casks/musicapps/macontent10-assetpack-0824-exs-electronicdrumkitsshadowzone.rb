@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0824-exs-electronicdrumkitsshadowzone" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0824_EXS_ElectronicDrumkitsShadowZone.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0824_EXS_ElectronicDrumkitsShadowZone"

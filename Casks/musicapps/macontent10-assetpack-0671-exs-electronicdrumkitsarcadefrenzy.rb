@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0671-exs-electronicdrumkitsarcadefrenzy" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0671_EXS_ElectronicDrumkitsArcadeFrenzy.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0671_EXS_ElectronicDrumkitsArcadeFrenzy"

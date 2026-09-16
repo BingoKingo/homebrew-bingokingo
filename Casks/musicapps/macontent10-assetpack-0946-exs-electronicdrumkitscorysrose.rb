@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0946-exs-electronicdrumkitscorysrose" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0946_EXS_ElectronicDrumkitsCorysRose.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0946_EXS_ElectronicDrumkitsCorysRose"

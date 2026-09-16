@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0212-alchemysynthsanalogdancephaser" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0212_AlchemySynthsAnalogDancePhaser.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0212_AlchemySynthsAnalogDancePhaser"

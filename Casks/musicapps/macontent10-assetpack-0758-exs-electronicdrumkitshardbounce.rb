@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0758-exs-electronicdrumkitshardbounce" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0758_EXS_ElectronicDrumkitsHardBounce.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0758_EXS_ElectronicDrumkitsHardBounce"

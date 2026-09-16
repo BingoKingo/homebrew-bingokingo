@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0991-electronicdrummeribizatech" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0991_ElectronicDrummerIbizaTech.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0991_ElectronicDrummerIbizaTech"

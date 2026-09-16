@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0902-exs-electronicdrumkitsanalogtraces" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0902_EXS_ElectronicDrumkitsAnalogTraces.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0902_EXS_ElectronicDrumkitsAnalogTraces"

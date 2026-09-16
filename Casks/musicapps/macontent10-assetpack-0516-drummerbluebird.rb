@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0516-drummerbluebird" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0516_DrummerBluebird.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0516_DrummerBluebird"

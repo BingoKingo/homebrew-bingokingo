@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0754-exs-electronicdrumkitssolaris" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0754_EXS_ElectronicDrumkitsSolaris.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0754_EXS_ElectronicDrumkitsSolaris"

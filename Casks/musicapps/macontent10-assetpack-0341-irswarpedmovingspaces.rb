@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0341-irswarpedmovingspaces" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0341_IRsWarpedMovingSpaces.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0341_IRsWarpedMovingSpaces"

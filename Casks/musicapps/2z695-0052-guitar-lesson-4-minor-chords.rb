@@ -19,6 +19,8 @@ cask "2z695-0052-guitar-lesson-4-minor-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0052_Guitar Lesson 4_Minor Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0052_Guitar Lesson 4_Minor Chords"

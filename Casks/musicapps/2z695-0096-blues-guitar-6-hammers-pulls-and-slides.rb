@@ -19,6 +19,8 @@ cask "2z695-0096-blues-guitar-6-hammers-pulls-and-slides" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0096_Blues Guitar 6_Hammers, Pulls, and Slides.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0096_Blues Guitar 6_Hammers, Pulls, and Slides"

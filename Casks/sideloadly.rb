@@ -15,6 +15,7 @@ cask "sideloadly" do
   end
 
   auto_updates true
+  depends_on :macos
 
   app "Sideloadly.app"
 

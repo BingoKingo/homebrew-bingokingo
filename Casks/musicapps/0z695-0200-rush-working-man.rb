@@ -19,6 +19,8 @@ cask "0z695-0200-rush-working-man" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0200_Rush_Working Man.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0200_Rush_Working Man"

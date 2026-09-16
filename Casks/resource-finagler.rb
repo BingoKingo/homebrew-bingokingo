@@ -19,6 +19,8 @@ cask "resource-finagler" do
     end
   end
 
+  depends_on :macos
+
   app "Resource Finagler.app"
 
   zap trash: [

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0061-alchemypadsdigitalmisc" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0061_AlchemyPadsDigitalMisc.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0061_AlchemyPadsDigitalMisc"

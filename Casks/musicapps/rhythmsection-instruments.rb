@@ -19,6 +19,8 @@ cask "rhythmsection-instruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "RhythmSection_Instruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.RhythmSection_Instruments"

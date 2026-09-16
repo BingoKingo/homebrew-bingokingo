@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0269-alchemyvocalsfxnnoisesicelandicfxkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0269_AlchemyVocalsFXNNoisesIcelandicFXKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0269_AlchemyVocalsFXNNoisesIcelandicFXKit"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0216-alchemysynthsanalogelectrickeys" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0216_AlchemySynthsAnalogElectricKeys.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0216_AlchemySynthsAnalogElectricKeys"

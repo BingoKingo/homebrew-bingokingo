@@ -19,6 +19,8 @@ cask "0z695-0195-rush-limelight" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0195_Rush_Limelight.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0195_Rush_Limelight"

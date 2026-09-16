@@ -9,7 +9,7 @@ cask "neardropplus" do
 
   deprecate! date: "2023-07-19", because: :unmaintained
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
 
   app "NearDropPlus.app"
 

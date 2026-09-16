@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0947-drummervintagesticks" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0947_DrummerVintageSticks.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0947_DrummerVintageSticks"

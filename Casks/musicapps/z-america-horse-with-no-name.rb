@@ -19,6 +19,8 @@ cask "z-america-horse-with-no-name" do
     end
   end
 
+  depends_on :macos
+
   pkg "z_America_Horse With No Name.pkg"
 
   uninstall pkgutil: "com.apple.pkg.z_America_Horse With No Name"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0359-exs-basselectricfretless" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0359_EXS_BassElectricFretless.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0359_EXS_BassElectricFretless"

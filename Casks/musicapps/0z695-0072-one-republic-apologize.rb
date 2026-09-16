@@ -19,6 +19,8 @@ cask "0z695-0072-one-republic-apologize" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0072_One Republic_Apologize.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0072_One Republic_Apologize"

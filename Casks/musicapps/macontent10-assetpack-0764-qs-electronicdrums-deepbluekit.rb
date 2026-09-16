@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0764-qs-electronicdrums-deepbluekit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0764_QS_ElectronicDrums_DeepBlueKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0764_QS_ElectronicDrums_DeepBlueKit"

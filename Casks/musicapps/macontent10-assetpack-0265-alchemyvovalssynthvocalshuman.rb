@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0265-alchemyvovalssynthvocalshuman" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0265_AlchemyVovalsSynthVocalsHuman.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0265_AlchemyVovalsSynthVocalsHuman"

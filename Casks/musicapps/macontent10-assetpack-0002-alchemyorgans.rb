@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0002-alchemyorgans" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0002_AlchemyOrgans.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0002_AlchemyOrgans"

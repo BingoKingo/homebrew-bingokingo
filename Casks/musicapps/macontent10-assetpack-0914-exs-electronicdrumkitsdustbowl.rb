@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0914-exs-electronicdrumkitsdustbowl" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0914_EXS_ElectronicDrumkitsDustBowl.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0914_EXS_ElectronicDrumkitsDustBowl"

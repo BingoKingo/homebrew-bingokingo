@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0127-alchemyguitarssingle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0127_AlchemyGuitarsSingle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0127_AlchemyGuitarsSingle"

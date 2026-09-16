@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0818-exs-electronicdrumkitsmetallicedges" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0818_EXS_ElectronicDrumkitsMetallicEdges.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0818_EXS_ElectronicDrumkitsMetallicEdges"

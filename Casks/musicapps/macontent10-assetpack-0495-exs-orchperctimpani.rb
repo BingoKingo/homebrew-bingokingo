@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0495-exs-orchperctimpani" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0495_EXS_OrchPercTimpani.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0495_EXS_OrchPercTimpani"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0242-alchemysynthsdigitaldirtysynthswell" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0242_AlchemySynthsDigitalDirtySynthSwell.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0242_AlchemySynthsDigitalDirtySynthSwell"

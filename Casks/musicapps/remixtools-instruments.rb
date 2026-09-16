@@ -19,6 +19,8 @@ cask "remixtools-instruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "RemixTools_Instruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.RemixTools_Instruments"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0905-exs-electronicdrumkitsmodularmayhem" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0905_EXS_ElectronicDrumkitsModularMayhem.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0905_EXS_ElectronicDrumkitsModularMayhem"

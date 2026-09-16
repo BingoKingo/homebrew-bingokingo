@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0081-alchemysoundscapesdirtybowedbell" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0081_AlchemySoundscapesDirtyBowedBell.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0081_AlchemySoundscapesDirtyBowedBell"

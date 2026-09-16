@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0989-electronicdrummerhouseheads" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0989_ElectronicDrummerHouseHeads.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0989_ElectronicDrummerHouseHeads"

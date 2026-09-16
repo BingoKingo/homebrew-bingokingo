@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0507-exs-choirmixed" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0507_EXS_ChoirMixed.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0507_EXS_ChoirMixed"

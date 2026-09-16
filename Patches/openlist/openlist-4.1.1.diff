@@ -1,62 +1,6 @@
-From 0e12fa6adcb3892eccfb5fc26f3fb40452e344f8 Mon Sep 17 00:00:00 2001
-From: Anonymous <anonymous@anywhere.local>
-Date: Wed, 20 Aug 2025 17:36:13 +0800
-Subject: [PATCH] add back drivers: alist_v2 baidu_share lark trainbit vtencent
-
-go mod add github.com/larksuite/oapi-sdk-go github.com/minio/sio
----
- drivers/alist_v2/driver.go    | 118 ++++++++++
- drivers/alist_v2/meta.go      |  26 +++
- drivers/alist_v2/types.go     |  31 +++
- drivers/alist_v2/util.go      |   1 +
- drivers/all.go                |   4 +
- drivers/baidu_share/driver.go | 251 +++++++++++++++++++++
- drivers/baidu_share/meta.go   |  37 ++++
- drivers/baidu_share/types.go  |   1 +
- drivers/baidu_share/util.go   |   3 +
- drivers/lark.go               |   8 +
- drivers/lark/driver.go        | 403 ++++++++++++++++++++++++++++++++++
- drivers/lark/meta.go          |  36 +++
- drivers/lark/types.go         |  32 +++
- drivers/lark/util.go          |  66 ++++++
- drivers/trainbit/driver.go    | 137 ++++++++++++
- drivers/trainbit/meta.go      |  29 +++
- drivers/trainbit/types.go     |   1 +
- drivers/trainbit/util.go      | 124 +++++++++++
- drivers/vtencent/drive.go     | 210 ++++++++++++++++++
- drivers/vtencent/meta.go      |  39 ++++
- drivers/vtencent/signature.go |  33 +++
- drivers/vtencent/types.go     | 252 +++++++++++++++++++++
- drivers/vtencent/util.go      | 299 +++++++++++++++++++++++++
- go.mod                        |   2 +
- go.sum                        |  16 ++
- 25 files changed, 2159 insertions(+)
- create mode 100755 drivers/alist_v2/driver.go
- create mode 100755 drivers/alist_v2/meta.go
- create mode 100755 drivers/alist_v2/types.go
- create mode 100755 drivers/alist_v2/util.go
- create mode 100755 drivers/baidu_share/driver.go
- create mode 100755 drivers/baidu_share/meta.go
- create mode 100755 drivers/baidu_share/types.go
- create mode 100755 drivers/baidu_share/util.go
- create mode 100755 drivers/lark.go
- create mode 100755 drivers/lark/driver.go
- create mode 100755 drivers/lark/meta.go
- create mode 100755 drivers/lark/types.go
- create mode 100755 drivers/lark/util.go
- create mode 100755 drivers/trainbit/driver.go
- create mode 100755 drivers/trainbit/meta.go
- create mode 100755 drivers/trainbit/types.go
- create mode 100755 drivers/trainbit/util.go
- create mode 100755 drivers/vtencent/drive.go
- create mode 100755 drivers/vtencent/meta.go
- create mode 100755 drivers/vtencent/signature.go
- create mode 100755 drivers/vtencent/types.go
- create mode 100755 drivers/vtencent/util.go
-
 diff --git a/drivers/alist_v2/driver.go b/drivers/alist_v2/driver.go
 new file mode 100755
-index 00000000..c9052546
+index 0000000..c905254
 --- /dev/null
 +++ b/drivers/alist_v2/driver.go
 @@ -0,0 +1,118 @@
@@ -180,7 +124,7 @@ index 00000000..c9052546
 +var _ driver.Driver = (*AListV2)(nil)
 diff --git a/drivers/alist_v2/meta.go b/drivers/alist_v2/meta.go
 new file mode 100755
-index 00000000..83f99ce4
+index 0000000..83f99ce
 --- /dev/null
 +++ b/drivers/alist_v2/meta.go
 @@ -0,0 +1,26 @@
@@ -212,7 +156,7 @@ index 00000000..83f99ce4
 +}
 diff --git a/drivers/alist_v2/types.go b/drivers/alist_v2/types.go
 new file mode 100755
-index 00000000..b2317fbf
+index 0000000..b2317fb
 --- /dev/null
 +++ b/drivers/alist_v2/types.go
 @@ -0,0 +1,31 @@
@@ -249,13 +193,13 @@ index 00000000..b2317fbf
 +}
 diff --git a/drivers/alist_v2/util.go b/drivers/alist_v2/util.go
 new file mode 100755
-index 00000000..e6682193
+index 0000000..e668219
 --- /dev/null
 +++ b/drivers/alist_v2/util.go
 @@ -0,0 +1 @@
 +package alist_v2
 diff --git a/drivers/all.go b/drivers/all.go
-index 5b274eab..6c1f92d4 100644
+index 2eb17b9..fec39dc 100644
 --- a/drivers/all.go
 +++ b/drivers/all.go
 @@ -13,12 +13,14 @@ import (
@@ -273,7 +217,7 @@ index 5b274eab..6c1f92d4 100644
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/chaoxing"
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/cloudreve"
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/cloudreve_v4"
-@@ -64,9 +66,11 @@ import (
+@@ -63,9 +65,11 @@ import (
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunder"
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunder_browser"
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/thunderx"
@@ -287,7 +231,7 @@ index 5b274eab..6c1f92d4 100644
  	_ "github.com/OpenListTeam/OpenList/v4/drivers/wopan"
 diff --git a/drivers/baidu_share/driver.go b/drivers/baidu_share/driver.go
 new file mode 100755
-index 00000000..c31d8844
+index 0000000..c31d884
 --- /dev/null
 +++ b/drivers/baidu_share/driver.go
 @@ -0,0 +1,251 @@
@@ -544,7 +488,7 @@ index 00000000..c31d8844
 +var _ driver.Driver = (*BaiduShare)(nil)
 diff --git a/drivers/baidu_share/meta.go b/drivers/baidu_share/meta.go
 new file mode 100755
-index 00000000..0647a0c9
+index 0000000..0647a0c
 --- /dev/null
 +++ b/drivers/baidu_share/meta.go
 @@ -0,0 +1,37 @@
@@ -587,14 +531,14 @@ index 00000000..0647a0c9
 +}
 diff --git a/drivers/baidu_share/types.go b/drivers/baidu_share/types.go
 new file mode 100755
-index 00000000..1f65cb60
+index 0000000..1f65cb6
 --- /dev/null
 +++ b/drivers/baidu_share/types.go
 @@ -0,0 +1 @@
 +package baidu_share
 diff --git a/drivers/baidu_share/util.go b/drivers/baidu_share/util.go
 new file mode 100755
-index 00000000..6bca3f93
+index 0000000..6bca3f9
 --- /dev/null
 +++ b/drivers/baidu_share/util.go
 @@ -0,0 +1,3 @@
@@ -603,7 +547,7 @@ index 00000000..6bca3f93
 +// do others that not defined in Driver interface
 diff --git a/drivers/lark.go b/drivers/lark.go
 new file mode 100755
-index 00000000..7832320d
+index 0000000..7832320
 --- /dev/null
 +++ b/drivers/lark.go
 @@ -0,0 +1,8 @@
@@ -617,7 +561,7 @@ index 00000000..7832320d
 +)
 diff --git a/drivers/lark/driver.go b/drivers/lark/driver.go
 new file mode 100755
-index 00000000..59b4e300
+index 0000000..59b4e30
 --- /dev/null
 +++ b/drivers/lark/driver.go
 @@ -0,0 +1,403 @@
@@ -1026,7 +970,7 @@ index 00000000..59b4e300
 +var _ driver.Driver = (*Lark)(nil)
 diff --git a/drivers/lark/meta.go b/drivers/lark/meta.go
 new file mode 100755
-index 00000000..c42f761c
+index 0000000..c42f761
 --- /dev/null
 +++ b/drivers/lark/meta.go
 @@ -0,0 +1,36 @@
@@ -1068,7 +1012,7 @@ index 00000000..c42f761c
 +}
 diff --git a/drivers/lark/types.go b/drivers/lark/types.go
 new file mode 100755
-index 00000000..9cfc0f1f
+index 0000000..9cfc0f1
 --- /dev/null
 +++ b/drivers/lark/types.go
 @@ -0,0 +1,32 @@
@@ -1106,7 +1050,7 @@ index 00000000..9cfc0f1f
 +}
 diff --git a/drivers/lark/util.go b/drivers/lark/util.go
 new file mode 100755
-index 00000000..101cb676
+index 0000000..101cb67
 --- /dev/null
 +++ b/drivers/lark/util.go
 @@ -0,0 +1,66 @@
@@ -1178,7 +1122,7 @@ index 00000000..101cb676
 +}
 diff --git a/drivers/trainbit/driver.go b/drivers/trainbit/driver.go
 new file mode 100755
-index 00000000..eb86b6e9
+index 0000000..eb86b6e
 --- /dev/null
 +++ b/drivers/trainbit/driver.go
 @@ -0,0 +1,137 @@
@@ -1321,7 +1265,7 @@ index 00000000..eb86b6e9
 +var _ driver.Driver = (*Trainbit)(nil)
 diff --git a/drivers/trainbit/meta.go b/drivers/trainbit/meta.go
 new file mode 100755
-index 00000000..2329e785
+index 0000000..2329e78
 --- /dev/null
 +++ b/drivers/trainbit/meta.go
 @@ -0,0 +1,29 @@
@@ -1356,7 +1300,7 @@ index 00000000..2329e785
 +}
 diff --git a/drivers/trainbit/types.go b/drivers/trainbit/types.go
 new file mode 100755
-index 00000000..4de1a0ab
+index 0000000..4de1a0a
 --- /dev/null
 +++ b/drivers/trainbit/types.go
 @@ -0,0 +1 @@
@@ -1364,7 +1308,7 @@ index 00000000..4de1a0ab
 \ No newline at end of file
 diff --git a/drivers/trainbit/util.go b/drivers/trainbit/util.go
 new file mode 100755
-index 00000000..fae492df
+index 0000000..fae492d
 --- /dev/null
 +++ b/drivers/trainbit/util.go
 @@ -0,0 +1,124 @@
@@ -1494,7 +1438,7 @@ index 00000000..fae492df
 +}
 diff --git a/drivers/vtencent/drive.go b/drivers/vtencent/drive.go
 new file mode 100755
-index 00000000..1f0d4ab3
+index 0000000..1f0d4ab
 --- /dev/null
 +++ b/drivers/vtencent/drive.go
 @@ -0,0 +1,210 @@
@@ -1710,7 +1654,7 @@ index 00000000..1f0d4ab3
 +var _ driver.Driver = (*Vtencent)(nil)
 diff --git a/drivers/vtencent/meta.go b/drivers/vtencent/meta.go
 new file mode 100755
-index 00000000..fd6f847d
+index 0000000..fd6f847
 --- /dev/null
 +++ b/drivers/vtencent/meta.go
 @@ -0,0 +1,39 @@
@@ -1755,7 +1699,7 @@ index 00000000..fd6f847d
 +}
 diff --git a/drivers/vtencent/signature.go b/drivers/vtencent/signature.go
 new file mode 100755
-index 00000000..14fda9bd
+index 0000000..14fda9b
 --- /dev/null
 +++ b/drivers/vtencent/signature.go
 @@ -0,0 +1,33 @@
@@ -1794,7 +1738,7 @@ index 00000000..14fda9bd
 +}
 diff --git a/drivers/vtencent/types.go b/drivers/vtencent/types.go
 new file mode 100755
-index 00000000..045610ca
+index 0000000..045610c
 --- /dev/null
 +++ b/drivers/vtencent/types.go
 @@ -0,0 +1,252 @@
@@ -2052,7 +1996,7 @@ index 00000000..045610ca
 +}
 diff --git a/drivers/vtencent/util.go b/drivers/vtencent/util.go
 new file mode 100755
-index 00000000..545d4b59
+index 0000000..545d4b5
 --- /dev/null
 +++ b/drivers/vtencent/util.go
 @@ -0,0 +1,299 @@
@@ -2356,7 +2300,7 @@ index 00000000..545d4b59
 +	return nil
 +}
 diff --git a/go.mod b/go.mod
-index a581ea80..145e12c1 100644
+index a581ea8..145e12c 100644
 --- a/go.mod
 +++ b/go.mod
 @@ -87,8 +87,10 @@ require (
@@ -2371,7 +2315,7 @@ index a581ea80..145e12c1 100644
  	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
  	github.com/otiai10/mint v1.6.3 // indirect
 diff --git a/go.sum b/go.sum
-index d731a5b8..4ef2921f 100644
+index d731a5b..4ef2921 100644
 --- a/go.sum
 +++ b/go.sum
 @@ -301,6 +301,7 @@ github.com/goccy/go-json v0.10.5 h1:Fq85nIqj+gXn/S5ahsiTlK3TmC85qgirsdTP/+DeaC4=
@@ -2467,6 +2411,3 @@ index d731a5b8..4ef2921f 100644
  google.golang.org/api v0.4.0/go.mod h1:8k5glujaEP+g9n7WNsDg8QP6cUVNI86fCNMcbazEtwE=
  google.golang.org/api v0.7.0/go.mod h1:WtwebWUNSVBH/HAw79HIFXZNqEvBhG+Ra+ax0hx3E3M=
  google.golang.org/api v0.8.0/go.mod h1:o4eAsZoiT+ibD93RtjEohWalFOjRDx6CVaqeizhEnKg=
--- 
-2.50.1
-

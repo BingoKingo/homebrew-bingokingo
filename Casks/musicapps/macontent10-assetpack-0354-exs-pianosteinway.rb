@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0354-exs-pianosteinway" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0354_EXS_PianoSteinway.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0354_EXS_PianoSteinway"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0870-exs-keyboardstommisch" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0870_EXS_KeyboardsTomMisch.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0870_EXS_KeyboardsTomMisch"

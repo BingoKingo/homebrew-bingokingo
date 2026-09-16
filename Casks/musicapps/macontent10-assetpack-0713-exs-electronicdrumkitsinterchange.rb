@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0713-exs-electronicdrumkitsinterchange" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0713_EXS_ElectronicDrumkitsInterchange.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0713_EXS_ElectronicDrumkitsInterchange"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0349-irswarpedghostrhythms130" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0349_IRsWarpedGhostRhythms130.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0349_IRsWarpedGhostRhythms130"

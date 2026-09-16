@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0404-exs-texturesdronesplasmaconduit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0404_EXS_TexturesDronesPlasmaConduit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0404_EXS_TexturesDronesPlasmaConduit"

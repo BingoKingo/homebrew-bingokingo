@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0478-exs-worldsouthasiaflute" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0478_EXS_WorldSouthAsiaFlute.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0478_EXS_WorldSouthAsiaFlute"

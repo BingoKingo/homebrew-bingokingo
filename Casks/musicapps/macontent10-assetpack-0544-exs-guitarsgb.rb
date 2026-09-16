@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0544-exs-guitarsgb" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0544_EXS_GuitarsGB.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0544_EXS_GuitarsGB"

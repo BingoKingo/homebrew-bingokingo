@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0594-drummersocallogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0594_DrummerSoCalLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0594_DrummerSoCalLogic"

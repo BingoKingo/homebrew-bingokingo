@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0959-appleloopshardwell" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0959_AppleLoopsHardwell.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0959_AppleLoopsHardwell"

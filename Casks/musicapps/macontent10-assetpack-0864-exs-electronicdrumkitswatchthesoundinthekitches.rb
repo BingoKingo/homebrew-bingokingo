@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0864-exs-electronicdrumkitswatchthesoundinthekitches
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0864_EXS_ElectronicDrumkitsWatchTheSoundInTheKitches.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0864_EXS_ElectronicDrumkitsWatchTheSoundInTheKitches"

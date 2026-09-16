@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0365-exs-basselectricsubby" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0365_EXS_BassElectricSubby.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0365_EXS_BassElectricSubby"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0382-exs-texturesdronesbetweenchoirs" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0382_EXS_TexturesDronesBetweenChoirs.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0382_EXS_TexturesDronesBetweenChoirs"

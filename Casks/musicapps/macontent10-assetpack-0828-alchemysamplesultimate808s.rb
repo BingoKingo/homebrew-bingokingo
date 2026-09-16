@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0828-alchemysamplesultimate808s" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0828_AlchemySamplesUltimate808s.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0828_AlchemySamplesUltimate808s"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0517-drummerbrooklyn" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0517_DrummerBrooklyn.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0517_DrummerBrooklyn"

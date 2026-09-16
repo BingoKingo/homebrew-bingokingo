@@ -11,6 +11,7 @@ cask "airmessage" do
   deprecate! date: "2022-10-21", because: :unmaintained
 
   auto_updates true
+  depends_on :macos
 
   app "AirMessage.app"
 

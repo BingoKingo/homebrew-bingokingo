@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0430-exs-texturespadselectricstring" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0430_EXS_TexturesPadsElectricString.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0430_EXS_TexturesPadsElectricString"

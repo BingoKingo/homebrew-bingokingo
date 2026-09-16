@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1024-exs-electronicdrumkitsstardust" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1024_EXS_ElectronicDrumkitsStardust.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1024_EXS_ElectronicDrumkitsStardust"

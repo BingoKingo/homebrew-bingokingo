@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0974-drummerretrorock-v2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0974_DrummerRetroRock_v2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0974_DrummerRetroRock_v2"

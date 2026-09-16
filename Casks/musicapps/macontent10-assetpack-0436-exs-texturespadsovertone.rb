@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0436-exs-texturespadsovertone" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0436_EXS_TexturesPadsOvertone.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0436_EXS_TexturesPadsOvertone"

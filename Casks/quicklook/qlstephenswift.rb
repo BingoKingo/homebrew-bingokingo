@@ -7,7 +7,7 @@ cask "qlstephenswift" do
   desc "QuickLook extension for text files without extensions"
   homepage "https://github.com/MyCometG3/QLStephenSwift/"
 
-  depends_on macos: ">=:sequoia"
+  depends_on macos: :sequoia
 
   app "QLStephenSwift.app"
 

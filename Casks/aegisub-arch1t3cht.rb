@@ -19,6 +19,7 @@ cask "aegisub-arch1t3cht" do
     end
   end
 
+  depends_on :macos
   container nested: "Aegisub-#{version.csv.first}.dmg"
 
   app "Aegisub.app"

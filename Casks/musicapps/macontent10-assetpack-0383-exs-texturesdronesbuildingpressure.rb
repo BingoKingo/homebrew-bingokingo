@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0383-exs-texturesdronesbuildingpressure" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0383_EXS_TexturesDronesBuildingPressure.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0383_EXS_TexturesDronesBuildingPressure"

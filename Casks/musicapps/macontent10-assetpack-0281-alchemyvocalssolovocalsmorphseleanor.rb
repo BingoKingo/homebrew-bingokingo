@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0281-alchemyvocalssolovocalsmorphseleanor" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0281_AlchemyVocalsSoloVocalsMorphsEleanor.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0281_AlchemyVocalsSoloVocalsMorphsEleanor"

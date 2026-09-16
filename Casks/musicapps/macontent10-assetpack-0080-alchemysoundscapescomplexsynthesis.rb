@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0080-alchemysoundscapescomplexsynthesis" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0080_AlchemySoundscapesComplexSynthesis.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0080_AlchemySoundscapesComplexSynthesis"

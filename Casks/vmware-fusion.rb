@@ -11,7 +11,7 @@ cask "vmware-fusion" do
   homepage "https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion"
 
   auto_updates true
-  depends_on macos: ">= :ventura"
+  depends_on macos: :ventura
 
   app "#{staged_path}/VMware Fusion.app"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmnet-bridge"
@@ -48,8 +48,8 @@ cask "vmware-fusion" do
                    sudo_as_root: true
   end
 
-  uninstall_preflight do
-    set_ownership "#{appdir}/VMware Fusion.app"
+  uninstall_preflight_steps do
+    set_ownership "VMware Fusion.app", base: :appdir
   end
 
   uninstall delete: "/etc/paths.d/com.vmware.fusion.public"

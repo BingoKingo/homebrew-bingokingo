@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0543-demosongslogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0543_DemosongsLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0543_DemosongsLogic"

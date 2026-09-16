@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0695-exs-studiohornssingle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0695_EXS_StudioHornsSingle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0695_EXS_StudioHornsSingle"

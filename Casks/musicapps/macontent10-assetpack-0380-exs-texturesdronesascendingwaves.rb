@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0380-exs-texturesdronesascendingwaves" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0380_EXS_TexturesDronesAscendingWaves.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0380_EXS_TexturesDronesAscendingWaves"

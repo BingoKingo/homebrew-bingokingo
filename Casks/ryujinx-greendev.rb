@@ -14,7 +14,7 @@ cask "ryujinx-greendev" do
 
   auto_updates true
   conflicts_with cask: ["ryujinx", "ryujinx-greendev@canary"]
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
   app "ryujinx.app", target: "Ryujinx.app"
 

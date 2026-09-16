@@ -317,9 +317,9 @@ class FaradayCli < Formula
   end
 
   def install
-    ENV["LDFLAGS"] = "-L#{Formula["readline"].opt_lib} -L#{Formula["ncurses"].opt_lib}"
-    ENV["CPPFLAGS"] = "-I#{Formula["readline"].opt_include} -I#{Formula["ncurses"].opt_include}"
-    ENV["PKG_CONFIG_PATH"] = "#{Formula["readline"].opt_lib}/pkgconfig"
+    ENV["LDFLAGS"] = "-L#{formula_opt_lib("readline")} -L#{formula_opt_lib("ncurses")}"
+    ENV["CPPFLAGS"] = "-I#{formula_opt_include("readline")} -I#{formula_opt_include("ncurses")}"
+    ENV["PKG_CONFIG_PATH"] = "#{formula_opt_lib("readline")}/pkgconfig"
 
     # Create dummy RELEASE.md and requirements.txt to avoid FileNotFoundError during build
     (buildpath/"RELEASE.md").write("")

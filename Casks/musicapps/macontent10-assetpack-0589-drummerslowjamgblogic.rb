@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0589-drummerslowjamgblogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0589_DrummerSlowJamGBLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0589_DrummerSlowJamGBLogic"

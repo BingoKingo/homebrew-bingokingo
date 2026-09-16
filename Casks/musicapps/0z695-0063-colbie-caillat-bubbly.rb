@@ -19,6 +19,8 @@ cask "0z695-0063-colbie-caillat-bubbly" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0063_Colbie Caillat_Bubbly.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0063_Colbie Caillat_Bubbly"

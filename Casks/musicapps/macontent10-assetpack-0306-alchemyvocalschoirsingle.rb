@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0306-alchemyvocalschoirsingle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0306_AlchemyVocalsChoirSingle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0306_AlchemyVocalsChoirSingle"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0829-exs-electronicdrumkitshtownfire" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0829_EXS_ElectronicDrumkitsHTownFire.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0829_EXS_ElectronicDrumkitsHTownFire"

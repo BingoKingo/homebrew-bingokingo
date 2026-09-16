@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0862-exs-electronicdrumkitswatchthesoundcr78madeicon
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0862_EXS_ElectronicDrumkitsWatchTheSoundCR78MadeIconic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0862_EXS_ElectronicDrumkitsWatchTheSoundCR78MadeIconic"

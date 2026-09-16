@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0420-exs-texturesdronesunknownorigins" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0420_EXS_TexturesDronesUnknownOrigins.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0420_EXS_TexturesDronesUnknownOrigins"

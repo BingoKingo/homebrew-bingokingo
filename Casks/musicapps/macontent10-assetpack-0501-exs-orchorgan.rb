@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0501-exs-orchorgan" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0501_EXS_OrchOrgan.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0501_EXS_OrchOrgan"

@@ -19,6 +19,8 @@ cask "jampack4-instruments" do
     end
   end
 
+  depends_on :macos
+
   pkg "JamPack4_Instruments.pkg"
 
   uninstall pkgutil: "com.apple.pkg.JamPack4_Instruments"

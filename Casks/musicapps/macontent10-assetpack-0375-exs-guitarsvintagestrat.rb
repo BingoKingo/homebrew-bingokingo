@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0375-exs-guitarsvintagestrat" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0375_EXS_GuitarsVintageStrat.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0375_EXS_GuitarsVintageStrat"

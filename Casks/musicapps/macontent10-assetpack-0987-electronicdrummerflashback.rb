@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0987-electronicdrummerflashback" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0987_ElectronicDrummerFlashback.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0987_ElectronicDrummerFlashback"

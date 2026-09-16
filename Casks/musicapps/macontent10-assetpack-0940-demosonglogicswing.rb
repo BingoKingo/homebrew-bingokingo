@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0940-demosonglogicswing" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0940_DemosongLogicSwing.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0940_DemosongLogicSwing"

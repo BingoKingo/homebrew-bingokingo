@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0557-irssharedaux" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0557_IRsSharedAUX.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0557_IRsSharedAUX"

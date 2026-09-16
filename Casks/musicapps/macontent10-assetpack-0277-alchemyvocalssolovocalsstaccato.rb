@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0277-alchemyvocalssolovocalsstaccato" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0277_AlchemyVocalsSoloVocalsStaccato.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0277_AlchemyVocalsSoloVocalsStaccato"

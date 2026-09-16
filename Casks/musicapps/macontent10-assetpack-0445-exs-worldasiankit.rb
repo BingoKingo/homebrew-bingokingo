@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0445-exs-worldasiankit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0445_EXS_WorldAsianKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0445_EXS_WorldAsianKit"

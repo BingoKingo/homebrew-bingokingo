@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0677-exs-electronicdrumkitsfoundsound" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0677_EXS_ElectronicDrumkitsFoundSound.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0677_EXS_ElectronicDrumkitsFoundSound"

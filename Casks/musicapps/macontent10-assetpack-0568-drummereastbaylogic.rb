@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0568-drummereastbaylogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0568_DrummerEastBayLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0568_DrummerEastBayLogic"

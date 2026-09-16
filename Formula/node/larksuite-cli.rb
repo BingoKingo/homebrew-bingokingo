@@ -6,6 +6,11 @@ class LarksuiteCli < Formula
   license "MIT"
   head "https://github.com/larksuite/cli.git", branch: "main"
 
+  bottle do
+    root_url "https://ghcr.io/v2/bingokingo/homebrew"
+    sha256 cellar: :any_skip_relocation, all: "08e0a5b42b1b6698835494ced4291c67a0b2808b8c4c1a1225df55f036ef886b"
+  end
+
   depends_on "node"
 
   def install

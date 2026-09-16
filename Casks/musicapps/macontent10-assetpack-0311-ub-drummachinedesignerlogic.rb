@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0311-ub-drummachinedesignerlogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0311_UB_DrumMachineDesignerLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0311_UB_DrumMachineDesignerLogic"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0687-exs-worldkoto" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0687_EXS_WorldKoto.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0687_EXS_WorldKoto"

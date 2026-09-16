@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0814-exs-electronicdrumkitsdoublevision" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0814_EXS_ElectronicDrumkitsDoubleVision.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0814_EXS_ElectronicDrumkitsDoubleVision"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0298-alchemybassthroaty" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0298_AlchemyBassThroaty.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0298_AlchemyBassThroaty"

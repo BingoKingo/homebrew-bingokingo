@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0978-drummerfourontheflour-v2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0978_DrummerFourOnTheFlour_v2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0978_DrummerFourOnTheFlour_v2"

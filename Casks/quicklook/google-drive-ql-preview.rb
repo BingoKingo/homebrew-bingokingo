@@ -7,6 +7,8 @@ cask "google-drive-ql-preview" do
   desc "QuickLook Preview support for Google Docs files"
   homepage "https://github.com/lukeredmore/google-drive-ql-preview/"
 
+  depends_on :macos
+
   app "google-drive-ql-preview.app"
 
   postflight do

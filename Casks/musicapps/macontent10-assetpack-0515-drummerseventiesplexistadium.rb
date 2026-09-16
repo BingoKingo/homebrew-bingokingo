@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0515-drummerseventiesplexistadium" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0515_DrummerSeventiesPlexiStadium.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0515_DrummerSeventiesPlexiStadium"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0482-exs-orchwoodwindaltosax" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0482_EXS_OrchWoodwindAltoSax.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0482_EXS_OrchWoodwindAltoSax"

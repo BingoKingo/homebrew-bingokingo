@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0823-exs-electronicdrumkitssecretsauce" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0823_EXS_ElectronicDrumkitsSecretSauce.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0823_EXS_ElectronicDrumkitsSecretSauce"

@@ -19,6 +19,8 @@ cask "2z695-0045-piano-lesson-5-sharps-and-flats" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0045_Piano Lesson 5_Sharps and Flats.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0045_Piano Lesson 5_Sharps and Flats"

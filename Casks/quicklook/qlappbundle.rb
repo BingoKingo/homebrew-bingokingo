@@ -7,6 +7,8 @@ cask "qlappbundle" do
   desc "QuickLook plugin for app bundles (.ipa, .tipa, .appex, .xcarchive, .apk, .apkm)"
   homepage "https://github.com/relikd/QLAppBundle/"
 
+  depends_on :macos
+
   app "QLAppBundle.app"
 
   postflight do

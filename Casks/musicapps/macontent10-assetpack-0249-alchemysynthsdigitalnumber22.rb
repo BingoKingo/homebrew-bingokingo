@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0249-alchemysynthsdigitalnumber22" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0249_AlchemySynthsDigitalNumber22.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0249_AlchemySynthsDigitalNumber22"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0480-exs-worldsouthasiasitar" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0480_EXS_WorldSouthAsiaSitar.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0480_EXS_WorldSouthAsiaSitar"

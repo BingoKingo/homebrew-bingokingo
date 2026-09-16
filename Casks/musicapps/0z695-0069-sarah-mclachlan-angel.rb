@@ -19,6 +19,8 @@ cask "0z695-0069-sarah-mclachlan-angel" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0069_Sarah McLachlan_Angel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0069_Sarah McLachlan_Angel"

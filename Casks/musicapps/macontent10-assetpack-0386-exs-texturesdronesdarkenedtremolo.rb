@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0386-exs-texturesdronesdarkenedtremolo" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0386_EXS_TexturesDronesDarkenedTremolo.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0386_EXS_TexturesDronesDarkenedTremolo"

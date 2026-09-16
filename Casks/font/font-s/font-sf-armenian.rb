@@ -4,11 +4,12 @@ cask "font-sf-armenian" do
   # version "19.0d5e1,20.0d1e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/SF-Armenian.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-sf-armenian" do
       ]
     end
   end
-
   on_linux do
     sha256 "92a9243f2282f58beb736e3cab56068a5f1c95ba956e52fbaa96a1c43613126e"
 

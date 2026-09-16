@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0904-exs-electronicdrumkitsmodulardrop" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0904_EXS_ElectronicDrumkitsModularDrop.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0904_EXS_ElectronicDrumkitsModularDrop"

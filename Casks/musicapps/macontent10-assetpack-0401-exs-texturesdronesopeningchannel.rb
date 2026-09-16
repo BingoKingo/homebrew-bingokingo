@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0401-exs-texturesdronesopeningchannel" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0401_EXS_TexturesDronesOpeningChannel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0401_EXS_TexturesDronesOpeningChannel"

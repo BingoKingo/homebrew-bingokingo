@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0092-alchemybassmini3vcosquares" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0092_AlchemyBassMini3VCOSquares.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0092_AlchemyBassMini3VCOSquares"

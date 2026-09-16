@@ -19,6 +19,8 @@ cask "2z695-0048-piano-lesson-8-scales" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0048_Piano Lesson 8_Scales.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0048_Piano Lesson 8_Scales"

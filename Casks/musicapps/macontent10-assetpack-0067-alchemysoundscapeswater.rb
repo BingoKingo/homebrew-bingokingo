@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0067-alchemysoundscapeswater" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0067_AlchemySoundscapesWater.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0067_AlchemySoundscapesWater"

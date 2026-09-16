@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0037-alchemypadscustomnsingle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0037_AlchemyPadsCustomNSingle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0037_AlchemyPadsCustomNSingle"

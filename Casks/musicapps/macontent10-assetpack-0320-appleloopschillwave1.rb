@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0320-appleloopschillwave1" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0320_AppleLoopsChillwave1.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0320_AppleLoopsChillwave1"

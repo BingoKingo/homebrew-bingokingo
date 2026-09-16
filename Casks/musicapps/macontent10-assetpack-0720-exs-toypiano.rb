@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0720-exs-toypiano" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0720_EXS_ToyPiano.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0720_EXS_ToyPiano"

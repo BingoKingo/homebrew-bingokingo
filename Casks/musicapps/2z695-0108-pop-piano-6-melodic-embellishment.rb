@@ -19,6 +19,8 @@ cask "2z695-0108-pop-piano-6-melodic-embellishment" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0108_Pop Piano 6_Melodic Embellishment.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0108_Pop Piano 6_Melodic Embellishment"

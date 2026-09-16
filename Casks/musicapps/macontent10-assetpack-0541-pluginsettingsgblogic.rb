@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0541-pluginsettingsgblogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0541_PlugInSettingsGBLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0541_PlugInSettingsGBLogic"

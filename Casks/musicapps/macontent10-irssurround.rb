@@ -19,6 +19,8 @@ cask "macontent10-irssurround" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_IRsSurround.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_IRsSurround"

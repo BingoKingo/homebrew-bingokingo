@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0964-exs-electronicdrumkitshardwellradiumstrobe" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0964_EXS_ElectronicDrumkitsHardwellRadiumStrobe.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0964_EXS_ElectronicDrumkitsHardwellRadiumStrobe"

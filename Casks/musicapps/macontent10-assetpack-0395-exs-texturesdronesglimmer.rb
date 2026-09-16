@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0395-exs-texturesdronesglimmer" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0395_EXS_TexturesDronesGlimmer.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0395_EXS_TexturesDronesGlimmer"

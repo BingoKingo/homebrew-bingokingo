@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0775-appleloopsvisionandverse2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0775_AppleLoopsVisionAndVerse2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0775_AppleLoopsVisionAndVerse2"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0417-exs-texturesdronesswellingpattern" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0417_EXS_TexturesDronesSwellingPattern.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0417_EXS_TexturesDronesSwellingPattern"

@@ -19,6 +19,8 @@ cask "2z695-0046-piano-lesson-6-rhythmic-accents" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0046_Piano Lesson 6_Rhythmic Accents.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0046_Piano Lesson 6_Rhythmic Accents"

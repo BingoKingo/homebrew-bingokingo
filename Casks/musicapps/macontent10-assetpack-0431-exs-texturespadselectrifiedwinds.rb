@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0431-exs-texturespadselectrifiedwinds" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0431_EXS_TexturesPadsElectrifiedWinds.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0431_EXS_TexturesPadsElectrifiedWinds"

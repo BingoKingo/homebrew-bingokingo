@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0399-exs-texturesdronesmassivebuzz" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0399_EXS_TexturesDronesMassiveBuzz.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0399_EXS_TexturesDronesMassiveBuzz"

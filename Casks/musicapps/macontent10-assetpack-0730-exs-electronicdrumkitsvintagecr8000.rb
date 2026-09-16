@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0730-exs-electronicdrumkitsvintagecr8000" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0730_EXS_ElectronicDrumkitsVintageCR8000.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0730_EXS_ElectronicDrumkitsVintageCR8000"

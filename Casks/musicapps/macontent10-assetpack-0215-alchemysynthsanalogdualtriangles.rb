@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0215-alchemysynthsanalogdualtriangles" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0215_AlchemySynthsAnalogDualTriangles.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0215_AlchemySynthsAnalogDualTriangles"

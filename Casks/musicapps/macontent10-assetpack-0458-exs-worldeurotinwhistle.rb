@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0458-exs-worldeurotinwhistle" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0458_EXS_WorldEuroTinwhistle.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0458_EXS_WorldEuroTinwhistle"

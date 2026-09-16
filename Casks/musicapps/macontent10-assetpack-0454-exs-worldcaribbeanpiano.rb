@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0454-exs-worldcaribbeanpiano" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0454_EXS_WorldCaribbeanPiano.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0454_EXS_WorldCaribbeanPiano"

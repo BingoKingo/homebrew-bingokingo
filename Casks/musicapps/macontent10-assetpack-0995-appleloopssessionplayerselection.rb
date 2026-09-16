@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0995-appleloopssessionplayerselection" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0995_AppleLoopsSessionPlayerSelection.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0995_AppleLoopsSessionPlayerSelection"

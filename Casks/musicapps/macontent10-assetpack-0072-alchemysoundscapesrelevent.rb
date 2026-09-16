@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0072-alchemysoundscapesrelevent" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0072_AlchemySoundscapesRelevent.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0072_AlchemySoundscapesRelevent"

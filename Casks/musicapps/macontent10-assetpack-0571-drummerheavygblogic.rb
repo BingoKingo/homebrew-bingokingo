@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0571-drummerheavygblogic" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0571_DrummerHeavyGBLogic.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0571_DrummerHeavyGBLogic"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0393-exs-texturesdronesexpansion" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0393_EXS_TexturesDronesExpansion.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0393_EXS_TexturesDronesExpansion"

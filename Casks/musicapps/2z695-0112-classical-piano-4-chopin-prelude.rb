@@ -19,6 +19,8 @@ cask "2z695-0112-classical-piano-4-chopin-prelude" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0112_Classical Piano 4_Chopin Prelude.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0112_Classical Piano 4_Chopin Prelude"

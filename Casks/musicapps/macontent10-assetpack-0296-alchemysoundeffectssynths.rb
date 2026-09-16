@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0296-alchemysoundeffectssynths" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0296_AlchemySoundEffectsSynths.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0296_AlchemySoundEffectsSynths"

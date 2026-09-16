@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0808-exs-808hihats" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0808_EXS_808HiHats.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0808_EXS_808HiHats"

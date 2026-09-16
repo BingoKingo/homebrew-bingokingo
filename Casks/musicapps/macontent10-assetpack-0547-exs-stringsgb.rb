@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0547-exs-stringsgb" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0547_EXS_StringsGB.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0547_EXS_StringsGB"

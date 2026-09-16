@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0916-exs-electronicdrumkitsspacedout" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0916_EXS_ElectronicDrumkitsSpacedOut.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0916_EXS_ElectronicDrumkitsSpacedOut"

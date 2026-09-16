@@ -9,6 +9,8 @@ cask "dotthzql" do
 
   # depends_on "hdf5"
 
+  depends_on :macos
+
   app "DotTHzQL.app"
 
   postflight do

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0403-exs-texturesdronesoutburst" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0403_EXS_TexturesDronesOutburst.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0403_EXS_TexturesDronesOutburst"

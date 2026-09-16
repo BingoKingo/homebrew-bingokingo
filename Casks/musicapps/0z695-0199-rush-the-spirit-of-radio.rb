@@ -19,6 +19,8 @@ cask "0z695-0199-rush-the-spirit-of-radio" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0199_Rush_The Spirit of Radio.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0199_Rush_The Spirit of Radio"

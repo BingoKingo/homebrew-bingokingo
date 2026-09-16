@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0452-exs-worldasianjapaneseflute" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0452_EXS_WorldAsianJapaneseFlute.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0452_EXS_WorldAsianJapaneseFlute"

@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0852-exs-electronicdrumkitssoulectioncreamsoda" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0852_EXS_ElectronicDrumkitsSoulectionCreamSoda.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0852_EXS_ElectronicDrumkitsSoulectionCreamSoda"

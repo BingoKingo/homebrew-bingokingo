@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0528-drummerroots" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0528_DrummerRoots.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0528_DrummerRoots"

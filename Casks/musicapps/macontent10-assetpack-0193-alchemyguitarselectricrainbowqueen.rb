@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0193-alchemyguitarselectricrainbowqueen" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0193_AlchemyGuitarsElectricRainBowQueen.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0193_AlchemyGuitarsElectricRainBowQueen"

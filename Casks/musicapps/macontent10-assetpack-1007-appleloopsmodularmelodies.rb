@@ -19,6 +19,8 @@ cask "macontent10-assetpack-1007-appleloopsmodularmelodies" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1007_AppleLoopsModularMelodies.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1007_AppleLoopsModularMelodies"

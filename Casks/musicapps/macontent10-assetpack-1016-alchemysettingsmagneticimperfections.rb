@@ -19,6 +19,8 @@ cask "macontent10-assetpack-1016-alchemysettingsmagneticimperfections" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1016_AlchemySettingsMagneticImperfections.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1016_AlchemySettingsMagneticImperfections"

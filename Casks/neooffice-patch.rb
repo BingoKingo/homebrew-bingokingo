@@ -10,7 +10,7 @@ cask "neooffice-patch" do
 
   deprecate! date: "2024-12-28", because: :discontinued
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
   depends_on cask: "neooffice"
 
   pkg "Install NeoOffice #{version.underscores_to_dots} Professional Edition Patch 0.pkg"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0467-exs-worldeurobalalaika" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0467_EXS_WorldEuroBalalaika.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0467_EXS_WorldEuroBalalaika"

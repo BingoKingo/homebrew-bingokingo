@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0554-appleloopsdiscofunk2" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0554_AppleLoopsDiscoFunk2.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0554_AppleLoopsDiscoFunk2"

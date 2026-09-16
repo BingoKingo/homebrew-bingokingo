@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0443-exs-worldafricanmarimba" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0443_EXS_WorldAfricanMarimba.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0443_EXS_WorldAfricanMarimba"

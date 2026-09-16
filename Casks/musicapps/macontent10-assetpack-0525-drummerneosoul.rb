@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0525-drummerneosoul" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0525_DrummerNeoSoul.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0525_DrummerNeoSoul"

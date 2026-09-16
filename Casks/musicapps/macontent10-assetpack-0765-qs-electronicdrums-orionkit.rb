@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0765-qs-electronicdrums-orionkit" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0765_QS_ElectronicDrums_OrionKit.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0765_QS_ElectronicDrums_OrionKit"

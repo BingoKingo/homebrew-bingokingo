@@ -19,6 +19,8 @@ cask "2z695-0049-piano-lesson-9-playing-the-blues" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0049_Piano Lesson 9_Playing the Blues.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0049_Piano Lesson 9_Playing the Blues"

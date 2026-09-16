@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0470-exs-worldmiddleeastzither" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0470_EXS_WorldMiddleEastZither.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0470_EXS_WorldMiddleEastZither"

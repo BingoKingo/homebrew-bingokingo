@@ -4,11 +4,12 @@ cask "font-new-york" do
   # version "16.0d2e2,17.0d5e1"
 
   on_macos do
-    depends_on formula: "fonttools"
-    depends_on formula: "p7zip"
+    sha256 :no_check
 
     url "https://devimages-cdn.apple.com/design/resources/download/NY.dmg"
-    sha256 :no_check
+
+    depends_on formula: "fonttools"
+    depends_on formula: "p7zip"
 
     preflight do
       system_command "/bin/bash", args: [
@@ -30,7 +31,6 @@ cask "font-new-york" do
       ]
     end
   end
-
   on_linux do
     sha256 "1c4baeef5a871bfb55fe0c7de1d3a8085934f855fd2f6eaf798e3c880b7f26fc"
 

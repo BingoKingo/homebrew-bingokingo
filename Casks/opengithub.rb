@@ -9,7 +9,7 @@ cask "opengithub" do
 
   deprecate! date: "2022-07-23", because: :unmaintained
 
-  depends_on macos: ">= :mojave"
+  depends_on macos: :mojave
 
   app "OpenGithub.app"
 

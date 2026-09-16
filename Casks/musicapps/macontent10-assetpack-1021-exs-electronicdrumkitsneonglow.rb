@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1021-exs-electronicdrumkitsneonglow" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1021_EXS_ElectronicDrumkitsNeonGlow.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1021_EXS_ElectronicDrumkitsNeonGlow"

@@ -19,6 +19,8 @@ cask "0z695-0064-fall-out-boy-i-dont-care" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0064_Fall Out Boy_I Don't Care.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0064_Fall Out Boy_I Don't Care"

@@ -19,6 +19,8 @@ cask "2z695-0057-guitar-lesson-9-blues-lead" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0057_Guitar Lesson 9_Blues Lead.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0057_Guitar Lesson 9_Blues Lead"

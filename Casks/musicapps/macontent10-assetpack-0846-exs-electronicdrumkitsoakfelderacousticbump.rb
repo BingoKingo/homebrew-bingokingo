@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0846-exs-electronicdrumkitsoakfelderacousticbump" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0846_EXS_ElectronicDrumkitsOakFelderAcousticBump.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0846_EXS_ElectronicDrumkitsOakFelderAcousticBump"

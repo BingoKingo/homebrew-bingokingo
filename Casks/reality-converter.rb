@@ -7,7 +7,7 @@ cask "reality-converter" do
   desc "Convert, view, and customize USDZ 3D objects"
   homepage "https://developer.apple.com/download/applications/"
 
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
   container nested: "RealityConverter.pkg"
 
   pkg "RealityConverter.pkg"

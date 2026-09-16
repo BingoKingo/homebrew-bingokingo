@@ -19,6 +19,8 @@ cask "0z695-0059-america-sister-golden-hair" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0059_America_Sister Golden Hair.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0059_America_Sister Golden Hair"

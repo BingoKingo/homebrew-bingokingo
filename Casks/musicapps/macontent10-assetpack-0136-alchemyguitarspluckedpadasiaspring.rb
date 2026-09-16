@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0136-alchemyguitarspluckedpadasiaspring" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0136_AlchemyGuitarsPluckedPadAsiaSpring.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0136_AlchemyGuitarsPluckedPadAsiaSpring"

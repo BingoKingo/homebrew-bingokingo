@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0924-exs-electronicdrumkitslowtechfunk" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0924_EXS_ElectronicDrumkitsLowTechFunk.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0924_EXS_ElectronicDrumkitsLowTechFunk"

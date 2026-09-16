@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1019-exs-electronicdrumkitsheadsup" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1019_EXS_ElectronicDrumkitsHeadsUp.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1019_EXS_ElectronicDrumkitsHeadsUp"

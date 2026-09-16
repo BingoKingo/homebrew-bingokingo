@@ -8,7 +8,7 @@ cask "pixel-perfect" do
   homepage "https://github.com/cormiertyshawn895/PixelPerfect/"
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
   depends_on arch: :arm64
 
   app "Pixel Perfect/Pixel Perfect.app"

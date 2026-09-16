@@ -19,6 +19,8 @@ cask "2z695-0047-piano-lesson-7-major-and-minor-chords" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0047_Piano Lesson 7_Major and Minor Chords.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0047_Piano Lesson 7_Major and Minor Chords"

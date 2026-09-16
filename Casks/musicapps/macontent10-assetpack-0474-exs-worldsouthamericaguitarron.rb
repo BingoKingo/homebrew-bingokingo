@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0474-exs-worldsouthamericaguitarron" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0474_EXS_WorldSouthAmericaGuitarron.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0474_EXS_WorldSouthAmericaGuitarron"

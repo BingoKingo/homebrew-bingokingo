@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0893-demosonglogicmonterospatialaudio" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0893_DemosongLogicMonteroSpatialAudio.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0893_DemosongLogicMonteroSpatialAudio"

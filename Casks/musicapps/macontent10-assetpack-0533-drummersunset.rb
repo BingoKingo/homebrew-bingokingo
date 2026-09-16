@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0533-drummersunset" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0533_DrummerSunset.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0533_DrummerSunset"

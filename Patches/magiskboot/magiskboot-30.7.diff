@@ -1,0 +1,468 @@
+diff --git a/Cargo.toml b/Cargo.toml
+index f5d8a7d..ef6d112 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -1,4 +1,3 @@
+-cargo-features = ["panic-immediate-abort"]
+ 
+ [workspace]
+ exclude = ["external"]
+diff --git a/base/base.cpp b/base/base.cpp
+index 4fa1380..71deb50 100644
+--- a/base/base.cpp
++++ b/base/base.cpp
+@@ -14,6 +14,12 @@ using namespace std;
+ #define __call_bypassing_fortify(fn) (&fn)
+ #endif
+ 
++#ifndef __linux__
++// macOS does not declare `environ` in any system header; the symbol is
++// still provided by the dynamic linker.
++extern char **environ;
++#endif
++
+ #ifdef __LP64__
+ static_assert(BLKGETSIZE64 == 0x80081272);
+ #else
+@@ -186,6 +192,7 @@ uint32_t parse_uint32_hex(string_view s) {
+     return parse_num<uint32_t, 16>(s);
+ }
+ 
++#ifdef __linux__
+ int switch_mnt_ns(int pid) {
+     int ret = -1;
+     int fd = syscall(__NR_pidfd_open, pid, 0);
+@@ -205,6 +212,7 @@ int switch_mnt_ns(int pid) {
+     }
+     return ret;
+ }
++#endif
+ 
+ string &replace_all(string &str, string_view from, string_view to) {
+     size_t pos = 0;
+@@ -424,3 +432,14 @@ const char *Utf8CStr::data() const {
+ size_t Utf8CStr::length() const {
+     return cxx$utf8str$len(this);
+ }
++
++#ifdef __APPLE__
++extern "C" int xpipe2(int fds[2], int flags) {
++    if (::pipe(fds) != 0) return -1;
++    if (flags & O_CLOEXEC) {
++        fcntl(fds[0], F_SETFD, FD_CLOEXEC);
++        fcntl(fds[1], F_SETFD, FD_CLOEXEC);
++    }
++    return 0;
++}
++#endif
+diff --git a/base/files.rs b/base/files.rs
+index ca944f6..2b03774 100644
+--- a/base/files.rs
++++ b/base/files.rs
+@@ -179,7 +179,7 @@ impl FileAttr {
+     #[inline(always)]
+     #[allow(clippy::unnecessary_cast)]
+     fn is(&self, mode: mode_t) -> bool {
+-        (self.st.st_mode & libc::S_IFMT as c_uint) as mode_t == mode
++        ((self.st.st_mode as c_uint) & (libc::S_IFMT as c_uint)) as mode_t == mode
+     }
+ 
+     pub fn is_dir(&self) -> bool {
+@@ -268,25 +268,46 @@ impl Utf8CStr {
+ 
+     // Inspired by https://android.googlesource.com/platform/bionic/+/master/libc/bionic/realpath.cpp
+     pub fn realpath(&self, buf: &mut dyn Utf8CStrBuf) -> OsResult<'_, ()> {
+-        let fd = self.open(OFlag::O_PATH | OFlag::O_CLOEXEC)?;
+-        let mut skip_check = false;
+-
+-        let st1 = match nix::sys::stat::fstat(&fd) {
+-            Ok(st) => st,
+-            Err(_) => {
+-                // This will only fail on Linux < 3.6
+-                skip_check = true;
+-                unsafe { mem::zeroed() }
+-            }
+-        };
++        #[cfg(target_os = "linux")]
++        {
++            let fd = self.open(OFlag::O_PATH | OFlag::O_CLOEXEC)?;
++            let mut skip_check = false;
++
++            let st1 = match nix::sys::stat::fstat(&fd) {
++                Ok(st) => st,
++                Err(_) => {
++                    // This will only fail on Linux < 3.6
++                    skip_check = true;
++                    unsafe { mem::zeroed() }
++                }
++            };
+ 
+-        fd_path(fd.as_raw_fd(), buf)?;
++            fd_path(fd.as_raw_fd(), buf)?;
+ 
+-        let st2 = nix::sys::stat::stat(buf.as_cstr()).into_os_result("stat", Some(self), None)?;
+-        if !skip_check && (st2.st_dev != st1.st_dev || st2.st_ino != st1.st_ino) {
+-            return Err(OsError::new(Errno::ENOENT, "realpath", Some(self), None));
++            let st2 =
++                nix::sys::stat::stat(buf.as_cstr()).into_os_result("stat", Some(self), None)?;
++            if !skip_check && (st2.st_dev != st1.st_dev || st2.st_ino != st1.st_ino) {
++                return Err(OsError::new(Errno::ENOENT, "realpath", Some(self), None));
++            }
++            Ok(())
++        }
++        #[cfg(not(target_os = "linux"))]
++        {
++            use std::ffi::CStr;
++            let c = self.as_cstr();
++            let mut resolved = [0 as libc::c_char; libc::PATH_MAX as usize];
++            unsafe {
++                if libc::realpath(c.as_ptr(), resolved.as_mut_ptr()).is_null() {
++                    return Err(OsError::last_os_error("realpath", Some(self), None));
++                }
++                let s = CStr::from_ptr(resolved.as_ptr())
++                    .to_str()
++                    .map_err(|_| OsError::new(Errno::EILSEQ, "realpath", Some(self), None))?;
++                buf.clear();
++                buf.push_str(s);
++            }
++            Ok(())
+         }
+-        Ok(())
+     }
+ 
+     pub fn get_attr(&self) -> OsResult<'_, FileAttr> {
+@@ -327,6 +348,7 @@ impl Utf8CStr {
+         Ok(())
+     }
+ 
++    #[cfg(target_os = "linux")]
+     pub fn get_secontext(&self, con: &mut dyn Utf8CStrBuf) -> OsResult<'_, ()> {
+         con.clear();
+         let result = unsafe {
+@@ -348,7 +370,13 @@ impl Utf8CStr {
+             Err(e) => Err(OsError::new(e, "lgetxattr", Some(self), None)),
+         }
+     }
++    #[cfg(not(target_os = "linux"))]
++    pub fn get_secontext(&self, con: &mut dyn Utf8CStrBuf) -> OsResult<'_, ()> {
++        let _ = con;
++        Ok(())
++    }
+ 
++    #[cfg(target_os = "linux")]
+     pub fn set_secontext<'a>(&'a self, con: &'a Utf8CStr) -> OsResult<'a, ()> {
+         unsafe {
+             libc::lsetxattr(
+@@ -361,6 +389,11 @@ impl Utf8CStr {
+             .check_os_err("lsetxattr", Some(self), Some(con))
+         }
+     }
++    #[cfg(not(target_os = "linux"))]
++    pub fn set_secontext<'a>(&'a self, con: &'a Utf8CStr) -> OsResult<'a, ()> {
++        let _ = con;
++        Ok(())
++    }
+ 
+     pub fn parent_dir(&self) -> Option<&str> {
+         Path::new(self.as_str())
+@@ -558,6 +591,7 @@ impl FsPathFollow {
+         Ok(())
+     }
+ 
++    #[cfg(target_os = "linux")]
+     pub fn get_secontext(&self, con: &mut dyn Utf8CStrBuf) -> OsResult<'_, ()> {
+         con.clear();
+         let result = unsafe {
+@@ -579,7 +613,13 @@ impl FsPathFollow {
+             Err(e) => Err(OsError::new(e, "getxattr", Some(self), None)),
+         }
+     }
++    #[cfg(not(target_os = "linux"))]
++    pub fn get_secontext(&self, con: &mut dyn Utf8CStrBuf) -> OsResult<'_, ()> {
++        let _ = con;
++        Ok(())
++    }
+ 
++    #[cfg(target_os = "linux")]
+     pub fn set_secontext<'a>(&'a self, con: &'a Utf8CStr) -> OsResult<'a, ()> {
+         unsafe {
+             libc::setxattr(
+@@ -592,6 +632,11 @@ impl FsPathFollow {
+             .check_os_err("setxattr", Some(self), Some(con))
+         }
+     }
++    #[cfg(not(target_os = "linux"))]
++    pub fn set_secontext<'a>(&'a self, con: &'a Utf8CStr) -> OsResult<'a, ()> {
++        let _ = con;
++        Ok(())
++    }
+ }
+ 
+ pub trait FsPathBuilder {
+@@ -671,6 +716,7 @@ pub fn fd_set_attr(fd: RawFd, attr: &FileAttr) -> OsResult<'_, ()> {
+     Ok(())
+ }
+ 
++#[cfg(target_os = "linux")]
+ pub fn fd_get_secontext(fd: RawFd, con: &mut dyn Utf8CStrBuf) -> OsResult<'static, ()> {
+     con.clear();
+     let result = unsafe {
+@@ -692,7 +738,13 @@ pub fn fd_get_secontext(fd: RawFd, con: &mut dyn Utf8CStrBuf) -> OsResult<'stati
+         Err(e) => Err(OsError::new(e, "fgetxattr", None, None)),
+     }
+ }
++#[cfg(not(target_os = "linux"))]
++pub fn fd_get_secontext(fd: RawFd, con: &mut dyn Utf8CStrBuf) -> OsResult<'static, ()> {
++    let _ = (fd, con);
++    Ok(())
++}
+ 
++#[cfg(target_os = "linux")]
+ pub fn fd_set_secontext(fd: RawFd, con: &Utf8CStr) -> OsResult<'_, ()> {
+     unsafe {
+         libc::fsetxattr(
+@@ -705,6 +757,11 @@ pub fn fd_set_secontext(fd: RawFd, con: &Utf8CStr) -> OsResult<'_, ()> {
+         .check_os_err("fsetxattr", Some(con), None)
+     }
+ }
++#[cfg(not(target_os = "linux"))]
++pub fn fd_set_secontext(fd: RawFd, con: &Utf8CStr) -> OsResult<'_, ()> {
++    let _ = (fd, con);
++    Ok(())
++}
+ 
+ pub fn clone_attr<'a>(a: &'a Utf8CStr, b: &'a Utf8CStr) -> OsResult<'a, ()> {
+     let attr = a.get_attr().map_err(|e| e.set_args(Some(a), None))?;
+@@ -821,6 +878,7 @@ pub(crate) fn map_fd(fd: BorrowedFd, sz: usize, rw: bool) -> OsResult<'static, &
+ }
+ 
+ #[allow(dead_code)]
++#[cfg(target_os = "linux")]
+ pub struct MountInfo {
+     pub id: u32,
+     pub parent: u32,
+@@ -838,6 +896,7 @@ pub struct MountInfo {
+ }
+ 
+ #[allow(clippy::useless_conversion)]
++#[cfg(target_os = "linux")]
+ fn parse_mount_info_line(line: &str) -> Option<MountInfo> {
+     let mut iter = line.split_whitespace();
+     let id = iter.next()?.parse().ok()?;
+@@ -886,6 +945,7 @@ fn parse_mount_info_line(line: &str) -> Option<MountInfo> {
+     })
+ }
+ 
++#[cfg(target_os = "linux")]
+ pub fn parse_mount_info(pid: &str) -> Vec<MountInfo> {
+     let mut res = vec![];
+     let mut path = format!("/proc/{pid}/mountinfo");
+diff --git a/base/lib.rs b/base/lib.rs
+index 5f80714..02769bb 100644
+--- a/base/lib.rs
++++ b/base/lib.rs
+@@ -21,6 +21,7 @@ mod dir;
+ mod files;
+ mod logging;
+ mod misc;
++#[cfg(target_os = "linux")]
+ mod mount;
+ mod result;
+ mod xwrap;
+diff --git a/base/misc.rs b/base/misc.rs
+index ecc8f66..d219c18 100644
+--- a/base/misc.rs
++++ b/base/misc.rs
+@@ -10,7 +10,14 @@ use std::sync::atomic::{AtomicPtr, Ordering};
+ use std::{fmt, slice, str};
+ 
+ pub fn errno() -> &'static mut i32 {
+-    unsafe { &mut *libc::__errno() }
++    #[cfg(target_os = "linux")]
++    unsafe {
++        &mut *libc::__errno()
++    }
++    #[cfg(not(target_os = "linux"))]
++    unsafe {
++        &mut *libc::__error()
++    }
+ }
+ 
+ // When len is 0, don't care whether buf is null or not
+diff --git a/base/xwrap.rs b/base/xwrap.rs
+index 042d4d8..f7c39a2 100644
+--- a/base/xwrap.rs
++++ b/base/xwrap.rs
+@@ -118,6 +118,7 @@ unsafe extern "C" fn xxread(fd: RawFd, buf: *mut u8, bufsz: usize) -> isize {
+         .map_or(-1, |_| data.len() as isize)
+ }
+ 
++#[cfg(target_os = "linux")]
+ pub(crate) fn xpipe2(fds: &mut [i32; 2], flags: i32) -> i32 {
+     unsafe {
+         libc::pipe2(fds.as_mut_ptr(), flags)
+@@ -128,6 +129,7 @@ pub(crate) fn xpipe2(fds: &mut [i32; 2], flags: i32) -> i32 {
+ }
+ 
+ #[unsafe(no_mangle)]
++#[cfg(target_os = "linux")]
+ extern "C" fn xsetns(fd: RawFd, nstype: i32) -> i32 {
+     unsafe {
+         libc::setns(fd, nstype)
+@@ -138,6 +140,7 @@ extern "C" fn xsetns(fd: RawFd, nstype: i32) -> i32 {
+ }
+ 
+ #[unsafe(no_mangle)]
++#[cfg(target_os = "linux")]
+ extern "C" fn xunshare(flags: i32) -> i32 {
+     unsafe {
+         libc::unshare(flags)
+@@ -217,6 +220,7 @@ unsafe extern "C" fn xsymlink(target: *const c_char, linkpath: *const c_char) ->
+ }
+ 
+ #[unsafe(no_mangle)]
++#[cfg(target_os = "linux")]
+ unsafe extern "C" fn xmount(
+     src: *const c_char,
+     target: *const c_char,
+@@ -233,6 +237,7 @@ unsafe extern "C" fn xmount(
+ }
+ 
+ #[unsafe(no_mangle)]
++#[cfg(target_os = "linux")]
+ unsafe extern "C" fn xumount2(target: *const c_char, flags: i32) -> i32 {
+     unsafe {
+         libc::umount2(target, flags)
+@@ -279,12 +284,30 @@ unsafe extern "C" fn xsendfile(
+     offset: *mut off_t,
+     count: usize,
+ ) -> isize {
++    #[cfg(target_os = "linux")]
+     unsafe {
+         libc::sendfile(out_fd, in_fd, offset, count)
+             .into_os_result("sendfile", None, None)
+             .log()
+             .unwrap_or(-1)
+     }
++    #[cfg(not(target_os = "linux"))]
++    unsafe {
++        // macOS sendfile(fd, s, offset, *len, *nbytes, flags): fd is the file
++        // to read from, s the descriptor to write to; len is the byte count on
++        // input and the remainder on output.
++        let mut off = if offset.is_null() { 0 } else { *offset };
++        let mut len = count as off_t;
++        let r = libc::sendfile(in_fd, out_fd, off, &mut len, std::ptr::null_mut(), 0);
++        if r == 0 {
++            if !offset.is_null() {
++                *offset += (count as off_t) - len;
++            }
++            count as isize
++        } else {
++            -1
++        }
++    }
+ }
+ 
+ #[unsafe(no_mangle)]
+@@ -298,6 +321,7 @@ extern "C" fn xfork() -> i32 {
+ }
+ 
+ #[unsafe(no_mangle)]
++#[cfg(target_os = "linux")]
+ unsafe extern "C" fn xmknod(pathname: *const c_char, mode: mode_t, dev: dev_t) -> i32 {
+     unsafe {
+         libc::mknod(pathname, mode, dev)
+@@ -306,3 +330,23 @@ unsafe extern "C" fn xmknod(pathname: *const c_char, mode: mode_t, dev: dev_t) -
+             .unwrap_or(-1)
+     }
+ }
++
++#[cfg(not(target_os = "linux"))]
++#[unsafe(no_mangle)]
++unsafe extern "C" fn xsetns(_fd: RawFd, _nstype: i32) -> i32 { -1 }
++#[cfg(not(target_os = "linux"))]
++#[unsafe(no_mangle)]
++unsafe extern "C" fn xunshare(_flags: i32) -> i32 { -1 }
++#[cfg(not(target_os = "linux"))]
++#[unsafe(no_mangle)]
++unsafe extern "C" fn xmount(_src: *const c_char, _target: *const c_char,
++                           _fstype: *const c_char, _flags: c_ulong,
++                           _data: *const c_void) -> i32 { -1 }
++#[cfg(not(target_os = "linux"))]
++#[unsafe(no_mangle)]
++unsafe extern "C" fn xumount2(_target: *const c_char, _flags: i32) -> i32 { -1 }
++#[cfg(not(target_os = "linux"))]
++#[unsafe(no_mangle)]
++unsafe extern "C" fn xmknod(_path: *const c_char, _mode: mode_t, _dev: dev_t) -> i32 { -1 }
++#[cfg(not(target_os = "linux"))]
++pub(crate) fn xpipe2(_fds: &mut [i32; 2], _flags: i32) -> i32 { -1 }
+diff --git a/boot/bootimg.cpp b/boot/bootimg.cpp
+index d5a4e3f..f82eefd 100644
+--- a/boot/bootimg.cpp
++++ b/boot/bootimg.cpp
+@@ -783,7 +783,7 @@ void repack(Utf8CStr src_img, Utf8CStr out_img, bool skip_comp) {
+         if (boot.flags[ZIMAGE_KERNEL]) {
+             if (hdr->kernel_size() > boot.hdr->kernel_size()) {
+                 fprintf(stderr, "! Recompressed kernel is too large, using original kernel\n");
+-                ftruncate64(fd, lseek64(fd, - (off64_t) hdr->kernel_size(), SEEK_CUR));
++                ftruncate(fd, lseek(fd, - (off_t) hdr->kernel_size(), SEEK_CUR));
+                 xwrite(fd, boot.kernel, boot.hdr->kernel_size());
+             } else if (!skip_comp) {
+                 // Pad zeros to make sure the zImage file size does not change
+@@ -822,7 +822,8 @@ void repack(Utf8CStr src_img, Utf8CStr out_img, bool skip_comp) {
+ 
+     if (boot.hdr->vendor_ramdisk_table_size()) {
+         // Create a copy so we can modify it
+-        ramdisk_table.assign_range(boot.vendor_ramdisk_tbl());
++        auto ramdisk_tbl = boot.vendor_ramdisk_tbl();
++        ramdisk_table.assign(ramdisk_tbl.begin(), ramdisk_tbl.end());
+ 
+         owned_fd dirfd = xopen(VND_RAMDISK_DIR, O_RDONLY | O_CLOEXEC);
+         uint32_t ramdisk_offset = 0;
+diff --git a/boot/cli.rs b/boot/cli.rs
+index bff9204..ef0ca76 100644
+--- a/boot/cli.rs
++++ b/boot/cli.rs
+@@ -438,7 +438,7 @@ fn boot_main(cmds: CmdArgs) -> LoggedResult<i32> {
+ }
+ 
+ #[unsafe(no_mangle)]
+-pub extern "C" fn main(argc: i32, argv: *const *const c_char, _envp: *const *const c_char) -> i32 {
++pub extern "C" fn magiskboot_main(argc: i32, argv: *const *const c_char, _envp: *const *const c_char) -> i32 {
+     cmdline_logging();
+     unsafe { umask(0) };
+     let cmds = CmdArgs::new(argc, argv);
+diff --git a/boot/cpio.rs b/boot/cpio.rs
+index 90be498..372f28a 100644
+--- a/boot/cpio.rs
++++ b/boot/cpio.rs
+@@ -842,10 +842,14 @@ fn align_4(x: usize) -> usize {
+ 
+ #[inline(always)]
+ fn norm_path(path: &str) -> String {
+-    path.split('/')
+-        .filter(|x| !x.is_empty())
+-        .intersperse("/")
+-        .collect()
++    let mut ret = String::new();
++    for x in path.split('/').filter(|x| !x.is_empty()) {
++        if !ret.is_empty() {
++            ret.push('/');
++        }
++        ret.push_str(x);
++    }
++    ret
+ }
+ 
+ fn parse_mode(s: &str) -> Result<mode_t, String> {
+diff --git a/boot/lib.rs b/boot/lib.rs
+index c7fca82..6a00808 100644
+--- a/boot/lib.rs
++++ b/boot/lib.rs
+@@ -1,6 +1,3 @@
+-#![feature(format_args_nl)]
+-#![feature(iter_intersperse)]
+-
+ pub use base;
+ use compress::{compress_bytes, decompress_bytes};
+ use format::{fmt_compressed, fmt_compressed_any, fmt2name};

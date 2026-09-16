@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0648-percussionist" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0648_Percussionist.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0648_Percussionist"

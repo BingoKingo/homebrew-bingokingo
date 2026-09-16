@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0953-studiobasssixties" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0953_StudioBassSixties.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0953_StudioBassSixties"

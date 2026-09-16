@@ -1,8 +1,8 @@
 cask "ryujinx-greendev@canary" do
-  version "1.3.265"
-  sha256 "86a16ffd24b68c0fdf3f7c61e89f2289fa88ceed058b08334780108235410cc4"
+  version "1.3.351"
+  sha256 "bcdac85194e89e6f5ad19282b91af7a5f8c8a08aa908040750b688028efa7212"
 
-  url "https://git.ryujinx.app/api/v4/projects/68/packages/generic/Ryubing-Canary/#{version}/ryujinx-canary-#{version}-macos_universal.app.tar.gz"
+  url "https://git.ryujinx.app/Ryubing/Canary/releases/download/#{version}/ryujinx-canary-#{version}-macos_universal.app.tar.gz"
   name "Ryujinx"
   desc "Simple, experimental Nintendo Switch 1 emulator"
   homepage "https://git.ryujinx.app/ryubing/ryujinx/"
@@ -13,9 +13,9 @@ cask "ryujinx-greendev@canary" do
 
   auto_updates true
   conflicts_with cask: ["ryujinx", "ryujinx-greendev"]
-  depends_on macos: ">= :monterey"
+  depends_on macos: :monterey
 
-  app "ryujinx.app", target: "Ryujinx.app"
+  app "Ryujinx.app"
 
   postflight do
     system_command "xattr",

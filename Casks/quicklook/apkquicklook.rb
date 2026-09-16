@@ -9,6 +9,8 @@ cask "apkquicklook" do
 
   deprecate! date: "2020-09-26", because: :unmaintained
 
+  depends_on :macos
+
   pkg "ApkQuickLook.pkg", allow_untrusted: true
 
   uninstall pkgutil: "me.grishka.ApkQuickLook"

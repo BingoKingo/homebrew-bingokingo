@@ -19,6 +19,8 @@ cask "0z695-0197-john-legend-ordinary-people" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0197_John Legend_Ordinary People.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0197_John Legend_Ordinary People"

@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0244-alchemysynthsdigitalformy" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0244_AlchemySynthsDigitalFormy.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0244_AlchemySynthsDigitalFormy"

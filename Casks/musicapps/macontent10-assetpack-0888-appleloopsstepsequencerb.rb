@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0888-appleloopsstepsequencerb" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0888_AppleLoopsStepSequencerB.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0888_AppleLoopsStepSequencerB"

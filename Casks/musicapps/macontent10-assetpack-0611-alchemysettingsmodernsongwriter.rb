@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0611-alchemysettingsmodernsongwriter" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0611_AlchemySettingsModernSongwriter.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0611_AlchemySettingsModernSongwriter"

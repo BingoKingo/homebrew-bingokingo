@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0753-electronicdrumkitsprismatica" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0753_ElectronicDrumkitsPrismatica.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0753_ElectronicDrumkitsPrismatica"

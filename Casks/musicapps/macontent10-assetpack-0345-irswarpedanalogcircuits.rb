@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0345-irswarpedanalogcircuits" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0345_IRsWarpedAnalogCircuits.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0345_IRsWarpedAnalogCircuits"

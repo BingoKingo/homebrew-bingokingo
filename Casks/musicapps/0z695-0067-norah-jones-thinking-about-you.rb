@@ -19,6 +19,8 @@ cask "0z695-0067-norah-jones-thinking-about-you" do
     end
   end
 
+  depends_on :macos
+
   pkg "0Z695-0067_Norah Jones_Thinking About You.pkg"
 
   uninstall pkgutil: "com.apple.pkg.0Z695-0067_Norah Jones_Thinking About You"

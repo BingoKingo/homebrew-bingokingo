@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0464-exs-worldeurometaldrumping" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0464_EXS_WorldEuroMetalDrumPing.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0464_EXS_WorldEuroMetalDrumPing"

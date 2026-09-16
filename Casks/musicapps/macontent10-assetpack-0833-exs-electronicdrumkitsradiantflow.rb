@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0833-exs-electronicdrumkitsradiantflow" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0833_EXS_ElectronicDrumkitsRadiantFlow.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0833_EXS_ElectronicDrumkitsRadiantFlow"

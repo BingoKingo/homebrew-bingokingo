@@ -19,6 +19,8 @@ cask "2z695-0044-piano-lesson-4-rhythm" do
     end
   end
 
+  depends_on :macos
+
   pkg "2Z695-0044_Piano Lesson 4_Rhythm.pkg"
 
   uninstall pkgutil: "com.apple.pkg.2Z695-0044_Piano Lesson 4_Rhythm"

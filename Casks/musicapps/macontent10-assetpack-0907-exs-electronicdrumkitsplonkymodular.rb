@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0907-exs-electronicdrumkitsplonkymodular" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0907_EXS_ElectronicDrumkitsPlonkyModular.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0907_EXS_ElectronicDrumkitsPlonkyModular"

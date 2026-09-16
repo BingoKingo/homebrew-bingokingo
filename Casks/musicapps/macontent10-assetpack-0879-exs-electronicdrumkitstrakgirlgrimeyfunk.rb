@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0879-exs-electronicdrumkitstrakgirlgrimeyfunk" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0879_EXS_ElectronicDrumkitsTrakgirlGrimeyFunk.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0879_EXS_ElectronicDrumkitsTrakgirlGrimeyFunk"

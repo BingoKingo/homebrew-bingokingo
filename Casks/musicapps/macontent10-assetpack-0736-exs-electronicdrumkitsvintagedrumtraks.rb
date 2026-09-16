@@ -18,6 +18,8 @@ cask "macontent10-assetpack-0736-exs-electronicdrumkitsvintagedrumtraks" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0736_EXS_ElectronicDrumkitsVintageDrumTraks.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0736_EXS_ElectronicDrumkitsVintageDrumTraks"

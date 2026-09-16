@@ -24,6 +24,8 @@ cask "http-live-streaming-tools" do
   name "Http Live Streaming Tools for macOS"
   homepage "https://developer.apple.com/download/all/"
 
+  depends_on :macos
+
   pkg "HTTP Live Streaming Tools - #{version}.pkg"
 
   uninstall pkgutil: "com.apple.pkg.httpLiveStreamingTools"

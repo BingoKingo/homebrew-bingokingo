@@ -9,5 +9,7 @@ cask "qlwaveform" do
 
   deprecate! date: "2020-08-02", because: :unmaintained
 
+  depends_on :macos
+
   qlplugin "QLWaveForm.qlgenerator"
 end

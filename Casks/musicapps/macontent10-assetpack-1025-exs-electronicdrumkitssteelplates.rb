@@ -18,6 +18,8 @@ cask "macontent10-assetpack-1025-exs-electronicdrumkitssteelplates" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_1025_EXS_ElectronicDrumkitsSteelPlates.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_1025_EXS_ElectronicDrumkitsSteelPlates"

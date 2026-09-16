@@ -19,6 +19,8 @@ cask "macontent10-assetpack-0180-alchemyguitarselectricstereosteel" do
     end
   end
 
+  depends_on :macos
+
   pkg "MAContent10_AssetPack_0180_AlchemyGuitarsElectricStereoSteel.pkg"
 
   uninstall pkgutil: "com.apple.pkg.MAContent10_AssetPack_0180_AlchemyGuitarsElectricStereoSteel"
